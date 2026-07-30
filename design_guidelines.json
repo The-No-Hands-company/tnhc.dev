@@ -1,0 +1,145 @@
+{
+  "theme_mode": "dark",
+  "brand": {
+    "name": "The No Hands Company (TNHC)",
+    "core_concept": "0 human intervention, pro-AI autonomous development",
+    "tone": "Bold, Brutalist, Authoritative, High-End Tech, Stark, Awwwards-Level"
+  },
+  "typography": {
+    "headings": "Cabinet Grotesk",
+    "subheadings": "Cabinet Grotesk",
+    "body": "Satoshi",
+    "mono_labels": "JetBrains Mono",
+    "rules": [
+      "Use tracking-tighter for headings (Cabinet Grotesk).",
+      "Use JetBrains Mono in uppercase with wide tracking (tracking-[0.2em]) for overlines and numbers.",
+      "No generic sans-serif (Inter/Roboto) for headings. Keep them distinctive."
+    ]
+  },
+  "colors": {
+    "background": "#030303",
+    "surface": "#0D0D0D",
+    "surface_glass": "rgba(13, 13, 13, 0.6)",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A1A1AA",
+    "accent": "#CCFF00",
+    "border": "rgba(255, 255, 255, 0.1)",
+    "rules": [
+      "Deep void black base (#030303) to symbolize the 'machine' emptiness.",
+      "High-contrast white text for authority, truth, and legibility.",
+      "Use Accent color (Acid Green #CCFF00) sparingly—only for system-active states, glowing traces, and primary CTAs."
+    ]
+  },
+  "layouts": {
+    "spacing_system": "Generous Spacing (Tailwind: p-8, p-12, p-24, p-32)",
+    "grid_protocol": "Bento Grid Protocol (Mode A: The Tetris Grid)",
+    "bento_rules": "Mobile: grid-cols-1. Desktop: grid-cols-12. Wide gaps (gap-8). Mix row/col spans to avoid perfect symmetry. Leave breathing room."
+  },
+  "visual_enhancers": {
+    "surfaces": [
+      "The 'Tracing Beam': Apply a moving gradient border mask to the 4 Pillars cards.",
+      "Grid Borders: Use border-collapse with border-white/10 for the Comparison Table (exposed technical skeleton).",
+      "Crystal Glass: Use backdrop-blur-xl with 1px inner stroke for the sticky header."
+    ],
+    "textures": [
+      "Subtle noise/grain overlay (opacity 0.03) across the entire layout to break digital flatness."
+    ]
+  },
+  "motion": {
+    "libraries": [
+      "framer-motion",
+      "lenis"
+    ],
+    "hero_reveal": "Masked line-by-line on-load reveal. Elements wrapped in overflow-hidden, animate y from '100%' to 0%. ease: [0.76, 0, 0.24, 1].",
+    "scroll_animations": "Subtle parallax on background images. Manifesto items fade and translate up slightly on scroll.",
+    "marquee": "Massive outline text (text-8xl) drifting slowly in the background as a 'Kinetic Texture' via react-fast-marquee."
+  },
+  "sections_blueprint": [
+    {
+      "name": "Header",
+      "type": "navigation",
+      "instructions": "Crystal Glass surface (backdrop-blur-xl bg-[#030303]/60 border-b border-white/10). Fixed top. Logo left. Links center. 'Waitlist' button right."
+    },
+    {
+      "name": "Hero",
+      "type": "landing_hero",
+      "instructions": "Kinetic typography. 'NO HANDS.' in massive Cabinet Grotesk (text-6xl to text-[8vw]). Masked line-by-line reveal. Background: Dark fluid 3D image with a subtle zoom/parallax effect. CTA: 'Enter Nexus'."
+    },
+    {
+      "name": "Marquee",
+      "type": "editorial_marquee",
+      "instructions": "Massive text-8xl outline text moving slowly: 'ZERO HUMAN INTERVENTION • AI DEVELOPMENT ENGINE •'. Transparent text with 1px border-white/20 stroke (WebkitTextStroke)."
+    },
+    {
+      "name": "Manifesto (Chapters)",
+      "type": "content_chapters",
+      "instructions": "Numbered chapters (01, 02, 03) using huge JetBrains Mono. Asymmetric layout with p-24 padding. Text describes the '0 human intervention' philosophy. Integrate the surreal empty room image with bg-black/50 overlay."
+    },
+    {
+      "name": "The Cloud OS Kernel",
+      "type": "architecture_diagram",
+      "instructions": "Visual representation of the OS. Central Kernel with nodes radiating out. High density of tech details using mono font. Tracing beam active state on the central kernel."
+    },
+    {
+      "name": "Nexus Systems (4 Pillars)",
+      "type": "bento_grid",
+      "instructions": "4 cards representing: A) AI Development, B) Central Auth, C) Modular Apps, D) Federated Sync. Use Tetris Grid layout. Dark cards with border-white/10 and Tracing Beam effect on hover. Use the federated sync node image in one card."
+    },
+    {
+      "name": "Comparison Table",
+      "type": "data_table",
+      "instructions": "Grid Borders styling. Traditional SaaS vs Nexus Systems. Use muted gray text for Traditional, and bright white + glowing Accent color for Nexus rows. Left-aligned, high padding."
+    },
+    {
+      "name": "Footer",
+      "type": "footer",
+      "instructions": "Massive text 'NEXUS' (text-[10vw]). Very generous padding (py-32). Darkest background. Form input for email capture."
+    }
+  ],
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1693648793394-0b76b7eb042e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxtZXRhbGxpYyUyMGFic3RyYWN0JTIwM2QlMjBmbHVpZCUyMGRhcmt8ZW58MHx8fHwxNzgyMjA2MDA2fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Dark wavy fluid metallic 3D abstract shape. Perfect for subtle parallax behind the main hero text."
+    },
+    "federated_sync_node": {
+      "url": "https://images.pexels.com/photos/30766684/pexels-photo-30766684.png",
+      "description": "3D abstract geometric structure. Use as an accent background in the Federated Node Syncing pillar bento card."
+    },
+    "manifesto_empty_room": {
+      "url": "https://images.unsplash.com/photo-1704920110270-5c107519cdc4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxkYXJrJTIwZnV0dXJpc3RpYyUyMGVtcHR5JTIwcm9vbSUyMGRlc2t8ZW58MHx8fHwxNzgxOTIxNzcxfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Surreal empty futuristic concrete room. Symbolizes the 'empty hands / zero human' concept in the Manifesto section. Requires bg-black/50 overlay."
+    }
+  },
+  "component_instructions": {
+    "forms": "Use Shadcn/UI for the email capture. Customize to have no rounded corners (rounded-none), sharp edges, 1px border-white/20, bg-transparent.",
+    "buttons": "Sharp rectangular edges. Interaction: Background fills or scales slightly, text color flips to black on accent background.",
+    "icons": "Use @phosphor-icons/react (Duotone weight) to add a technical yet premium feel."
+  },
+  "accessibility": {
+    "contrast": "Ensure text over images has sufficient contrast by applying a gradient overlay or text-shadow.",
+    "motion": "Respect prefers-reduced-motion in Framer Motion setups.",
+    "testing": "All interactive elements MUST include data-testid attribute (e.g., data-testid='waitlist-submit-button')."
+  },
+  "instructions_to_main_agent": [
+    "You are using .js and .jsx, NOT .tsx. Strip all TypeScript types when creating components.",
+    "Install the following libraries: framer-motion, lenis (or @studio-freight/lenis), react-fast-marquee, @phosphor-icons/react.",
+    "Never center-align large blocks of text. Left-align for an editorial/technical feel.",
+    "Do not use transparent backgrounds without blur. Header must have backdrop-blur-xl and a semi-transparent color.",
+    "Do not use generic 'Vercel' look. Implement the Tracing Beam border effect on the 4 Pillars cards.",
+    "Apply `data-testid` to every link and button.",
+    "Hero MUST use kinetic typography (masked line-by-line reveal) wrapped in overflow-hidden.",
+    "Add a subtle fixed noise overlay to the root layout for premium texture."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not converge toward generic outputs. Avoid 'AI slop' aesthetics.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition (e.g., transition: all). Add transitions for specific interactive elements only.",
+    "You MUST NOT center align the app container in App.css.",
+    "Always use modern button styles (pill-shaped or sharp) with interaction animations.",
+    "NEVER use AI assistant Emoji characters (🤖🧠💭💡) for icons.",
+    "Every interaction needs micro-animations (hover states, parallax effects).",
+    "Use 2-3x more spacing than feels comfortable (p-12, p-24).",
+    "Missing categories of images? DO NOT use placeholder text. Use provided image URLs."
+  ]
+}
