@@ -5,6 +5,8 @@ import Lenis from "lenis";
 import { Toaster } from "@/components/ui/sonner";
 import Landing from "@/pages/Landing";
 import Apps from "@/pages/Apps";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 
 function SmoothScroll() {
   useEffect(() => {
@@ -34,6 +36,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/apps" element={<Apps />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="bottom-right" theme="dark" />

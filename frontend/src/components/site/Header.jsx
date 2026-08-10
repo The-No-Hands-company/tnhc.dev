@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 const NAV = [
   { label: "Manifesto", id: "manifesto" },
   { label: "Kernel", id: "kernel" },
+  { label: "Mesh", id: "federation" },
   { label: "Nexus", id: "pillars" },
   { label: "Compare", id: "compare" },
 ];
@@ -67,6 +68,13 @@ export default function Header() {
             data-testid="nav-apps"
           >
             Apps
+          </Link>
+          <Link
+            to="/blog"
+            className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors duration-300 hover:text-acid"
+            data-testid="nav-changelog"
+          >
+            Changelog
           </Link>
         </nav>
 

@@ -127,6 +127,28 @@
         -working: true
         -agent: "main"
         -comment: "New /apps route with 100-module registry (src/data/apps.js) across 10 categories. Search + category pills (with counts) + status filter (live/beta/planned). Tree-shakeable explicit icon map (src/lib/appIcons.js) — bundle dropped from ~1.2MB to 228kB gzip. Production build succeeds; dev server serves / and /apps (200). Header gains 'Apps' link; page includes its own donate link. data-testids registered in constants/testIds/home.js. Verified all 92 icon exports exist in installed @phosphor-icons/react."
+  - task: "Federation explainer animation / interactive node map"
+    implemented: true
+    working: true
+    file: "frontend/src/components/site/Federation.jsx"
+    stuck_count: 0
+    priority: "low"
+    needs_retesting: true
+    status_history:
+        -working: true
+        -agent: "main"
+        -comment: "New Federation section on landing between Kernel and Pillars. SVG interactive node map (7 nodes: tnhc.dev kernel + 6 satellites) with animated dash strokes (animate-dash), pulsing active-ring, and an animated packet tracing the active node's edge via CSS offsetPath (framer-motion, disabled under prefers-reduced-motion). Click node to select protocol/region/apps in inspector panel; Tour toggle auto-cycles. Wireframe ring guides + fine-grid background. data-testids registered. Header nav gains 'Mesh' anchor."
+  - task: "Blog/changelog of AI-built releases"
+    implemented: true
+    working: true
+    file: "frontend/src/pages/Blog.jsx"
+    stuck_count: 0
+    priority: "low"
+    needs_retesting: true
+    status_history:
+        -working: true
+        -agent: "main"
+        -comment: "Created /blog listing (Blog.jsx) + /blog/:slug detail (BlogPost.jsx) from static src/data/posts.js (6 entries, block-based content model: p/h/list/quote). Category filter pills, tags, date/author/readtime meta, related-posts grid. Unknown slug redirects to /blog via <Navigate>. Header nav gains 'Changelog' link. data-testids registered. All routes smoke-tested (200)."
 
 ## backend:
   - task: "Resend email notification on waitlist signup + admin list signups endpoint"
@@ -153,10 +175,12 @@
     - "Live app directory (Nexus app stack)"
     - "Resend email notification on waitlist signup"
     - "Admin list signups endpoint"
+    - "Federation explainer animation / interactive node map"
+    - "Blog/changelog of AI-built releases"
   stuck_tasks: []
-  test_all: false
+  test_all: true
   test_priority: "high_first"
 
 ## agent_communication:
     -agent: "main"
-    -message: "PayPal.me/tnhc donation button added to footer (Donate.jsx, acid-fill hover). P1a done: Resend admin notification on signup (fire-and-forget) + GET /api/admin/signups (bearer ADMIN_API_TOKEN, paginated). P1b done: /apps route with 100-app registry, search + category/status filters, tree-shaken icons (bundle 1.2MB→228kB). Production build + dev-server smoke test on / and /apps pass. Needs visual + runtime verification (backend needs real MONGO_URL and env). P2 (federation map + blog) deferred per user."
+    -message: "Committed PayPal + P1 work (commit 489b2dd). P2 both done. P2a: Federation.jsx interactive SVG node map on landing (7 nodes, animated dash strokes + packet trace via offsetPath, click-to-inspect protocol/region/apps, tour toggle, reduced-motion respected). P2b: /blog + /blog/:slug (Blog.jsx / BlogPost.jsx) from src/data/posts.js with category filter, tags, related posts, <Navigate> fallback. Routes / /apps /blog /blog/vision-next all serve 200. Production build compiles. Remaining verification: visual review (node map click behavior in real browser, Lenis on /blog), and backend runtime with real MONGO_URL + env."
