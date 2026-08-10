@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const NAV = [
@@ -60,6 +61,13 @@ export default function Header() {
               {n.label}
             </button>
           ))}
+          <Link
+            to="/apps"
+            className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors duration-300 hover:text-acid"
+            data-testid="nav-apps"
+          >
+            Apps
+          </Link>
         </nav>
 
         <button

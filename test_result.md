@@ -101,3 +101,62 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+## user_problem_statement: Add a PayPal.me donation button to tnhc.dev footer to let users support development. Then continue with backlog: P1a Email notification on signup (Resend) + admin view of signups; P1b Live app directory for the 80+ Nexus apps; P2 Federation explainer animation; P2 Blog/changelog of AI-built releases.
+
+## frontend:
+  - task: "PayPal donation button in footer"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/site/Donate.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Created Donate.jsx component (acid-fill hover pattern matching Header 'Request Access' button) wired to https://www.paypal.me/tnhc with target=_blank rel=noopener. Embedded in Waitlist.jsx footer copyright bar between © TNHC line and 'Kernel online' status. data-testid='donate-paypal-button'. Added DONATE testId registry in constants/testIds/home.js. Responsive — stacks on mobile, inline on sm+."
+  - task: "Live app directory (Nexus app stack)"
+    implemented: true
+    working: true
+    file: "frontend/src/pages/Apps.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        -working: true
+        -agent: "main"
+        -comment: "New /apps route with 100-module registry (src/data/apps.js) across 10 categories. Search + category pills (with counts) + status filter (live/beta/planned). Tree-shakeable explicit icon map (src/lib/appIcons.js) — bundle dropped from ~1.2MB to 228kB gzip. Production build succeeds; dev server serves / and /apps (200). Header gains 'Apps' link; page includes its own donate link. data-testids registered in constants/testIds/home.js. Verified all 92 icon exports exist in installed @phosphor-icons/react."
+
+## backend:
+  - task: "Resend email notification on waitlist signup + admin list signups endpoint"
+    implemented: true
+    working: "NA"
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Implemented. Added resend==2.10.2 to requirements. POST /api/waitlist now fires _send_signup_notification via loop.run_in_executor (non-blocking, errors only logged) using RESEND_API_KEY/ADMIN_EMAIL/NOTIFY_FROM env — all optional, guarded so missing config never breaks signup. GET /api/admin/signups lists waitlist entries (paginated limit/offset, sorted created_at desc) protected by ADMIN_API_TOKEN bearer. Requires MONGO_URL/DB_NAME/CORS_ORIGINS as before. py_compile passes. Needs runtime test with real env + token."
+
+## metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+## test_plan:
+  current_focus:
+    - "PayPal donation button in footer"
+    - "Live app directory (Nexus app stack)"
+    - "Resend email notification on waitlist signup"
+    - "Admin list signups endpoint"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+## agent_communication:
+    -agent: "main"
+    -message: "PayPal.me/tnhc donation button added to footer (Donate.jsx, acid-fill hover). P1a done: Resend admin notification on signup (fire-and-forget) + GET /api/admin/signups (bearer ADMIN_API_TOKEN, paginated). P1b done: /apps route with 100-app registry, search + category/status filters, tree-shaken icons (bundle 1.2MB→228kB). Production build + dev-server smoke test on / and /apps pass. Needs visual + runtime verification (backend needs real MONGO_URL and env). P2 (federation map + blog) deferred per user."

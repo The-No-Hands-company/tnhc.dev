@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Header, Query
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field, EmailStr, ConfigDict
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
+import asyncio
 
 
 ROOT_DIR = Path(__file__).parent
@@ -19,11 +20,67 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
+# Resend config (optional — guarded so a missing key never breaks signup)
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "")
+NOTIFY_FROM = os.environ.get("NOTIFY_FROM", "TNHC Kernel <kernel@tnhc.dev>")
+ADMIN_API_TOKEN = os.environ.get("ADMIN_API_TOKEN", "")
+if RESEND_API_KEY:
+    try:
+        import resend as _resend
+        _resend.api_key = RESEND_API_KEY
+        resend_client = _resend
+    except ImportError:
+        logging.getLogger(__name__).warning("resend sdk not installed — email notifications disabled")
+        resend_client = None
+else:
+    resend_client = None
+
 # Create the main app without a prefix
 app = FastAPI(title="The No Hands Company API")
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
+admin_router = APIRouter(prefix="/api/admin")
+
+
+def _verify_admin(authorization: Optional[str]) -> None:
+    """Validate the bearer token against ADMIN_API_TOKEN env var."""
+    if not ADMIN_API_TOKEN:
+        raise HTTPException(status_code=503, detail="Admin API not configured (ADMIN_API_TOKEN unset).")
+    if not authorization or not authorization.lower().startswith("bearer "):
+        raise HTTPException(status_code=401, detail="Missing bearer token.")
+    token = authorization.split(" ", 1)[1].strip()
+    if token != ADMIN_API_TOKEN:
+        raise HTTPException(status_code=403, detail="Invalid admin token.")
+
+
+def _send_signup_notification(entry_email: str, entry_node: Optional[str], entry_id: str) -> None:
+    """Send admin a notification email about a new waitlist signup.
+
+    Runs in the background and MUST NOT raise — a Resend failure must not break
+    the signup flow. Uses resend's blocking SDK inside a thread via asyncio.
+    """
+    if not resend_client or not ADMIN_EMAIL:
+        return
+    subject = "New waitlist signup // TNHC kernel"
+    body = (
+        "A new operator joined the Nexus waitlist.\n\n"
+        f"  email : {entry_email}\n"
+        f"  node  : {entry_node or '—'}\n"
+        f"  id    : {entry_id}\n\n"
+        "— kernel // no hands on the keyboard"
+    )
+    try:
+        resend_client.Emails.send({
+            "from": NOTIFY_FROM,
+            "to": [ADMIN_EMAIL],
+            "subject": subject,
+            "text": body,
+        })
+    except Exception as exc:  # noqa: BLE001 — we want every failure logged, never raised
+        logging.getLogger(__name__).warning("Resend notification failed: %s", exc)
+
 
 
 # ---------- Models ----------
@@ -85,6 +142,9 @@ async def join_waitlist(input: WaitlistCreate):
         raise HTTPException(status_code=409, detail="This email is already on the waitlist.")
     entry = WaitlistEntry(email=email, name=input.name, node=input.node)
     await db.waitlist.insert_one(entry.model_dump())
+    # Fire-and-forget admin notification — non-blocking, errors silenced
+    loop = asyncio.get_event_loop()
+    loop.run_in_executor(None, _send_signup_notification, email, input.node, entry.id)
     return entry
 
 
@@ -94,8 +154,29 @@ async def waitlist_count():
     return {"count": count}
 
 
-# Include the router in the main app
+# ---------- Admin ----------
+@admin_router.get("/signups")
+async def admin_signups(
+    authorization: Optional[str] = Header(None),
+    limit: int = Query(100, ge=1, le=1000),
+    offset: int = Query(0, ge=0),
+):
+    """List waitlist signups (admin-only, bearer token via ADMIN_API_TOKEN)."""
+    _verify_admin(authorization)
+    cursor = (
+        db.waitlist.find({}, {"_id": 0})
+        .sort("created_at", -1)
+        .skip(offset)
+        .limit(limit)
+    )
+    entries = await cursor.to_list(limit)
+    total = await db.waitlist.count_documents({})
+    return {"total": total, "limit": limit, "offset": offset, "entries": entries}
+
+
+# Include the routers in the main app
 app.include_router(api_router)
+app.include_router(admin_router)
 
 app.add_middleware(
     CORSMiddleware,

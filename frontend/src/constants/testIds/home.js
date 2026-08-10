@@ -4,3 +4,17 @@
 export const HOME = {
 	emergentLink: 'home-emergent-link',
 };
+
+export const DONATE = {
+	paypalButton: 'donate-paypal-button',
+};
+
+export const APPS = {
+	page: 'apps-page',
+	backHome: 'apps-back-home',
+	searchInput: 'apps-search-input',
+	donateButton: 'apps-donate-button',
+	clearFilters: 'apps-clear-filters',
+	grid: 'apps-grid',
+	footerDonate: 'apps-footer-donate',
+};

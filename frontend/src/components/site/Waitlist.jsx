@@ -3,6 +3,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { ArrowUpRight, CircleNotch } from "@phosphor-icons/react";
+import Donate from "@/components/site/Donate";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -149,12 +150,15 @@ export default function Waitlist() {
           <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">
             © {new Date().getFullYear()} The No Hands Company
           </span>
-          <span className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-acid animate-pulse-glow" />
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
+            <Donate />
+            <span className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-acid animate-pulse-glow" />
+              </span>
+              Kernel online — no hands on the keyboard
             </span>
-            Kernel online — no hands on the keyboard
-          </span>
+          </div>
         </div>
       </div>
     </footer>
