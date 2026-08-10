@@ -200,7 +200,7 @@ export default function Apps() {
               return (
                 <motion.a
                   key={app.slug}
-                  href={`https://${app.slug}.apps.tnhc.dev`}
+                  href={`https://${app.slug}.tnhc.dev`}
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 24 }}
@@ -228,7 +228,7 @@ export default function Apps() {
                       {app.category}
                     </span>
                     <span className="flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.15em] text-acid/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      {app.slug}.apps
+                      {app.slug}.tnhc
                       <ArrowUpRight size={12} weight="bold" />
                     </span>
                   </div>

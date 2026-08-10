@@ -87,7 +87,7 @@ export default function Kernel() {
             </Reveal>
             <Reveal delay={0.19}>
               <Node
-                domain="*.apps.tnhc.dev"
+                domain="*.tnhc.dev"
                 label="80+ Modular Applications"
                 icon={StackSimple}
                 apps={["chat", "drive", "mail", "docs", "+76"]}
