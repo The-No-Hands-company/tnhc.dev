@@ -66,7 +66,7 @@ export default function Apps() {
           </Link>
 
           <a
-            href="https://www.paypal.me/tnhc"
+            href="https://www.paypal.me/tnhcns"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative hidden overflow-hidden border border-white/20 bg-transparent px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:text-black md:inline-flex"
@@ -246,7 +246,7 @@ export default function Apps() {
             © {new Date().getFullYear()} The No Hands Company
           </span>
           <a
-            href="https://www.paypal.me/tnhc"
+            href="https://www.paypal.me/tnhcns"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/40 transition-colors hover:text-acid"

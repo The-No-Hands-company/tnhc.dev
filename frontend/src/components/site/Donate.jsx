@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "@phosphor-icons/react";
 
-const PAYPAL_URL = "https://www.paypal.me/tnhc";
+const PAYPAL_URL = "https://www.paypal.me/tnhcns";
 
 export default function Donate() {
   return (
