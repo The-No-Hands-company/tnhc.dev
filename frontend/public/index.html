@@ -9,36 +9,74 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
-
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
         <title>The No Hands Company — Zero Human Intervention</title>
+        
+        <!-- PayPal Button Styles -->
+        <style>
+          .paypal-donate-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+          }
+
+          .paypal-me-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #0070ba;
+            color: #ffffff;
+            font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 9999px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+
+          .paypal-me-btn:hover {
+            background-color: #005ea6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 112, 186, 0.4);
+          }
+
+          .paypal-me-btn:active {
+            transform: translateY(0);
+          }
+
+          .paypal-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+          }
+        </style>
+
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        <!-- Floating PayPal.Me Donation Button -->
+        <div class="paypal-donate-container">
+          <a 
+            href="https://paypal.me/YOUR_USERNAME" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="paypal-me-btn"
+            aria-label="Support development via PayPal"
+          >
+            <svg class="paypal-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.067 8.478c.492.88.556 2.014.3 3.327-.74 3.806-3.27 5.12-6.5 5.12h-.5a.8.8 0 0 0-.79.67l-.76 4.82a.8.8 0 0 1-.79.67H7.13a.5.5 0 0 1-.49-.58l2.67-16.92a.8.8 0 0 1 .79-.67h5.83c2.08 0 3.73.44 4.13 2.58zm-4.32 1.34c-.16-.86-.96-1.12-2.12-1.12h-3.32l-1.03 6.55h1.9c1.94 0 3.47-.63 3.89-2.78.18-.94.06-1.95-.65-2.65z"/>
+            </svg>
+            <span>Support Development</span>
+          </a>
+        </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
         <script>
             !(function (t, e) {
                 var o, n, p, r;
@@ -103,7 +141,7 @@
             })(document, window.posthog || []);
             posthog.init("phc_DbsPb39SRc8z3EiQ6Dhj6ikv4H4rTKcht9d4sZSesceP", {
                 api_host: "https://ap.emergent.sh",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well,
+                person_profiles: "identified_only",
                 session_recording: {
                     recordCrossOriginIframes: true,
                     capturePerformance: false,
