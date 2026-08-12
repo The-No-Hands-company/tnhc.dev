@@ -1,0 +1,36 @@
+# Front-door redirects for tnhc.dev (Cloudflare Pages).
+#
+# This site is static and never reaches the Nexus node, so it cannot host a
+# login form — it has no server and no path to Auth. Everything that needs one
+# lives on the product hosts. These rules give the apex the URLs people type
+# and guess, and forward each to the real page.
+#
+# CRA copies everything in public/ into build/ at compile time, so this ends up
+# beside index.html in the published output, which is where Cloudflare looks
+# for it.
+#
+# 302, not 301: a permanent redirect is cached by browsers essentially forever,
+# and these targets may move again if the apex ever serves the dashboard
+# directly. A wrong 301 is very hard to take back.
+#
+# Format: <from>  <to>  <status>
+
+# Signing in. The return address sends people to their app grid afterwards,
+# rather than back to the marketing page they just left.
+/login      https://auth.tnhc.dev/login?redirect_uri=https%3A%2F%2Fapp.tnhc.dev  302
+/signin     https://auth.tnhc.dev/login?redirect_uri=https%3A%2F%2Fapp.tnhc.dev  302
+/sign-in    https://auth.tnhc.dev/login?redirect_uri=https%3A%2F%2Fapp.tnhc.dev  302
+
+# Getting an account. Access is invite-only: this creates a request, an
+# operator approves it, and the person claims it with the code they were shown.
+/signup          https://app.tnhc.dev/request  302
+/sign-up         https://app.tnhc.dev/request  302
+/register        https://app.tnhc.dev/request  302
+/request-access  https://app.tnhc.dev/request  302
+
+# Finishing an approved request.
+/claim  https://app.tnhc.dev/claim  302
+
+# The signed-in home, for anyone who types the obvious thing.
+/app        https://app.tnhc.dev/  302
+/dashboard  https://app.tnhc.dev/  302

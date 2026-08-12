@@ -78,14 +78,32 @@ export default function Header() {
           </Link>
         </nav>
 
-        <button
-          onClick={() => go("waitlist")}
-          className="group relative overflow-hidden border border-white/20 bg-transparent px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:text-black"
-          data-testid="header-waitlist-button"
-        >
-          <span className="relative z-10">Request Access</span>
-          <span className="absolute inset-0 -translate-y-full bg-acid transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0" />
-        </button>
+        <div className="flex items-center gap-3">
+          {/*
+            Sign in and Request access are plain anchors to other hosts, not
+            router links: this site is static on Cloudflare Pages and cannot
+            authenticate anyone. Auth and the dashboard do that.
+
+            redirect_uri lands people on their app grid afterwards instead of
+            back here. It is validated against the domain before it is
+            honoured, so an off-domain value would simply be ignored.
+          */}
+          <a
+            href="https://auth.tnhc.dev/login?redirect_uri=https%3A%2F%2Fapp.tnhc.dev"
+            className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors duration-300 hover:text-acid"
+            data-testid="header-signin-link"
+          >
+            Sign In
+          </a>
+          <a
+            href="https://app.tnhc.dev/request"
+            className="group relative overflow-hidden border border-white/20 bg-transparent px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:text-black"
+            data-testid="header-request-access-link"
+          >
+            <span className="relative z-10">Request Access</span>
+            <span className="absolute inset-0 -translate-y-full bg-acid transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0" />
+          </a>
+        </div>
       </div>
     </motion.header>
   );
