@@ -69,13 +69,23 @@ export default function Header() {
           >
             Apps
           </Link>
-          <Link
-            to="/blog"
+            {/* This said Changelog and pointed at /blog. They are different
+                things: the blog is written, the changelog is generated from
+                commits and cannot drift from what actually shipped. */}
+            <Link
+              to="/blog"
             className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors duration-300 hover:text-acid"
-            data-testid="nav-changelog"
-          >
-            Changelog
-          </Link>
+              data-testid="nav-blog"
+            >
+              Blog
+            </Link>
+            <Link
+              to="/changelog"
+            className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors duration-300 hover:text-acid"
+              data-testid="nav-changelog"
+            >
+              Changelog
+            </Link>
         </nav>
 
         <div className="flex items-center gap-3">

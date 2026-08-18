@@ -6,6 +6,7 @@ import Kernel from "@/components/site/Kernel";
 import Federation from "@/components/site/Federation";
 import Pillars from "@/components/site/Pillars";
 import Comparison from "@/components/site/Comparison";
+import Support from "@/components/site/Support";
 import Waitlist from "@/components/site/Waitlist";
 
 export default function Landing() {
@@ -19,6 +20,7 @@ export default function Landing() {
       <Federation />
       <Pillars />
       <Comparison />
+      <Support />
       <Waitlist />
     </main>
   );
