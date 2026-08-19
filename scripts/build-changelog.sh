@@ -21,15 +21,45 @@ fi
 POSTS_OUT="frontend/src/data/commitPosts.js"
 
 # The terse edition: one scannable line per change.
-# No commit cap. A capped window silently drops the oldest entries every time
-# a new commit lands, so the changelog quietly shrinks at the far end while
-# looking healthy at the near end.
-git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s' --date=short \
+# Collect the outer repository and every submodule.
+#
+# Most of the ecosystem lives in submodules — Chat, Cloud, Hosting, Vault and
+# the rest — and reading only the outer repo published "chore: bump submodule"
+# while the change itself never appeared. A changelog headed "every change, as
+# it happened" that silently omits whole applications is the same class of
+# untruth this site has already been corrected for twice.
+#
+# The app name rides along as a trailing field so a commit without its own
+# scope is still attributable to somewhere.
+collect_terse() {
+    # No commit cap. A capped window silently drops the oldest entries every
+    # time a new commit lands, so the changelog quietly shrinks at the far end
+    # while looking healthy at the near end.
+    git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s' --date=short
+    echo
+    git -C "$REPO" submodule --quiet foreach 'echo "$sm_path"' 2>/dev/null | while read -r sm; do
+        [ -d "$REPO/$sm/.git" ] || [ -f "$REPO/$sm/.git" ] || continue
+        app=$(basename "$sm" | sed 's/^Nexus-//; s/^Nexus$/chat/' | tr 'A-Z' 'a-z')
+        git -C "$REPO/$sm" log --pretty=format:"%H%x1f%ad%x1f%s%x1f$app" --date=short 2>/dev/null
+        echo
+    done
+}
+
+collect_terse \
   | python3 "$(dirname "$0")/build-changelog.py" > "$OUT"
 
 # The long-form edition: commits whose message actually explains something.
 # Both come from the same history, so the two views cannot contradict.
-git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s%x1f%b%x1e' --date=short \
+collect_long() {
+    git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s%x1f%b%x1e' --date=short
+    git -C "$REPO" submodule --quiet foreach 'echo "$sm_path"' 2>/dev/null | while read -r sm; do
+        [ -d "$REPO/$sm/.git" ] || [ -f "$REPO/$sm/.git" ] || continue
+        app=$(basename "$sm" | sed 's/^Nexus-//; s/^Nexus$/chat/' | tr 'A-Z' 'a-z')
+        git -C "$REPO/$sm" log --pretty=format:"%H%x1f%ad%x1f%s%x1f%b%x1f$app%x1e" --date=short 2>/dev/null
+    done
+}
+
+collect_long \
   | python3 "$(dirname "$0")/build-commit-posts.py" > "$POSTS_OUT"
 
 echo "Wrote $OUT ($(grep -c '"sha"' "$OUT") entries)"

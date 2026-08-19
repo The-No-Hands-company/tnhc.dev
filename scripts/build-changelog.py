@@ -1,7 +1,13 @@
 """Turn `git log` output into the site's changelog data file.
 
-Only `feat` and `fix` land here. A changelog carrying "chore: bump lockfile"
+Only substantive types land here. A changelog carrying "chore: bump lockfile"
 teaches a reader to stop reading it, and this one is meant to be read.
+
+Input is `sha \x1f date \x1f subject`, optionally followed by `\x1f app` when
+the commit came from a submodule. Most of the ecosystem's real work lives in
+submodules — Chat, Cloud, Hosting, Vault and the rest — and reading only the
+outer repository showed "chore: bump submodule" while the change itself, which
+is the thing anyone would want to read about, never appeared.
 """
 import collections
 import json
@@ -17,9 +23,32 @@ KEEP = ("feat", "fix", "perf", "geom", "harden", "scene", "sim")
 SKIP_WORDS = ("lockfile", "typo", "whitespace", "formatting", "rename", "wip")
 
 
-def area(subject: str) -> str:
+# Scopes that name a release train rather than a part of the system. Several
+# repositories use the scope for sprints and versions — feat(month7),
+# fix(v0.8/08-03), feat(sprint4) — which is fine for them and useless here: the
+# site turns areas into filter buttons, and "month7" tells a reader nothing
+# about what the change touched.
+_NOT_AN_AREA = re.compile(
+    r"^(v?\d|month\d|sprint|sec\d|[A-Z]\d+$|.*/)", re.IGNORECASE
+)
+
+
+def area(subject: str, app: str = "") -> str:
+    """Where the change happened.
+
+    A commit's own scope wins when it is meaningful. Otherwise the submodule it
+    came from is a better answer than "core", which would file every app's
+    unscoped commits under one meaningless heading.
+    """
     m = re.match(r"^\w+\(([^)]+)\)", subject)
-    return (m.group(1) if m else "core").split(",")[0].strip()
+    if m:
+        scope = m.group(1).split(",")[0].strip()
+        # Normalised: scopes arrive as "Chat View" and "chat" from different
+        # repositories, and two spellings of one area make two buttons.
+        scope = scope.lower().replace(" ", "-")
+        if scope and not _NOT_AN_AREA.match(scope):
+            return scope
+    return app or "core"
 
 
 def title(subject: str) -> str:
@@ -30,18 +59,27 @@ def title(subject: str) -> str:
 def main() -> None:
     rows = [l.split("\x1f") for l in sys.stdin.read().split("\n") if l.strip()]
     entries = []
-    for sha, date, subject in rows:
+    seen: set[str] = set()
+    for row in rows:
+        sha, date, subject = row[0], row[1], row[2]
+        app = row[3] if len(row) > 3 else ""
+        # A submodule bump and the commit it points at are the same change
+        # described twice; and two submodules can share a commit if one was
+        # ever forked from the other. First occurrence wins.
+        if sha[:7] in seen:
+            continue
         kind = re.match(r"^(\w+)", subject)
         if not kind or kind.group(1) not in KEEP:
             continue
         if any(w in subject.lower() for w in SKIP_WORDS):
             continue
+        seen.add(sha[:7])
         entries.append(
             {
                 "sha": sha[:7],
                 "date": date,
                 "kind": kind.group(1),
-                "area": area(subject),
+                "area": area(subject, app),
                 "title": title(subject),
             }
         )

@@ -98,6 +98,11 @@ def main() -> None:
         if len(parts) < 4:
             continue
         sha, date, subject, body = parts[0].strip(), parts[1], parts[2], parts[3]
+        # Optional 5th field: the submodule a commit came from. Most of the
+        # ecosystem's work lives in submodules, and reading only the outer
+        # repository published "chore: bump submodule" while the reasoning
+        # worth reading stayed invisible.
+        app = parts[4].strip() if len(parts) > 4 else ""
 
         kind = re.match(r"^(\w+)", subject)
         if not kind or kind.group(1) not in KEEP:
@@ -125,7 +130,7 @@ def main() -> None:
             "date": date,
             "author": "The Kernel",
             "readTime": f"{max(1, round(words / 200))} min",
-            "tags": [kind.group(1), area_of(subject)],
+            "tags": [t for t in [kind.group(1), area_of(subject), app] if t],
             "category": "Commit",
             "excerpt": scrub(first[:220]),
             "sha": sha[:7],

@@ -5,7 +5,7 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 523 entries, newest first.
+// 956 entries, newest first.
 
 export const CHANGELOG = [
   {
@@ -922,7 +922,7 @@ export const CHANGELOG = [
     "sha": "373f54c",
     "date": "2026-08-11",
     "kind": "fix",
-    "area": "A4",
+    "area": "core",
     "title": "Fix duplicate createBoard, boot flow precedence, switchBoard refresh, error handling"
   },
   {
@@ -936,7 +936,7 @@ export const CHANGELOG = [
     "sha": "ccd7698",
     "date": "2026-08-11",
     "kind": "fix",
-    "area": "A3",
+    "area": "core",
     "title": "Add loadDoc(ServerBoard) overload + consistent error handling in api.ts"
   },
   {
@@ -2784,7 +2784,7 @@ export const CHANGELOG = [
     "sha": "4a3c311",
     "date": "2026-06-16",
     "kind": "feat",
-    "area": "Nexus-Modeling",
+    "area": "nexus-modeling",
     "title": "Full DCC modeling workflow with 13 modes, UI panels, and interactive tools"
   },
   {
@@ -3624,51 +3624,3082 @@ export const CHANGELOG = [
     "sha": "a8baaa8",
     "date": "2026-05-09",
     "kind": "feat",
-    "area": "month11",
+    "area": "core",
     "title": "Scripting and automation layer v0"
   },
   {
     "sha": "c8ca9fa",
     "date": "2026-05-09",
     "kind": "feat",
-    "area": "month10",
+    "area": "core",
     "title": "Advanced rendering track \u2014 Gaussian Splatting + temporal accumulation"
   },
   {
     "sha": "c69c67a",
     "date": "2026-05-09",
     "kind": "feat",
-    "area": "month9",
+    "area": "core",
     "title": "Simulation interfaces v0"
   },
   {
     "sha": "c46141c",
     "date": "2026-05-09",
     "kind": "feat",
-    "area": "month8",
+    "area": "core",
     "title": "Procedural and evaluation graph"
   },
   {
     "sha": "3c80d9e",
     "date": "2026-05-09",
     "kind": "feat",
-    "area": "month7",
+    "area": "core",
     "title": "Animation and rigging core v0"
   },
   {
     "sha": "3e27ffd",
     "date": "2026-05-09",
     "kind": "feat",
-    "area": "month6",
+    "area": "core",
     "title": "Asset and pipeline core"
   },
   {
     "sha": "8e39848",
     "date": "2026-05-09",
     "kind": "feat",
-    "area": "month5",
+    "area": "core",
     "title": "Modeling workflow slice 1 geometry ops"
+  },
+  {
+    "sha": "183426d",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Stop double-posting on send, and stop losing history on reload"
+  },
+  {
+    "sha": "329193f",
+    "date": "2026-08-14",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Channels can be created, and existing ones actually show"
+  },
+  {
+    "sha": "0922b42",
+    "date": "2026-08-14",
+    "kind": "feat",
+    "area": "web",
+    "title": "Render Chat in the ecosystem palette"
+  },
+  {
+    "sha": "a8c86bd",
+    "date": "2026-08-13",
+    "kind": "feat",
+    "area": "web",
+    "title": "Vendor ecosystem design tokens for the palette drift guard"
+  },
+  {
+    "sha": "72c9422",
+    "date": "2026-08-13",
+    "kind": "fix",
+    "area": "api",
+    "title": "Stop emitting a contradicting X-Frame-Options, fix frame-ancestors"
+  },
+  {
+    "sha": "c186a03",
+    "date": "2026-08-13",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Honour the shell's embed flag"
+  },
+  {
+    "sha": "54df9a3",
+    "date": "2026-08-13",
+    "kind": "fix",
+    "area": "web",
+    "title": "Say why sign-in failed instead of a bare dead end"
+  },
+  {
+    "sha": "c7fc53c",
+    "date": "2026-08-12",
+    "kind": "fix",
+    "area": "clients",
+    "title": "Desktop, admin and mobile sign in to the ecosystem"
+  },
+  {
+    "sha": "0053df3",
+    "date": "2026-08-12",
+    "kind": "fix",
+    "area": "web",
+    "title": "Stop sending a credential the client no longer has"
+  },
+  {
+    "sha": "dc91fc9",
+    "date": "2026-08-12",
+    "kind": "fix",
+    "area": "web",
+    "title": "Stop asking a stale localStorage value which server we talk to"
+  },
+  {
+    "sha": "08ad700",
+    "date": "2026-08-12",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Delete the local login in favour of ecosystem SSO"
+  },
+  {
+    "sha": "c6fd771",
+    "date": "2026-08-12",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Authenticate from the ecosystem identity header"
+  },
+  {
+    "sha": "54f68f1",
+    "date": "2026-08-12",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Verify ecosystem identity tokens against Auth's JWKS"
+  },
+  {
+    "sha": "994a0c9",
+    "date": "2026-08-12",
+    "kind": "fix",
+    "area": "server",
+    "title": "Bind to loopback so the proxy is the only way in"
+  },
+  {
+    "sha": "6918b2b",
+    "date": "2026-08-11",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Let the server actually start, in both lite and full mode"
+  },
+  {
+    "sha": "7b44fe9",
+    "date": "2026-08-10",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Make the workspace compile and its test suite pass"
+  },
+  {
+    "sha": "600bad6",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "nexus-db",
+    "title": "Let lite mode start, and stop tracking the secret it writes"
+  },
+  {
+    "sha": "49289ca",
+    "date": "2026-08-08",
+    "kind": "fix",
+    "area": "nexus-db",
+    "title": "Skip migration reconciliation on a fresh database"
+  },
+  {
+    "sha": "c31c1cc",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phantom message signing \u2014 Dilithium-5 signatures on messages"
+  },
+  {
+    "sha": "4422e43",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phantom DB migration + repository for Nexus"
+  },
+  {
+    "sha": "667aa9b",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phantom identity API endpoint for Nexus users"
+  },
+  {
+    "sha": "97b66b0",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phantom Protocol E2EE identity layer for Nexus users"
+  },
+  {
+    "sha": "38b93cc",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Update api routes, db migrations, and web config"
+  },
+  {
+    "sha": "48bf240",
+    "date": "2026-04-11",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Allow iframe embedding from Nexus Cloud portal"
+  },
+  {
+    "sha": "2d172ce",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Register with Nexus Cloud on startup + 30s heartbeat"
+  },
+  {
+    "sha": "53c45a7",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Add NetworkHealth component to admin Overview page"
+  },
+  {
+    "sha": "89e0c2c",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Implement mobile UI components with server integration"
+  },
+  {
+    "sha": "405631c",
+    "date": "2026-04-06",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Add missing api methods, store settings, and fix undefined variable"
+  },
+  {
+    "sha": "760b51f",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Rewrite api.ts \u2014 methods were outside the class"
+  },
+  {
+    "sha": "6a25be3",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Align Kotlin to 1.9.24 to match @react-native/gradle-plugin"
+  },
+  {
+    "sha": "49c36bf",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Add plain 'apk' build script with no colon"
+  },
+  {
+    "sha": "181e075",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Add standalone APK build scripts"
+  },
+  {
+    "sha": "ef4b1f1",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Fix broken import in RegisterScreen"
+  },
+  {
+    "sha": "a3856d1",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Add expo-asset dependency"
+  },
+  {
+    "sha": "9f3eead",
+    "date": "2026-04-05",
+    "kind": "feat",
+    "area": "mobile",
+    "title": "Complete UI components - VoiceCall, Settings, ThreadView, SearchScreen"
+  },
+  {
+    "sha": "5926df4",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Use rand::rng() for sample_iter compatibility"
+  },
+  {
+    "sha": "3292f78",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Use Alphanumeric.sample_iter(&mut rng) for rand 0.9"
+  },
+  {
+    "sha": "948036d",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Use &mut rng for sample_iter in rand 0.9"
+  },
+  {
+    "sha": "90fc96e",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Use _ip variable correctly"
+  },
+  {
+    "sha": "57392cd",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Prefix unused variables with underscore"
+  },
+  {
+    "sha": "14138b0",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Add Alphanumeric and Distribution to top-level imports in two_fa.rs"
+  },
+  {
+    "sha": "0836b22",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Add Rng trait for rand 0.9 sample_iter"
+  },
+  {
+    "sha": "bef72ad",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Use as_affine() on PublicKey for ECDH"
+  },
+  {
+    "sha": "7c9220a",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Add Distribution trait imports for sample_iter and fix to_affine for diffie_hellman"
+  },
+  {
+    "sha": "b80178c",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Fix diffie_hellman and sample_iter compilation errors"
+  },
+  {
+    "sha": "f6f2ef3",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Fix diffie_hellman and sample_iter compilation errors"
+  },
+  {
+    "sha": "336a5ad",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Fix argon2 error conversion in users.rs"
+  },
+  {
+    "sha": "39d8d64",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Fix user_id parsing order in 2FA verify"
+  },
+  {
+    "sha": "70030b0",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Remove non-existent USER_AGENT import from relationships"
+  },
+  {
+    "sha": "2945efa",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Fix HeaderMap imports and compilation errors in relationships and two_fa"
+  },
+  {
+    "sha": "ec20da8",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Complete HeaderMap import fixes for all API routes"
+  },
+  {
+    "sha": "ed2b152",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "HeaderMap import fixes"
+  },
+  {
+    "sha": "5eb1f24",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Fix HeaderMap imports and auth variable names in calendar"
+  },
+  {
+    "sha": "474dbe1",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Add missing headers and fix imports in voice routes"
+  },
+  {
+    "sha": "25cd6cd",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Add missing headers parameter to moderation functions"
+  },
+  {
+    "sha": "cdb8201",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Add missing imports and params for rate limiting"
+  },
+  {
+    "sha": "2617d99",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Compilation fixes for audit log and email crypto - Fix IpAddr type issue in audit_log.rs - Fix ambiguous trait method in email_crypto.rs"
+  },
+  {
+    "sha": "c09fba1",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Remove duplicate url dependency in Cargo.toml"
+  },
+  {
+    "sha": "59060a5",
+    "date": "2026-04-05",
+    "kind": "fix",
+    "area": "chatview",
+    "title": "Wire onOpenProfile prop and UserProfileCard popup"
+  },
+  {
+    "sha": "59d4a78",
+    "date": "2026-03-10",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Runtime issues in Phases 20-24 \u2014 SQL conflicts, HTTP methods, route paths, FK constraints"
+  },
+  {
+    "sha": "2472299",
+    "date": "2026-03-09",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Implement Phases 20-24 \u2014 scalability, AI intelligence, voice collab, growth, sustainability"
+  },
+  {
+    "sha": "4c59353",
+    "date": "2026-03-09",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phase 16 \u2014 Advanced Collaboration & Productivity (v1.5)"
+  },
+  {
+    "sha": "e7a0787",
+    "date": "2026-03-09",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phase 15-04 Creator Monetization & 15-05 Server Discovery"
+  },
+  {
+    "sha": "9c4f133",
+    "date": "2026-03-08",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Email service, friendly errors, session persistence, invite URLs, roadmap update"
+  },
+  {
+    "sha": "afbd901",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "config",
+    "title": "Make redis config optional with Default so server starts without Redis"
+  },
+  {
+    "sha": "b1a555c",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "docker",
+    "title": "Add 'serve' subcommand to ENTRYPOINT"
+  },
+  {
+    "sha": "b91cd60",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "docker",
+    "title": "Use rust:bookworm (correct tag) for glibc 2.36 compatibility"
+  },
+  {
+    "sha": "d3cdb99",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "docker",
+    "title": "Use bookworm builder to fix glibc mismatch, narrow dep cache to --bin nexus"
+  },
+  {
+    "sha": "75cfb06",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "docker",
+    "title": "Add cmake/clang/go for aws-lc-sys, limit CARGO_BUILD_JOBS=2, add desktop stub"
+  },
+  {
+    "sha": "ecc606f",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "docker",
+    "title": "Use rust:latest \u2014 deps require 1.91+ (aws-sdk)"
+  },
+  {
+    "sha": "7ef3c79",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "docker",
+    "title": "Bump Rust to 1.85 for edition2024 support"
+  },
+  {
+    "sha": "74244a2",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Dockerfile path is ../Dockerfile relative to deploy/ dir"
+  },
+  {
+    "sha": "2425d66",
+    "date": "2026-03-06",
+    "kind": "fix",
+    "area": "config",
+    "title": "12-factor DATABASE_URL/REDIS_URL, correct NEXUS__ prefix, disable search default"
+  },
+  {
+    "sha": "e893cf0",
+    "date": "2026-03-05",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Fix migrations: resolve duplicate version 00007 collision"
+  },
+  {
+    "sha": "901f5f0",
+    "date": "2026-03-05",
+    "kind": "fix",
+    "area": "federation",
+    "title": "Full S2S correctness pass"
+  },
+  {
+    "sha": "034fd76",
+    "date": "2026-03-05",
+    "kind": "feat",
+    "area": "desktop",
+    "title": "Federated server & room browser"
+  },
+  {
+    "sha": "c654c76",
+    "date": "2026-03-04",
+    "kind": "feat",
+    "area": "desktop",
+    "title": "Wire RELATIONSHIP_UPDATE gateway event to FriendsPanel"
+  },
+  {
+    "sha": "a590991",
+    "date": "2026-03-04",
+    "kind": "feat",
+    "area": "federation",
+    "title": "Inbound sig verification + gateway push + Caddy TLS"
+  },
+  {
+    "sha": "b719777",
+    "date": "2026-03-04",
+    "kind": "fix",
+    "area": "federation",
+    "title": "HTTP fallback in discovery + port in well-known m.server"
+  },
+  {
+    "sha": "154bd7e",
+    "date": "2026-03-04",
+    "kind": "feat",
+    "area": "federation",
+    "title": "Cross-server friend requests via username@server"
+  },
+  {
+    "sha": "0867e9e",
+    "date": "2026-03-04",
+    "kind": "fix",
+    "area": "desktop",
+    "title": "Parse API error JSON to show friendly message in friends panel"
+  },
+  {
+    "sha": "d4618c3",
+    "date": "2026-03-04",
+    "kind": "feat",
+    "area": "desktop",
+    "title": "Add friends/relationships/DMs/user-search Tauri commands"
+  },
+  {
+    "sha": "22257b6",
+    "date": "2026-03-03",
+    "kind": "fix",
+    "area": "desktop",
+    "title": "Auto-refresh access token every 10 min to prevent 401 expiry"
+  },
+  {
+    "sha": "4a70a00",
+    "date": "2026-03-03",
+    "kind": "fix",
+    "area": "db",
+    "title": "Cast UUID/JSONB/TIMESTAMPTZ columns to text in bots repo"
+  },
+  {
+    "sha": "84a2f14",
+    "date": "2026-03-03",
+    "kind": "fix",
+    "area": "db",
+    "title": "Cast UUID/TIMESTAMPTZ columns to ::text in emoji, attachment, thread repos"
+  },
+  {
+    "sha": "eccc3db",
+    "date": "2026-03-02",
+    "kind": "fix",
+    "area": "desktop",
+    "title": "Add missing Tauri commands for delete/update server, invites, leave, transfer"
+  },
+  {
+    "sha": "460729f",
+    "date": "2026-03-02",
+    "kind": "fix",
+    "area": "federation",
+    "title": "Use $N placeholders instead of ? for PostgreSQL AnyPool compatibility"
+  },
+  {
+    "sha": "4433bfd",
+    "date": "2026-03-02",
+    "kind": "fix",
+    "area": "desktop",
+    "title": "Replace invalid Parameters<typeof getState()...> with direct ServerEvent cast"
+  },
+  {
+    "sha": "ac6853f",
+    "date": "2026-03-02",
+    "kind": "fix",
+    "area": "windows",
+    "title": "Pass 'serve' subcommand to nexus in nexus-start.ps1"
+  },
+  {
+    "sha": "69c88a7",
+    "date": "2026-03-02",
+    "kind": "fix",
+    "area": "windows",
+    "title": "PS1 ASCII-only + UTF-8 BOM + CRLF to fix Unicode corruption"
+  },
+  {
+    "sha": "a9208e1",
+    "date": "2026-03-02",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Resolve all compile errors and migration issues; smoke test passing"
+  },
+  {
+    "sha": "f5c3c3d",
+    "date": "2026-02-28",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phase 8.5 complete \u2014 federation UX, admin peering dashboard, identity management"
+  },
+  {
+    "sha": "bf32baa",
+    "date": "2026-02-27",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phase 15 complete \u2014 user badges, server supporter tiers, canvas document channels"
+  },
+  {
+    "sha": "2102dbc",
+    "date": "2026-02-27",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phase 14 complete \u2014 message forwarding, server events, sticker packs, inline bot suggestions, stream topic threading"
+  },
+  {
+    "sha": "b52ce03",
+    "date": "2026-02-27",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phase 13 complete \u2014 PollCard, scheduled send, bookmarks, drafts, note-to-self, disappearing timer, status expiry"
+  },
+  {
+    "sha": "74d6a41",
+    "date": "2026-02-27",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phase 13 \u2014 polls, scheduled messages, bookmarks, drafts, disappearing messages, note-to-self, status expiry"
+  },
+  {
+    "sha": "3d097d1",
+    "date": "2026-02-27",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Phase 12 \u2014 forum channels, stage instances, announcement crosspost, group DM management"
+  },
+  {
+    "sha": "8bf8dfc",
+    "date": "2026-02-27",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Complete protocol layer and fix all runtime bugs"
+  },
+  {
+    "sha": "2afc529",
+    "date": "2026-02-25",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Implement Settings sub-pages, bot token scheme, and Matrix bridge"
+  },
+  {
+    "sha": "6184b70",
+    "date": "2026-02-25",
+    "kind": "feat",
+    "area": "lite",
+    "title": "Phase 9.5 \u2014 zero-infra single-binary mode"
+  },
+  {
+    "sha": "748fd74",
+    "date": "2026-02-24",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Friends system, member list, user profiles, presence fix"
+  },
+  {
+    "sha": "60825b9",
+    "date": "2026-02-21",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Guard Tauri-only APIs behind isTauri() for browser dev mode"
+  },
+  {
+    "sha": "6cd9fe8",
+    "date": "2026-02-20",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Resolve remaining AnyPool compile errors in gateway and federation"
+  },
+  {
+    "sha": "ce6aed7",
+    "date": "2026-02-20",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Add lite mode (single-binary SQLite) for self-hosting"
+  },
+  {
+    "sha": "110b827",
+    "date": "2026-02-19",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Implement post-login functionality"
+  },
+  {
+    "sha": "f5db79f",
+    "date": "2026-02-19",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Resolve all local dev startup issues"
+  },
+  {
+    "sha": "6cea1de",
+    "date": "2026-02-19",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Launch \u2014 deployment infra, security hardening, benchmarks, governance"
+  },
+  {
+    "sha": "22dc08a",
+    "date": "2026-02-19",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Wire FederationClient + implement all federation stubs"
+  },
+  {
+    "sha": "eb00bbb",
+    "date": "2026-02-19",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Directory DB queries \u2014 servers, rooms, search, resolve"
+  },
+  {
+    "sha": "11b6cdf",
+    "date": "2026-02-19",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Federated identity \u2014 MXID resolution + user profile endpoint"
+  },
+  {
+    "sha": "355ea38",
+    "date": "2026-02-19",
+    "kind": "feat",
+    "area": "chat",
+    "title": "PDU signature verification + persistence in receive_transaction"
+  },
+  {
+    "sha": "2f0872e",
+    "date": "2026-02-19",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Load federation signing key from DB on startup"
+  },
+  {
+    "sha": "3b22256",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Federation protocol \u2014 S2S, directory, Matrix bridge stub"
+  },
+  {
+    "sha": "bd2e185",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Client plugin system and custom theme API"
+  },
+  {
+    "sha": "b3f0e86",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Add Python and Rust bot SDKs"
+  },
+  {
+    "sha": "b80c66e",
+    "date": "2026-02-18",
+    "kind": "fix",
+    "area": "desktop",
+    "title": "Remove invalid plugins.store empty-object config"
+  },
+  {
+    "sha": "af05be8",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Add TypeScript bot SDK (@nexus/sdk)"
+  },
+  {
+    "sha": "6a4cb89",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Extensibility \u2014 bot API, webhooks, slash commands, plugins/themes"
+  },
+  {
+    "sha": "2c8f615",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "V0.6 Desktop Client \u2014 Tauri 2 shell, system tray, PTT hotkey, overlay, auto-update, React frontend"
+  },
+  {
+    "sha": "4e49eeb",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "V0.5 Encryption \u2014 Signal Protocol key infra, E2EE channels/DMs, device verification, safety numbers"
+  },
+  {
+    "sha": "d2133dd",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "V0.4 Rich Features \u2014 file uploads (MinIO), threads, MeiliSearch, custom emoji, enhanced presence"
+  },
+  {
+    "sha": "fbd5af6",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Voice/WebRTC SFU \u2014 signaling, state management, str0m integration"
+  },
+  {
+    "sha": "10cf865",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Chat MVP \u2014 messages, reactions, DMs, read states, real-time events"
+  },
+  {
+    "sha": "94c19da",
+    "date": "2026-02-18",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Initial Nexus scaffold \u2014 privacy-first Discord alternative"
+  },
+  {
+    "sha": "dca48a5",
+    "date": "2026-07-10",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Agent pattern updates + CC pattern tests"
+  },
+  {
+    "sha": "34034cd",
+    "date": "2026-07-02",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Remove run_command from DESTRUCTIVE_ACTIONS \u2014 stops blocking compile/build"
+  },
+  {
+    "sha": "4af6e70",
+    "date": "2026-07-02",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Remove strict-mode instruction from system prompt when no-guess is off"
+  },
+  {
+    "sha": "17b45a9",
+    "date": "2026-07-02",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Change strict mode defaults from strict\u2192balanced permanently"
+  },
+  {
+    "sha": "2884441",
+    "date": "2026-07-02",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Move Copy/Export to conversation footer (bottom of messages)"
+  },
+  {
+    "sha": "20b37c0",
+    "date": "2026-07-02",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Conversation-level Copy + Export MD buttons"
+  },
+  {
+    "sha": "d3f63bf",
+    "date": "2026-07-01",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Add scrollbar to Settings modal (max-height 85vh, overflow-y: auto)"
+  },
+  {
+    "sha": "746c537",
+    "date": "2026-07-01",
+    "kind": "perf",
+    "area": "ai",
+    "title": "Default to reasoning models \u2014 deepseek-reasoner + nvidia nemotron"
+  },
+  {
+    "sha": "8765774",
+    "date": "2026-07-01",
+    "kind": "perf",
+    "area": "ai",
+    "title": "Prioritize providers with configured API keys over free/keyless"
+  },
+  {
+    "sha": "be750dc",
+    "date": "2026-07-01",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Clean provider key UI \u2014 dropdown + single input instead of 44 stacked fields"
+  },
+  {
+    "sha": "f7075a6",
+    "date": "2026-07-01",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Make populateProviderKeys synchronous \u2014 no await, no async, no fetch"
+  },
+  {
+    "sha": "7ae23d2",
+    "date": "2026-07-01",
+    "kind": "fix",
+    "area": "ai",
+    "title": "_call_timeout \u2192 _race_timeout variable scope in racing code"
+  },
+  {
+    "sha": "89d1f40",
+    "date": "2026-07-01",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Preload provider keys during page init so inputs show immediately"
+  },
+  {
+    "sha": "568a852",
+    "date": "2026-07-01",
+    "kind": "perf",
+    "area": "ai",
+    "title": "Aggressive provider routing optimization \u2014 no more dead air"
+  },
+  {
+    "sha": "878f7d2",
+    "date": "2026-06-29",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Wire run_agent_task() into loop implement phase for real code generation"
+  },
+  {
+    "sha": "aaf04fb",
+    "date": "2026-06-29",
+    "kind": "fix",
+    "area": "ai",
+    "title": "All nostack test counts updated for 32 skills"
+  },
+  {
+    "sha": "a6d7f1f",
+    "date": "2026-06-29",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Update nostack test counts for 32 skills, fix loop QA type comparison"
+  },
+  {
+    "sha": "1e628e8",
+    "date": "2026-06-29",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Proper 7-phase loop engineering with multi-agent orchestration"
+  },
+  {
+    "sha": "b95cc8d",
+    "date": "2026-06-29",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Rewrite autonomous loop as in-process Python engine"
+  },
+  {
+    "sha": "ab06527",
+    "date": "2026-06-29",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Autonomous loop engineering system for Nexus AI"
+  },
+  {
+    "sha": "3c8bd4a",
+    "date": "2026-06-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "PopulateProviderKeys now fetches providers if cache empty"
+  },
+  {
+    "sha": "9469958",
+    "date": "2026-06-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Provider API key management in UI + backend"
+  },
+  {
+    "sha": "98c94c1",
+    "date": "2026-06-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Shutdown exemption for /nostack/health + classify in web SPA"
+  },
+  {
+    "sha": "f01efa0",
+    "date": "2026-06-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Add project root to PYTHONPATH in main.py"
+  },
+  {
+    "sha": "820e3fe",
+    "date": "2026-06-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Nostack Go SDK + skill suggestions in main web UI"
+  },
+  {
+    "sha": "a1561a9",
+    "date": "2026-06-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Add nostack methods to TypeScript SDK"
+  },
+  {
+    "sha": "65ab7f0",
+    "date": "2026-06-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Add nostack methods to Python SDK (sync + async clients)"
+  },
+  {
+    "sha": "4b54a81",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "WebSocket + SSE streaming for nostack skills, Makefile nostack targets"
+  },
+  {
+    "sha": "1be7646",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Nostack health endpoint + enhanced CLI with suggestions"
+  },
+  {
+    "sha": "0640c6b",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Skill classification endpoint \u2014 recommend skills from task description"
+  },
+  {
+    "sha": "9355751",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sprint error handling + 16 new tests"
+  },
+  {
+    "sha": "2159c38",
+    "date": "2026-06-26",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Remove duplicate PWA meta tags, add missing sections to skills"
+  },
+  {
+    "sha": "03cf404",
+    "date": "2026-06-26",
+    "kind": "fix",
+    "area": "ai",
+    "title": "XSS hardening and input validation in nostack.js"
+  },
+  {
+    "sha": "e63800e",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Nostack panel in main web UI + fix deprecation warning"
+  },
+  {
+    "sha": "ec04ce1",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Desktop app built-in UI + fix 2 xfailed tests"
+  },
+  {
+    "sha": "12679b2",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sprint state system, templates, npm deps updated"
+  },
+  {
+    "sha": "e29c020",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Add nostack test suite + skills panel to web SPA"
+  },
+  {
+    "sha": "4cbe47b",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Track mobile, desktop, vscode-extension in git; add nostack to all apps"
+  },
+  {
+    "sha": "fe6fa50",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Nostack integration across all apps + mobile app rewrite"
+  },
+  {
+    "sha": "3ab1199",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Add nostack API endpoints + fix lazy imports and DB warnings"
+  },
+  {
+    "sha": "fe708d0",
+    "date": "2026-06-26",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Add nostack \u2014 31 specialist skills for Nexus AI virtual engineering team"
+  },
+  {
+    "sha": "651cdf2",
+    "date": "2026-04-29",
+    "kind": "feat",
+    "area": "ui+tests",
+    "title": "Integrate retained panel/test deltas from sync branch"
+  },
+  {
+    "sha": "d06da1a",
+    "date": "2026-04-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Ship federation, creative jobs, eval persistence, and live trace hardening"
+  },
+  {
+    "sha": "221ef80",
+    "date": "2026-04-26",
+    "kind": "feat",
+    "area": "ui+safety",
+    "title": "Adopt structured chat thread and relax strict write_file gate"
+  },
+  {
+    "sha": "2c5672d",
+    "date": "2026-04-26",
+    "kind": "feat",
+    "area": "ui",
+    "title": "Grouped activity trace sections with per-section counts"
+  },
+  {
+    "sha": "b74f0d5",
+    "date": "2026-04-26",
+    "kind": "feat",
+    "area": "ui",
+    "title": "Add collapsible live activity trace for agent execution"
+  },
+  {
+    "sha": "0d50b4b",
+    "date": "2026-04-25",
+    "kind": "fix",
+    "area": "ui+perf",
+    "title": "Collapse tool steps, hide diagnostic noise, reduce LLM timeout"
+  },
+  {
+    "sha": "be6bdd4",
+    "date": "2026-04-25",
+    "kind": "feat",
+    "area": "agent",
+    "title": "Native LLM tool-calling replaces custom JSON dispatch loop"
+  },
+  {
+    "sha": "7d7558c",
+    "date": "2026-04-24",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Resolve GitHub repo analysis flow \u2014 end-to-end working"
+  },
+  {
+    "sha": "eb9643a",
+    "date": "2026-04-24",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Read_file/list_files must bypass dispatch_builtin to use session workdir"
+  },
+  {
+    "sha": "064bd2a",
+    "date": "2026-04-24",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Expose relative read_file prefix in clone result and tighten repo workflow"
+  },
+  {
+    "sha": "b00728e",
+    "date": "2026-04-24",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Correct broken provider configs and improve error routing"
+  },
+  {
+    "sha": "94a7a9a",
+    "date": "2026-04-24",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Strip injected memory/KG from client history and fix chat title pollution"
+  },
+  {
+    "sha": "6081e20",
+    "date": "2026-04-24",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Stop list_files/read_file loops and improve GitHub repo path handling"
+  },
+  {
+    "sha": "0fa02d7",
+    "date": "2026-04-24",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Reduce warmup demotion window and add admin provider reset endpoint"
+  },
+  {
+    "sha": "520f238",
+    "date": "2026-04-24",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Remove all hardcoded AI responses; add bypass history endpoint and badge timestamp"
+  },
+  {
+    "sha": "52aac8e",
+    "date": "2026-04-23",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Agent always produces final answer + GitHub repo workflow"
+  },
+  {
+    "sha": "5926698",
+    "date": "2026-04-23",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Live Trace panel, Task History panel, Swarm SSE upgrade"
+  },
+  {
+    "sha": "d3f65d7",
+    "date": "2026-04-23",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Harden conversation fallback diagnostics"
+  },
+  {
+    "sha": "2421c1d",
+    "date": "2026-04-23",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Public launch UX hardening \u2014 onboarding, state persistence, error messaging, trust surfaces"
+  },
+  {
+    "sha": "32c680c",
+    "date": "2026-04-23",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Deliver hardening wave, RLHF persistence, and nightly test stability"
+  },
+  {
+    "sha": "3d65d41",
+    "date": "2026-04-21",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Commit remaining staged changes from sec26 and platform gap work"
+  },
+  {
+    "sha": "f291d94",
+    "date": "2026-04-21",
+    "kind": "feat",
+    "area": "bench+sdk",
+    "title": "Dataset-backed benchmark runners, artifact export, and release-grade SDK packaging"
+  },
+  {
+    "sha": "015e585",
+    "date": "2026-04-21",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Close section 26 platform gaps"
+  },
+  {
+    "sha": "65ba0ad",
+    "date": "2026-04-21",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Implement 42 of 68 Section 26 production-readiness gap items"
+  },
+  {
+    "sha": "e9a581e",
+    "date": "2026-04-21",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Production-grade implementation of 11 downgraded features"
+  },
+  {
+    "sha": "a83bf48",
+    "date": "2026-04-20",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Implement benchmark harness, SDK improvements, deployment profiles, and compliance expansion"
+  },
+  {
+    "sha": "8ab745d",
+    "date": "2026-04-20",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Fix frontend bootstrap stability and scanner-safe tests"
+  },
+  {
+    "sha": "cb86248",
+    "date": "2026-04-20",
+    "kind": "feat",
+    "area": "ui",
+    "title": "Add public benchmark leaderboard panel"
+  },
+  {
+    "sha": "cf810f4",
+    "date": "2026-04-20",
+    "kind": "fix",
+    "area": "deps",
+    "title": "Replace py_webauthn with webauthn 2.7.1"
+  },
+  {
+    "sha": "9c0064a",
+    "date": "2026-04-20",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Complete contract hardening and workspace routes expansion"
+  },
+  {
+    "sha": "ded34e5",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "tools",
+    "title": "Implement sections 6.1-6.7 \u2014 schema registry, audit log, rate limiting, scheduler retry, route fixes"
+  },
+  {
+    "sha": "2eec08a",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Complete all 10 partial feature gaps \u2192 promote to [x]"
+  },
+  {
+    "sha": "72f523a",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Add infra reliability modules and update feature inventory"
+  },
+  {
+    "sha": "0714c17",
+    "date": "2026-04-18",
+    "kind": "fix",
+    "area": "startup",
+    "title": "Initialize DB schema before state preload"
+  },
+  {
+    "sha": "e5ffd68",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "rag",
+    "title": "Harden section-5 pipeline and document intelligence"
+  },
+  {
+    "sha": "4f5517b",
+    "date": "2026-04-18",
+    "kind": "fix",
+    "area": "ai",
+    "title": "NAI-API-CONTRACT-00081 Part 6 - Fix test assertions and add 503 handler for provider exhaustion"
+  },
+  {
+    "sha": "2a4031e",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "ai",
+    "title": "NAI-API-CONTRACT-00081 Part 6 - Budget-aware provider routing implementation"
+  },
+  {
+    "sha": "f01b24d",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "agent+intelligence",
+    "title": "Implement Section 3 agent loop and core intelligence"
+  },
+  {
+    "sha": "d258d7e",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "routing+api",
+    "title": "Implement Section 2 provider routing and OpenAI API surface"
+  },
+  {
+    "sha": "b119fae",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "infra",
+    "title": "Complete Section 1 foundational infrastructure \u2014 K8s, Helm, Gunicorn, Alembic, OAuth, API keys, quota scheduler"
+  },
+  {
+    "sha": "a705bcf",
+    "date": "2026-04-18",
+    "kind": "feat",
+    "area": "foundation",
+    "title": "Implement Section 1 foundational infrastructure"
+  },
+  {
+    "sha": "15025d3",
+    "date": "2026-04-15",
+    "kind": "feat",
+    "area": "api",
+    "title": "Add usage accounting for v1 chat completions"
+  },
+  {
+    "sha": "90e46df",
+    "date": "2026-04-15",
+    "kind": "feat",
+    "area": "api",
+    "title": "Add v1 model retrieval endpoint"
+  },
+  {
+    "sha": "72422f6",
+    "date": "2026-04-15",
+    "kind": "feat",
+    "area": "api",
+    "title": "Support token-array input for v1 embeddings"
+  },
+  {
+    "sha": "454b75d",
+    "date": "2026-04-15",
+    "kind": "feat",
+    "area": "api",
+    "title": "Add embeddings usage parity in v1 responses"
+  },
+  {
+    "sha": "b1e7f11",
+    "date": "2026-04-15",
+    "kind": "feat",
+    "area": "api",
+    "title": "Add structured outputs and beta hardening updates"
+  },
+  {
+    "sha": "25e624b",
+    "date": "2026-04-14",
+    "kind": "feat",
+    "area": "reasoning",
+    "title": "Add debate + hypothesis loops and adaptive routing"
+  },
+  {
+    "sha": "a35aae6",
+    "date": "2026-04-14",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Phase 4&3 roadmap \u2014 diff viewer, self-improvement loop, document understanding"
+  },
+  {
+    "sha": "4da5eb0",
+    "date": "2026-04-14",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Generator-critic research loop with citation confidence scoring"
+  },
+  {
+    "sha": "3e8b515",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "ui",
+    "title": "Add Phase A architecture panel for snapshots and version browsing"
+  },
+  {
+    "sha": "d0eadd6",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "safety+architecture",
+    "title": "Scanner UI, severity audit filter, and versioned hierarchy registry"
+  },
+  {
+    "sha": "6886ba8",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "architecture",
+    "title": "Add AI-system hierarchy scaffold and endpoint"
+  },
+  {
+    "sha": "cc1c6ab",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "safety",
+    "title": "Add prompt-injection scan endpoint"
+  },
+  {
+    "sha": "b9431bd",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "safety",
+    "title": "Add event_type filtering to safety audit API"
+  },
+  {
+    "sha": "817f726",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "safety",
+    "title": "Server-side session_id filtering on audit API"
+  },
+  {
+    "sha": "48fe376",
+    "date": "2026-04-13",
+    "kind": "fix",
+    "area": "safety",
+    "title": "Complete audit coverage and stabilize SprintC test"
+  },
+  {
+    "sha": "0fd31c1",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "safety",
+    "title": "Add session badge state and audit events"
+  },
+  {
+    "sha": "1a105d8",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "safety",
+    "title": "Safety policy profiles, runtime API, and frontend settings UI"
+  },
+  {
+    "sha": "e590a83",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "flow",
+    "title": "Reduce tool-loop thrashing and honor clone destination hints"
+  },
+  {
+    "sha": "a2f510b",
+    "date": "2026-04-13",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Use py3.14-compatible youtube-transcript-api and split optional RAG deps"
+  },
+  {
+    "sha": "5b24726",
+    "date": "2026-04-13",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Start uvicorn when running main.py"
+  },
+  {
+    "sha": "c0533b1",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sprint J \u2014 knowledge graph, execution trace replay, ensemble toggle"
+  },
+  {
+    "sha": "1d85a3b",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sprint I \u2014 autonomous scheduler, command palette, and PII scrubber (158 tests)"
+  },
+  {
+    "sha": "a0f9c1b",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sprint H \u2014 vision routing, diff viewer, DB schema introspection, Swarm View (150 tests)"
+  },
+  {
+    "sha": "561e80d",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sprint G \u2014 simulate tool (swarm prediction), agent marketplace, agent-to-agent bus (128 tests)"
+  },
+  {
+    "sha": "19a2c9e",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sprint D+E \u2014 GoT, consensus, LLM compression, benchmark, vector filtering, feedback, SSE token/confidence/trace (71 tests)"
+  },
+  {
+    "sha": "aceff22",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sprint A/B/C \u2014 src/ layout refactor, OpenAI-compat API, guardrails, ensemble mode, self-critique loop, MoE routing, token counter, memory pruning (40 tests)"
+  },
+  {
+    "sha": "313af6c",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Update auth flow, memory handling, and ui roadmap"
+  },
+  {
+    "sha": "3d26fd8",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Allow iframe embedding from Nexus Cloud portal"
+  },
+  {
+    "sha": "15bc1ac",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Register with Nexus Cloud on startup + 30s heartbeat"
+  },
+  {
+    "sha": "19f94fa",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Port VersaAI RAG, autonomy, model routing + transparent process-tree streaming"
+  },
+  {
+    "sha": "12e4d4d",
+    "date": "2026-04-09",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Phase 2 persistent context windows (#11)"
+  },
+  {
+    "sha": "96af47e",
+    "date": "2026-04-09",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Phase 1 Super Intelligence Layer (#10)"
+  },
+  {
+    "sha": "d0ee575",
+    "date": "2026-04-09",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Multi-user auth (JWT), webhook triggers, and MCP server support (#7)"
+  },
+  {
+    "sha": "1ecb039",
+    "date": "2026-04-09",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Nexus Prime Cloud architect persona + nexus_status tool (#6)"
+  },
+  {
+    "sha": "2105b35",
+    "date": "2026-04-09",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Docker Compose with Ollama + full Nexus AI deployment stack (#5)"
+  },
+  {
+    "sha": "e035758",
+    "date": "2026-04-09",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Add Ollama provider with glm-5.1:cloud support (#3)"
+  },
+  {
+    "sha": "0a1fef2",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Replace git subprocess with GitHub Contents API for clone+push"
+  },
+  {
+    "sha": "f15fe64",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Deduplicate repeated tool steps in UI"
+  },
+  {
+    "sha": "9063246",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Broken JS crashing entire page \u2014 send/UI completely non-functional"
+  },
+  {
+    "sha": "3216d5d",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Broken JS crashing entire page + header overflow menu"
+  },
+  {
+    "sha": "b659ad2",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Bust SW cache serving old page with rogue install prompt"
+  },
+  {
+    "sha": "09fe966",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Double render, install banner always visible, plan step numbers"
+  },
+  {
+    "sha": "744a6b8",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Install banner, rate-limit toast, graceful exhaustion"
+  },
+  {
+    "sha": "124d5c8",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Agent asks for GitHub username/org before creating repos + free-text clarify inputs"
+  },
+  {
+    "sha": "da0925f",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Write_file parse failures, plan numbering, enforce push after build"
+  },
+  {
+    "sha": "8000475",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Sandbox protection, create_repo, rate limiting, cost tracking, confidence, DB tool"
+  },
+  {
+    "sha": "a2d929c",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Replace all stale function names crashing startup"
+  },
+  {
+    "sha": "189f4b6",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Remove nonexistent init_pins_table() call crashing startup"
+  },
+  {
+    "sha": "983c068",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Usage dashboard, provider health, reactions, spreadsheet, API caller, page reader, sub-agent"
+  },
+  {
+    "sha": "7f41423",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Search, pins, shortcuts, token counter, theme, YouTube, PDF, diff, auto-retry, compression"
+  },
+  {
+    "sha": "608024c",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Search, pin, theme, shortcuts, token counter, YouTube, PDF, diff, persona editor, auto-retry, long-context"
+  },
+  {
+    "sha": "357e646",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Projects, artifacts panel, edit/retry, TTS, custom instructions, memory panel, source cards"
+  },
+  {
+    "sha": "b8ef811",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "GitHub Gist persistence \u2014 DB survives redeploys without a volume"
+  },
+  {
+    "sha": "f406e4a",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "ai",
+    "title": "SQLite persistence + split ROADMAP.md"
+  },
+  {
+    "sha": "db2d772",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Dynamic repos, sandboxed exec, artifacts, 7 new tools"
+  },
+  {
+    "sha": "e035e7d",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Clarify + plan actions for structured complex task handling"
+  },
+  {
+    "sha": "6e6f554",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Restore requirements.txt after rogue agent overwrote it"
+  },
+  {
+    "sha": "9e71d0c",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Streaming stop button, agent memory, voice input, export+share"
+  },
+  {
+    "sha": "43690ad",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Initial API registry implementation with tests and documentation"
+  },
+  {
+    "sha": "ea3c50e",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Task complexity router \u2014 smart provider selection per task"
+  },
+  {
+    "sha": "6561833",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Bypass LLM entirely for GitHub clone tasks"
+  },
+  {
+    "sha": "4e6af2b",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Extract and inject GitHub URLs so LLM can't substitute placeholders"
+  },
+  {
+    "sha": "fff5503",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Agent acts immediately instead of asking unnecessary questions"
+  },
+  {
+    "sha": "6f6f031",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Simplify Dockerfile to unblock Railway deployment"
+  },
+  {
+    "sha": "63e26ff",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "History sidebar, settings panel, code viewer, agent thinking"
+  },
+  {
+    "sha": "2864025",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Bypass LLM for time queries + smarter rate-limit handling"
+  },
+  {
+    "sha": "2bd4f15",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Add get_time tool for timezone/time queries"
+  },
+  {
+    "sha": "5e4eeb8",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "Handle plain-text LLM responses + don't exhaust providers on parse errors"
+  },
+  {
+    "sha": "4214c1c",
+    "date": "2026-03-27",
+    "kind": "fix",
+    "area": "ai",
+    "title": "DOM hierarchy crash on send"
+  },
+  {
+    "sha": "d965488",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Streaming, web search, file upload, mobile UI"
+  },
+  {
+    "sha": "a2c984b",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Auto-fallback across providers on rate limit"
+  },
+  {
+    "sha": "b2db317",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Add 9 free LLM providers from awesome-free-llm-apis"
+  },
+  {
+    "sha": "db41723",
+    "date": "2026-03-27",
+    "kind": "feat",
+    "area": "ai",
+    "title": "Multi-turn sessions, agent loop, Claude provider, new chat UI"
+  },
+  {
+    "sha": "453bf27",
+    "date": "2026-08-14",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Retire the frontend, return a JSON service pointer"
+  },
+  {
+    "sha": "df8ae2c",
+    "date": "2026-08-14",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Serve the vendored design tokens and adopt the palette"
+  },
+  {
+    "sha": "efafc0c",
+    "date": "2026-08-13",
+    "kind": "feat",
+    "area": "public",
+    "title": "Vendor ecosystem design tokens for the palette drift guard"
+  },
+  {
+    "sha": "240917a",
+    "date": "2026-08-13",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Frame the console in the shell, and only in the shell"
+  },
+  {
+    "sha": "8fb5dc0",
+    "date": "2026-08-13",
+    "kind": "fix",
+    "area": "registry",
+    "title": "Persist requiresAuth, and drop the login form from the portal"
+  },
+  {
+    "sha": "8783fe6",
+    "date": "2026-08-12",
+    "kind": "feat",
+    "area": "routes",
+    "title": "Give the login gate a switch it never had"
+  },
+  {
+    "sha": "70733fc",
+    "date": "2026-08-12",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Bind to loopback instead of every interface"
+  },
+  {
+    "sha": "967ef50",
+    "date": "2026-08-10",
+    "kind": "feat",
+    "area": "dns",
+    "title": "Publish hostnames as proxied CNAMEs to the tunnel, with dynamic zone lookup"
+  },
+  {
+    "sha": "9792882",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "storage",
+    "title": "Stop serving shared-pool credentials to anonymous callers"
+  },
+  {
+    "sha": "ac2d68e",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "portal",
+    "title": "Open apps at their public URL, and stop advertising revoked ones"
+  },
+  {
+    "sha": "bf998b9",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "systems-api",
+    "title": "Bound the tool history so the registry store stops growing"
+  },
+  {
+    "sha": "84cb120",
+    "date": "2026-08-09",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Stop owning identity \u2014 Nexus-Auth authenticates the ecosystem"
+  },
+  {
+    "sha": "5a88e96",
+    "date": "2026-08-08",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "An unconfigured database no longer crashes the control plane"
+  },
+  {
+    "sha": "e9adcde",
+    "date": "2026-08-08",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Stop publishing backend addresses to anonymous callers"
+  },
+  {
+    "sha": "4db6277",
+    "date": "2026-08-08",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Sovereign DNS, user auth, S3 storage, topology data \u2014 and gate the routing table"
+  },
+  {
+    "sha": "ad57ad6",
+    "date": "2026-04-26",
+    "kind": "feat",
+    "area": "ui+safety",
+    "title": "Adopt structured chat thread and relax strict write_file gate"
+  },
+  {
+    "sha": "30e1dab",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Harden public address contract"
+  },
+  {
+    "sha": "5d915c1",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Add public/status.html \u2014 node status + network health"
+  },
+  {
+    "sha": "c3f6385",
+    "date": "2026-04-23",
+    "kind": "fix",
+    "area": "computer",
+    "title": "Move useMemo above auth guard early returns \u2014 complete hooks-before-returns fix"
+  },
+  {
+    "sha": "83883f1",
+    "date": "2026-04-23",
+    "kind": "fix",
+    "area": "computer",
+    "title": "Rules of Hooks violation \u2014 move all hooks before early auth returns"
+  },
+  {
+    "sha": "af8a0a8",
+    "date": "2026-04-23",
+    "kind": "fix",
+    "area": "computer",
+    "title": "Add error boundary \u2014 shows crash details instead of black screen"
+  },
+  {
+    "sha": "fffc562",
+    "date": "2026-04-23",
+    "kind": "fix",
+    "area": "computer",
+    "title": "Default WORKSPACE_DIR to ~/nexus-workspace instead of /workspace (no root required)"
+  },
+  {
+    "sha": "f455a22",
+    "date": "2026-04-23",
+    "kind": "fix",
+    "area": "computer",
+    "title": "Remove @xterm/addon-web-links (no stable version exists), fix Terminal.jsx import"
+  },
+  {
+    "sha": "a565bd5",
+    "date": "2026-04-23",
+    "kind": "feat",
+    "area": "computer",
+    "title": "Full zo.computer feature parity + more"
+  },
+  {
+    "sha": "7968568",
+    "date": "2026-04-23",
+    "kind": "feat",
+    "area": "computer",
+    "title": "Nexus AI integration, auth, terminal, cleanup"
+  },
+  {
+    "sha": "cdca6bc",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "computer",
+    "title": "Update backend agent deps and frontend styles"
+  },
+  {
+    "sha": "321a299",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "computer",
+    "title": "Wire NetworkPanel into App.jsx left column"
+  },
+  {
+    "sha": "cfbcdcc",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "computer",
+    "title": "Add NetworkPanel component for federation health"
+  },
+  {
+    "sha": "d269d3b",
+    "date": "2026-04-05",
+    "kind": "feat",
+    "area": "computer",
+    "title": "Phase 1 \u2014 Nexus.computer initial build"
+  },
+  {
+    "sha": "a78cdb6",
+    "date": "2026-08-13",
+    "kind": "fix",
+    "area": "web",
+    "title": "Drop the login form, use the ecosystem session"
+  },
+  {
+    "sha": "0b14e4c",
+    "date": "2026-08-09",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Send unauthenticated browsers to the ecosystem sign-in page"
+  },
+  {
+    "sha": "e952662",
+    "date": "2026-08-09",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Authenticate against Nexus-Auth instead of a private user table"
+  },
+  {
+    "sha": "4a21f66",
+    "date": "2026-08-08",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Default the data root to a path the running user can write"
+  },
+  {
+    "sha": "cfe8e27",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Update deploy service and web styling"
+  },
+  {
+    "sha": "176ca9e",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Add Nexus Network health widget to sidebar"
+  },
+  {
+    "sha": "0e22f7c",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Build cancel, .env import, notify webhooks, auto-deploy toggle, search"
+  },
+  {
+    "sha": "13b91db",
+    "date": "2026-04-06",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Fix+feat: SSE auth, process leak, volumes, resource limits, stats, restart"
+  },
+  {
+    "sha": "09598d0",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Container log streaming, SSE status feed, custom domains, image pruning"
+  },
+  {
+    "sha": "6ada1ad",
+    "date": "2026-04-06",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Fix+feat: write queue, build lock, port support, docker-compose overhaul"
+  },
+  {
+    "sha": "7c6cb45",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Rollback, status sync, webhook panel, activity feed, per-project secrets"
+  },
+  {
+    "sha": "f81e9bf",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Real build engine, WebSocket log streaming, full dashboard"
+  },
+  {
+    "sha": "0d94a80",
+    "date": "2026-08-19",
+    "kind": "fix",
+    "area": "api",
+    "title": "Let the ecosystem shell frame this app"
+  },
+  {
+    "sha": "026a410",
+    "date": "2026-08-14",
+    "kind": "fix",
+    "area": "cli",
+    "title": "Make nh actually run, and actually build"
+  },
+  {
+    "sha": "01abdea",
+    "date": "2026-08-13",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Make low_resource and geo_routing_enabled real flags"
+  },
+  {
+    "sha": "4986899",
+    "date": "2026-08-13",
+    "kind": "fix",
+    "area": "compose",
+    "title": "Republish MinIO on 9010 \u2014 storage.tnhc.dev depends on it"
+  },
+  {
+    "sha": "a3e6623",
+    "date": "2026-08-13",
+    "kind": "fix",
+    "area": "compose",
+    "title": "Stop publishing redis/minio host ports that the root infra stack already owns"
+  },
+  {
+    "sha": "8c59ecd",
+    "date": "2026-08-13",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Add configurable frame-ancestors CSP to every framable response"
+  },
+  {
+    "sha": "9e69dc1",
+    "date": "2026-08-10",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Supersede the previous active deployment"
+  },
+  {
+    "sha": "a2c47db",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "storage",
+    "title": "Stream object bodies that arrive as a Node Readable"
+  },
+  {
+    "sha": "0f74280",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "storage",
+    "title": "Sign upload URLs against an endpoint clients can reach"
+  },
+  {
+    "sha": "955308f",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "The deploy path works \u2014 schema drift, a bad call, and three type mismatches"
+  },
+  {
+    "sha": "b3764dc",
+    "date": "2026-08-09",
+    "kind": "feat",
+    "area": "auth",
+    "title": "Authenticate against the ecosystem's OIDC provider"
+  },
+  {
+    "sha": "1148dc4",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "The stack now starts \u2014 migrations, API and proxy all come up"
+  },
+  {
+    "sha": "7b9c5c2",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Make the frontend and CLI build \u2014 they never have"
+  },
+  {
+    "sha": "17dcb5c",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "nexus-proxy",
+    "title": "Make the crate build \u2014 it never has"
+  },
+  {
+    "sha": "7bef34c",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "compose",
+    "title": "Restore the network name every service references"
+  },
+  {
+    "sha": "534c5cc",
+    "date": "2026-08-08",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Docker deploys, consolidated schema \u2014 and make the migration actually apply"
+  },
+  {
+    "sha": "4b00031",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Update api server routing, auth, and db migration tooling"
+  },
+  {
+    "sha": "1fe9f05",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Register with Nexus Cloud on startup + 30s heartbeat"
+  },
+  {
+    "sha": "60c9d80",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Document cloud address contract"
+  },
+  {
+    "sha": "54ab00e",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Add Nexus Ecosystem + Network Health sections to landing page"
+  },
+  {
+    "sha": "31e0ea9",
+    "date": "2026-03-29",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Auto-create bucket on startup, production compose, setup script (Step 3)"
+  },
+  {
+    "sha": "773b3d1",
+    "date": "2026-03-29",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "New landing page \u2014 honest, self-contained, no fake stats"
+  },
+  {
+    "sha": "a011bec",
+    "date": "2026-03-29",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "New Nexus Hosting landing page"
+  },
+  {
+    "sha": "4bbc920",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Wire all remaining gaps \u2014 ban enforcement, suspension, CLI storage, tests, docs"
+  },
+  {
+    "sha": "8fb1fe2",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Content scanner, email enforcement, node trust UI, user admin controls, OpenAPI, README"
+  },
+  {
+    "sha": "5b5bf9f",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Remove all paid tiers \u2014 FedHost is always free; implement remaining features"
+  },
+  {
+    "sha": "8ca2f6b",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Email verification, per-user quotas, IP bans, abuse reports (Categories 1+3)"
+  },
+  {
+    "sha": "50fe200",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "rust",
+    "title": "Base64 0.22 API, missing hmac dep, redis 0.25 pubsub API"
+  },
+  {
+    "sha": "b8fcbd6",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Caddyfile dual routing, docker-compose proxy service, SPA routing UI + schema"
+  },
+  {
+    "sha": "f1732f2",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "rust",
+    "title": "Complete all 9 TODOs \u2014 fedhost-proxy fully functional"
+  },
+  {
+    "sha": "dad2404",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "rust",
+    "title": "Implement TODOs 2-6 in fedhost-proxy crate"
+  },
+  {
+    "sha": "c8a6b37",
+    "date": "2026-03-28",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Fh teams CLI, richer scaffolds, Rust storage.rs implemented"
+  },
+  {
+    "sha": "cfee817",
+    "date": "2026-03-28",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Fix+feat: TS production errors, password gate, unit tests, CLI domains, prometheus, load tests"
+  },
+  {
+    "sha": "83fea30",
+    "date": "2026-03-21",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "SiteSettings tabs, Admin user/site management, diff UI, clone/transfer, Grafana dashboards"
+  },
+  {
+    "sha": "f13fc12",
+    "date": "2026-03-21",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Usage dashboard auth, mobile polish, federation blocklist hardening"
+  },
+  {
+    "sha": "b7d55e6",
+    "date": "2026-03-21",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Blocklist UI, admin processes tab, git webhook guide, OpenAPI blocklist"
+  },
+  {
+    "sha": "53325dd",
+    "date": "2026-03-21",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "FEDERATED_STATIC_ONLY, federation blocklist, Indonesia-first i18n"
+  },
+  {
+    "sha": "7a2714f",
+    "date": "2026-03-21",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "LOW_RESOURCE mode + fedhost-proxy Rust crate skeleton"
+  },
+  {
+    "sha": "c7ff639",
+    "date": "2026-03-21",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "2FA login blocker, OpenAPI complete, webhook delivery UI, runtime panel generalized"
+  },
+  {
+    "sha": "4377c13",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "NLPL dynamic site hosting \u2014 process manager, frontend panel, examples"
+  },
+  {
+    "sha": "0b75a27",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Load test suite, updated ROADMAP + HONEST_ASSESSMENT to reflect resolved issues"
+  },
+  {
+    "sha": "658ed76",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Redis rate limiting, migration runner, storage migration complete, maintenance mode, activity feed"
+  },
+  {
+    "sha": "dbb1cc7",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Token scopes UI, scope tests, fh create completion, OpenAPI 1.0.0"
+  },
+  {
+    "sha": "de60790",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Fh create templates, Admin tabs wired, scope enforcement, deploy.ts fix"
+  },
+  {
+    "sha": "b4d5eb3",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Admin audit log + site health tabs, webhook CRUD cleanup"
+  },
+  {
+    "sha": "07fb5ff",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Admin audit log + site health tabs, webhook CRUD cleanup"
+  },
+  {
+    "sha": "34d6c00",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Smart caching, ETags, sitemap/robots auto-gen, clone API, deploy progress bar, analytics sparkline"
+  },
+  {
+    "sha": "35e6efd",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Smart Cache-Control headers, webhooks schema"
+  },
+  {
+    "sha": "374e457",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Unlock message, personal dashboard, fh watch, deployment diff tests, fh status sites"
+  },
+  {
+    "sha": "be2a565",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Deployment diff API, SiteDetail quick-links, unlock_message column"
+  },
+  {
+    "sha": "30ac14a",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Invitation accept page, account settings, live build logs, Grafana dashboard, Caddy override, upload retry"
+  },
+  {
+    "sha": "db7b626",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Fix+feat: deploy environment, webhook delivery log, SSE analytics, ROADMAP"
+  },
+  {
+    "sha": "120a80c",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Fix+feat: git webhook, migrations, OpenAPI 0.9.0, unit tests, docker-compose, CLI README"
+  },
+  {
+    "sha": "394a8bf",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Fix+feat: brute-force protection, data retention, webhooks retry, FTS, SSE, shell completion, fh env"
+  },
+  {
+    "sha": "a3f217e",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Fix+feat: comprehensive improvements across every feature"
+  },
+  {
+    "sha": "2cef2d0",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Form backend, build pipeline, 2FA, site transfer, bulk export/import, staging UI"
+  },
+  {
+    "sha": "bd7f716",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Email system, invitations, staging environments, usage dashboard"
+  },
+  {
+    "sha": "ebf3a2c",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Redirect rules, custom headers, site health monitoring, quota enforcement, settings page"
+  },
+  {
+    "sha": "b341f08",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Unit tests (5 suites), FEDERATION.md protocol spec, OpenAPI 0.8.0"
+  },
+  {
+    "sha": "ec8f02b",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Analytics auth, deployment pagination, orphan cleanup, CLI logout/whoami/streaming"
+  },
+  {
+    "sha": "ebaed71",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "DNS-01 ACME challenge, gossip correctness note, TLS docs, npm publish guide"
+  },
+  {
+    "sha": "74a815d",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Remove all Replit dependencies; implement ACME TLS, audit log, dedup, Prometheus, Redis sessions"
+  },
+  {
+    "sha": "1d7ba2a",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Redis rate limiting, sync retry queue, migrate.ts, i18n HTTP backend, health checks"
+  },
+  {
+    "sha": "c666310",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Storage abstraction, migrations, LRU cache, RBAC, HMAC cookies, health monitor"
+  },
+  {
+    "sha": "d3739f1",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "React lazy loading, site preview modal, fh init, production checklist"
+  },
+  {
+    "sha": "8ee211c",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "I18n across all pages, security E2E tests, npm publish workflow, complete .env.example"
+  },
+  {
+    "sha": "508112e",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Critical security hardening, geographic routing, conflict resolution, full rate limiting"
+  },
+  {
+    "sha": "820ee5d",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "I18n (Bahasa Indonesia), Node Marketplace, TLS/ACME, API docs page, CLI npm publish"
+  },
+  {
+    "sha": "8dff0fb",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Webhooks, Playwright E2E suite, fh analytics/status, CHANGELOG 0.7.0"
+  },
+  {
+    "sha": "e1c3598",
+    "date": "2026-03-20",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "CI pipeline, full OpenAPI 0.7.0 spec, updated API docs"
+  },
+  {
+    "sha": "ad2ea2a",
+    "date": "2026-03-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Analytics button in MySites, fh rollback command, bootstrap registry, workspace config"
+  },
+  {
+    "sha": "44ef9fd",
+    "date": "2026-03-19",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Federation sync pull, rollback, preview, onboarding, GitHub Actions, migrations, CLAUDE.md"
+  },
+  {
+    "sha": "ea389b3",
+    "date": "2026-03-19",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Phase 6 \u2014 analytics, access control, CLI, Docker, gossip discovery, admin dashboard"
+  },
+  {
+    "sha": "b9f0a12",
+    "date": "2026-08-08",
+    "kind": "fix",
+    "area": "network",
+    "title": "Bump better-sqlite3 to ^12.9.0 so it builds on modern Node"
+  },
+  {
+    "sha": "a2fe256",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "network",
+    "title": "Update network dashboard and server behavior"
+  },
+  {
+    "sha": "72c0320",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "network",
+    "title": "Document net cloud contract"
+  },
+  {
+    "sha": "d0b3b29",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "network",
+    "title": "Add embeddable widget.js for any Nexus product"
+  },
+  {
+    "sha": "27f7d99",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "network",
+    "title": "Initial scaffold \u2014 Nexus Network federation dashboard"
+  },
+  {
+    "sha": "fa544c2",
+    "date": "2026-08-09",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Send unauthenticated browsers to the ecosystem sign-in page"
+  },
+  {
+    "sha": "1ebe348",
+    "date": "2026-08-09",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Accept Nexus-Auth sessions, keeping service tokens for machines"
+  },
+  {
+    "sha": "56cce74",
+    "date": "2026-08-08",
+    "kind": "fix",
+    "area": "vault",
+    "title": "Load .env at startup so Vault can actually start"
+  },
+  {
+    "sha": "76b4fe9",
+    "date": "2026-08-08",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Backup module, key-route rework, express handler typing"
+  },
+  {
+    "sha": "1000c28",
+    "date": "2026-04-22",
+    "kind": "fix",
+    "area": "vault",
+    "title": "Serve dashboard assets in local builds"
+  },
+  {
+    "sha": "af5c9dc",
+    "date": "2026-04-22",
+    "kind": "fix",
+    "area": "vault",
+    "title": "Run vault as native ESM on supported runtime"
+  },
+  {
+    "sha": "11a5f95",
+    "date": "2026-04-22",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Production readiness improvements"
+  },
+  {
+    "sha": "e7e7793",
+    "date": "2026-04-17",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Value/tags/metadata input limits, deleted-entry history, GET /deleted, POST /:name/undelete, search type+category filters"
+  },
+  {
+    "sha": "f25d29f",
+    "date": "2026-04-16",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Add stats and restore endpoints with delete archiving"
+  },
+  {
+    "sha": "21bbad8",
+    "date": "2026-04-16",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Expiry enforcement, secret versioning, pagination, getAll is_active fix"
+  },
+  {
+    "sha": "ecb470a",
+    "date": "2026-04-16",
+    "kind": "feat",
+    "area": "ops",
+    "title": "Structured logging with redaction, db maintenance, restore drill"
+  },
+  {
+    "sha": "f856df0",
+    "date": "2026-04-16",
+    "kind": "feat",
+    "area": "observability",
+    "title": "Add request-id propagation and http metrics"
+  },
+  {
+    "sha": "27ace71",
+    "date": "2026-04-16",
+    "kind": "feat",
+    "area": "ops",
+    "title": "Add token rotation, backup encryption, and metrics endpoint"
+  },
+  {
+    "sha": "83bdc56",
+    "date": "2026-04-16",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Add maintenance safety controls and ops/config route tests"
+  },
+  {
+    "sha": "d711963",
+    "date": "2026-04-16",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Production hardening, ops APIs, siem export, and smoke runbook"
+  },
+  {
+    "sha": "fb41431",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Update vault config, db handling, and public ui"
+  },
+  {
+    "sha": "8a7b16d",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Add cloud contract routes and tests"
+  },
+  {
+    "sha": "c6f42cc",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Expand vault cloud contract"
+  },
+  {
+    "sha": "69679d4",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Add Nexus Network health widget to sidebar"
+  },
+  {
+    "sha": "6cc7c62",
+    "date": "2026-04-06",
+    "kind": "feat",
+    "area": "vault",
+    "title": "Initial commit \u2014 DevVault v0.1.0"
+  },
+  {
+    "sha": "97ffc9b",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Oblivious routing wired into phantom-node \u2014 FHE forwarder processes packets"
+  },
+  {
+    "sha": "2f16902",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Phantom node packet send/receive \u2014 connect_and_send, bincode wire format"
+  },
+  {
+    "sha": "1930cda",
+    "date": "2026-06-15",
+    "kind": "fix",
+    "area": "phantom",
+    "title": "Make pq.rs struct fields public, add from_bytes for all types"
+  },
+  {
+    "sha": "08f4643",
+    "date": "2026-06-15",
+    "kind": "fix",
+    "area": "phantom",
+    "title": "Phantom-node compiles and runs \u2014 two nodes verified"
+  },
+  {
+    "sha": "2d314c0",
+    "date": "2026-06-14",
+    "kind": "fix",
+    "area": "phantom",
+    "title": "Phantom-networking compiles (libp2p 0.53 API fixes)"
+  },
+  {
+    "sha": "2e71af1",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Networking, node daemon, RLN nullifiers, cover traffic"
+  },
+  {
+    "sha": "bb69055",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Improve phantom simulation network and node behavior"
+  },
+  {
+    "sha": "c510f35",
+    "date": "2026-02-21",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "FHE key reuse optimization - 100-1000x speedup for simulations"
+  },
+  {
+    "sha": "94eed25",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "ecosystem-internal-testsuit",
+    "title": "Point Nexus-Porter at dhts/ecosystem-porter"
+  },
+  {
+    "sha": "6469cb8",
+    "date": "2026-08-09",
+    "kind": "fix",
+    "area": "ecosystem-internal-testsuit",
+    "title": "Resolve repo paths from the checkout instead of /home/workspace"
+  },
+  {
+    "sha": "59f9de5",
+    "date": "2026-08-08",
+    "kind": "feat",
+    "area": "nit",
+    "title": "Register Nexusclaw, Nexus-Forge and Nexus-Porter; add --version and --parallel"
+  },
+  {
+    "sha": "01a8db1",
+    "date": "2026-04-13",
+    "kind": "feat",
+    "area": "ecosystem-internal-testsuit",
+    "title": "Add uiFingerprint module and fingerprint CLI command"
+  },
+  {
+    "sha": "da7df1f",
+    "date": "2026-04-12",
+    "kind": "feat",
+    "area": "ecosystem-internal-testsuit",
+    "title": "Add audit dashboard updates and project refresh"
+  },
+  {
+    "sha": "3654867",
+    "date": "2026-04-11",
+    "kind": "fix",
+    "area": "ecosystem-internal-testsuit",
+    "title": "Auto-install deps before running tests + DATABASE_URL for Hosting"
+  },
+  {
+    "sha": "06b5757",
+    "date": "2026-04-11",
+    "kind": "feat",
+    "area": "ecosystem-internal-testsuit",
+    "title": "Add nit automation runner"
   }
 ];
 
-export const CHANGELOG_AREAS = ["A3", "A4", "Nexus-Modeling", "animation", "app", "auth", "brep", "build", "chat", "clients", "cloud", "cloud-views", "core", "dashboard", "deploy", "deps", "design", "did-client", "did-mapper", "docs", "draw", "email", "extrude", "foundation-sweep", "gate", "geometry", "graph", "hem", "hosting", "inset", "mail", "month10", "month11", "month5", "month6", "month7", "month8", "month9", "nexus-auth", "nexus-db", "phantom", "proxy", "render", "routing", "security", "shell", "signup", "sim", "tests", "tolerance", "vulkan", "web"];
+export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "chat", "chatview", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "email", "extrude", "federation", "flow", "foundation", "foundation-sweep", "gate", "geometry", "graph", "hem", "hosting", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "observability", "ops", "phantom", "portal", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "startup", "storage", "systems-api", "tests", "tolerance", "tools", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
