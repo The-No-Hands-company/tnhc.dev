@@ -6,9 +6,97 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 424 posts, newest first.
+// 427 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "name-this-node-instead-of-reporting-that-none-exist",
+    "title": "Name this node instead of reporting that none exist",
+    "date": "2026-08-19",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "The trust panel read \"Nodes (0 total) \u2014 none\" and the stats row said \"0 Peers / federation nodes\". Both counts are correct: the registry tracks trust relationships with OTHER nodes, and this one is standalone. But to an ",
+    "sha": "485c19c",
+    "content": [
+      {
+        "type": "p",
+        "text": "The trust panel read \"Nodes (0 total) \u2014 none\" and the stats row said \"0 Peers / federation nodes\". Both counts are correct: the registry tracks trust relationships with OTHER nodes, and this one is standalone. But to an operator looking straight at a node, \"no nodes\" is a plain contradiction of what is on the screen \u2014 and it hid the one node that certainly exists."
+      },
+      {
+        "type": "p",
+        "text": "This node now appears in the panel by name: its shortId, and whether it is standalone or federating. The counts are relabelled \"Other nodes\" and \"other nodes federated with\", so zero reads as \"none besides this one\" rather than \"nothing is here\"."
+      },
+      {
+        "type": "p",
+        "text": "Nothing about the underlying data changed. The node always had a real identity (a DID, a shortId, and its own address namespace); the console simply never showed it in the place an operator would look for it."
+      },
+      {
+        "type": "p",
+        "text": "The status fixture gained `mode`, which the real payload carries and the test did not \u2014 the panel rendered \"mode: unknown\" against it, which is how the gap surfaced."
+      }
+    ]
+  },
+  {
+    "slug": "let-shell-native-pages-scroll",
+    "title": "Let shell-native pages scroll",
+    "date": "2026-08-19",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "shell"
+    ],
+    "category": "Commit",
+    "excerpt": "The content region was overflow-hidden. That is correct for a framed app \u2014 the iframe is h-full and scrolls internally \u2014 but every shell-native view is an ordinary page, and hidden clipped them at the fold with no way to",
+    "sha": "76f4ae8",
+    "content": [
+      {
+        "type": "p",
+        "text": "The content region was overflow-hidden. That is correct for a framed app \u2014 the iframe is h-full and scrolls internally \u2014 but every shell-native view is an ordinary page, and hidden clipped them at the fold with no way to reach the rest. /cloud ended at \"Nexus Edge offline\" and looked like the whole page. /mail, /account and /admin had the same ceiling."
+      },
+      {
+        "type": "p",
+        "text": "overflow-y-auto instead. The iframe still fills exactly h-full, so a framed app gains no scrollbar; only taller content scrolls."
+      },
+      {
+        "type": "p",
+        "text": "Also updates the doctrine reference to the file's current name \u2014 docs/noname.md was renamed to docs/nexus-ui-intelligence-doctrine.md in the docs consolidation."
+      }
+    ]
+  },
+  {
+    "slug": "lead-with-reachable-tools-not-heartbeats",
+    "title": "Lead with reachable tools, not heartbeats",
+    "date": "2026-08-19",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "The overview reported \"36 healthy tools, 86 registered\". Both numbers are true and together they are misleading: only 7 of those 36 have a public URL. The rest are ghost scaffolds, which register with Systems-API and hea",
+    "sha": "4c33bed",
+    "content": [
+      {
+        "type": "p",
+        "text": "The overview reported \"36 healthy tools, 86 registered\". Both numbers are true and together they are misleading: only 7 of those 36 have a public URL. The rest are ghost scaffolds, which register with Systems-API and heartbeat healthily while serving nothing anyone can open. An operator reading that card would conclude the node was largely working."
+      },
+      {
+        "type": "p",
+        "text": "Reachable \u2014 registered, healthy, and carrying an address \u2014 is the number worth acting on, so it is the headline. Heartbeating and registered stay visible underneath; nothing is hidden, it is only ranked by what it actually means."
+      },
+      {
+        "type": "p",
+        "text": "This is the same failure the website had, where 82 of 103 listed apps did not exist. A count is not evidence that the thing counted works."
+      }
+    ]
+  },
   {
     "slug": "survive-a-bundle-newer-than-the-server-and-give-biome-a-conf",
     "title": "Survive a bundle newer than the server, and give biome a config",

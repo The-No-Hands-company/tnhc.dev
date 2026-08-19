@@ -5,9 +5,30 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 520 entries, newest first.
+// 523 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "485c19c",
+    "date": "2026-08-19",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Name this node instead of reporting that none exist"
+  },
+  {
+    "sha": "76f4ae8",
+    "date": "2026-08-19",
+    "kind": "fix",
+    "area": "shell",
+    "title": "Let shell-native pages scroll"
+  },
+  {
+    "sha": "4c33bed",
+    "date": "2026-08-19",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Lead with reachable tools, not heartbeats"
+  },
   {
     "sha": "672c021",
     "date": "2026-08-19",

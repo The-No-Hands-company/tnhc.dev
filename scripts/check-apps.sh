@@ -25,15 +25,40 @@ src = open(sys.argv[1]).read()
 for m in re.finditer(r'\{[^}]*?"slug":\s*"([^"]+)"[^}]*?"status":\s*"(live|beta)"[^}]*?"url":\s*"([^"]+)"[^}]*?\}', src):
     print(m.group(1), m.group(2), m.group(3))
 PY
-while read -r slug status url; do
-    [ -z "${url:-}" ] && continue
+# Any of these means the app answered. 401/403 count: the app is up and
+# enforcing auth, which is not an outage.
+answered() { case "$1" in 200|301|302|401|403) return 0 ;; *) return 1 ;; esac; }
+
+probe() {
     # `< /dev/null` matters: without it curl inherits the loop's stdin and eats
     # the remaining lines, so only the last app ever gets checked.
-    code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "$url" < /dev/null 2>/dev/null)
-    case "$code" in
-        200|302|301|401|403) printf "  ok       %-12s %s (%s)\n" "$slug" "$url" "$code" ;;
-        *) printf "  BROKEN   %-12s %s (%s) — claimed %s but does not answer\n" "$slug" "$url" "$code" "$status"; problems=1 ;;
-    esac
+    curl -s -o /dev/null -w '%{http_code}' --max-time 15 "$1" < /dev/null 2>/dev/null
+}
+
+while read -r slug status url; do
+    [ -z "${url:-}" ] && continue
+    code=$(probe "$url")
+    if ! answered "$code"; then
+        # One failure is not an outage. This check ran while the machine was
+        # saturated by its own filesystem scan and reported two healthy apps as
+        # BROKEN — a monitor that cries wolf under local load teaches you to
+        # ignore it, which is worse than not checking at all. Retry once, after
+        # a pause, before saying anything alarming.
+        sleep 3
+        code=$(probe "$url")
+    fi
+    if answered "$code"; then
+        printf "  ok       %-12s %s (%s)\n" "$slug" "$url" "$code"
+    elif [ "$code" = "000" ]; then
+        # No HTTP response at all, twice. Could still be this machine rather
+        # than the app, so it is reported as unreachable-from-here, not as the
+        # app being broken.
+        printf "  UNREACHABLE %-9s %s — no response from this host (twice)\n" "$slug" "$url"
+        problems=1
+    else
+        printf "  BROKEN   %-12s %s (%s) — claimed %s but answers with an error\n" "$slug" "$url" "$code" "$status"
+        problems=1
+    fi
 done < /tmp/nx-live.txt
 
 echo "── register vs repository ────────────────────────────"
@@ -74,9 +99,15 @@ if [ -d "$REPO/apps" ]; then
     # 112 app directories took roughly four minutes on this volume — long enough
     # that a loop pass felt hung. A single pass, tallied per directory, does the
     # same work in about a second.
-    done < <(find "$REPO/apps" -mindepth 2 -type f \
-                \( -name '*.rs' -o -name '*.ts' -o -name '*.tsx' -o -name '*.py' -o -name '*.go' -o -name '*.jsx' \) \
-                -not -path '*/node_modules/*' -not -path '*/target/*' -not -path '*/dist/*' 2>/dev/null \
+    #
+    # -prune, not -not -path. The filter form excludes node_modules from find's
+    # OUTPUT but still walks every file inside it — across 112 apps that is the
+    # difference between seconds and minutes, and it is why a loop pass looked
+    # hung even after the per-app finds were collapsed into one traversal.
+    done < <(find "$REPO/apps" \
+                \( -name node_modules -o -name target -o -name dist -o -name .git \) -prune -o \
+                -type f \( -name '*.rs' -o -name '*.ts' -o -name '*.tsx' -o -name '*.py' \
+                           -o -name '*.go' -o -name '*.jsx' \) -print 2>/dev/null \
              | sed "s#^$REPO/apps/##" | cut -d/ -f1 | grep '^Nexus-' | sort | uniq -c)
     [ "$drift" = "0" ] && echo "  ok       no app is understated on the site"
 fi
