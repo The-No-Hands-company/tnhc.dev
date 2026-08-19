@@ -34,3 +34,8 @@ git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s%x1f%b%x1e' --date=short \
 
 echo "Wrote $OUT ($(grep -c '"sha"' "$OUT") entries)"
 echo "Wrote $POSTS_OUT ($(grep -c '"slug"' "$POSTS_OUT") posts)"
+
+# The sitemap lists every generated post, so it has to be rebuilt whenever they
+# are — otherwise it is accurate on the day it was written and wrong after the
+# next commit.
+python3 "$(dirname "$0")/build-sitemap.py"

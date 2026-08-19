@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="No Hands">
+  <rect width="64" height="64" rx="12" fill="#030303"/>
+  <!-- N, drawn as strokes so it reads at 16px -->
+  <path d="M18 46V18l28 28V18" fill="none" stroke="#CCFF00" stroke-width="7"
+        stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>

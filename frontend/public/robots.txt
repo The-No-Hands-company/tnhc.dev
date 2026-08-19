@@ -1,0 +1,5 @@
+# tnhc.dev — The No Hands Company
+User-agent: *
+Allow: /
+
+Sitemap: https://tnhc.dev/sitemap.xml
