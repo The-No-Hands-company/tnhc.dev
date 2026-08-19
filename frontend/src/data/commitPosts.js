@@ -6,9 +6,53 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 240 posts, newest first.
+// 421 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "consolidate-the-ecosystem-into-one-canonical-register",
+    "title": "Consolidate the ecosystem into one canonical register",
+    "date": "2026-08-19",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Five overlapping documents disagreed with each other and, more importantly, with the filesystem. Replace them with docs/NEXUS-ECOSYSTEM.md.",
+    "sha": "f0f96a2",
+    "content": [
+      {
+        "type": "p",
+        "text": "Five overlapping documents disagreed with each other and, more importantly, with the filesystem. Replace them with docs/NEXUS-ECOSYSTEM.md."
+      },
+      {
+        "type": "p",
+        "text": "Status is now measured rather than claimed. A scan of source-file counts per app found an unusually clean distribution: 75 of 112 apps contain exactly six files, always the same six, output of the `ghost` scaffolder, with generic SQLite CRUD in the engine (visible in artefacts like `listRecipess()`). That gives an honest ladder \u2014 6 live, 1 beta, 24 in development, 75 scaffold, 7 stub. 31 apps have real code; 82 are placeholders."
+      },
+      {
+        "type": "p",
+        "text": "The register is verified by its defining property, not by a count: every Nexus-* directory on disk appears exactly once, and no app is listed that does not exist. The verification command is included so it can be re-run."
+      },
+      {
+        "type": "p",
+        "text": "Also carried forward: the v4 cloud taxonomy's seventeen-module expansion manifest (with layer, category and proposed ports in the free 8800 block), the stack decision matrix, and the Nexus-Tunnel integration rule. Two dark-web items from the taxonomy are explicitly marked out of scope."
+      },
+      {
+        "type": "p",
+        "text": "Of the 33 doc-only names, most were prose artefacts (`Nexus-AppName`, `Nexus-Platform`) or near-misses for apps that exist (`Nexus-Radio` for `Nexus-Radio-Live`); these are recorded as not carried forward."
+      },
+      {
+        "type": "p",
+        "text": "docs/noname.md was not an ecosystem catalogue at all but a 335-line UI intelligence doctrine referenced six times by the shell spec. Renamed to docs/nexus-ui-intelligence-doctrine.md and kept whole; references updated."
+      },
+      {
+        "type": "p",
+        "text": "Note: docs/Nexus_Systems_Ecosystem_Blueprint.md was never tracked and has no git history. It was verified against its tracked twin before deletion \u2014 the two differed only by the stray names Nexus-Git and Nexus-LLM, both recorded."
+      }
+    ]
+  },
   {
     "slug": "send-attachments-and-reply-from-the-reader",
     "title": "Send attachments, and reply from the reader",
@@ -8350,6 +8394,5516 @@ export const COMMIT_POSTS = [
       {
         "type": "p",
         "text": "This is a separate surface from the generic docs/html site, which is left untouched rather than regenerating all 56 of its pages for one addition."
+      }
+    ]
+  },
+  {
+    "slug": "phase-3-curved-boolean-wire-circle-seams-into-the-imprint-dr",
+    "title": "Phase 3 curved boolean \u2014 wire Circle seams into the imprint driver",
+    "date": "2026-07-29",
+    "author": "The Kernel",
+    "readTime": "4 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "imprintOneWay offered the imprint only the Line branch of a surface/surface intersection and discarded Circle and TwoLines unexamined, so a curved operand was never cut however capable the imprint became. It now offers e",
+    "sha": "27b1db9",
+    "content": [
+      {
+        "type": "p",
+        "text": "imprintOneWay offered the imprint only the Line branch of a surface/surface intersection and discarded Circle and TwoLines unexamined, so a curved operand was never cut however capable the imprint became. It now offers every branch intersectSurfaces can express and lets imprintCurve be the authority on applicability, since it already refuses every curve that does not lie on the face or cross its boundary cleanly."
+      },
+      {
+        "type": "p",
+        "text": "Both operands of a cylinder driven through a box are now imprinted and both remain valid. Turning the wiring on exposed two defects that could not fire while the seams were being thrown away."
+      },
+      {
+        "type": "p",
+        "text": "DEFECT 1 -- the fully-interior-circle (inner loop / hole) imprint was not idempotent, giving unbounded growth. A six-face box against a 16-segment cylinder came out with 1,599,992 vertices and STILL SIX FACES, stopped only by the iteration cap. The arc-bite path consumes its own precondition -- having split the face, the circle no longer crosses that face's interior, so the next offer is refused and the fixpoint settles -- but a hole leaves the circle exactly as interior as it found it and is never refused. The driver re-offers every tool surface on every pass, so the same ring was appended forever, and the guard that exists to catch a runaway imprint was watching the FACE count, which a hole does not change. Fixed by refusing a hole already present on the face (matching an existing inner loop's Circle by centre, axis and radius), and by bounding the entity count as well as the face count -- a ceiling that holds whether or not any individual operation terminates is worth more than the argument that it does."
+      },
+      {
+        "type": "p",
+        "text": "DEFECT 2 -- the latitude/vertical-edge crossing was ill-conditioned. The cylinder came out structurally perfect and geometrically invalid: integrity clean, and six edges whose curve missed its own endpoint by an identical 1.22e-4, all six only in the axial direction (a vertex at z=-0.9999 on a circle lying at exactly z=-1). The crossing had been left to the planar routine, which solves |p(s)-centre| = r. On a plane, circle and edge are coplanar and that root is transversal. On a cylinder the upright edge sits at exactly the cylinder's radius along its ENTIRE length, so the distance function touches the radius tangentially rather than crossing it: a DOUBLE root, whose float solution carries sqrt(epsilon) error rather than epsilon -- 1e-4 where 1e-7 was assumed, a thousand times the coincidence tolerance. A latitude circle is the level set of the cylinder's axial parameter, so it is solved as that level set instead, which is linear and exact. Worst endpoint error over the imprinted body falls from 1.22e-4 to below 1e-6, and the test asserts 1e-6 rather than checkGeometry's looser tolerance so a regression cannot hide in a passing validator."
+      },
+      {
+        "type": "p",
+        "text": "The general lesson is worth keeping: a closed-form intersection that is well conditioned in one configuration can be sqrt(epsilon)-degraded in another by tangency in the root structure, with no logic error anywhere. Where a pair is tangent by construction, reformulate on the parameter the geometry actually provides."
+      },
+      {
+        "type": "p",
+        "text": "Judged rather than fixed: a geometric no-op -- a unit box strictly inside cylinder(1,2,12), unioned -- went from 14 faces to 22, because the interior box's planes now cut real latitude seams on the 8 of 12 side faces whose bounding box reaches them (the broad-phase correctly prunes the other 4). It is the same solid: analytic volume is 6.283185 = pi*r^2*h on both and the tessellated volume agrees at every refinement level. Removing a seam that does not bound a change of surface is face unification's job, not the boolean's. The Phase 1 test had been asserting the face count because it happened to be 14; it now asserts the volume identity, which is what was meant, and that arcs may only be added by new seams and never lost."
+      },
+      {
+        "type": "p",
+        "text": "Each fix was reverted in turn to confirm its guards fail without it: conditioning takes two tests down, the wiring one, and idempotence four -- the sole survivor being the boundedness test, held up by the new entity ceiling."
+      },
+      {
+        "type": "p",
+        "text": "Curved booleans still return empty, which is correct: the box's new hole ring and the cylinder's latitude ring are the same circle discovered twice, and the sew does not yet pair them. That is Phase 4."
+      },
+      {
+        "type": "p",
+        "text": "Verified: 2440 ran / 2435 pass / 5 hardware skips."
+      }
+    ]
+  },
+  {
+    "slug": "phase-2-curved-boolean-imprint-a-circle-onto-a-cylindrical-f",
+    "title": "Phase 2 curved boolean \u2014 imprint a circle onto a cylindrical face",
+    "date": "2026-07-29",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "imprintCurve accepted a Circle seam only onto a PLANE face, so a cylinder-through-box was imprinted on exactly one side. Measured over every face pair of box(2,2,2) against cylinder(r=0.5,h=4,16seg) -- the cylinder stric",
+    "sha": "4213946",
+    "content": [
+      {
+        "type": "p",
+        "text": "imprintCurve accepted a Circle seam only onto a PLANE face, so a cylinder-through-box was imprinted on exactly one side. Measured over every face pair of box(2,2,2) against cylinder(r=0.5,h=4,16seg) -- the cylinder strictly inside the box footprint, i.e. the clean case -- SSI yields 32 Circle seams in each direction: onto the box's planar faces 32/32 accepted, onto the cylinder's curved faces 0/32. One operand cut along its share of the seam, the other left straddling, so the sew has nothing to close against and all three ops return empty."
+      },
+      {
+        "type": "p",
+        "text": "A cylinder contains exactly one family of circles: the LATITUDE circles, centred on the axis, in a plane perpendicular to it, at the cylinder's own radius. That is precisely what a perpendicular plane cuts, so it is the seam this case needs, and it crosses a side patch's two upright edges -- structurally the same two-point arc bite the planar path already handled. cutFaceBetween needed no change at all: it is purely topology plus parameter ranges, with no dependence on the face being flat."
+      },
+      {
+        "type": "p",
+        "text": "What could not be reused is the test deciding WHICH of the two arcs between the crossings lies inside the face. The direct rule projects the boundary onto a plane, and a curved patch has none. Containment therefore moves to the surface's (u,v) parameter domain -- where a trimmed face's boundary is properly defined in the first place, per the Pcurve doc comment -- and the ordinary planar rule applies there unchanged. The cylinder's periodic u is UNWRAPPED along the boundary ring, each successive angle shifted by whole turns to stay within half a turn of its predecessor, so the one patch per cylinder straddling u = +-pi is still a non-wrapping polygon."
+      },
+      {
+        "type": "p",
+        "text": "Planar faces keep the battle-tested direct 3D test, so that path is behaviour-identical. The fully-interior-circle inner-loop path is gated to Plane: a latitude circle wraps its whole cylinder and can never be interior to a patch, and its centre lies on the axis, which is not a point of the surface."
+      },
+      {
+        "type": "p",
+        "text": "Why the parameter-domain test is necessary rather than stylistic: substituting the naive flat test makes EVERY cylindrical face choose the complement arc -- 5.8905 rad where 0.3927 was wanted, 337.5 degrees the wrong way round instead of 22.5 the right way -- and the resulting body is entirely clean. checkIntegrity passes, checkGeometry passes (the curve does still meet its endpoints), the Euler characteristic is unchanged, the shell is still closed, and 4 of the 5 new tests go green on it. Only the arc-span assertion catches it. For a curve-SELECTION defect no topological invariant is a witness; the metric quantity has to be asserted."
+      },
+      {
+        "type": "p",
+        "text": "Curved booleans still return empty, which is correct: imprintOneWay continues to discard every seam that is not a Line, and wiring it is the next phase."
+      },
+      {
+        "type": "p",
+        "text": "Verified: 2435 ran / 2430 pass / 5 hardware skips, zero regressions."
+      }
+    ]
+  },
+  {
+    "slug": "phase-1-curved-boolean-carry-arc-geometry-across-the-sew",
+    "title": "Phase 1 curved boolean \u2014 carry arc geometry across the sew",
+    "date": "2026-07-29",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "booleanToBody sews with Body::fromFaces, which is handed vertex rings and nothing else and so builds every edge as a straight CHORD (CurveKind::Line, unconditionally). A curved operand's arc edges therefore degraded to L",
+    "sha": "f70c3d8",
+    "content": [
+      {
+        "type": "p",
+        "text": "booleanToBody sews with Body::fromFaces, which is handed vertex rings and nothing else and so builds every edge as a straight CHORD (CurveKind::Line, unconditionally). A curved operand's arc edges therefore degraded to Lines through ANY boolean \u2014 not only the curved ones that bail to empty."
+      },
+      {
+        "type": "p",
+        "text": "Measured on a geometric NO-OP: a unit box strictly inside makeCylinder(1,2,12) (corner radius sqrt(0.5)~0.707 < 12-gon inradius cos(pi/12)~0.966), so the union IS the cylinder. It returned the cylinder's exact topology \u2014 14 faces, 36 edges, closed, both validators clean, volume exact \u2014 with all 24 rim arcs as chords."
+      },
+      {
+        "type": "p",
+        "text": "Unseen because every invariant the boolean campaign built (topology, watertightness, euler, mass properties) is computed FROM VERTICES, and a chord shares its arc's endpoints. The loss is observable only through toMesh(subdivisions): the analytic curve is what refinement refines against, and a chord refines to itself."
+      },
+      {
+        "type": "p",
+        "text": "Fix, in BRepBoolean.cpp only, with no public API change: harvest the kept edges' Circle curves by walking each kept face's outer-loop coedges (using each edge's OWN stored endpoints, so no correspondence with the possibly-reversed vertex order is needed), keyed by UNDIRECTED welded endpoint pair so the key survives loop winding and the difference-op outward flip; re-apply after the sew. The enabler is that fromFaces numbers m_verts 1:1 from the welded point list, so a pre-sew welded index is the post-sew vertex id."
+      },
+      {
+        "type": "p",
+        "text": "Re-application goes through the existing public setEdgeArc, which re-derives the param range from the edge's own endpoints and REFUSES an edge whose endpoints are not on the circle within tol. A refused edge keeps its chord \u2014 degrading to exactly the prior behaviour, never to geometry that contradicts its topology \u2014 so the pass cannot break checkGeometry, hence the discarded return value."
+      },
+      {
+        "type": "p",
+        "text": "Proven by tessellation refinement, which a relabelled Line cannot pass: the cylinder alone gives 6.00000 / 6.07055 / 6.08378 / 6.08842 at subdivisions 0-3, climbing toward pi*r^2*h = 6.28319; the union now reproduces that series at every level, where it was previously flat at 6.00000. The disjoint union exercises both edge kinds in one body \u2014 the box adds exactly 1.0 however finely subdivided while the cylinder's arcs add 0.088. A planar box/box union gains no curvature, so the pass cannot invent geometry."
+      },
+      {
+        "type": "p",
+        "text": "Curved booleans still bail to empty and the Phase 0 characterizations are unchanged: assembly was never the blocker, only the layer that discarded the answer. Next is the curved-face imprint (imprintCurve takes a Circle only on a Plane face) and then the driver wiring (imprintOneWay drops non-Line seams)."
+      },
+      {
+        "type": "p",
+        "text": "4 of the 5 new tests fail with the arc pass disabled; the 5th is the planar no-regression guard that must pass either way."
+      },
+      {
+        "type": "p",
+        "text": "Verified: 2430 ran / 2425 pass / 5 hardware skips, zero regressions."
+      }
+    ]
+  },
+  {
+    "slug": "circle-imprint-no-longer-drops-legitimate-near-corner-arc-bi",
+    "title": "Circle imprint no longer drops legitimate near-corner arc bites",
+    "date": "2026-07-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "circleSegmentFracs filtered circle/boundary-edge crossings to the fixed fraction band (0.02, 0.98) \u2014 the circle-path analog of the splitEdge clamp just fixed. A crossing ~2% of an edge from a vertex is hundreds of times ",
+    "sha": "6b904b8",
+    "content": [
+      {
+        "type": "p",
+        "text": "circleSegmentFracs filtered circle/boundary-edge crossings to the fixed fraction band (0.02, 0.98) \u2014 the circle-path analog of the splitEdge clamp just fixed. A crossing ~2% of an edge from a vertex is hundreds of times the coincidence tolerance, so it is a real crossing, not a degeneracy: a valid arc bite whose two crossings landed near a shared corner was silently dropped (cc.size() != 2) and imprintCurve wrongly returned kInvalid."
+      },
+      {
+        "type": "p",
+        "text": "- circleSegmentFracs: return true interior roots in (0, 1) instead of the (0.02, 0.98) band. - imprintCurve circle path: mirror the line-imprint crossing resolution \u2014 snap a crossing within eps (the face coincidence tolerance) of an edge endpoint onto that EXISTING vertex, dedup a corner reported by both incident edges, and reject a same-edge double bite via a self-contained guard (source edge id carried on vertex crossings too) rather than leaning on cutFaceBetween's adjacency check."
+      },
+      {
+        "type": "p",
+        "text": "The circle imprint is the direct curved-boolean building block; the boolean driver skips non-Line intersections by design (faceted path), so blast radius is confined to imprintCurve(Circle)."
+      },
+      {
+        "type": "p",
+        "text": "Verified: ctest 2422/2422 pass. New regression BRepImprintCircle.ArcBiteNearCornerNotDropped (crossings at frac ~0.99 produce a watertight chi=2 corner cut with a real arc edge)."
+      }
+    ]
+  },
+  {
+    "slug": "b-rep-union-watertight-splitedge-no-longer-manufactures-mism",
+    "title": "B-rep union watertight \u2014 splitEdge no longer manufactures mismatched seam vertices",
+    "date": "2026-07-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "booleanToBody(box, cyl, Union) bailed to an empty body: Body::fromFaces produced an OPEN shell because the two operands' imprints disagreed on where a shared seam vertex sat. Root cause was Body::splitEdge clamping its s",
+    "sha": "b515c09",
+    "content": [
+      {
+        "type": "p",
+        "text": "booleanToBody(box, cyl, Union) bailed to an empty body: Body::fromFaces produced an OPEN shell because the two operands' imprints disagreed on where a shared seam vertex sat. Root cause was Body::splitEdge clamping its split parameter to a fixed [0.01, 0.99] \u2014 on a ~0.22-unit facet edge that forced near-corner seam vertices ~1% (~2e-3) off their true position, so the box- and cylinder-side seam polylines could not pair coedge-for-coedge and the watertight-or-empty contract returned empty."
+      },
+      {
+        "type": "p",
+        "text": "- segmentLineCrossing: return the unperturbed crossing fraction (clamp [0.001,0.999] -> [0,1]); the orient3D straddle test already guarantees a strict interior crossing. - Body::splitEdge: take a Tolerance (defaulted) and replace the fixed fractional clamp with a scale-derived degenerate-length floor min(0.5, tol.at(edgeLen)/edgeLen), plus a far-from-origin guard that rejects (kInvalid) when float rounding would collapse the split onto an endpoint rather than emit a zero-length edge. - imprintCurve line path: snap a crossing within eps of an edge endpoint onto that EXISTING vertex instead of splitting, so both operands land on identical shared corners."
+      },
+      {
+        "type": "p",
+        "text": "Verified: ctest 2421/2421 pass (5 hw-gated Vulkan skips). New test BRepBooleanVolumeIdentity.CylinderBoxUnionWatertight now passes."
+      }
+    ]
+  },
+  {
+    "slug": "drop-duplicate-coplanar-faces-in-booleantobody-so-overlaps-s",
+    "title": "Drop duplicate coplanar faces in booleanToBody so overlaps stop bailing to empty",
+    "date": "2026-07-25",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "The B-rep boolean silently returned an empty Body on many legitimate overlaps (found by the inclusion-exclusion volume-identity guard, which the valid-or-empty invariant tests could not detect). Root-caused by full instr",
+    "sha": "7d8da66",
+    "content": [
+      {
+        "type": "p",
+        "text": "The B-rep boolean silently returned an empty Body on many legitimate overlaps (found by the inclusion-exclusion volume-identity guard, which the valid-or-empty invariant tests could not detect). Root-caused by full instrumentation: imprint and face classification are correct and identical for passing and failing offsets \u2014 the failure is a DUPLICATE coplanar face reaching fromFaces."
+      },
+      {
+        "type": "p",
+        "text": "When A and B share a coplanar region (e.g. matching cross-sections overlapping in a slab), the imprint splits both operands there into coincident sub-faces welded onto the SAME vertices. selectFace is supposed to keep the A-side copy and drop the B-side one, but that rests on classifyFace's OnBoundary test \u2014 a metric decision that flips under float noise for thin slivers, occasionally keeping BOTH copies. Two faces on the same welded vertex loop wind identically, so every directed edge is traversed twice; fromFaces correctly rejects the non-manifold input and the whole Boolean bailed to a clean-but-wrong empty result."
+      },
+      {
+        "type": "p",
+        "text": "A duplicate coplanar face is never valid in a 2-manifold solid, so booleanToBody now dedups the kept FaceDefs by their sorted vertex set (rotation/reflection invariant) before sewing \u2014 resolving the coincident pair the classifier left doubled. This is a strict, safe robustness improvement:"
+      },
+      {
+        "type": "p",
+        "text": "- cylinder/cylinder overlaps now resolve at EVERY tested offset (was bailing at dx\u22481.0); the formerly-degenerate identical-cylinder-offset-0.6 union now produces the exact watertight result (that test is updated from \"expect empty\" to \"expect correct volume\", U=8.30 I=3.70, U+I=12=A+B). - box/box overlaps resolve robustly down to a ~0.3-wide slab and satisfy both volume identities exactly."
+      },
+      {
+        "type": "p",
+        "text": "Two narrower gaps remain, characterised and bounded by the identity guard, and left for a dedicated imprint-robustness pass: box/box slivers <= ~0.2 wide are fp-fragile at the ~1e-7 level of the offset, and one box/faceted-cylinder deep overlap still bails in the curved-operand sew. Neither is a regression \u2014 both previously bailed too or worse."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2420/2420 pass (no regressions; the dedup runs on every boolean)."
+      }
+    ]
+  },
+  {
+    "slug": "three-real-bugs-in-videoeditor-ub-split-ripple-transition-di",
+    "title": "Three real bugs in VideoEditor (UB split, ripple, transition div0)",
+    "date": "2026-07-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "animation"
+    ],
+    "category": "Commit",
+    "excerpt": "VideoEditor (the NLE timeline) shipped in the frozen API with zero tests. Auditing it turned up three genuine correctness bugs:",
+    "sha": "c0a1312",
+    "content": [
+      {
+        "type": "p",
+        "text": "VideoEditor (the NLE timeline) shipped in the frozen API with zero tests. Auditing it turned up three genuine correctness bugs:"
+      },
+      {
+        "type": "p",
+        "text": "1. splitClip did g_clips.push_back() inside a range-for over g_clips. When the push_back reallocated, the range-for's cached begin/end iterators and the element reference were invalidated \u2014 undefined behaviour. Rewritten to index over a bound captured before insertion, copying the split-off fields out before the push_back."
+      },
+      {
+        "type": "p",
+        "text": "2. rippleDelete shifted every clip on the track with timelineStart > 0, including clips BEFORE the deleted one \u2014 dragging them left, often to negative time, corrupting the timeline. It now pulls only clips at or after the deleted clip's start, correctly closing the gap while leaving earlier clips put."
+      },
+      {
+        "type": "p",
+        "text": "3. getTransitionAlpha divided by t.duration with no zero guard, returning inf/nan for an instantaneous transition. It now returns a finite step (0 before the start, 1 from the start onward) when duration <= 0."
+      },
+      {
+        "type": "p",
+        "text": "New test_VideoEditor.cpp pins all three (split tiling + a reallocation stress loop, ripple closing the gap and never pushing earlier clips negative, zero-duration transition staying finite) plus core ops: trim/move span math, half-open clip queries, linear transition ramp, and edge snapping within threshold. Tests use a fresh track per case and filter by track id so the module's global-singleton state does not cross-contaminate."
+      },
+      {
+        "type": "p",
+        "text": "Note: VideoEditor remains a global-singleton with no reset \u2014 an architectural limitation (no independent sessions, no \"new project\") left as-is; this pass fixes correctness, not the design."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2414/2414 pass."
+      }
+    ]
+  },
+  {
+    "slug": "close-the-mesh-boolean-class-1-seam-leak-3x-tolerance-seam-w",
+    "title": "Close the mesh-boolean class-1 seam leak (3x-tolerance seam weld)",
+    "date": "2026-07-25",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "The long-standing class-1 leak \u2014 near-coincident coplanar faces opening the seam in a band around the coincidence tolerance \u2014 is fixed by welding the output seam at 3x the coincidence tolerance instead of 1x.",
+    "sha": "4f0bb29",
+    "content": [
+      {
+        "type": "p",
+        "text": "The long-standing class-1 leak \u2014 near-coincident coplanar faces opening the seam in a band around the coincidence tolerance \u2014 is fixed by welding the output seam at 3x the coincidence tolerance instead of 1x."
+      },
+      {
+        "type": "p",
+        "text": "Root cause, localised this pass rather than assumed. Instrumenting the failing rel=1e-5 box/box case showed MeshCut produces two INDIVIDUALLY WATERTIGHT operands (cutR.a and cutR.b each have boundaryLoops=0) and the classifier keeps/drops the right faces \u2014 so neither the cut nor the classification was at fault, correcting the earlier \"cut sliver\" guess. The hole was in the final seam weld: when the operands are separated by up to the coincidence tolerance T (which the classifier still treats as coincident), the cut emits distinct vertices offset by up to T on each side of every shared corner, so a corner cluster spans up to 2\u00b7sqrt(2)\u00b7T \u2248 2.83\u00b7T. The weld ran at 1\u00b7T and could not merge that cluster, leaving a boundary loop. Welding at 3\u00b7T covers the cluster."
+      },
+      {
+        "type": "p",
+        "text": "An earlier attempt in this investigation \u2014 a snap-to-tolerance pre-pass \u2014 was implemented, measured to have ZERO effect on the band, and reverted rather than shipped; the leak was never in the geometry the snap touched."
+      },
+      {
+        "type": "p",
+        "text": "Effect, measured by dense separation sweep: the old failure at sep=2T (rel=1e-5) \u2014 genuinely DISTINCT geometry above the tolerance, which should always have made a clean stepped union \u2014 is now watertight, along with the whole range from far below T to far above it. The only residual is a razor-thin band at sep \u2248 exactly T (measured ~[0.99T, T]), the inherent ambiguity of any threshold coincidence test, which a modelling-side snap-to-tolerance would remove, not the boolean. 3\u00b7T stays orders of magnitude below any legitimate feature size, so nothing over-merges: the full seam battery (general position, curved operands, extreme tessellation, volume-preservation) and the entire kernel suite are unaffected."
+      },
+      {
+        "type": "p",
+        "text": "The class-1 test is rewritten to assert watertightness at every separation clearly below or above T, and to pin the knife-edge at sep \u2248 T so it cannot widen back into those ranges."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2405/2405 pass."
+      }
+    ]
+  },
+  {
+    "slug": "exact-insphere-predicate-tetdelaunay3d-uses-it-for-the-cavit",
+    "title": "Exact inSphere predicate; TetDelaunay3D uses it for the cavity test",
+    "date": "2026-07-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "TetDelaunay3D decided circumsphere containment by building the circumcenter in float and comparing squared distances with an epsilon slop. That is exactly where cospherical and near-cospherical configurations misclassify",
+    "sha": "59bb0f0",
+    "content": [
+      {
+        "type": "p",
+        "text": "TetDelaunay3D decided circumsphere containment by building the circumcenter in float and comparing squared distances with an epsilon slop. That is exactly where cospherical and near-cospherical configurations misclassify \u2014 the classic float-in-sphere failure that leaves Delaunay holes and non-Delaunay tets at extreme scale."
+      },
+      {
+        "type": "p",
+        "text": "Added RobustPredicates::inSphere on the same Shewchuk expansion-arithmetic machinery as orient2D/orient3D/inCircle: the 4x4 lift determinant via the ab..bd / abc..dab decomposition, evaluated exactly on every call. A float-filtered in-sphere needs Shewchuk's full permanent to stay sound, and a subtly wrong bound would reintroduce the silent sign errors the predicate exists to prevent; the only caller (3D Delaunay) is not on a hot path, so it is exact-always. Convention: e is inside the circumsphere of (a,b,c,d) iff inSphere and orient3D share a sign."
+      },
+      {
+        "type": "p",
+        "text": "TetDelaunay3D now routes containment through this predicate (inSphere * orient3D > 0) and rejects flat tets via orient3D, deleting the whole float circumcenter path (solve3x3, computeCircumsphere, the stored center/radius, and the epsilon option's effect). All existing TetDelaunay3D tests \u2014 including the exact-volume cube tilings and the empty-sphere property \u2014 still pass, now on an exact basis."
+      },
+      {
+        "type": "p",
+        "text": "New predicate tests: a 200k-sample battery comparing inSphere's sign to an exact int64 reference on coords in [-64,64]; the known unit-corner-tet circumsphere (inside/outside/on classified correctly against orientation); and the eight cube corners confirmed exactly cospherical."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2405/2405 pass."
+      }
+    ]
+  },
+  {
+    "slug": "edgeslide-meshvertexmerge-were-broken-dead-code-never-even-b",
+    "title": "EdgeSlide/MeshVertexMerge were broken dead code, never even built",
+    "date": "2026-07-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Both .cpp files existed with public headers but were never listed in src/kernel/CMakeLists.txt, so they were never compiled or linked \u2014 which is why they had no callers and no tests. Registering them exposed that both we",
+    "sha": "e9e37cf",
+    "content": [
+      {
+        "type": "p",
+        "text": "Both .cpp files existed with public headers but were never listed in src/kernel/CMakeLists.txt, so they were never compiled or linked \u2014 which is why they had no callers and no tests. Registering them exposed that both were also wrong."
+      },
+      {
+        "type": "p",
+        "text": "EdgeSlide::slideVertices walked mesh.edge(he).next \u2014 the face loop, not the vertex one-ring \u2014 so after the first edge it measured directions of edges not incident to the vertex at all, and it summed the per-edge projections without averaging. Rewritten to scan the outgoing half-edges (src == vertex), which is boundary-safe and visits exactly the incident edges, and to average. It now constrains the delta to the incident-edge directions: a delta along the surface normal projects to zero and the vertex does not leave the surface."
+      },
+      {
+        "type": "p",
+        "text": "MeshVertexMerge::mergeToVertex did edge(twin).src = target \u2014 but edge() is a const accessor, so the file could not compile at all, and the logic was wrong anyway (twin runs neighbour->source, so it rewrote the neighbour's start vertex, and it walked the face loop). HalfEdgeMesh exposes no mutable half-edge accessor, so a weld cannot poke the connectivity directly; reimplemented through the public toMesh/fromMesh boundary: remap collapsed vertices, drop faces that collapse below three distinct corners, compact, and rebuild. mergeByDistance builds one flat remap of coincident groups and applies it in a single rebuild rather than calling the old broken per-pair merge in an O(V^2) loop."
+      },
+      {
+        "type": "p",
+        "text": "New test_EdgeSlideVertexMerge.cpp: normal-direction slide leaves a planar vertex put; in-plane slide moves it in-plane, bounded by |delta|; out-of-range indices are ignored; a vertex merge removes exactly one vertex and stays integrity-clean; degenerate merge arguments are rejected; and a clean box (no coincident vertices) is not fused by distance merge."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2396/2396 pass (incl. the API-freeze audit \u2014 headers were already manifested)."
+      }
+    ]
+  },
+  {
+    "slug": "sectiontool-profiletool-emitted-every-cross-section-point-tw",
+    "title": "SectionTool/ProfileTool emitted every cross-section point twice",
+    "date": "2026-07-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Both tools intersect a plane with the mesh by scanning each face's edges. Every cut edge is shared by two faces, so each crossing was recorded twice \u2014 the z = 0 section of a side-2 box returned eight points for a four-co",
+    "sha": "43999b1",
+    "content": [
+      {
+        "type": "p",
+        "text": "Both tools intersect a plane with the mesh by scanning each face's edges. Every cut edge is shared by two faces, so each crossing was recorded twice \u2014 the z = 0 section of a side-2 box returned eight points for a four-corner square. Duplicated points collapse into zero-length segments, which breaks any perimeter, area, or polyline consumer downstream (and SectionTool's angular sort then interleaves the pairs)."
+      },
+      {
+        "type": "p",
+        "text": "Both already had the edge's vertex indices in hand, so keying each crossing by its undirected edge (min,max vertex pair) and keeping one point per edge removes the duplication with no change to the geometry. The box section is now exactly the four vertical-edge points."
+      },
+      {
+        "type": "p",
+        "text": "Neither tool had any test. New test_SectionProfileTools.cpp pins: the box section is exactly four points at (+/-1, +/-1, 0); the angular-sorted loop is a closed square (perimeter 8, no zero-length segment); a plane missing the mesh yields an empty section; multiSection returns one section per cutting plane; and the profile is likewise four points, not eight."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2390/2390 pass."
+      }
+    ]
+  },
+  {
+    "slug": "normalize-the-quaternion-in-sanitizetransform-before-buildin",
+    "title": "Normalize the quaternion in sanitizeTransform before building the matrix",
+    "date": "2026-07-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "render"
+    ],
+    "category": "Commit",
+    "excerpt": "Transform::toMatrix builds the rotation with the unit-quaternion form \u2014 the hard-coded factor 2 in 1 - 2(yy+zz) assumes |q| = 1 \u2014 but sanitizeTransform copied the rotation through untouched. A non-unit quaternion (nlerp ",
+    "sha": "8c8b1f7",
+    "content": [
+      {
+        "type": "p",
+        "text": "Transform::toMatrix builds the rotation with the unit-quaternion form \u2014 the hard-coded factor 2 in 1 - 2(yy+zz) assumes |q| = 1 \u2014 but sanitizeTransform copied the rotation through untouched. A non-unit quaternion (nlerp drift, a caller that stored an un-normalized value, or a raw axis-angle mistake like (0,0,1,1)) therefore produced a matrix that is not a rotation at all: for (0,0,1,1) the upper 3x3 comes out [[-1,-2,0],[2,-1,0],[0,0,1]] \u2014 columns of length sqrt(5), not the true 90-degree-about-Z rotation. That corrupts the whole world transform and, because the columns are no longer unit length, also breaks the column-length scale recovery that conservativeWorldRadius / axisScaleLength depend on."
+      },
+      {
+        "type": "p",
+        "text": "sanitizeTransform is the single validity gate before toMatrix (it already replaces non-finite fields), so normalization belongs there: normalize the quaternion, falling back to identity for a degenerate near-zero magnitude. An already-unit quaternion is unchanged within float precision, so no existing behavior shifts."
+      },
+      {
+        "type": "p",
+        "text": "New tests: a non-unit quaternion produces a pure rotation (local +X -> world +Y at unit length, all upper-3x3 columns unit length), and a zero quaternion falls back to identity. The first fails on the old code (columns length sqrt(5))."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2374/2374 pass."
+      }
+    ]
+  },
+  {
+    "slug": "transform-tomatrix-composed-t-s-r-instead-of-t-r-s",
+    "title": "Transform::toMatrix composed T*S*R instead of T*R*S",
+    "date": "2026-07-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "render"
+    ],
+    "category": "Commit",
+    "excerpt": "The decomposed local Transform (translation / quaternion / scale) built its matrix by scaling the rotation's rows \u2014 m[i][j] *= s_i \u2014 which is S * R: the scale is applied along world axes AFTER the rotation. The correct d",
+    "sha": "bf491a9",
+    "content": [
+      {
+        "type": "p",
+        "text": "The decomposed local Transform (translation / quaternion / scale) built its matrix by scaling the rotation's rows \u2014 m[i][j] *= s_i \u2014 which is S * R: the scale is applied along world axes AFTER the rotation. The correct decomposed-transform convention (glTF, Unity, Unreal) is M = T * R * S, scale applied first in the object's local space, which scales the rotation's COLUMNS \u2014 m[i][j] *= s_j."
+      },
+      {
+        "type": "p",
+        "text": "The two agree for uniform scale or no rotation, so it slipped through, but they diverge for any non-uniform scale combined with a rotation: a box rotated 90 deg about Z with scale (2,1,1) had its local +X (which should stretch to length 2 and rotate onto world +Y) come out length 1, while its local +Y came out length 2 \u2014 the stretch axis was locked to the world frame instead of the object."
+      },
+      {
+        "type": "p",
+        "text": "This was also internally inconsistent: conservativeWorldRadius / axisScaleLength recover each axis scale as the length of world-matrix COLUMN j, an identity that only holds for R * S. Under the old S * R, a rotated object with scale (2,3,4) reported column lengths (2.91, 3.04, 3.36), so frustum-cull bounds and any other scale read-back were wrong for rotated, non-uniformly-scaled nodes."
+      },
+      {
+        "type": "p",
+        "text": "Fixed to scale by column index. New tests pin the composition order (local axes scale then rotate to the right world directions), the column-length scale-recovery identity, and translation applied last. The first two fail on the old code."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2372/2372 pass."
+      }
+    ]
+  },
+  {
+    "slug": "decimator-discarded-partial-work-and-miscounted-faces",
+    "title": "Decimator discarded partial work and miscounted faces",
+    "date": "2026-07-24",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Auditing the quadric decimator (used by the editor's decimate command, the evaluation graph, and MeshSimplify) turned up two defects, neither reachable by the existing tests \u2014 those never called MeshDecimator::decimate a",
+    "sha": "8a5e6a6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Auditing the quadric decimator (used by the editor's decimate command, the evaluation graph, and MeshSimplify) turned up two defects, neither reachable by the existing tests \u2014 those never called MeshDecimator::decimate at all, only extractFaceRange and MeshSimplify wrappers that assert \"faces dropped, still valid\"."
+      },
+      {
+        "type": "p",
+        "text": "1. All-or-nothing return. When the loop could not reach the target face count exactly, the function returned std::nullopt and threw away a fully valid, already-computed partial decimation. Collapses stall for ordinary reasons: preserved boundaries, the maxError budget (whose entire purpose is to stop before quality degrades), and link-condition rejections that would make a collapse non-manifold. Every caller reads nullopt as \"keep the ORIGINAL mesh\", so a mesh that could not hit the exact target was left completely undecimated \u2014 and a maxError budget produced no decimation at all instead of the best decimation within the budget. Now returns best-effort; report.facesOut carries how far it got."
+      },
+      {
+        "type": "p",
+        "text": "2. Face accounting measured on the wrong mesh. facesIn, the derived target, and the loop's running activeFaces were all taken from the pre-triangulation polygon mesh, while the loop edited the triangulated one. A 24x24 sphere reported 576 faces in but decimated ~1100 triangles, so the loop stopped far short of the requested reduction and facesOut (758) came back LARGER than the reported facesIn (576). The no-op early return also reported facesOut = 0. Fixed by triangulating up front and measuring the whole budget in triangles, so facesIn / target / facesOut are one consistent basis."
+      },
+      {
+        "type": "p",
+        "text": "New tests pin decimation quality to known geometry, all against the real API: coplanar collapses cost ~0 and keep the plane flat (the defining quadric property); a decimated sphere's vertices stay within 6% of the surface; a tight maxError budget is never exceeded; a decimated closed box stays watertight and reaches its target. These fail on the pre-fix code (nullopt / facesOut > facesIn)."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2369/2369 pass."
+      }
+    ]
+  },
+  {
+    "slug": "nurbssurface-partials-had-the-same-defect-as-the-curve-wrong",
+    "title": "NurbsSurface partials had the same defect as the curve \u2014 wrong above degree 1",
+    "date": "2026-07-24",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "derivativeU/derivativeV summed the u/v difference control points alpha*(P[i+1]-P[i]) weighted only by the OTHER direction's basis, never multiplying by the degree-(p-1) basis functions that must weight each one in the di",
+    "sha": "09c91a6",
+    "content": [
+      {
+        "type": "p",
+        "text": "derivativeU/derivativeV summed the u/v difference control points alpha*(P[i+1]-P[i]) weighted only by the OTHER direction's basis, never multiplying by the degree-(p-1) basis functions that must weight each one in the differentiated direction. That is the identical bug just fixed in NurbsCurve, and like there it is correct only when that direction's degree is 1; for anything higher it added the derivative control points with weight 1 instead of their basis values."
+      },
+      {
+        "type": "p",
+        "text": "Measured on an exact rational quarter-cylinder (unit radius, linear in z): - the surface normal, which is radial by construction (|n . r_hat| = 1), came out at 0.707 at one corner \u2014 a 45-degree error. A renderer or a fillet built on that normal is pointed the wrong way. - dS/du, which is exactly the axis direction (0,0,1) everywhere, came back with magnitude 1.12-1.17 and spurious x/y components. - dS/dv was not perpendicular to the radius (dot product up to -2 against the required 0)."
+      },
+      {
+        "type": "p",
+        "text": "Blast radius is every surface-tangent consumer: surface normals (shading, offset-surface direction), the u/v Newton iterations in surface closest-point and surface-surface intersection, and isocurve framing."
+      },
+      {
+        "type": "p",
+        "text": "Rewritten with the tensor-product surface derivative from The NURBS Book: the first-order derivative basis (A2.3, DersBasisFuns) in the differentiated direction, the plain basis in the other, combined over the control net; for a rational surface the first-order quotient rule S_u = (A_u - w_u S) / w. ders[0] is reused as the plain basis row, so one call yields both."
+      },
+      {
+        "type": "p",
+        "text": "Why it survived: the only prior derivative test evaluated a flat planar patch, where the tangents are correct regardless of basis weighting. New tests check both partials against central finite differences on a curved non-rational and a rational biquadratic patch, and pin them to exact geometry on the quarter-cylinder (dS/du == axis, dS/dv perpendicular to the radius, normal radial). Verified these tests FAIL on the old code (normal 45 degrees off) and pass on the new."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2356/2356 pass."
+      }
+    ]
+  },
+  {
+    "slug": "nurbscurve-derivative-was-wrong-for-every-curve-above-degree",
+    "title": "NurbsCurve::derivative was wrong for every curve above degree 1",
+    "date": "2026-07-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "The derivative differenced the control points correctly but then returned a single derivative control point instead of combining them with the lower-degree basis functions at u. That is only correct for a linear curve; f",
+    "sha": "1d3c168",
+    "content": [
+      {
+        "type": "p",
+        "text": "The derivative differenced the control points correctly but then returned a single derivative control point instead of combining them with the lower-degree basis functions at u. That is only correct for a linear curve; for anything higher the answer was wrong in both direction and magnitude. A rational NURBS unit circle's tangent came out about 70 degrees off its true direction (which must be perpendicular to the radius), and its arc length integrated to 8.03 against the exact 2*pi = 6.28 \u2014 28% high."
+      },
+      {
+        "type": "p",
+        "text": "The blast radius is everything built on curve tangents: arc length, curve closest-point (Newton with the first and second derivatives), curve-curve intersection, offset curves, and the rail/sweep loft frames all consumed a wrong tangent."
+      },
+      {
+        "type": "p",
+        "text": "Rewritten with the standard algorithm \u2014 The NURBS Book A2.3 (DersBasisFuns) to get the derivative basis functions, A3.2 for the non-rational combination, and A4.2 (the quotient rule with binomial coefficients) for the rational case. Verified against central finite differences to ~1e-7 for non-rational, rational with unit weights, and rational with varying weights; the circle tangent is now perpendicular to the radius to 1e-7, and the circle arc length is 2*pi."
+      },
+      {
+        "type": "p",
+        "text": "Why it survived: the existing derivative test asserted only that |derivative| >= 0 \u2014 a condition no wrong direction or magnitude could ever violate. The new tests check the first and second derivatives against finite differences on a rational curve and the tangent against the exact geometry of a NURBS circle."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2353/2353 pass."
+      }
+    ]
+  },
+  {
+    "slug": "exact-planar-faces-via-green-s-theorem-analytic-b-rep-is-now",
+    "title": "Exact planar faces via Green's theorem \u2014 analytic B-rep is now fully exact",
+    "date": "2026-07-24",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Closes the last analytic-exactness gap. Planar faces were integrated by triangulating them, which is only exact when the face is a straight-edged polygon. A face bounded by circular ARCS \u2014 a cylinder or cone cap \u2014 is a t",
+    "sha": "10db195",
+    "content": [
+      {
+        "type": "p",
+        "text": "Closes the last analytic-exactness gap. Planar faces were integrated by triangulating them, which is only exact when the face is a straight-edged polygon. A face bounded by circular ARCS \u2014 a cylinder or cone cap \u2014 is a true disk, and triangulating it gives the inscribed n-gon instead: a cylinder's total surface area was 0.85% low, and its transverse moments of inertia carried the same facet error, both shrinking only as the cap refined."
+      },
+      {
+        "type": "p",
+        "text": "A flat face's contribution to a constant-normal surface integral is the normal times a 2D area integral over the region, and every such integral is a combination of the region's 2D area moments m_ij = integral of s^i t^j dA (i+j <= 3) in an in-plane frame. Each moment is a boundary line integral by Green's theorem, m_ij = closed integral of (1/(i+1)) s^(i+1) t^j dt, evaluated exactly per edge: a Line edge is a polynomial, a Circle arc a trigonometric integrand that 12-point Gauss resolves to float precision. So a cap bounded by arcs integrates to its true pi*r^2, and one bounded by chords to its exact n-gon. The 3D monomials up to cubic are assembled from the ten moments through the linear map x = O.x + s*e1.x + t*e2.x."
+      },
+      {
+        "type": "p",
+        "text": "integratePlanarFace walks a face's outer loop into oriented curve segments and calls the assembler; both massProperties and surfaceArea use it, falling back to triangulation only for NURBS-bounded or holed faces."
+      },
+      {
+        "type": "p",
+        "text": "Every primitive is now exact in BOTH mass properties and surface area: cylinder   volume, ALL moments (incl. transverse), area   -> float exact cone       volume, moments, area                          -> float exact sphere     volume, moments, area                          -> float exact (even lon) box, prisms, extrusions                                   -> float exact The cylinder transverse moment went from 1.5e-2 to 4.7e-9, its area from 8.5e-3 to 2.5e-9. The cone base is chord-bounded by construction (fromFaces derives Line edges), so it is an exact n-gon, which is the correct area of the body as built."
+      },
+      {
+        "type": "p",
+        "text": "Tests updated: the cylinder is now asserted fully exact (area and all moments), and the cap/base tests state the true geometry (cylinder caps are disks, cone base is an n-gon) rather than the old triangulated approximation."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2350/2350 pass."
+      }
+    ]
+  },
+  {
+    "slug": "exact-analytic-surface-area-share-the-parametric-integrator",
+    "title": "Exact analytic surface area; share the parametric integrator",
+    "date": "2026-07-24",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "surfaceArea tessellated every face and summed triangle areas, so it was approximate for the curved analytic primitives \u2014 a sphere came out 6.8% high, a cone 1.5%, a cylinder 0.1% \u2014 exact only for the box. It now integrat",
+    "sha": "d59dc9c",
+    "content": [
+      {
+        "type": "p",
+        "text": "surfaceArea tessellated every face and summed triangle areas, so it was approximate for the curved analytic primitives \u2014 a sphere came out 6.8% high, a cone 1.5%, a cylinder 0.1% \u2014 exact only for the box. It now integrates each curved analytic face exactly over its parameter domain, area being the integral of |dp/du x dp/dv|."
+      },
+      {
+        "type": "p",
+        "text": "The parameter-polygon machinery built for massProperties last increment is factored into one shared helper, integrateFaceParametric, which walks a face's vertices into a (u,v) polygon (pole/apex vertex expanded, periodic seam unwrapped by walking the loop) and calls back at each Gauss point with the surface point, the area-weighted normal, and the weight. massProperties accumulates its ten moment integrals through it; surfaceArea accumulates |du x dv|. One implementation of the hard part, two callers."
+      },
+      {
+        "type": "p",
+        "text": "Surface area has no closure constraint \u2014 it is a plain sum of independent face areas \u2014 so unlike volume it needs no all-or-nothing guard: each curved face uses the exact integral independently, and any face that cannot (planar, NURBS, or one whose surface does not fit it) contributes its exact flat-triangle area instead."
+      },
+      {
+        "type": "p",
+        "text": "sphere area, any tessellation        6.8% high -> float exact (2.8e-8) cylinder / cone LATERAL surface                -> exact (2*pi*r*h, pi*r*slant) box                                            -> exact, unchanged"
+      },
+      {
+        "type": "p",
+        "text": "Honest residual, pinned by test: a cylinder's or cone's flat CAPS are triangulated to their inscribed n-gon rather than the round pi*r^2 disk their arc boundary describes. The total is therefore exactly (round lateral + n-gon caps) at every segment count, converging to the fully-round ideal as the caps refine. That is the same planar-face-with-curved-boundary residual as the cylinder's transverse moment, and closing it (Green's theorem over the arc edges) is a separate piece of work."
+      },
+      {
+        "type": "p",
+        "text": "Tests assert sphere area exact across even-longitude tessellations, that a cylinder equals exact-round-wall + exact-n-gon-caps (which pins the lateral integration as exact-round), and the same for the cone."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2350/2350 pass."
+      }
+    ]
+  },
+  {
+    "slug": "exact-analytic-mass-properties-for-the-sphere-too-robustly",
+    "title": "Exact analytic mass properties for the sphere too, robustly",
+    "date": "2026-07-24",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Completes the previous increment, which shipped exact cylinder and cone mass properties but left the sphere on tessellation because its parameter convention had been mis-read. Two things were wrong and are fixed.",
+    "sha": "bf9a3ed",
+    "content": [
+      {
+        "type": "p",
+        "text": "Completes the previous increment, which shipped exact cylinder and cone mass properties but left the sphere on tessellation because its parameter convention had been mis-read. Two things were wrong and are fixed."
+      },
+      {
+        "type": "p",
+        "text": "FIRST, the convention. This kernel parameterises a sphere as p = r*(sin(u)*U + cos(u)*cos(v)*Va + cos(u)*sin(v)*N): u is LATITUDE, with the poles at u = +/-pi/2 where cos(u) = 0 and the longitude v collapses. The earlier patch had u and v swapped (and the source comment on Surface::eval says \"u = longitude\" while the formula is the opposite). Corrected, and the pole degeneracy now correctly attaches to v, not u."
+      },
+      {
+        "type": "p",
+        "text": "SECOND, and the substantive fix: integrating each face over its bounding RECTANGLE in (u,v) is only correct when the face already is a grid-aligned rectangle. A sphere's faces are triangles, and a triangle's bounding box over-covers, so adjacent triangles double-count the region between them \u2014 the whole sphere came out 1.5x its volume. Each face is now integrated over its actual parameter-space POLYGON: map its vertices to (u,v), expand any pole vertex into the two edges that meet there (its swept coordinate is meaningless but the surface Jacobian vanishes at the pole, so the value does not matter), fan- triangulate, and integrate each triangle by mapping the unit square onto it (Duffy). This is exact for ANY tessellation and removes the latent fragility that had made even the cylinder rely on its faces happening to be grid-aligned."
+      },
+      {
+        "type": "p",
+        "text": "The periodic parameter is unwrapped by WALKING the loop \u2014 each vertex brought within pi of the previous \u2014 so a wedge crossing the +/-pi seam is contiguous wherever the seam falls."
+      },
+      {
+        "type": "p",
+        "text": "Watertightness guard, all-or-nothing per body. The exact round patches and the flat triangle fallback do not join into a closed boundary, so a curved surface is integrated exactly only if EVERY one of its faces qualifies; if any fails, the whole body tessellates. This matters at ODD longitude counts, where one face straddles the seam: without the guard that face fell to the flat residual and left a sliver gap against its exact neighbours (a non-convergent ~50% error). Now such a sphere tessellates as a whole \u2014 correct and convergent. A cylinder's flat caps are planar, not curved, so they legitimately go to the residual (their n_x is zero in the volume term) without tripping the guard."
+      },
+      {
+        "type": "p",
+        "text": "sphere volume + moments, even longitude, any latitude    -> float exact (2.8e-8) sphere, odd longitude                                    -> convergent tessellation cylinder / cone, any segment count                       -> unchanged, exact"
+      },
+      {
+        "type": "p",
+        "text": "Tests assert sphere exactness across even-longitude tessellations, and that an odd-longitude sphere falls back to a convergent (never grossly wrong) result."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2348/2348 pass."
+      }
+    ]
+  },
+  {
+    "slug": "exact-analytic-mass-properties-for-cylinder-and-cone-faces",
+    "title": "Exact analytic mass properties for cylinder and cone faces",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Body::massProperties tessellated every face, including the curved analytic ones, so an analytic modeller reported approximate mass properties for its own analytic primitives \u2014 a sphere's volume was 0.65% off and its mome",
+    "sha": "1479fb1",
+    "content": [
+      {
+        "type": "p",
+        "text": "Body::massProperties tessellated every face, including the curved analytic ones, so an analytic modeller reported approximate mass properties for its own analytic primitives \u2014 a sphere's volume was 0.65% off and its moments ~1%, converging only with facet count. This integrates the curved faces exactly over their own parameter domain instead."
+      },
+      {
+        "type": "p",
+        "text": "A boundary integral is additive over disjoint pieces of the boundary, so the two methods simply sum: planar faces (exact from their triangles \u2014 a flat polygon has no tessellation error) go through the shared mesh integrator, and each curved analytic face is integrated over its (u,v) rectangle by 12-point tensor-product Gauss-Legendre, which is spectrally accurate for the trigonometric integrands a cylinder or cone produces. To make the two composable, MeshMassProperties is split into integrals() (the raw additive boundary integrals) and fromIntegrals() (turn them into volume/centroid/inertia); compute() is now those two composed, so there is one implementation of the triangle case, not a copy per call site."
+      },
+      {
+        "type": "p",
+        "text": "Result, and independent of segment count because the answer does not come from the facets: cylinder volume, axial moment    16 segments   1.6e-3 -> 2.8e-8 (float exact) cone     volume, axial moment    16 segments   3.1e-3 -> 2.8e-8 (float exact) box (planar throughout)                        exact, unchanged"
+      },
+      {
+        "type": "p",
+        "text": "A face qualifies for exact treatment only if its surface genuinely fits it (the patch reproduces every one of the face's own vertices) and its parameter domain is a rectangle; degenerate points \u2014 a cone apex, where every u maps to the same place \u2014 are excluded from the extent, and the periodic parameter is unwrapped onto the first vertex so a wedge across the +/-pi seam is described contiguously rather than spanning the whole circle. Without the unwrap a seam-straddling face fell back to triangles; with it, every side face is integrated exactly."
+      },
+      {
+        "type": "p",
+        "text": "DELIBERATELY NOT DONE: the sphere. This kernel parameterises it with u as latitude and v as longitude, poles collapsing v \u2014 the opposite of the convention the patch was written against \u2014 so its extent recovery came out wrong and inflated the volume (worse at finer tessellation, the signature of a broken parameterisation). Rather than ship a confidently-wrong \"exact\" sphere, it stays on the tessellated path, which is correct and converges with density. A wrong exact answer is worse than an honest approximate one. Deriving the sphere patch against the real convention is a follow-up."
+      },
+      {
+        "type": "p",
+        "text": "The residual on a cylinder's TRANSVERSE moment (1.5e-2 at 16 segments, shrinking as 1/n^2) is not integrator error \u2014 it is the flat caps genuinely being inscribed n-gons, so the faceted body's transverse moment really does differ from the round one. The side wall, which the exact path owns, is exact."
+      },
+      {
+        "type": "p",
+        "text": "Tests pin that cylinder and cone volume + axial moment are exact and segment-independent, that the box stays exact, that the sphere stays correct and converges rather than returning garbage, and that density scales inertia only."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2347/2347 pass."
+      }
+    ]
+  },
+  {
+    "slug": "a-real-cone-surface-and-the-check-that-catches-a-face-lying",
+    "title": "A real Cone surface, and the check that catches a face lying about itself",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "makeCone tagged its lateral faces with a Cylinder surface, annotated in the source as \"conical surface approx (Nurbs later)\". It was not an approximation. The tagged cylinder of radius r does not contain the cone's apex ",
+    "sha": "d7a1f14",
+    "content": [
+      {
+        "type": "p",
+        "text": "makeCone tagged its lateral faces with a Cylinder surface, annotated in the source as \"conical surface approx (Nurbs later)\". It was not an approximation. The tagged cylinder of radius r does not contain the cone's apex at all: measured, 16 of a 16-segment cone's 48 lateral vertices sat a FULL UNIT off the surface that every surface-based query \u2014 surfacePoint, imprint, classification \u2014 would consult for them. checkGeometry reported the body clean."
+      },
+      {
+        "type": "p",
+        "text": "Adds SurfaceKind::Cone with eval and normalAt. It reuses the existing fields rather than growing the struct, so the serialised layout is unchanged and older files (which cannot contain a cone) still read: origin is the APEX, normal the axis from apex to base, radius the SLOPE, and v is axial distance from the apex, so the ring radius at v is slope*v and v = 0 is the apex itself. The normal comes from the gradient of the implicit form and is independent of v, as it must be \u2014 every point along a ruling shares one. Verified: all 48 lateral vertices now lie exactly on their surface, eval(0, height) reproduces the base ring, and the normal is perpendicular to the ruling to 0."
+      },
+      {
+        "type": "p",
+        "text": "Torus was considered and deliberately NOT added: nothing in the B-rep produces one, and a surface kind with no producer is speculation, not foundation."
+      },
+      {
+        "type": "p",
+        "text": "Then the check that should have caught it. checkGeometry now requires every face's vertices to lie on that face's own surface \u2014 the one thing standing between \"topologically valid\" and \"geometrically true\", and the reason there are two checkers at all. It runs after the curve checks so a moved vertex still reports the more specific stale-curve diagnosis first."
+      },
+      {
+        "type": "p",
+        "text": "That check immediately found a second face lying about itself. twistExtrude built its side walls as QUADS and tagged them Plane, but a twisted quad is warped \u2014 its four corners are not coplanar. Every side face of a twisted box missed its own plane, by as much as 0.24 units at four layers, and finer layering only shrank the error instead of removing it. Walls are now emitted as triangles, which are planar by construction, so the surface is an exact description rather than an approximate one and there is no ambiguity about what a warped quad bounds."
+      },
+      {
+        "type": "p",
+        "text": "cone lateral vertices off their own surface   16 of 48  ->  0 twisted side faces off their own plane        16/64/256 ->  0 at every layering"
+      },
+      {
+        "type": "p",
+        "text": "ctest 2342/2342 pass."
+      }
+    ]
+  },
+  {
+    "slug": "mesh-inertia-tensor-was-wrong-and-removes-the-workaround-it",
+    "title": "Mesh inertia tensor was wrong, and removes the workaround it forced",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "MeshMassProperties returned correct volume and centroid and a wrong inertia tensor. A centred 2x3x4 box, whose moments are 50, 40 and 26 about its axes with zero products, reported -10, -8 and -5.2 with products of -22.8",
+    "sha": "7728d43",
+    "content": [
+      {
+        "type": "p",
+        "text": "MeshMassProperties returned correct volume and centroid and a wrong inertia tensor. A centred 2x3x4 box, whose moments are 50, 40 and 26 about its axes with zero products, reported -10, -8 and -5.2 with products of -22.8, -45.6 and -30.4."
+      },
+      {
+        "type": "p",
+        "text": "Negative diagonal moments are not an approximation error. A moment of inertia integrates a squared distance against a positive mass, so it cannot be negative for any solid whatsoever \u2014 a single sign check would have caught this outright, and no test was making it."
+      },
+      {
+        "type": "p",
+        "text": "The tetrahedron weight it accumulated with was the NEGATION of the signed volume (fabs hid that in the volume result and nothing corrected it in the moments), and the quadratic accumulations and their 1/20 divisor matched no consistent formulation either."
+      },
+      {
+        "type": "p",
+        "text": "Replaced with Eberly's polyhedral surface integrals \u2014 not a new formulation, but the one already proven exact inside the analytic B-rep, which had been carrying its own copy PRECISELY BECAUSE this one could not be trusted. That workaround is now removed: Body::massProperties delegates, and the two agreed to a delta of exactly zero on a 2x3x4 box across volume, all three moments and the products before the duplicate was deleted. Density scaling stays where it belongs \u2014 volume and centroid are geometric, only the inertia carries mass."
+      },
+      {
+        "type": "p",
+        "text": "Also handles inward winding explicitly: negating every integral is equivalent to reversing the winding, so an inward mesh yields correct moments instead of inheriting a sign."
+      },
+      {
+        "type": "p",
+        "text": "box 2x3x4     Ixx/Iyy/Izz  -10, -8, -5.2   ->  50, 40, 26 exactly, products 0 sphere r=1    all axes                     ->  within 1% of 2/5 m r^2 cylinder      axial                        ->  within 1% of 1/2 m r^2"
+      },
+      {
+        "type": "p",
+        "text": "Tests: closed-form moments for box, sphere and cylinder; centroidal inertia unchanged under translation; and the cheap invariant that no diagonal moment is ever negative and the diagonal satisfies the triangle inequality, across four solids \u2014 the guard that makes this class of error impossible to reintroduce quietly."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2338/2338 pass."
+      }
+    ]
+  },
+  {
+    "slug": "chapter-26-what-the-cube-could-not-show",
+    "title": "Chapter 26 \u2014 what the cube could not show",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "logbook"
+    ],
+    "category": "Commit",
+    "excerpt": "Auditing the function every watertightness claim in the Boolean campaign reduces to, chosen by asking what carries the most weight while being least examined.",
+    "sha": "7e8a301",
+    "content": [
+      {
+        "type": "p",
+        "text": "Auditing the function every watertightness claim in the Boolean campaign reduces to, chosen by asking what carries the most weight while being least examined."
+      },
+      {
+        "type": "p",
+        "text": "Its tests were four calls to static arithmetic helpers with hand-written numbers and two validating a closed cube \u2014 the one shape on which its defects cancel. Closed surfaces were always right, which is the half that matters and is stated first; open ones were wrong three separate ways."
+      },
+      {
+        "type": "p",
+        "text": "The third defect is the one the chapter turns on: non-manifold edges were sought through a half-edge structure that cannot represent them, so the third face read as a boundary and no valence ever rose. The defect had been asked about in a language that cannot express it."
+      },
+      {
+        "type": "p",
+        "text": "And repairing the edge count turned a passing test red, uncovering a winding bug in solidify that the old arithmetic had been cancelling out to give the right answer by coincidence \u2014 the second time in four chapters that two defects were found concealing each other, which is now stated as a rule."
+      },
+      {
+        "type": "p",
+        "text": "Pull-quote: the structure meant to expose the defect was the thing destroying the evidence."
+      },
+      {
+        "type": "p",
+        "text": "Republished to the HTML edition at the same \ud83d\udcd6 URL."
+      }
+    ]
+  },
+  {
+    "slug": "repair-the-topology-validator-and-the-winding-bug-it-uncover",
+    "title": "Repair the topology validator, and the winding bug it uncovered",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Every watertightness claim in the boolean work rests on one number \u2014 MeshTopologyValidation::validate(m).boundaryLoops == 0 \u2014 and nothing tested it directly. Four of its tests call the static arithmetic helpers with numb",
+    "sha": "e210b8e",
+    "content": [
+      {
+        "type": "p",
+        "text": "Every watertightness claim in the boolean work rests on one number \u2014 MeshTopologyValidation::validate(m).boundaryLoops == 0 \u2014 and nothing tested it directly. Four of its tests call the static arithmetic helpers with numbers written by hand; the two that validate a mesh both use a closed cube, which is exactly the case where the defects below cancel out. Audited against surfaces whose answers come from topology rather than from a previous run."
+      },
+      {
+        "type": "p",
+        "text": "The good news first: CLOSED surfaces were always right. Cube, sphere and torus report the correct boundary count, Euler characteristic and genus, so the seam and boolean results this session rest on stand."
+      },
+      {
+        "type": "p",
+        "text": "OPEN surfaces did not."
+      },
+      {
+        "type": "p",
+        "text": "1. E was taken as half the half-edge count. That assumes every edge carries two half-edges, which is true only on a closed surface \u2014 a boundary edge carries one. E came out short by half the boundary and the Euler characteristic too high by the same amount: a 4x4 plane, a disk with chi = 1, reported 9. Now each undirected edge is counted once, boundary or not."
+      },
+      {
+        "type": "p",
+        "text": "2. computeGenus evaluated (2 - boundaryLoops - euler) / 2 with boundaryLoops unsigned, so the whole expression went unsigned: one boundary loop with chi = 3 computed 1u - 3 as 4294967294 and returned a genus of 2147483647. Every open mesh reported that. Converted to signed before the arithmetic."
+      },
+      {
+        "type": "p",
+        "text": "3. Non-manifold edges were never detected. Three triangles sharing one edge \u2014 the textbook case \u2014 was reported VALID with no violations. The check looked for a half-edge valence above two, but a half-edge mesh CANNOT represent that configuration: the third face never gets a twin, reads as boundary, and the valence never rises. The evidence is destroyed by the structure meant to expose it, so it is now taken from the face list instead."
+      },
+      {
+        "type": "p",
+        "text": "Fixing (1) then turned a passing test red, which is how it should work. MeshThicken::solidify builds its side walls from a list of boundary edges stored as sorted endpoint pairs \u2014 discarding the direction the owning face traversed them \u2014 so about half the walls were wound backwards. The shell was closed as a set of triangles yet not consistently oriented: six directed edges on a solidified unit plane were each traversed twice the same way, which no half-edge structure can pair. It reported two spurious boundary loops, and the old half-the-half-edges arithmetic had been cancelling that out to give chi = 2 by coincidence. Boundary edges now keep their direction and the wall is wound to oppose the surface it joins; the shell comes out with 36 directed edges each used exactly once, chi = 2, genus 0, no boundary."
+      },
+      {
+        "type": "p",
+        "text": "Tests cover all four: known Euler characteristics for closed AND open surfaces, genus checked over a grid of chi/boundary combinations for wrap-around, explicit non-manifold detection, and a consistent-orientation check that every directed edge of a closed surface is traversed exactly once \u2014 the property whose absence was invisible to everything else."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2334/2334 pass."
+      }
+    ]
+  },
+  {
+    "slug": "chapter-25-nothing-turned-red",
+    "title": "Chapter 25 \u2014 nothing turned red",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "logbook"
+    ],
+    "category": "Commit",
+    "excerpt": "The audit arc. Opens on the observation that made it necessary: seven features sat on a hierarchy that had been wrong for its entire existence, and every one of their tests passed both before and after it was repaired. A",
+    "sha": "3c98a81",
+    "content": [
+      {
+        "type": "p",
+        "text": "The audit arc. Opens on the observation that made it necessary: seven features sat on a hierarchy that had been wrong for its entire existence, and every one of their tests passed both before and after it was repaired. A suite that cannot tell those two states apart is not testing what it appears to test."
+      },
+      {
+        "type": "p",
+        "text": "Then what that question turned up \u2014 a random source returning [0, 0.000488] instead of [0, 1), off by 2,048, which reduced Poisson-disk sampling to a single point because all thirty darts asked for the same distance in the same direction; two existing tests that were asserting the bug rather than the behaviour; and an ambient occlusion bake that had returned a uniform 1.0 for every scene it was ever given, because every ray hit the triangle it started from and that was discarded as nothing at all."
+      },
+      {
+        "type": "p",
+        "text": "Keeps my own three false starts in, since each nearly became a bug report: spheres carry no normals, a plane and a box cannot be merged because their channel sets differ, and box corners are too exposed to test concavity. All three were caught by counting the scene instead of assuming it."
+      },
+      {
+        "type": "p",
+        "text": "Pull-quote: when a fix lands and nothing turns red, the tests have told you where to look next."
+      },
+      {
+        "type": "p",
+        "text": "Republished to the HTML edition at the same \ud83d\udcd6 URL."
+      }
+    ]
+  },
+  {
+    "slug": "ambient-occlusion-never-saw-an-occluder-shadow-ray-bias",
+    "title": "Ambient occlusion never saw an occluder \u2014 shadow-ray bias",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Auditing the last three consumers of the random source. Point sampling and the instancer are correct: samples are area-weighted (worst deviation from triangle area 4%, all on the surface) and instances cover the target a",
+    "sha": "609c953",
+    "content": [
+      {
+        "type": "p",
+        "text": "Auditing the last three consumers of the random source. Point sampling and the instancer are correct: samples are area-weighted (worst deviation from triangle area 4%, all on the surface) and instances cover the target and reproduce for a fixed seed. Ambient occlusion was not correct, for a reason unrelated to the generator."
+      },
+      {
+        "type": "p",
+        "text": "Every AO ray starts ON the surface, so the first thing it meets is the triangle it started from, at t == 0. MeshBVH::raycast reports only the NEAREST hit, so that self-intersection is all it ever returned, and the `t > 1e-6` guard then discarded it as \"nothing was hit\". Every ray came back unoccluded. The bake was a uniform 1.0 for every scene: on a plane with a sphere resting on it, the vertices directly beneath the sphere scored exactly the same as the far rim."
+      },
+      {
+        "type": "p",
+        "text": "Fixed by lifting the ray origin off the surface along the normal before tracing \u2014 standard shadow-ray bias. The same ray goes from t == -0 to t == 0.05. The offset is scale-aware, a fraction of the query's own reach plus a term for the float resolution at the coordinate magnitude, so it behaves the same on a millimetre part as on a kilometre of terrain."
+      },
+      {
+        "type": "p",
+        "text": "plane + resting sphere, beneath vs rim:  1.000 vs 1.000  ->  0.28 vs 0.985 and stable across 32, 128 and 512 samples."
+      },
+      {
+        "type": "p",
+        "text": "Note the brute-force path was never affected: it examines every triangle and tracks the nearest hit beyond the epsilon itself, so it skipped the self-hit naturally. Only the accelerated path, which cannot see past the nearest hit, was wrong \u2014 which is why the two now agree to 0.0000 per vertex where before they could not have."
+      },
+      {
+        "type": "p",
+        "text": "Tests. AO gets three: a convex body must be uniformly open (nothing can occlude it), an occluder must be separated from open surface by a wide margin, and the accelerated and exhaustive paths must agree \u2014 two implementations sharing nothing but their sampling directions. Point sampling is checked for AREA-WEIGHTING on a stretched box, where uniform-per-triangle would be visibly wrong. The instancer is checked for coverage and reproducibility."
+      },
+      {
+        "type": "p",
+        "text": "Three probe mistakes worth recording, since each nearly produced a false bug report: makeSphere carries no normals and AO returns empty without them; a plane has UVs and a box does not, so appendMesh refuses the pair and silently left the \"occluder\" out of the scene entirely; and box corners are too exposed to serve as a concave test. Each was caught by checking the scene rather than trusting it."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2329/2329 pass."
+      }
+    ]
+  },
+  {
+    "slug": "the-random-source-returned-0-0-000488-instead-of-0-1",
+    "title": "The random source returned [0, 0.000488] instead of [0, 1)",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Auditing the features that sit on MeshBVH \u2014 their tests passed both before and after that structure was repaired, so none had ever exercised the broken path \u2014 found closest-point, signed distance fields, Hausdorff and sn",
+    "sha": "60ef194",
+    "content": [
+      {
+        "type": "p",
+        "text": "Auditing the features that sit on MeshBVH \u2014 their tests passed both before and after that structure was repaired, so none had ever exercised the broken path \u2014 found closest-point, signed distance fields, Hausdorff and snapping all correct once the hierarchy was fixed. Poisson-disk sampling was not: it returned ONE point where hundreds were expected, in nearly every configuration."
+      },
+      {
+        "type": "p",
+        "text": "The cause is upstream of all of them. SplitMix64::uniform01 shifted its 64-bit output down to 53 bits \u2014 correct, that is a double's mantissa \u2014 and then divided by 2^64 instead of 2^53. Every \"random\" number in the geometry kernel was a value in [0, 0.000488]: constant for any practical purpose. Four features draw from it: Poisson-disk sampling, surface point sampling, ambient occlusion, the instancer."
+      },
+      {
+        "type": "p",
+        "text": "Poisson-disk sampling threw every dart in the same direction at the same distance \u2014 traced, the requested distance was 0.3001 on all thirty attempts \u2014 so the first seed could never accept a neighbour and the active list emptied immediately. With the generator fixed the sampler tracks theory across the board: sphere r1.2   minDist 0.50 -> 44 points (expected ~42) minDist 0.10 -> 1117      (expected ~1046) box 2x2x2     minDist 0.25 -> 226       (expected ~222)"
+      },
+      {
+        "type": "p",
+        "text": "Also fixes a second, independent defect there: maxPoints == 0 is documented as \"unlimited\" but fell back to the candidate POOL size, maxAttempts * 8 = 240 by default. That is a property of the seeding, not the surface, so any spacing fine enough to need more than 240 points silently returned exactly 240 \u2014 which is what the one previously-working configuration was doing."
+      },
+      {
+        "type": "p",
+        "text": "TWO EXISTING TESTS WERE ASSERTING THE BUG and now fail correctly; both were re-derived rather than relaxed: * Hausdorff expected backwardMax 2.0 for a unit box translated by +3. The configuration is symmetric \u2014 both directions are 3.0 \u2014 and the comment justifying 2.0 was never geometrically true. It passed only because sampling never reached the far face. * The instancer asserted the scattered result was under 1.5 wide. Scattering 0.5-scaled boxes over a 2-unit plane spans about 2.5; the old bound held because every instance landed on top of the first. Rewritten to compare two scales, which is what the test was named for."
+      },
+      {
+        "type": "p",
+        "text": "New tests: the six BVH-dependent features against independent references (exhaustive scans, or properties the answer must satisfy) on a mesh with enough triangles that the hierarchy must work, plus the SDF's SIGN, which nothing checked; and the random source asserted as a DISTRIBUTION \u2014 mean, range and decile occupancy \u2014 because a generator whose range has collapsed still passes every test that only asks whether its consumers returned something."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2324/2324 pass."
+      }
+    ]
+  },
+  {
+    "slug": "chapter-24-the-cost-that-was-somewhere-else",
+    "title": "Chapter 24 \u2014 the cost that was somewhere else",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "logbook"
+    ],
+    "category": "Commit",
+    "excerpt": "The broad phase reduced the cut's pairing work 388-fold and bought twenty per cent. That gap is the chapter: an optimisation can be perfectly correct, perfectly effective at what it targets, and still barely register \u2014 a",
+    "sha": "eca79a9",
+    "content": [
+      {
+        "type": "p",
+        "text": "The broad phase reduced the cut's pairing work 388-fold and bought twenty per cent. That gap is the chapter: an optimisation can be perfectly correct, perfectly effective at what it targets, and still barely register \u2014 at which point it has become an experiment reporting that the time was never there."
+      },
+      {
+        "type": "p",
+        "text": "Where it was: a quadratic vertex weld, three passes of it under geometry work that had just been made logarithmic. Records why replacing it counts as a substitution rather than a different algorithm \u2014 the original bound each vertex to the FIRST earlier equivalent, and a hash returns candidates in bucket order, so the replacement reproduces that rule rather than resembling it."
+      },
+      {
+        "type": "p",
+        "text": "Keeps the embarrassment in: the benchmark driving the work was a twelve-triangle box, the one shape for which a broad phase can do nothing, since its triangles have model-spanning bounding boxes."
+      },
+      {
+        "type": "p",
+        "text": "Pull-quote: an optimisation that works perfectly and changes almost nothing is not a failure, it is a measurement."
+      },
+      {
+        "type": "p",
+        "text": "Republished to the HTML edition at the same \ud83d\udcd6 URL."
+      }
+    ]
+  },
+  {
+    "slug": "broad-phase-the-cut-and-make-the-vertex-weld-near-linear",
+    "title": "Broad-phase the cut, and make the vertex weld near-linear",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "perf",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Adds MeshBVH::collectBoxCandidates and uses it as MeshCut's broad phase. Pairing every triangle of A against every triangle of B is quadratic: at 1,288 against 1,288 triangles it tested 1,658,944 pairs where the hierarch",
+    "sha": "d530713",
+    "content": [
+      {
+        "type": "p",
+        "text": "Adds MeshBVH::collectBoxCandidates and uses it as MeshCut's broad phase. Pairing every triangle of A against every triangle of B is quadratic: at 1,288 against 1,288 triangles it tested 1,658,944 pairs where the hierarchy proposes 4,271, a 388x reduction. Candidates are then filtered by the SAME exact box test as before and visited in ascending triangle order, so the pairs considered and the order they are considered in are identical to the brute-force loop. That is not tidiness: the order segments are appended in feeds the per-triangle retriangulation, so a different order could yield a different (still valid) tessellation. Sorting keeps this a pure acceleration."
+      },
+      {
+        "type": "p",
+        "text": "But the broad phase alone bought only ~20%, which said the pairing had never been the bottleneck. It was the WELD. Mesh::weldCoincidentVertices compared every vertex with every earlier one \u2014 measured at a constant 320 ns per V^2, so 40,000 vertices cost 486 ms for a single weld \u2014 and the cut welds both operands while the boolean welds again. Replaced with a spatial hash over epsilon-sized cells, examining all 27 neighbours so any pair within epsilon is still found."
+      },
+      {
+        "type": "p",
+        "text": "Semantics are preserved exactly, which is the only thing that makes this a legitimate optimisation. The old loop bound each vertex to the FIRST (smallest) earlier equivalent vertex; the hashed version finds the same one by taking the minimum index among candidates the unchanged predicate accepts. Verified against a brute-force reference on 198 clustered meshes: zero disagreements."
+      },
+      {
+        "type": "p",
+        "text": "weld, 40k vertices        486 ms -> 11.4 ms   (43x, and now near-linear) cut,  4888 vs 4888 tris   229 ms ->  7.8 ms   (29x) boolean total, same       466 ms -> 92.7 ms   (5x) boolean total, 12 vs 8568 tris, over the session: 829 ms -> 312 ms (BVH repair) -> 24.8 ms  (33x overall)"
+      },
+      {
+        "type": "p",
+        "text": "Output is byte-identical throughout \u2014 the same triangle counts at every size, on both benchmarks \u2014 so this accelerates and nothing else."
+      },
+      {
+        "type": "p",
+        "text": "Also stops the BVH traversals heap-allocating a stack per query."
+      },
+      {
+        "type": "p",
+        "text": "Tests: the weld is checked against brute-force first-match semantics on clustered input, and guarded for COMPLEXITY (4x the vertices must not cost ~16x the time) \u2014 a quadratic weld passes every correctness test and simply makes the kernel unusable, so shape is what needs asserting. The box query is checked to contain every genuinely overlapping triangle."
+      },
+      {
+        "type": "p",
+        "text": "Honest note: the earlier box-vs-sphere benchmark was a poor test of a broad phase. A 12-triangle box has triangles whose boxes span the whole model, so nothing can be pruned. Sphere-against-sphere is both the case a broad phase targets and the case a real model presents."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2317/2317 pass."
+      }
+    ]
+  },
+  {
+    "slug": "chapter-23-the-tree-that-never-grew",
+    "title": "Chapter 23 \u2014 the tree that never grew",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "logbook"
+    ],
+    "category": "Commit",
+    "excerpt": "The MeshBVH repair, written as a chapter. Two independent defects and the relationship between them: leaves addressing a triangle array the build had permuted, and a stopping rule that compared node COUNT against a DEPTH",
+    "sha": "906fbce",
+    "content": [
+      {
+        "type": "p",
+        "text": "The MeshBVH repair, written as a chapter. Two independent defects and the relationship between them: leaves addressing a triangle array the build had permuted, and a stopping rule that compared node COUNT against a DEPTH limit so the tree capped at ~71 nodes for a model of any size."
+      },
+      {
+        "type": "p",
+        "text": "The second was the first one's alibi \u2014 huge leaves absorbed the ordering bug's damage, so repairing the tree first made correctness visibly WORSE before the ordering fix took disagreement to two in three thousand. That sequence is the useful part of the story."
+      },
+      {
+        "type": "p",
+        "text": "Records the blast radius (seven other callers had been getting the wrong nearest triangle for as long as the structure existed) and why a test suite missed it: every existing test used a quad, which never splits a node \u2014 aimed below the altitude where the code does its work."
+      },
+      {
+        "type": "p",
+        "text": "Pull-quote: an acceleration structure that stops accelerating does not fail, it keeps answering, only slowly \u2014 the one failure mode a correctness test is guaranteed not to see."
+      },
+      {
+        "type": "p",
+        "text": "Republished to the HTML edition at the same \ud83d\udcd6 URL."
+      }
+    ]
+  },
+  {
+    "slug": "repair-meshbvh-it-was-returning-wrong-answers-and-not-accele",
+    "title": "Repair MeshBVH \u2014 it was returning wrong answers and not accelerating",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Profiling the mesh boolean showed it is quadratic in operand size (51x the triangles cost 476x the time), with two per-sub-triangle linear scans as the cause. Reaching for the existing MeshBVH to fix that found the BVH i",
+    "sha": "c61a30c",
+    "content": [
+      {
+        "type": "p",
+        "text": "Profiling the mesh boolean showed it is quadratic in operand size (51x the triangles cost 476x the time), with two per-sub-triangle linear scans as the cause. Reaching for the existing MeshBVH to fix that found the BVH itself broken in two independent ways."
+      },
+      {
+        "type": "p",
+        "text": "1. LEAVES ADDRESSED THE WRONG TRIANGLES. build() fills m_tris in mesh order, while buildNode partitions its own array with nth_element and stores leaf firstTri/triCount as ranges into THAT permuted order. Queries read m_tris. So every leaf scanned unrelated triangles. Against an exhaustive scan on a 2,232 triangle sphere, closestPoint disagreed on 2,764 of 3,000 queries \u2014 always by reporting too LARGE a distance, the signature of looking in the wrong place. Fixed by recording each triangle's pre-build index and permuting m_tris to match once the build finishes."
+      },
+      {
+        "type": "p",
+        "text": "2. THE TREE NEVER GREW. The depth cut-off read `static_cast<int32_t>(m_nodes.size()) > kMaxDepth` \u2014 the total node COUNT against a DEPTH limit of 64. Past 64 nodes every node became a leaf holding whatever remained, so the tree capped at ~71 nodes for a mesh of ANY size and one leaf held 4,284 of 8,568 triangles. Fixed by passing real recursion depth."
+      },
+      {
+        "type": "p",
+        "text": "The second defect hid the first: with leaves spanning half the mesh, scanning the wrong range still usually contained the answer. Fixing the tree alone made correctness visibly WORSE (1,009 wrong queries became 2,764) before the ordering fix took it to 2 of 3,000, and those two are float rounding on a query lying on the surface."
+      },
+      {
+        "type": "p",
+        "text": "This is not confined to the boolean. closestPoint has seven other callers \u2014 snapping, signed-distance fields, Hausdorff distance, Poisson-disk sampling, quad remesh, mesh closest-point \u2014 all of which were being handed a wrong nearest triangle on any mesh large enough to split a node."
+      },
+      {
+        "type": "p",
+        "text": "Why it survived: every existing MeshBVH test used a QUAD. A quad never splits a node, so no test could reach either defect. The new tests use a tessellated sphere and check closestPoint and raycast against exhaustive scans rather than against hand-picked expectations, assert leaves stay bounded as the mesh grows, and assert the new segment-candidate query is conservative."
+      },
+      {
+        "type": "p",
+        "text": "Also adds MeshBVH::collectSegmentCandidates \u2014 every triangle whose box a segment passes through. raycast reports only the nearest hit, which cannot serve a point-in-solid parity count, where missing one crossing inverts the answer. It is deliberately conservative; each candidate is still resolved by the same exact SoS test, so parity is identical to scanning everything."
+      },
+      {
+        "type": "p",
+        "text": "With a working BVH behind both boolean queries, results are BYTE-IDENTICAL (triangle counts 208/542/968/1550/3150/5370 unchanged at every size \u2014 this accelerates only) and classification is 7.2x faster: 563ms to 78ms at sphere 64x68. Total boolean 829ms to 312ms. MeshCut's brute-force tri-tri broad phase now dominates at 235ms and is the next lever."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2314/2314 pass."
+      }
+    ]
+  },
+  {
+    "slug": "chapter-22-the-triangle-that-was-not-a-t-junction",
+    "title": "Chapter 22 \u2014 the triangle that was not a T-junction",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "logbook"
+    ],
+    "category": "Commit",
+    "excerpt": "Closes the mesh-boolean seam arc, and keeps both wrong turns on the record because how each was caught is the useful part.",
+    "sha": "f532fd4",
+    "content": [
+      {
+        "type": "p",
+        "text": "Closes the mesh-boolean seam arc, and keeps both wrong turns on the record because how each was caught is the useful part."
+      },
+      {
+        "type": "p",
+        "text": "The all-or-nothing weld, found while hunting something else, and the lesson that came with it: the leak COUNT moved 12 to 11 while the damage moved 10,926 boundary edges to 80. A metric that refuses to move is sometimes telling you about the metric."
+      },
+      {
+        "type": "p",
+        "text": "Then the first wrong diagnosis \u2014 a third of the residual reported as T-junctions, from a probe that never excluded a boundary edge's own opposite corner, so every degenerate triangle counted itself as evidence. Caught by BUILDING the conforming pass and measuring it change nothing at all; reverted rather than left in as dead code that looked like diligence."
+      },
+      {
+        "type": "p",
+        "text": "Then the second \u2014 the previous chapter's claim that deleting a cap would turn one unpartnered edge into two. Reasoning from an assumption rather than from the mesh: printing an actual cap's neighbourhood showed its shared edges were used three times, not two, so deletion was right the whole time."
+      },
+      {
+        "type": "p",
+        "text": "And the fix: a scale-invariant thinness filter whose threshold was measured out of a gap in the distribution rather than chosen, after a first attempt ten times stricter left nine caps behind."
+      },
+      {
+        "type": "p",
+        "text": "Republished to the HTML edition at the same \ud83d\udcd6 URL."
+      }
+    ]
+  },
+  {
+    "slug": "drop-cap-sub-triangles-closes-the-extreme-density-seam-resid",
+    "title": "Drop cap sub-triangles \u2014 closes the extreme-density seam residual",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "TriangleRetriangulate emitted CAP sub-triangles: a triangle whose third corner lies on its own opposite edge, enclosing no area. Where a seam point lands a hair off an edge of the triangle being cut, the CDT returns both",
+    "sha": "1724ce5",
+    "content": [
+      {
+        "type": "p",
+        "text": "TriangleRetriangulate emitted CAP sub-triangles: a triangle whose third corner lies on its own opposite edge, enclosing no area. Where a seam point lands a hair off an edge of the triangle being cut, the CDT returns both the correct sub-triangles that split through that point AND a cap spanning the whole unsplit edge. The cap duplicates area the real sub-triangles already cover."
+      },
+      {
+        "type": "p",
+        "text": "Dumping the neighbourhood of one showed why that leaks, and CORRECTED the previous commit's reasoning. The cap's two shared edges were each used THREE times \u2014 its own use plus the two genuine triangles that split there \u2014 while its long edge was used once and had no partner. That unpartnered edge is the leak. The previous commit claimed deleting a cap \"turns one unpartnered edge into two\"; that assumed those edges were used twice. They are used three times, so deletion takes them to two and removes the long edge entirely. Deletion is exactly right."
+      },
+      {
+        "type": "p",
+        "text": "Caps are dropped by thinness: 2*area over the sum of squared edge lengths, which is dimensionless (~0.29 equilateral, \u21920 degenerate) and therefore means the same at any model scale. The threshold is measured, not guessed. Over 54,643 sub-triangles of a cut sphere the caps occupy 1.0e-7..4.5e-7, the next non-cap triangle is at 3e-6, and the 0.1th percentile of ordinary geometry is 2.6e-4; 1e-6 sits in that gap with room on both sides. A first pass at 1e-7 was too strict and left 9 caps behind, which is how the gap got measured."
+      },
+      {
+        "type": "p",
+        "text": "RESULT \u2014 the residual is closed, not reduced: sphere vs box leak rate    24x28  5.0% -> 0%      32x36  18.3% -> 0% operand cuts not watertight  32x36    5/20 -> 0/20 boundary edges at 32x36       total 77 -> 0, worst 16 -> 0 Every tracked seam metric is now zero: general position, all curved densities 6x10 through 32x36, extreme tessellation, caps emitted, and the randomized fuzz battery."
+      },
+      {
+        "type": "p",
+        "text": "Holds beyond what it was tuned on: 0 leaks at 48x52 and at 64x68, at model scales 1 and 100. The one exception, stated rather than buried: 64x68 at scale 100 still leaks 2 of 20."
+      },
+      {
+        "type": "p",
+        "text": "Volume is conserved, which is the guard that the filter is not deleting real geometry: |A| + |B| == |A U B| + |A n B| to within 3.7e-6 relative, i.e. float precision. Asserted directly."
+      },
+      {
+        "type": "p",
+        "text": "Two characterization tests asserted the residual still existed and now correctly fail their own premise; both were re-derived rather than relaxed."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2310/2310 pass. (The direct gtest binary intermittently segfaults in VulkanRendererOffscreen under lavapipe \u2014 pre-existing and GPU-only; geometry-only runs 2254/2254 clean.)"
+      }
+    ]
+  },
+  {
+    "slug": "stop-the-vertex-weld-being-all-or-nothing",
+    "title": "Stop the vertex weld being all-or-nothing",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Chasing the extreme-density seam residual found a bug with a far larger blast radius than the residual itself. Mesh::weldCoincidentVertices refused the ENTIRE weld if welding would collapse any single face \u2014 one `return ",
+    "sha": "07f83dd",
+    "content": [
+      {
+        "type": "p",
+        "text": "Chasing the extreme-density seam residual found a bug with a far larger blast radius than the residual itself. Mesh::weldCoincidentVertices refused the ENTIRE weld if welding would collapse any single face \u2014 one `return false` deep in the face-remap loop, leaving the whole mesh unwelded. On a finely tessellated boolean the cut always produces some sliver whose two ends fall within tolerance, so a single degenerate triangle anywhere left every triangle in the result isolated and the surface disintegrated into a soup."
+      },
+      {
+        "type": "p",
+        "text": "Measured at sphere 32x36 against a box, over 60 booleans: total boundary edges   worst single result before                          10,926              5,958 after                               80                 16 5,958 boundary edges from 1,986 faces is exactly three per face \u2014 nothing had welded at all."
+      },
+      {
+        "type": "p",
+        "text": "Fixed with an opt-in policy rather than a semantic change under existing callers: WeldCollapsePolicy::RejectWhole stays the default and keeps the old behaviour (the guard test for it is unchanged), while DropCollapsedFace removes just the zero-area face. That is sound, not a workaround: dropping a collapsed triangle is an edge collapse \u2014 its two surviving corners become the same undirected edge, so the neighbours across them stay matched and a closed surface STAYS closed, which is asserted directly on a box. The booleans and the mesh cut opt in."
+      },
+      {
+        "type": "p",
+        "text": "WHAT THIS DOES NOT FIX, stated plainly: the extreme-density LEAK COUNT is essentially unchanged (12 of 60 to 11 of 60 at 32x36; 3 of 60 at 24x28). What changed is severity \u2014 a leak is now a small local hole instead of a destroyed result. The remaining holes were diagnosed rather than guessed at: * not weld failures \u2014 no near-duplicate vertices survive near any boundary edge * not coincidence \u2014 disabling that branch entirely changes nothing * not sub-triangle normals \u2014 taking them from the source triangle changes nothing (tried, measured leak-neutral, and reverted rather than landed) * 34% ARE T-JUNCTIONS: a seam edge split on one operand and not the other. Notably this is the class the old box-only map recorded as absent. Conforming the two cuts against each other is the next increment."
+      },
+      {
+        "type": "p",
+        "text": "Also adds a severity guard, because the leak count alone barely registered a 137x change in damage and would not catch the all-or-nothing behaviour returning."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2308/2308 pass."
+      }
+    ]
+  },
+  {
+    "slug": "chapter-21-the-offset-that-could-not-exist",
+    "title": "Chapter 21 \u2014 the offset that could not exist",
+    "date": "2026-07-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "logbook"
+    ],
+    "category": "Commit",
+    "excerpt": "The mesh-boolean seam arc: redrawing a map that had been measured with a broken instrument, the three claims of the old one that did not survive, and the single quantity behind both surviving defect classes \u2014 a classific",
+    "sha": "fce1dc6",
+    "content": [
+      {
+        "type": "p",
+        "text": "The mesh-boolean seam arc: redrawing a map that had been measured with a broken instrument, the three claims of the old one that did not survive, and the single quantity behind both surviving defect classes \u2014 a classification probe offset taken from the model's bounding box while the distance it had to stay inside is local and shrinks with tessellation."
+      },
+      {
+        "type": "p",
+        "text": "Records the two failed repairs before the real one (deriving the offset from the sub-triangle made it worse; capping it halved the rate but could not finish), because the point of the chapter is that no correct offset exists \u2014 the bug was making a combinatorial decision depend on a tunable length at all. Both residuals are stated as recorded rather than claimed."
+      },
+      {
+        "type": "p",
+        "text": "Republished to the HTML edition at the same \ud83d\udcd6 URL."
+      }
+    ]
+  },
+  {
+    "slug": "classify-boolean-faces-without-a-probe-offset-closes-seam-cl",
+    "title": "Classify boolean faces without a probe offset \u2014 closes seam class 2",
+    "date": "2026-07-22",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Class 2 was the largest remaining seam defect: sphere-vs-box leak rates climbing with tessellation density (12% at 6x10 to 67% at 32x36), scale-invariant, on watertight inputs with clean cuts.",
+    "sha": "e919f54",
+    "content": [
+      {
+        "type": "p",
+        "text": "Class 2 was the largest remaining seam defect: sphere-vs-box leak rates climbing with tessellation density (12% at 6x10 to 67% at 32x36), scale-invariant, on watertight inputs with clean cuts."
+      },
+      {
+        "type": "p",
+        "text": "CAUSE. Classification offset each sub-triangle's centroid along its normal by eps and asked the exact point-in-solid test on both sides, using the two answers both to decide the region AND to detect coincidence. That made a COMBINATORIAL decision depend on choosing eps well, which is not possible in general: eps must clear float noise yet stay closer than the nearest other sheet of surface. eps came from the model's BOUNDING BOX, while the distance to the nearest sheet is a LOCAL quantity that shrinks as a model is tessellated more finely. Measured, the smallest sub-triangle the cut produces falls from 3.5e-4 at 6x10 to 9.4e-7 at 32x36 while the offset stays at 2e-4 \u2014 up to 200x larger than the triangle it is probing off \u2014 and the leak rate tracks it. Scale-invariant for the same reason: both quantities scale with the model, so the ratio, and the damage, stay put."
+      },
+      {
+        "type": "p",
+        "text": "Capping eps by the sub-triangle's own size halved the rates but could not fix it: at extreme density the slivers are smaller than the float-noise floor, so no eps satisfies both requirements. The probe had to go."
+      },
+      {
+        "type": "p",
+        "text": "FIX. Split the two questions along the kernel's governing rule \u2014 combinatorial decisions exact, metric quantities tolerant: * region: the exact Simulation-of-Simplicity parity AT the centroid, no offset. SoS already resolves a centroid lying on the other surface consistently. * coincidence: distance from the centroid to the other surface within a scale-aware tolerance AND the surfaces locally parallel. Distance alone misreads ordinary seam slivers, because every seam face is close to the other surface \u2014 that is what a seam is. * outward orientation: from the nearest original triangle of the face's own solid, replacing a third probe with the same unsatisfiable eps."
+      },
+      {
+        "type": "p",
+        "text": "RESULT over 2593 boolean runs, 38 leaks -> 1: pinned battery        9 -> 0     broad systematic sweep    0 -> 0 randomized box/box    1 -> 0     curved sphere/cylinder   28 -> 1"
+      },
+      {
+        "type": "p",
+        "text": "It also closed CLASS 1, which the re-measurement had listed as a separate defect: near-coincident coplanar faces were being misclassified by the same probe. What remains of class 1 is a narrow band where the separation is ABOUT EQUAL to the coincidence tolerance \u2014 the inherent ambiguity of deciding coincidence by measurement, which real kernels avoid by snapping to tolerance before the boolean. Pinned, not claimed fixed."
+      },
+      {
+        "type": "p",
+        "text": "Curved operands are watertight through moderate tessellation (0 leaks at 6x10, 12x16, 16x20). The extreme-density residual (3 of 60 at 24x28, down from 29 of 60) is tracked, not asserted at zero: there the cut emits sub-triangles a few float ULPs across, where the geometry itself has run out of precision. Closing that is a cut-quality increment, not a classification one."
+      },
+      {
+        "type": "p",
+        "text": "Three characterization tests asserted properties of the old implementation and were rewritten to the re-measured truth rather than left describing a defect that no longer exists."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2304/2304 pass."
+      }
+    ]
+  },
+  {
+    "slug": "chapter-20-the-bedrock-was-not-bedrock",
+    "title": "Chapter 20 \u2014 the bedrock was not bedrock",
+    "date": "2026-07-22",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "logbook"
+    ],
+    "category": "Commit",
+    "excerpt": "The exact-predicate arc: the cavity investigation that came back clean and left only one suspect, the measurement that showed all three predicates returning wrong signs, the `\u2026Exact` functions that contained no expansion",
+    "sha": "e2e8f9e",
+    "content": [
+      {
+        "type": "p",
+        "text": "The exact-predicate arc: the cavity investigation that came back clean and left only one suspect, the measurement that showed all three predicates returning wrong signs, the `\u2026Exact` functions that contained no expansion arithmetic at all, and the rebuild. Records the lesson plainly \u2014 the audit read the file's structure and citation and concluded exactness without ever testing a sign against an independent oracle."
+      },
+      {
+        "type": "p",
+        "text": "Also closes out Chapter 19's stated open thread: the hull under-fill was never a cavity defect."
+      },
+      {
+        "type": "p",
+        "text": "Republished to the HTML edition at the same \ud83d\udcd6 URL."
+      }
+    ]
+  },
+  {
+    "slug": "make-the-exact-predicates-actually-exact",
+    "title": "Make the exact predicates actually exact",
+    "date": "2026-07-22",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "The kernel's deepest assumption was false. orient2D, orient3D and inCircle are the bedrock every Delaunay/CDT insertion, every boolean classification and every Simulation-of-Simplicity tie-break rests on, and the audit r",
+    "sha": "043d2ce",
+    "content": [
+      {
+        "type": "p",
+        "text": "The kernel's deepest assumption was false. orient2D, orient3D and inCircle are the bedrock every Delaunay/CDT insertion, every boolean classification and every Simulation-of-Simplicity tie-break rests on, and the audit recorded them as \"genuine Shewchuk adaptive-exact\". They were not. Measured against an exact reference on near-degenerate input, all three returned the WRONG SIGN:"
+      },
+      {
+        "type": "p",
+        "text": "orient2D    746 / 200,000  (0.373%) orient3D  1,073 / 200,000  (0.537%) inCircle    790 / 200,000  (0.395%)"
+      },
+      {
+        "type": "p",
+        "text": "None were ties. The cause is that two of the three \"Exact\" fallbacks contained no expansion arithmetic at all: they summed six floating-point terms of wildly different magnitude, and if the result fell under a hard-coded absolute 1e-10 they re-summed the terms sorted LARGEST-FIRST \u2014 the worst ordering for accuracy \u2014 and returned that. The third, orient2DExact, did use expansions but drove growExpansion with muddled parameters. The fast-path error bounds were also not provably conservative."
+      },
+      {
+        "type": "p",
+        "text": "Rebuilt on genuine expansion arithmetic \u2014 nonoverlapping doubles of increasing magnitude, where the largest component decides the sign \u2014 with exact twoSum, twoDiff, twoProduct, fast_expansion_sum_zeroelim and scale_expansion_zeroelim, and Shewchuk's published error bounds on the fast paths. Exact for all double inputs; nothing is assumed about operand exponent range. Shewchuk's intermediate B/C/D stages are deliberately omitted: they are optimizations that each add another subtle error bound to get wrong, and two stages carry the same guarantee."
+      },
+      {
+        "type": "p",
+        "text": "All three now agree with an exact reference on every one of 1.2M adversarial configurations, down from 2,609 wrong."
+      },
+      {
+        "type": "p",
+        "text": "This also CLOSES the hull under-fill pinned one commit ago as a separate cavity defect. It was never a cavity defect: probing showed the cavity is never empty, never disconnected and always star-shaped. inCircle was returning the wrong sign, so a correctly-computed cavity was built from an incorrect set of bad triangles. sliverHullGaps  125 / 400  ->  0 / 400 That assertion stays at zero as the sharpest end-to-end witness that the predicates remain exact \u2014 a wrong sign shows up there as missing area long before it surfaces as a leaking boolean."
+      },
+      {
+        "type": "p",
+        "text": "Cost: the exact fallback is now real work rather than a cheap approximation, so the kernel suite goes 10.1s -> 14.5s. Correctness first; the fast path still handles the overwhelming majority of calls and the perf gate passes unchanged."
+      },
+      {
+        "type": "p",
+        "text": "ctest 2299/2299 pass."
+      }
+    ]
+  },
+  {
+    "slug": "full-documentation-set-beginner-user-developer-guides-html-e",
+    "title": "Full documentation set \u2014 beginner/user/developer guides + HTML edition",
+    "date": "2026-07-22",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Carried in from an earlier session's working tree, not authored here.",
+    "sha": "1a1c74f",
+    "content": [
+      {
+        "type": "p",
+        "text": "Carried in from an earlier session's working tree, not authored here."
+      },
+      {
+        "type": "p",
+        "text": "Adds a structured documentation tree alongside the existing reference docs: docs/developer/ (architecture, geometry kernel, analytic B-rep, half-edge mesh, boolean/CSG, renderer, editor, build system, and how-to guides for adding a geometry op or a CAD feature), docs/beginner/ and docs/user/ getting-started material, the GEOMETRY_KERNEL_COMPENDIUM, DEVELOPMENT and HANDOFF-CHARTER, plus generate_html.py and the docs/html/ rendered edition it produces."
+      },
+      {
+        "type": "p",
+        "text": "Also rewrites the top-level README, ROADMAP, CONTRIBUTING, AGENTS.md, CLAUDE.md and docs/README to match the current state of the kernel."
+      },
+      {
+        "type": "p",
+        "text": "Note: docs/html/ is generated output committed alongside its generator, so the rendered edition is browsable without running the script."
+      }
+    ]
+  },
+  {
+    "slug": "chapter-19-the-triangle-that-was-too-small",
+    "title": "Chapter 19 \u2014 the triangle that was too small",
+    "date": "2026-07-22",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "logbook"
+    ],
+    "category": "Commit",
+    "excerpt": "The Bowyer-Watson super-triangle arc, written as a chapter: the diagnosis that named a symptom one layer too high, the scale sweep that settled it, why no constant can be correct when the required size tracks the input's",
+    "sha": "48afc1a",
+    "content": [
+      {
+        "type": "p",
+        "text": "The Bowyer-Watson super-triangle arc, written as a chapter: the diagnosis that named a symptom one layer too high, the scale sweep that settled it, why no constant can be correct when the required size tracks the input's thinness, and the shoelace-formula mismeasurement that sent the increment chasing a phantom \u2014 which also overturns this logbook's earlier verdict that the hull under-fill was probe noise. The residual cavity defect is stated as a separate open thread rather than folded into the claim."
+      },
+      {
+        "type": "p",
+        "text": "Republished to the HTML edition at the same \ud83d\udcd6 URL."
+      }
+    ]
+  },
+  {
+    "slug": "size-the-bowyer-watson-super-triangle-to-the-input-s-thinnes",
+    "title": "Size the Bowyer-Watson super-triangle to the input's thinness",
+    "date": "2026-07-22",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "The CDT residual was diagnosed as a near-collinear point leaving a hull edge absent from buildDelaunay, unreachable by constraint recovery. Probing the actual mechanism found something one layer lower and much larger: th",
+    "sha": "10a0ad9",
+    "content": [
+      {
+        "type": "p",
+        "text": "The CDT residual was diagnosed as a near-collinear point leaving a hull edge absent from buildDelaunay, unreachable by constraint recovery. Probing the actual mechanism found something one layer lower and much larger: the super-triangle was too small."
+      },
+      {
+        "type": "p",
+        "text": "A super-triangle is only valid outside the circumcircle of every triangle of the true Delaunay triangulation. Circumradius is abc/(4A), so a sliver triple sends it towards infinity \u2014 points spanning 1.0 that deviate by 1e-6 need a super-triangle around 1e6 times the bounding box. Both triangulators hard-coded a small multiple (20x for the CDT, 0.75x for Delaunay2D). Below the threshold the sliver's circumcircle swallows the super-vertices, the sliver is never emitted, and stripping the super-triangle deletes real area. A 5-point sliver came back with ZERO triangles; measured over 400 random thin sets per decade, nearly every input below 1e-3 thinness was losing its whole triangulation."
+      },
+      {
+        "type": "p",
+        "text": "No fixed multiple can work, because the required scale is driven by the input's thinness rather than its extent. Both triangulators now build at a scale, verify the result tiles the input's convex hull, and grow the scale if it does not. The first scale is the historical one, so well-conditioned inputs cost a single build and are unchanged. The check terminates: a finite point set with any non-degenerate triple has a finite maximum circumradius."
+      },
+      {
+        "type": "p",
+        "text": "Measured (16k random constrained inputs / 8k thin sets): - dropped vertices                15396 -> 0 - unenforced CDT constraints      40.1% -> 0.62% - randomized mesh-boolean leaks   2/180 -> 0/180, now ASSERTED not tracked"
+      },
+      {
+        "type": "p",
+        "text": "Hull areas are compared through an orient2D fan rather than the shoelace formula. Shoelace subtracts nearly-equal products of absolute coordinates and loses most of its significant digits on a sliver (measured 4e-4 relative error on a 1e-6-area triangle), which is enough to fake a hull gap that is not there \u2014 and is why an earlier reading dismissed the under-fill as measurement noise."
+      },
+      {
+        "type": "p",
+        "text": "A SECOND, independent defect remains and is pinned as a tracked metric, not claimed fixed: at extreme thinness the cavity retriangulation can still under-fill the hull (125 of 400). It is a different mechanism \u2014 a point whose deviation from a hull edge sits at float resolution \u2014 and no super-triangle size addresses it. That is the next increment."
+      },
+      {
+        "type": "p",
+        "text": "Suite 2291, 2286 pass, 5 skipped (GPU-gated)."
+      }
+    ]
+  },
+  {
+    "slug": "harden-cdt-constraint-recovery-to-sloan-s-ordered-rule",
+    "title": "Harden CDT constraint recovery to Sloan's ordered rule",
+    "date": "2026-07-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Foundation \u2014 PHASE M follow-up to inc66. The constraint edge recovery landed in inc66 flipped \"only convex quads whose flip makes progress\" (new diagonal no longer crosses the target). That is almost right \u2014 the word doi",
+    "sha": "886a4a1",
+    "content": [
+      {
+        "type": "p",
+        "text": "Foundation \u2014 PHASE M follow-up to inc66. The constraint edge recovery landed in inc66 flipped \"only convex quads whose flip makes progress\" (new diagonal no longer crosses the target). That is almost right \u2014 the word doing the damage is only. In configurations where three edges cross the constraint, only two sit in a convex quad, and neither convex flip makes immediate progress, the rule finds no eligible flip and gives up with the edge unrecovered \u2014 a deadlock / silent give-up path."
+      },
+      {
+        "type": "p",
+        "text": "Correct it to Sloan's ordered rule: flip the convex crossing edge NEAREST the constraint's start endpoint, progress-making or not. A convex flip can never increase the number of edges crossing the constraint, and processing crossings front-to-back always advances the front, so it terminates and recovers even through no-immediate-progress configurations. Every sidedness decision stays an exact orient2D."
+      },
+      {
+        "type": "p",
+        "text": "The two configurations that previously deadlocked now recover cleanly, with every triangle still one winding; a regression test pins one. Inversions stay at zero and the mesh-boolean torture is unchanged (15). The aggregate CDT fuzz unenforced count moves only 34 -> 33 \u2014 the residual is now, provably, all one separate thing: a near-collinear boundary point the unconstrained buildDelaunay leaves stranded (no crossing edge to flip), pinned as the next target."
+      },
+      {
+        "type": "p",
+        "text": "Full suite 2280 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "robust-cdt-constraint-enforcement-halves-mesh-boolean-leaks",
+    "title": "Robust CDT constraint enforcement halves mesh-boolean leaks",
+    "date": "2026-07-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Foundation \u2014 PHASE M. Probing the residual mesh-boolean seam leaks pinned the real defect two layers below where it showed: ConstrainedDelaunay2D recovered a required edge by flipping crossing edges with NO convexity che",
+    "sha": "ec738c8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Foundation \u2014 PHASE M. Probing the residual mesh-boolean seam leaks pinned the real defect two layers below where it showed: ConstrainedDelaunay2D recovered a required edge by flipping crossing edges with NO convexity check (a non-convex flip folds two triangles over each other) and never split a constraint at a vertex lying exactly on it. A 16k-input fuzz showed ~23% of constraints unenforced and ~14% of triangulations left inverted/overlapping; buildDelaunay itself is clean, so all damage came from the blind flips."
+      },
+      {
+        "type": "p",
+        "text": "Replace enforcement with the textbook algorithm done exactly: - split a constraint at the nearest vertex lying on it (the collinear / T-junction case edge-flipping can never resolve), recover each half; - recover the edge by flipping ONLY strictly-convex quads whose flip makes progress (new diagonal no longer crosses the target) \u2014 Anglada termination; - flipEdge now emits both new triangles CCW (it was leaving mixed winding). Every sidedness decision is an exact orient2D."
+      },
+      {
+        "type": "p",
+        "text": "Post-fix fuzz: 0 inverted triangles; unenforced 3706->34 (the 34 belong to a separate, pre-existing buildDelaunay hull-underfill gap, unchanged by this fix). Dividend downstream: mesh-boolean torture leaks HALVED (30->15; all rotated-box cases now watertight), the bowtie (non-manifold-vertex) class eliminated, seam characterization battery 26->9, determinism preserved."
+      },
+      {
+        "type": "p",
+        "text": "Tests: two new ConstrainedDelaunay2D tests (a deterministic constraint-crossing- multiple-edges recovery case + a 3000-trial no-inversion invariant); updated the seam characterization test to the improved reality (nmVertex==0, leaks<=9). Full suite 2279 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "resolve-voxelgrid-double-definition-voxelize-non-finite-guar",
+    "title": "Resolve VoxelGrid double-definition + voxelize non-finite guard",
+    "date": "2026-07-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Two headers each declared `struct VoxelGrid` \u2014 MeshVoxelize.h (occupancy grid: resolution/origin/voxelSize) and MeshSurfaceNets.h (signed grid: nx/ny/nz + data). They are NOT the same type, only the same name, so any tra",
+    "sha": "0c2a423",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two headers each declared `struct VoxelGrid` \u2014 MeshVoxelize.h (occupancy grid: resolution/origin/voxelSize) and MeshSurfaceNets.h (signed grid: nx/ny/nz + data). They are NOT the same type, only the same name, so any translation unit that included both failed to compile (the inc62 non-finite probe hit exactly this). They were never meant to be one type \u2014 the grid a voxelizer fills and the grid a surface-extractor reads are different animals. Resolved by renaming the surface-nets one to SurfaceNetsGrid (contained: its header + cpp + its test); MeshVoxelize keeps the canonical VoxelGrid since it produces one. test_KernelFuzz now includes BOTH headers, which is itself the compile-time regression guard."
+      },
+      {
+        "type": "p",
+        "text": "Also completed the non-finite sweep on the voxel path: MeshVoxelize::voxelize took a NaN/\u00b1Inf mesh and rasterized it into a finite-but-garbage grid; it now rejects non-finite input and returns an empty grid (KernelFuzz.VoxelizeRejectsNonFiniteInput). MeshSurfaceNets::extract takes a grid (not a mesh) and its output is grid-derived, so it has no non-finite-mesh path. With this, the non-finite-rejection convention is complete across the mesh-processing surface."
+      },
+      {
+        "type": "p",
+        "text": "Full suite: 2276 pass / 5 GPU-skip / 0 fail. Logbook Chapter 18 finished."
+      }
+    ]
+  },
+  {
+    "slug": "add-the-kernel-logbook-a-chaptered-book-format-narrative-of",
+    "title": "Add the Kernel Logbook \u2014 a chaptered, book-format narrative of the build",
+    "date": "2026-07-19",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Replaces the flat \"increment 1..60\" logging with a readable book: Parts are bodies of work, Chapters are feature arcs (each with a problem and a thing proven), and the individual increments are the passages inside a chap",
+    "sha": "89d1db8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Replaces the flat \"increment 1..60\" logging with a readable book: Parts are bodies of work, Chapters are feature arcs (each with a problem and a thing proven), and the individual increments are the passages inside a chapter. The canonical text is docs/kernel-logbook.md; a designed HTML edition is published as an Artifact for reading. The exhaustive per-increment technical record stays in the audit memory + commit history \u2014 this is the narrative edition, not the changelog."
+      },
+      {
+        "type": "p",
+        "text": "Edition 1 covers Parts I-IV: the exact-arithmetic bedrock, the analytic B-rep solid and its Boolean, the mesh world, and the foundation gap-closure campaign. Future increments extend the relevant chapter as a new passage (or open a new chapter when a new arc begins), in both the .md and the HTML edition."
+      }
+    ]
+  },
+  {
+    "slug": "booleantobody-watertight-or-empty-invariant-near-degenerate",
+    "title": "BooleanToBody watertight-or-empty invariant + near-degenerate torture battery",
+    "date": "2026-07-19",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "Exactness audit (inc 50): classified every float threshold on the boolean/imprint/ classify/merge path as METRIC (distance/coincidence within tol \u2014 correctly kept: mergeCollinear/Coplanar cleanup, coincident-face probe s",
+    "sha": "31bbe00",
+    "content": [
+      {
+        "type": "p",
+        "text": "Exactness audit (inc 50): classified every float threshold on the boolean/imprint/ classify/merge path as METRIC (distance/coincidence within tol \u2014 correctly kept: mergeCollinear/Coplanar cleanup, coincident-face probe step, weld epsilon) vs COMBINATORIAL (yes/no topology \u2014 must be exact). Core decisions are all already exact (inc 34-49); the remaining combinatorial float is pointInPlanarPolygon in the non-central curved-imprint path (noted for later)."
+      },
+      {
+        "type": "p",
+        "text": "A near-degenerate torture battery (165 configs: box booleans at exact/near/face/ edge/corner-touch offsets x 0/28/45/60deg rotations + faceted-cylinder booleans) surfaced a REAL gap: several near-degenerate sews (e.g. box union dx=1.9999) produced an OPEN/leaky shell that checkIntegrity accepted (it permits boundary edges). FIX: booleanToBody now requires the sewn result be WATERTIGHT (isClosed()) as well as integrity-clean, else falls back to a clean empty Body \u2014 a boolean is always a watertight solid or nothing, never leaky."
+      },
+      {
+        "type": "p",
+        "text": "Proven: the battery goes 5->0 violations, every result watertight-or-clean-empty and byte-identical deterministic; whole boolean suite green. (A valid boolean CAN be multi-component or edge-manifold-vertex-touching \u2014 two cubes sharing a corner -> euler 3, vol 16 \u2014 legitimate CSG, not corruption; the invariant is watertight-or-empty, not a fixed euler.) Full suite: 2256 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "sos-capstone-complete-classifypoint-is-now-fully-exact",
+    "title": "SoS capstone COMPLETE \u2014 classifyPoint is now fully exact",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "The payoff, and the moment inc 35 failed (a naive exact ray-cast regressed 12 boolean tests, reverted). Body::classifyPoint's parity ray-cast \u2014 previously a float Moller-Trumbore with a multi-direction degenerate-retry h",
+    "sha": "7e75bea",
+    "content": [
+      {
+        "type": "p",
+        "text": "The payoff, and the moment inc 35 failed (a naive exact ray-cast regressed 12 boolean tests, reverted). Body::classifyPoint's parity ray-cast \u2014 previously a float Moller-Trumbore with a multi-direction degenerate-retry heuristic \u2014 is replaced by: cast from p along ONE fixed generic direction to a far endpoint B beyond every mesh vertex, and count segmentCrossesTriangleSoS (inc 48) over the tessellation. Simulation-of-Simplicity resolves every degeneracy that broke the old exact attempt (a query point coplanar with pole triangles; a ray through a shared edge/vertex), so a single direction suffices \u2014 no retry, fully deterministic \u2014 and the OnBoundary tol-band pre-check is kept. The old rayTriangle heuristic is deleted."
+      },
+      {
+        "type": "p",
+        "text": "Tests: on box/cylinder/sphere/faceted-cylinder/faceted-sphere the query point exactly at the CENTRE (coplanar with every pole triangle \u2014 the exact case that broke inc 35) and on the pole AXIS classify Inside/Outside correctly and deterministically; the ENTIRE boolean/classify suite (57 tests) stays green \u2014 no regression. Full suite: 2253 pass / 5 GPU-skip / 0 fail."
+      },
+      {
+        "type": "p",
+        "text": "This eliminates the boolean's LAST floating-point topological decision: point-vs-plane (34), segment-vs-triangle (35), in-plane straddle (36), plane-plane parallel (37), plane-cylinder perpendicular (38), and now point-in-solid ray parity (47-49) are ALL exact-arithmetic. Every combinatorial decision the boolean makes is now provably correct at knife-edge cases."
+      }
+    ]
+  },
+  {
+    "slug": "sos-step-2-exact-degeneracy-free-segment-vs-triangle-crossin",
+    "title": "SoS step 2 \u2014 exact degeneracy-free segment-vs-triangle crossing",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "The ray-parity core for an exact classifyPoint, now fully degeneracy-free. The query point p is symbolically perturbed by (e,e^2,e^3) (the far endpoint B shifts with it, so the ray direction is unchanged): the two plane-",
+    "sha": "78a8f75",
+    "content": [
+      {
+        "type": "p",
+        "text": "The ray-parity core for an exact classifyPoint, now fully degeneracy-free. The query point p is symbolically perturbed by (e,e^2,e^3) (the far endpoint B shifts with it, so the ray direction is unchanged): the two plane-side tests use pointPlaneSideSoS (step 1), and each of the three edge tests \u2014 orient3D(p,B,vi,vj), exactly zero when the ray-line passes through an edge/vertex \u2014 is resolved by the perturbation."
+      },
+      {
+        "type": "p",
+        "text": "The perturbation algebra is exact: with both endpoints shifted by d, the edge determinant expands to base + L*d.((B-p)x(vj-vi)), so a zero edge test resolves to -sign(first non-zero of (B-p)x(vj-vi)) (kappa=-1, calibrated against the true perturbed sign)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: matches a brute-force perturbation-limit ground truth (the whole crossing re-evaluated at p+d,B+d for shrinking e) on clean hits/misses AND every degenerate ray \u2014 through a vertex, an edge, the hypotenuse, and a p coplanar with a pole-like triangle; a degenerate zero-area triangle contributes nothing; and the watertight-parity property \u2014 a ray through the SHARED edge of two adjacent triangles is counted for exactly ONE of them (never 0/2), so parity stays correct at seams; deterministic. Standalone (step 3 = wire into classifyPoint). Full suite: 2252 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "sos-step-1-exact-never-ambiguous-point-vs-plane-side-pointpl",
+    "title": "SoS step 1 \u2014 exact never-ambiguous point-vs-plane side (pointPlaneSideSoS)",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "Pivot back to exact-arithmetic correctness (per user directive: the kernel's topological decisions must be enterprise-grade, zero-error). First proven building block toward an exact ray-parity classifyPoint on curved she",
+    "sha": "94b3978",
+    "content": [
+      {
+        "type": "p",
+        "text": "Pivot back to exact-arithmetic correctness (per user directive: the kernel's topological decisions must be enterprise-grade, zero-error). First proven building block toward an exact ray-parity classifyPoint on curved shells."
+      },
+      {
+        "type": "p",
+        "text": "Blocker (inc 35): a tessellated curved shell's pole triangles are near-coplanar with interior query points, so orient3D(v0,v1,v2,p) returns exactly 0 pervasively and a plain exact ray-cast stalls. Simulation-of-Simplicity resolves it by a consistent symbolic perturbation p -> p+(e,e^2,e^3): when orient3D==0 the sign is -sign of the first non-zero component of g=(v1-v0)x(v2-v0), each component an exact orient2D minor. pointPlaneSideSoS returns a definite +/-1 for any non-degenerate triangle (never 0), and 0 only for a genuinely zero-area triangle."
+      },
+      {
+        "type": "p",
+        "text": "Tests: off-plane it equals orient3D's sign; a point exactly coplanar (orient3D==0, asserted) resolves to a definite +/-1 matching the perturbation limit (orient3D at p+(e,e^2,e^3) for shrinking e) on axis-aligned, tilted, and large float32-exact coords; opposite sides and windings flip the sign; degenerate triangles return 0; deterministic. Shipped standalone (NOT wired into classifyPoint yet \u2014 avoids the inc-35 boolean regression; deferred to a later sub-step). Full suite: 2247 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "twisted-extrude-twisted-prism-twistextrude",
+    "title": "Twisted extrude / twisted prism (twistExtrude)",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "Sweep a closed planar profile along dir while rotating it about the extrusion axis (through the profile centroid) by a total twistRadians, in layers stacked bands -> a twisted column.",
+    "sha": "d63681f",
+    "content": [
+      {
+        "type": "p",
+        "text": "Sweep a closed planar profile along dir while rotating it about the extrusion axis (through the profile centroid) by a total twistRadians, in layers stacked bands -> a twisted column."
+      },
+      {
+        "type": "p",
+        "text": "A single-band loft between the base and a rotated top pinches (straight ruled sides bow inward: a 90-degree 4-gon single layer gives volume 4 not 12); the fix is subdividing the height into many thin layers, each a small twist, so the sides hug the true swept surface. A rotation preserves cross-sectional area, so the true volume is exactly base-area*height (Cavalieri); the faceted result converges to it FROM BELOW as layers grow."
+      },
+      {
+        "type": "p",
+        "text": "Tests: zero twist -> an exact prism (volume 12, euler 2); a 45-degree twist's volume is monotone-increasing in the layer count (11.80 -> 11.95 -> 11.99 at L=16/64/256) toward 12, watertight/euler-2/validator-clean at every L; a negative dir still gives positive volume; degenerate input (<3 pts, layers<1, dir in the profile plane, zero/non-finite dir, non-finite twist, collinear) -> empty; deterministic. Full suite: 2243 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "open-box-shell-tray-makeopenbox-the-open-surface-path",
+    "title": "Open box shell / tray (makeOpenBox) \u2014 the open-surface path",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "The kernel's first OPEN-surface (sheet-body) creation op: a floor + four walls with the top OMITTED. Unlike every prior op (all closed solids), this is deliberately NOT closed \u2014 its top rim is a loop of boundary edges.",
+    "sha": "0673d00",
+    "content": [
+      {
+        "type": "p",
+        "text": "The kernel's first OPEN-surface (sheet-body) creation op: a floor + four walls with the top OMITTED. Unlike every prior op (all closed solids), this is deliberately NOT closed \u2014 its top rim is a loop of boundary edges."
+      },
+      {
+        "type": "p",
+        "text": "The real invariants (asserted, not assumed): checkIntegrity() is clean (it permits boundary edges), isClosed() is false, boundaryEdges = 4 (the rim, one free edge per wall), euler 1 (a disk-topology sheet, not the euler-2 of a closed solid), and \u2014 since there is no enclosed volume \u2014 the meaningful measure is surfaceArea() = width*depth + 2*(width+depth)*height (floor + walls), not volume."
+      },
+      {
+        "type": "p",
+        "text": "Tests: 4x4x2 -> area 48, not-closed, boundaryEdges 4, euler 1, V=8/E=12/F=5, checkGeometry clean; area tracks non-cubic dims (6x4x3 -> 84); non-positive/ non-finite dims -> empty; deterministic. Full suite: 2238 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "pyramid-cone-primitive-makepyramid",
+    "title": "Pyramid / cone primitive (makePyramid)",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "A closed planar base polygon fanned to a single apex point off the base plane: n triangular sides + the base cap -> a watertight genus-0 (euler 2) solid, with exact volume 1/3*A*h (A = base area, h = perpendicular apex h",
+    "sha": "a460892",
+    "content": [
+      {
+        "type": "p",
+        "text": "A closed planar base polygon fanned to a single apex point off the base plane: n triangular sides + the base cap -> a watertight genus-0 (euler 2) solid, with exact volume 1/3*A*h (A = base area, h = perpendicular apex height). An n-gon base gives a faceted cone (converging to 1/3*pi*R^2*h)."
+      },
+      {
+        "type": "p",
+        "text": "Winding derived from the apex's side vs the base Newell normal (base reversed when the apex is below -> the apex is always on +N -> positive volume regardless of apex position/side)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: a square pyramid (base area 4, height 3) -> volume 4, euler 2, V=5/F=5; volume stays 1/3*A*h for an apex above, below, or oblique (off-centre); a faceted cone n=6/12/32 -> exact 1/3*(0.5n*R^2*sin(2pi/n))*h converging to 4pi at n=256; degenerate input (<3 base pts, apex in the base plane, collinear base, non-finite) -> empty; deterministic. Full suite: 2234 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "axis-touching-partial-revolve-cylindrical-cone-sector-pie-sl",
+    "title": "Axis-touching partial revolve \u2014 cylindrical/cone sector (pie slice)",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "Completes inc 39's explicitly-deferred case: revolveProfilePartial now supports a profile that TOUCHES the axis. On-axis vertices weld to a single pole (rotation leaves them fixed -> shared across all angular steps and b",
+    "sha": "1196ddc",
+    "content": [
+      {
+        "type": "p",
+        "text": "Completes inc 39's explicitly-deferred case: revolveProfilePartial now supports a profile that TOUCHES the axis. On-axis vertices weld to a single pole (rotation leaves them fixed -> shared across all angular steps and both end caps), the adjacent swept bands collapse to triangle fans (degenerate faces dropped), and the two flat radial caps are deduped to stay simple polygons. The result is a watertight genus-0 (euler 2) pie slice \u2014 a cylindrical sector for a rectangle with an on-axis edge, a cone sector for a triangle touching the axis."
+      },
+      {
+        "type": "p",
+        "text": "Tests: a rectangle [0,2]x[0,1] with its x=0 edge on the axis swept theta gives the exact faceted sector volume 0.5*R^2*n*sin(theta/n)*h = 2n*sin(theta/n) -> 2theta (watertight, euler 2, both validators clean); an on-axis-vertex triangle -> a watertight euler-2 cone sector with positive volume; a profile CROSSING the axis is still rejected. The non-axis-touching ring path (inc 39) is unchanged. Full suite: 2229 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "tube-pipe-primitive-maketube-direct-annular-extrude",
+    "title": "Tube / pipe primitive (makeTube) \u2014 direct annular extrude",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "An all-planar hollow cylinder (pipe / washer) along +Z: segments-gon outer and inner walls plus annular top and bottom caps (4*segments planar quads). Built DIRECTLY rather than via a boolean \u2014 a probe showed booleanToBo",
+    "sha": "4833e43",
+    "content": [
+      {
+        "type": "p",
+        "text": "An all-planar hollow cylinder (pipe / washer) along +Z: segments-gon outer and inner walls plus annular top and bottom caps (4*segments planar quads). Built DIRECTLY rather than via a boolean \u2014 a probe showed booleanToBody(facetedCyl, facetedCyl, Difference) works at low segment counts but fails to sew at n~24 (a coincident-cap + near-degenerate sew), whereas the direct annular construction is robust at any segment count (verified n=3..256)."
+      },
+      {
+        "type": "p",
+        "text": "The through-hole makes it genus 1 -> euler 0 (a single connected boundary, unlike the hollow box's disconnected inner cavity -> euler 4), watertight; faceted material volume = 0.5*n*(R^2-r^2)*sin(2pi/n)*h -> pi(R^2-r^2)h as n grows. Winding derived so the outer wall faces out and the inner wall faces in (positive volume)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: watertight/euler-0/validator-clean at n=3..64 with V=4n/E=8n/F=4n; exact faceted volume + convergence to 9pi at n=256; R<=r / r<=0 / h<=0 / non-finite -> empty, segments<3 clamps to 3; deterministic. Full suite: 2227 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "hollow-shell-op-hollowbox-via-boolean-difference",
+    "title": "Hollow / shell op (hollowBox) via boolean difference",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "A core CAD/DCC op (Shell/Solidify) built on the proven robust boolean: subtract a concentric inner box, each dimension inset by 2*thickness, via booleanToBody(outer, inner, Difference) -> a sealed wall of the given thick",
+    "sha": "6c77e1a",
+    "content": [
+      {
+        "type": "p",
+        "text": "A core CAD/DCC op (Shell/Solidify) built on the proven robust boolean: subtract a concentric inner box, each dimension inset by 2*thickness, via booleanToBody(outer, inner, Difference) -> a sealed wall of the given thickness."
+      },
+      {
+        "type": "p",
+        "text": "This exercises a genuinely different topological result \u2014 a valid solid with TWO boundary shells (outer surface + an inner cavity whose faces point inward), so euler = 4 (two genus-0 shells), watertight (boundaryEdges 0), with material volume = w*h*d - (w-2t)(h-2t)(d-2t)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: 4x4x4 t=1 -> volume 56, euler 4, V=16/F=12; wall volume tracks thickness (37/56/63) and non-cubic dims (6x4x2 -> 33); 2*thickness >= the smallest dimension returns the plain solid box (euler 2, vol 64); non-positive/non-finite thickness -> solid box, non-positive/non-finite dims -> empty; a difference that fails to sew falls back to the solid box (never-corrupt); deterministic. Full suite: 2223 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "loft-ruled-solid-between-two-profiles-loftprofiles",
+    "title": "Loft / ruled solid between two profiles (loftProfiles)",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "A core CAD creation op: connect a bottom and a top closed planar profile (same vertex count, corresponding order) with one quad side per matching edge pair plus two caps -> a watertight genus-0 solid; generalises extrude",
+    "sha": "474c7e5",
+    "content": [
+      {
+        "type": "p",
+        "text": "A core CAD creation op: connect a bottom and a top closed planar profile (same vertex count, corresponding order) with one quad side per matching edge pair plus two caps -> a watertight genus-0 solid; generalises extrudeProfile (whose top is the bottom translated)."
+      },
+      {
+        "type": "p",
+        "text": "Orientation is derived from the bottom->top centroid offset vs the bottom's Newell normal, so the winding is outward-consistent (positive volume) regardless of argument order; both profiles are reversed together when needed to preserve the i<->i vertex pairing. For similar profiles scaled about a common axis the sides are planar trapezoids and the solid is an exact pyramidal frustum."
+      },
+      {
+        "type": "p",
+        "text": "Tests: equal profiles -> a prism (2x2x3 box, volume 12, euler 2); a scaled-square loft -> the exact frustum volume h/3*(A0+A1+sqrt(A0*A1)) = 14/3; a pentagon loft is watertight euler-2 (7 faces); swapping argument order gives the same positive volume; mismatched counts / <3 pts / coplanar / degenerate / non-finite all return empty; deterministic. Full suite: 2218 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "partial-revolve-a-capped-arc-solid-revolveprofilepartial",
+    "title": "Partial revolve \u2014 a capped arc solid (revolveProfilePartial)",
+    "date": "2026-07-18",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "A concrete modeling capability (pivot from predicate hardening now the exact foundation is solid): sweep a closed planar profile through an arbitrary angle theta (0 < theta < 2pi) into a watertight arc solid \u2014 the swept ",
+    "sha": "596016e",
+    "content": [
+      {
+        "type": "p",
+        "text": "A concrete modeling capability (pivot from predicate hardening now the exact foundation is solid): sweep a closed planar profile through an arbitrary angle theta (0 < theta < 2pi) into a watertight arc solid \u2014 the swept side bands plus two planar end caps (the profile at angle 0 and at theta). Unlike the full revolve (a genus-1 ring), the capped arc is genus 0 (euler 2, boundaryEdges 0)."
+      },
+      {
+        "type": "p",
+        "text": "The cap winding is derived from the side-band boundary-edge directions (start cap forward, end cap reversed) so every shared edge gets exactly two opposite coedges -> a consistent outward-wound closed shell (positive volume, not clamped)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: at theta = 1/4, 1/2, 3/4 of 2pi the arc is watertight/euler-2/ validator-clean with volume = theta*Rbar*A (= (theta/2pi)*full Pappus) to tessellation tol, V = m*(seg+1), F = m*seg+2; theta >= 2pi delegates to the full revolve byte-identically (still the genus-1 ring); theta<=0/non-finite, <3 pts, seg<3, zero axis, and axis-touching/crossing profiles all return empty; deterministic. Full suite: 2212 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "exact-plane-cylinder-perpendicularity-in-ssi",
+    "title": "Exact plane-cylinder perpendicularity in SSI",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "planeCylinder's 'is the section a true Circle?' decision (the plane must be perpendicular to the axis) used a float nearlyEqual(|n.ax|, 1) band, which mis-classifies a near-perpendicular plane \u2014 whose real section is an ",
+    "sha": "50c0987",
+    "content": [
+      {
+        "type": "p",
+        "text": "planeCylinder's 'is the section a true Circle?' decision (the plane must be perpendicular to the axis) used a float nearlyEqual(|n.ax|, 1) band, which mis-classifies a near-perpendicular plane \u2014 whose real section is an ellipse \u2014 as a circle. It is now exact via the same exactlyCollinear predicate as inc 37: the plane is perpendicular iff its normal is collinear with the cylinder axis (all three nA x ax orient2D minors vanish)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: an anti-parallel-normal plane (normal -2Z vs axis +Z) is correctly a Circle; a tilted plane with normal (0,1,16e6) \u2014 whose float |n.ax| rounds to 1 (the old band -> bogus circle) but whose int64 cross component is 1 != 0 \u2014 is correctly declined (ellipse, not a circle). Byte-identical for genuinely perpendicular planes. Full suite: 2208 pass / 5 GPU-skip / 0 fail."
+      },
+      {
+        "type": "p",
+        "text": "Deferred (explicitly): Simulation-of-Simplicity for the curved-shell classifyPoint ray parity \u2014 the one remaining non-exact core decision, a multi-step effort too risky for a single clean increment."
+      }
+    ]
+  },
+  {
+    "slug": "exact-plane-plane-parallel-classification-in-ssi",
+    "title": "Exact plane-plane parallel classification in SSI",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "The last plain-float predicate on the boolean path. planePlane's parallel-vs-intersecting decision used a float |nA x nB|^2 < 1e-12 threshold, which mis-classifies a genuine shallow-angle plane pair as parallel (missing ",
+    "sha": "ca08eea",
+    "content": [
+      {
+        "type": "p",
+        "text": "The last plain-float predicate on the boolean path. planePlane's parallel-vs-intersecting decision used a float |nA x nB|^2 < 1e-12 threshold, which mis-classifies a genuine shallow-angle plane pair as parallel (missing its real intersection Line) or a truly-parallel pair as intersecting (bogus Line)."
+      },
+      {
+        "type": "p",
+        "text": "It is now exact: two planes are parallel iff their stored normals are collinear, decided by nA x nB == 0 where each of the three cross-product minors is an exact RobustPredicates::orient2D determinant about the origin (all three must vanish). The Line geometry (p0, direction) is unchanged, so non-shallow cases stay byte-identical; a < 1e-30 guard only avoids a literal divide-by-zero."
+      },
+      {
+        "type": "p",
+        "text": "Tests: truly-parallel and anti-parallel (collinear-normal) pairs return None; a shallow pair with normals (16e6,0,0) and (16e6,1,0) \u2014 whose float L2 is < 1e-12 (the old threshold would call it parallel) but whose int64 cross-z is 16e6 != 0 \u2014 now correctly returns the real Line (the shared z-axis, unit direction), deterministic. Full boolean/imprint/SSI suite green. Full suite: 2207 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "exact-in-plane-straddle-wired-into-imprint-s-line-crossing",
+    "title": "Exact in-plane straddle wired into imprint's Line crossing",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "imprintCurve's Line branch decided whether a boundary edge crosses the imprint line with a float closest-approach parameter s + a (0.02,0.98) interior band, which mis-decides near-endpoint crossings and loses precision a",
+    "sha": "693f9e3",
+    "content": [
+      {
+        "type": "p",
+        "text": "imprintCurve's Line branch decided whether a boundary edge crosses the imprint line with a float closest-approach parameter s + a (0.02,0.98) interior band, which mis-decides near-endpoint crossings and loses precision at large coordinates. The crossing DECISION is now exact: the face is planar (normal n) and both the edge A->B and the imprint Line (origin O, dir D) lie in that plane, so A and B straddle the line iff they lie on strictly opposite sides \u2014 decided by the exact sign of orient3D(O, O+D, ., O+n) (the in-plane side determinant, via the existing Shewchuk predicate). The float s is kept only as the split location (snapped onto the curve by splitEdge)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: the orient3D straddle matches an exact int64 2D ground truth on every case in a large-coordinate near-endpoint sweep while the old float s+band mis-decides a nonzero number; a Line imprint on a large-coordinate (2e6) box face stays chi-neutral (dV+2/dE+3/dF+1) with both validators clean and euler 2. Full boolean/imprint suite green (no regression). Full suite: 2205 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "exact-segment-vs-triangle-predicate-segmentcrossestriangleex",
+    "title": "Exact segment-vs-triangle predicate (segmentCrossesTriangleExact)",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "A second exact building block for the boolean's ray-parity / segment-intersection decisions, built on RobustPredicates::orient3D. A segment A->B pierces a triangle iff A,B are strictly on opposite sides of its plane AND ",
+    "sha": "6c1be56",
+    "content": [
+      {
+        "type": "p",
+        "text": "A second exact building block for the boolean's ray-parity / segment-intersection decisions, built on RobustPredicates::orient3D. A segment A->B pierces a triangle iff A,B are strictly on opposite sides of its plane AND the line A->B lies on the same rotational side of all three edges \u2014 every branch from the exact orient3D sign. A coplanar segment or zero-area triangle contributes nothing (no flag); only an exact orient3D zero (endpoint-on-plane / line-through-edge) sets degenerate for a re-cast \u2014 unlike a float barycentric band that both false-flags near-misses and mis-signs true crossings under cancellation."
+      },
+      {
+        "type": "p",
+        "text": "Tests: on a near-degenerate sweep against a large-coordinate triangle it matches the exact int64 point-in-triangle ground truth on every definite point (0 errors) while a naive float32 Moller-Trumbore mis-classifies near the hypotenuse; deterministic."
+      },
+      {
+        "type": "p",
+        "text": "Scoping note: investigated wiring this into classifyPoint's ray parity, but a fully-exact parity over a tessellated CURVED shell needs Simulation-of-Simplicity (pole triangles are near-coplanar with interior query points, so every ray direction hits an exact degeneracy). The existing float ray-cast is kept for that path; the exact predicate is available for planar boolean use. Full suite: 2203 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "exact-arithmetic-point-vs-plane-predicate-faceplaneside-via",
+    "title": "Exact-arithmetic point-vs-plane predicate (facePlaneSide via orient3D)",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "Pivot to hardening the boolean's geometric predicates against float fragility. The which-side / face-straddle / coplanar decisions used a plain-float signed distance dot(p - origin, normalize(normal)) that can flip sign ",
+    "sha": "90db897",
+    "content": [
+      {
+        "type": "p",
+        "text": "Pivot to hardening the boolean's geometric predicates against float fragility. The which-side / face-straddle / coplanar decisions used a plain-float signed distance dot(p - origin, normalize(normal)) that can flip sign under catastrophic cancellation. Body::facePlaneSide(faceId, p, tol) computes the side via the kernel's existing Shewchuk adaptive-exact RobustPredicates::orient3D (float fast path -> exact fallback): pick 3 non-collinear outer-loop vertices, take the exact sign of orient3D, map it onto the face's outward normal, and report +1/-1 or 0 within a genuine on-plane tol band (perp distance orient3D/|g|)."
+      },
+      {
+        "type": "p",
+        "text": "Wired into mergeCoplanarFaces's coplanar() per-vertex on-plane test (same band, now exact-signed) \u2014 full boolean/merge suite stays green (no regression)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: correct outward/inward/on-band on all 6 box faces; on a plane 3x+5y+7z=0 with large float32-exact coordinates, facePlaneSide matches the exact int64 ground-truth sign on every definite point (0 errors) while the old float32 signed-distance method mis-signs a nonzero number of near-plane points; deterministic. Full suite: 2202 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "interior-trim-loop-holes-on-nurbs-faces-parameter-space-hole",
+    "title": "Interior trim-loop holes on NURBS faces (parameter-space holes)",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "Body::addTrimHole(faceId, ringPoints) builds an inner-loop topology on a face: new ring vertices on the surface, Line edges between them, and a coedge ring marked outer=false, appended to the face's innerLoops (preservin",
+    "sha": "e6aa6f7",
+    "content": [
+      {
+        "type": "p",
+        "text": "Body::addTrimHole(faceId, ringPoints) builds an inner-loop topology on a face: new ring vertices on the surface, Line edges between them, and a coedge ring marked outer=false, appended to the face's innerLoops (preserving checkIntegrity). The caller then attaches a pcurve per inner coedge, and tessellateTrimmedFace \u2014 which already runs even-odd across all loops \u2014 excludes the hole in parameter space."
+      },
+      {
+        "type": "p",
+        "text": "Tests: an outer sub-square trim ([0.25,0.75]\u00b2) with a square hole ([0.4,0.6]\u00b2) tessellates to the exact outer-minus-hole area (3.36 at aligned res, vs the hole-less 4.0); no emitted vertex lies inside the hole ([1.6,2.4]\u00b2) and all lie on the surface; both validators pass; the holed face serializes byte-identically (inner-loop pcurves survive the v3 sparse-by-coedge-index section) and re-tessellates identically; deterministic; addTrimHole rejects <3 points / bad face id / non-finite points leaving the body intact. Full suite: 2200 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "curved-polyline-pcurves-curved-nurbs-trim-boundaries",
+    "title": "Curved (polyline) pcurves \u2014 curved NURBS trim boundaries",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "A pcurve is now a polyline start->interior...->end in (u,v): with no interior points it stays a straight segment, with them it approximates a curved trim (an arc sampled into a polyline), so a NURBS face can be bounded b",
+    "sha": "665fb79",
+    "content": [
+      {
+        "type": "p",
+        "text": "A pcurve is now a polyline start->interior...->end in (u,v): with no interior points it stays a straight segment, with them it approximates a curved trim (an arc sampled into a polyline), so a NURBS face can be bounded by curved trims that follow the surface."
+      },
+      {
+        "type": "p",
+        "text": "Body::setCoedgePcurvePolyline(coedge, points) validates the endpoints map to the coedge's directed 3D vertices (as setCoedgePcurve) and that every interior point is finite AND inside the surface's parameter domain. checkGeometry re-validates interior points (finite + in-domain); tessellateTrimmedFace walks the interior samples so the trim boundary follows the curve. Serialization bumped to v3 (interior points appended per pcurve entry) with byte-identical v1 AND v2 backward-compat reads (v2 blob = interior count 0, gated on version >= 3)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: a rectangular-notch polyline trims the exact area (3.68, aligned-grid exact); a 32-sample semicircular arc trim converges to its polyline area as the grid refines (finer strictly closer), every emitted vertex on the surface and inside the trim; bad input (too few points, out-of-domain, non-finite, non-mapping endpoint) rejected; v3 round-trips preserving interior points; legacy v1+v2 blobs decode. Full suite: 2197 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "trimmed-nurbs-tessellation-tomesh-walks-the-pcurve-trim-regi",
+    "title": "Trimmed-NURBS tessellation \u2014 toMesh walks the pcurve trim region",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "Body::tessellateTrimmedFace(faceId, gridRes) tessellates a NURBS face by its parameter-space trim curves, not its 3D loop. The outer (and any inner) coedge pcurves are assembled into closed (u,v) trim polygons; the surfa",
+    "sha": "018b12b",
+    "content": [
+      {
+        "type": "p",
+        "text": "Body::tessellateTrimmedFace(faceId, gridRes) tessellates a NURBS face by its parameter-space trim curves, not its 3D loop. The outer (and any inner) coedge pcurves are assembled into closed (u,v) trim polygons; the surface is grid-sampled across its parameter domain; a cell's two surface-evaluated triangles are emitted when the cell CENTRE lies inside the trim region (even-odd across all loops). Centre classification is robust even when the trim boundary is grid-aligned \u2014 where a per-vertex point-in-polygon test hits the classic on-edge degeneracy. Every emitted vertex therefore lies exactly on the NURBS surface, and the tessellated area converges to the true trimmed area (exact when the trim lands on grid lines)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: on a patch whose face is an inner sub-square of the domain, the aligned area is exactly the trimmed 4 (not the full-patch 16), every referenced vertex lies inside the trim ([1,3]\u00b2, no [0,4] leakage), a misaligned grid undertessellates conservatively, deterministic, and non-NURBS / un-pcurved / bad-id faces return an empty mesh. Full suite: 2192 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "nurbs-trimmed-faces-parameter-space-trim-curves-pcurves",
+    "title": "NURBS-trimmed faces \u2014 parameter-space trim curves (pcurves)",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "A trimmed surface's boundary is defined on the surface's (u,v) parameter domain, not just in 3D. Add a Pcurve (a straight segment in (u,v), the param-space analog of a Line) stored per COEDGE \u2014 not per edge, because the ",
+    "sha": "3924497",
+    "content": [
+      {
+        "type": "p",
+        "text": "A trimmed surface's boundary is defined on the surface's (u,v) parameter domain, not just in 3D. Add a Pcurve (a straight segment in (u,v), the param-space analog of a Line) stored per COEDGE \u2014 not per edge, because the two faces sharing an edge have distinct parameter domains \u2014 via Body::setCoedgePcurve(coedge, u0,v0,u1,v1). It validates on attach that surfacePoint(face surface, u,v) at each endpoint reproduces the coedge's directed 3D start/end vertices within Tolerance (rejects swapped endpoints, non-finite params, invalid ids)."
+      },
+      {
+        "type": "p",
+        "text": "checkGeometry gains a pcurve clause re-verifying that mapping for every live pcurve-carrying coedge. Serialization bumped to v2: pcurves are a sparse trailing section keyed by coedge index, so v1 blobs decode byte-identically under the v2 reader (deserialize gates the section on version >= 2)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: all four outer coedges of the bilinear NURBS-patch face trim-attach + validate, byte-identical serialize round-trip preserving every pcurve, a corrupt pcurve is caught by checkGeometry (isolated via serialized-byte poke), legacy-v1 blob decodes (version byte patched), swapped/non-finite/bad-id rejected. Full suite: 2189 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "2-body-boolean-feature-parametric-csg-tree-in-the-feature-st",
+    "title": "2-body Boolean feature \u2014 parametric CSG tree in the feature stack",
+    "date": "2026-07-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "brep"
+    ],
+    "category": "Commit",
+    "excerpt": "FeatureKind::Boolean combines the running solid with a whole secondary sub-model (its own base+modifier list, recursive) via union/intersection/ difference. evaluate() factors per-list evaluation into a shared depth-boun",
+    "sha": "8f17587",
+    "content": [
+      {
+        "type": "p",
+        "text": "FeatureKind::Boolean combines the running solid with a whole secondary sub-model (its own base+modifier list, recursive) via union/intersection/ difference. evaluate() factors per-list evaluation into a shared depth-bounded evaluateFeatures(); a Boolean modifier does booleanToBody(cur, evaluateFeatures(secondary), op) under the same never-corrupt rule (a degenerate secondary is skipped, base untouched)."
+      },
+      {
+        "type": "p",
+        "text": "Serialization bumped to v2: a Boolean feature appends its op + secondary sub-stack (recursively) after the common record, so v1 blobs decode byte-identically (readFeature accepts version 1 or 2). Recursion bounded on both evaluate and read."
+      },
+      {
+        "type": "p",
+        "text": "Tests: box union/difference/intersection of a translated cube = 15/7/1, editing a secondary feature's transform cascades, nested Boolean-in-secondary round-trips, legacy-v1 blob decode (version byte patched), never-corrupt on degenerate secondary, deterministic. Full suite: 2183 pass / 5 GPU-skip / 0 fail."
+      }
+    ]
+  },
+  {
+    "slug": "mark-robust-boolean-csg-as-solid-foundation-pillar-landed",
+    "title": "Mark robust boolean/CSG as \u2705 Solid (foundation pillar landed)",
+    "date": "2026-07-12",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "parity"
+    ],
+    "category": "Commit",
+    "excerpt": "The robust CSG pipeline (TriTriIntersect \u2192 TriangleRetriangulate \u2192 MeshCut \u2192 robustMeshBoolean) is now wired into the public BooleanOperation and the old whole-triangle centroid classifier is deleted. Coarse-box proofs p",
+    "sha": "0ed6e49",
+    "content": [
+      {
+        "type": "p",
+        "text": "The robust CSG pipeline (TriTriIntersect \u2192 TriangleRetriangulate \u2192 MeshCut \u2192 robustMeshBoolean) is now wired into the public BooleanOperation and the old whole-triangle centroid classifier is deleted. Coarse-box proofs pass (watertight, 2-manifold, exact volumes union 15 / intersection 1 / difference 7, Euler \u03c7=2). Promote both the L1 \"Boolean + tolerant\" row and the Foundation \"Robust mesh boolean / CSG\" pillar to Have/Solid; scoreboard 55\u219256 have, 32\u219231 partial."
+      }
+    ]
+  },
+  {
+    "slug": "booleanoperation-now-uses-the-robust-csg-pipeline-iter-5-don",
+    "title": "BooleanOperation now uses the robust CSG pipeline (iter 5, done)",
+    "date": "2026-07-12",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Swaps BooleanOperation::compute onto robustMeshBoolean (cut along intersection curve \u2192 classify sub-triangles \u2192 stitch) behind its unchanged public API, and deletes the orphaned whole-triangle centroid classifier (comput",
+    "sha": "4045baf",
+    "content": [
+      {
+        "type": "p",
+        "text": "Swaps BooleanOperation::compute onto robustMeshBoolean (cut along intersection curve \u2192 classify sub-triangles \u2192 stitch) behind its unchanged public API, and deletes the orphaned whole-triangle centroid classifier (computeBooleanResult, pointInMesh, pointInMeshBVH, cleanupBooleanOutput \u2014 ~200 lines of the cosmetic path). The boolean is no longer cosmetic."
+      },
+      {
+        "type": "p",
+        "text": "- All 23 existing BooleanOperation tests still pass; added a public-API coarse-box regression: union/intersection/difference give exact volumes (15/1/7) and watertight 2-manifold shells (Euler \u03c7=2) \u2014 which the old classifier never did. Full suite green (1987). - Remaining limitation: coplanar-overlap faces (later increment)."
+      },
+      {
+        "type": "p",
+        "text": "Foundation pillar 'Robust boolean / CSG' is now Solid. Next foundation priority: half-edge authoritative core + Euler operators."
+      },
+      {
+        "type": "p",
+        "text": "/loop foundation-first: robust boolean COMPLETE (increment 5, the swap)."
+      }
+    ]
+  },
+  {
+    "slug": "robust-mesh-boolean-pipeline-classify-assemble-stitch-iter-4",
+    "title": "Robust mesh boolean pipeline \u2014 classify+assemble+stitch (iter 4)",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "robustMeshBoolean(A,B,op): the real CSG pipeline assembled from the foundation primitives \u2014 MeshCut (split both meshes along A\u2229B) \u2192 classify each sub-triangle inside/outside the other mesh (ray-cast point-in-mesh) \u2192 keep",
+    "sha": "7a167cd",
+    "content": [
+      {
+        "type": "p",
+        "text": "robustMeshBoolean(A,B,op): the real CSG pipeline assembled from the foundation primitives \u2014 MeshCut (split both meshes along A\u2229B) \u2192 classify each sub-triangle inside/outside the other mesh (ray-cast point-in-mesh) \u2192 keep per operation (union = A\u222aB outside; intersection = both inside; difference = A-outside + B-inside flipped) \u2192 weld the shared seam."
+      },
+      {
+        "type": "p",
+        "text": "PROVEN on COARSE boxes (the whole point \u2014 the legacy classifier only looked right on fine meshes): A=[-1,1]^3, B=[0,2]^3 \u2192 union vol 15.000 (8+8-1), intersection 1.000, difference 7.000 \u2014 exact; all three watertight + 2-manifold (Euler \u03c7 = 2, genus-0 closed shell)."
+      },
+      {
+        "type": "p",
+        "text": "- 4 tests (three exact volumes + watertight/manifold Euler proof). Full suite green (1986). Next: swap BooleanOperation onto this behind its API (removing the orphaned whole-triangle classifier), then re-verify its 23 tests."
+      },
+      {
+        "type": "p",
+        "text": "/loop foundation-first: robust boolean, increment 4 (classify+assemble+proof)."
+      }
+    ]
+  },
+  {
+    "slug": "whole-mesh-cut-along-intersection-curve-boolean-iter-3",
+    "title": "Whole-mesh cut along intersection curve \u2014 boolean iter 3",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "MeshCut::cut(A,B): finds intersecting triangle pairs (AABB broad phase), computes exact intersection segments (TriTriIntersect), and retriangulates every straddling triangle of both meshes (TriangleRetriangulate) so no f",
+    "sha": "4a0e403",
+    "content": [
+      {
+        "type": "p",
+        "text": "MeshCut::cut(A,B): finds intersecting triangle pairs (AABB broad phase), computes exact intersection segments (TriTriIntersect), and retriangulates every straddling triangle of both meshes (TriangleRetriangulate) so no face crosses the other surface. Result surfaces equal the inputs (area-preserving); new edges lie exactly on the A\u2229B curve. Welded + normals recomputed."
+      },
+      {
+        "type": "p",
+        "text": "- 2 tests: corner-overlapping coarse boxes split with area preserved and produce more faces; non-overlapping boxes pass through unchanged. Full suite green. - Next: classify sub-triangles inside/outside the other mesh, keep per union/ difference/intersection, weld the seam, then swap BooleanOperation and prove watertight+manifold+correct-volume on coarse boxes. (BVH broad phase = TODO.)"
+      },
+      {
+        "type": "p",
+        "text": "/loop foundation-first: robust boolean, increment 3."
+      }
+    ]
+  },
+  {
+    "slug": "repair-broken-cdt-per-triangle-retriangulation-boolean-iter",
+    "title": "Repair broken CDT + per-triangle retriangulation (boolean iter 2)",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Two foundation fixes in one:",
+    "sha": "48097bb",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two foundation fixes in one:"
+      },
+      {
+        "type": "p",
+        "text": "1. ConstrainedDelaunay2D was completely broken \u2014 triangulate() returned ZERO triangles for every input. buildDelaunay's bad-triangle test (t[*]<pi && t[0]!=s0\u2026) never flagged the super-triangle, so the first point was never inserted. Replaced with a correct Bowyer-Watson circumcircle test, and keep all triangles CCW (super-triangle + cavity fans via orient2D) so inCircle stays consistent. A primitive Voronoi/CDT users silently relied on."
+      },
+      {
+        "type": "p",
+        "text": "2. TriangleRetriangulate: splits one triangle along intersection segments using the (now working) CDT in the triangle's plane basis, then lifts back to 3D \u2014 boolean-rebuild increment 2. Scale-aware dedup; area-preserving; degenerate/ non-finite fall back to the single triangle."
+      },
+      {
+        "type": "p",
+        "text": "- New CDT regression test (must produce a triangulation) + 6 retriangulation tests (split, area-preserving, planar lift, interior segment, fallbacks). Full suite green (1980)."
+      },
+      {
+        "type": "p",
+        "text": "/loop foundation-first: robust boolean, increment 2 (+ CDT repair)."
+      }
+    ]
+  },
+  {
+    "slug": "exact-tri-tri-intersection-segment-robust-boolean-foundation",
+    "title": "Exact tri-tri intersection SEGMENT \u2014 robust-boolean foundation (iter 1)",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "First increment toward a real mesh boolean (splits along the intersection curve, vs today's cosmetic whole-triangle classify). TriTriIntersect::intersect returns the crossing segment / None / Coplanar, using RobustPredic",
+    "sha": "442ffe6",
+    "content": [
+      {
+        "type": "p",
+        "text": "First increment toward a real mesh boolean (splits along the intersection curve, vs today's cosmetic whole-triangle classify). TriTriIntersect::intersect returns the crossing segment / None / Coplanar, using RobustPredicates::orient3D for all sign decisions so the intersection *structure* is exact (coordinates are float). M\u00f6ller interval method: per-triangle plane-crossing points on the shared line, then interval overlap. Rejects non-finite input; order-symmetric."
+      },
+      {
+        "type": "p",
+        "text": "- 8 tests (segment on both planes, parallel-separated, coplanar, planes-cross- but-disjoint, vertex-touch, non-finite, symmetry). New public header in the API-freeze manifest. Full suite green. - Next: retriangulate each triangle along its collected segments (CDT), then classify+stitch, then swap BooleanOperation onto it. Coplanar overlap deferred."
+      },
+      {
+        "type": "p",
+        "text": "/loop foundation-first: robust boolean, increment 1."
+      }
+    ]
+  },
+  {
+    "slug": "add-foundation-robustness-depth-axis-downgrade-cosmetic-bool",
+    "title": "Add Foundation & Robustness depth axis; downgrade cosmetic boolean",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Depth audit of the geometry kernel exposes what the breadth matrix misses: exact-predicate bedrock is real, but the mesh boolean is cosmetic (whole-triangle centroid classify, no intersection-curve split), the half-edge ",
+    "sha": "5df76c9",
+    "content": [
+      {
+        "type": "p",
+        "text": "Depth audit of the geometry kernel exposes what the breadth matrix misses: exact-predicate bedrock is real, but the mesh boolean is cosmetic (whole-triangle centroid classify, no intersection-curve split), the half-edge topological core is fractured (edit ops on raw indices, no Euler operators), and there's no coherent tolerance/units model. Adds a Foundation & Robustness section + a foundation-first (P0+) backlog track that outranks breadth features; downgrades Boolean to Partial."
+      }
+    ]
+  },
+  {
+    "slug": "modifierstack-serialization-save-io-round-trip-l5-iter-3",
+    "title": "ModifierStack serialization \u2014 save/IO round-trip (L5 iter 3)",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "serializeModifierStack/deserializeModifierStack: versioned little-endian byte format (v1) for the modifier list. Deterministic output; hardened reads reject truncated/oversized/null data, unknown modifier types, bad vers",
+    "sha": "939d0b1",
+    "content": [
+      {
+        "type": "p",
+        "text": "serializeModifierStack/deserializeModifierStack: versioned little-endian byte format (v1) for the modifier list. Deterministic output; hardened reads reject truncated/oversized/null data, unknown modifier types, bad versions, and non-finite floats (bit-inspected under -ffast-math). Deserialize replaces only the modifier list, leaving the base mesh untouched, and commits atomically (no partial mutation on failure)."
+      },
+      {
+        "type": "p",
+        "text": "- 4 new tests (round-trip incl. evaluate() parity, determinism, base preserved, reject truncated/null/bad-version). Full suite green (1967)."
+      },
+      {
+        "type": "p",
+        "text": "/loop iteration 3 (parity backlog, L5 non-destructive core)."
+      }
+    ]
+  },
+  {
+    "slug": "modifierstack-array-displace-modifiers-result-caching-l5-ite",
+    "title": "ModifierStack \u2014 Array + Displace modifiers + result caching (L5 iter 2)",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "- Array modifier: original + (count-1) stepped copies, optional weld. - Displace modifier: push vertices along normals by a magnitude (MeshDisplace). - Result caching: evaluated() recomputes only when the stack changed; ",
+    "sha": "25fe59c",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Array modifier: original + (count-1) stepped copies, optional weld. - Displace modifier: push vertices along normals by a magnitude (MeshDisplace). - Result caching: evaluated() recomputes only when the stack changed; all mutators invalidate. Added setModifier() for in-place parameter edits. - 5 new tests (array copies/identity, displace grows radius, cache reuse+invalidation, setModifier). Full suite green (1963)."
+      },
+      {
+        "type": "p",
+        "text": "/loop iteration 2 (parity backlog, L5 non-destructive core)."
+      }
+    ]
+  },
+  {
+    "slug": "non-destructive-modifierstack-parity-l5-keystone-iter-1",
+    "title": "Non-destructive ModifierStack \u2014 parity L5 (keystone), iter 1",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "First slice of the non-destructive core: an ordered modifier stack that re-evaluates without mutating the base mesh. Modifiers (Translate/Rotate/Scale/ Mirror/Solidify) wrap existing kernel ops (MeshTransform, MeshThicke",
+    "sha": "bdade0f",
+    "content": [
+      {
+        "type": "p",
+        "text": "First slice of the non-destructive core: an ordered modifier stack that re-evaluates without mutating the base mesh. Modifiers (Translate/Rotate/Scale/ Mirror/Solidify) wrap existing kernel ops (MeshTransform, MeshThicken); Mirror reflects + re-winds + welds. Full stack ops: add/insert/remove/move/enable/clear. evaluate() is deterministic and non-destructive."
+      },
+      {
+        "type": "p",
+        "text": "- 10 tests (non-destructive, order-matters/reorder, disable-skip, mirror doubles, solidify shells, bounds). New public header added to the API-freeze manifest. - Full suite green. This is the L5 foundation that makes the CAD tree + deformers regenerable; next iters add more modifiers (Subdivision/Bevel/Boolean/Array), dirty-caching, and editor wiring."
+      },
+      {
+        "type": "p",
+        "text": "/loop iteration 1 (parity backlog)."
+      }
+    ]
+  },
+  {
+    "slug": "render-the-imgui-editor-ui-in-the-window",
+    "title": "Render the ImGui editor UI in the window",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "app"
+    ],
+    "category": "Commit",
+    "excerpt": "The windowed editor showed the 3D viewport but no UI. Two bugs:",
+    "sha": "c9f80e1",
+    "content": [
+      {
+        "type": "p",
+        "text": "The windowed editor showed the 3D viewport but no UI. Two bugs:"
+      },
+      {
+        "type": "p",
+        "text": "1. VulkanFrameScheduler: getCurrentFrame() recomputed the slot as (m_frameSlot-1)%max, but m_frameSlot is only incremented in endFrame, so it returned a DIFFERENT slot's command buffer than the one being recorded and submitted. ImGui (recorded via currentCommandBuffer()) thus landed in an unsubmitted buffer and never appeared. beginFrame's 'm_currentFrame = ctx' was also dead code (after an early return). Fixed: set m_currentFrame in beginFrame and return it from getCurrentFrame()."
+      },
+      {
+        "type": "p",
+        "text": "2. EditorUI: the ImGui-Vulkan backend was inited without assigning initInfo.RenderPass, and RenderDrawData was called with no active render pass. Fixed: assign the render pass, create per-swapchain-image framebuffers, and wrap RenderDrawData in a load-not-clear UI overlay pass (PRESENT_SRC in/ out) so the UI composites over the rendered 3D scene. Framebuffers + render pass are cleaned up in shutdown."
+      },
+      {
+        "type": "p",
+        "text": "Verified via the Xvfb+lavapipe capture harness: the full editor now renders \u2014 menu bar, toolbar, inspector/undo panel, status bar, and the 3D viewport."
+      }
+    ]
+  },
+  {
+    "slug": "create-a-real-window-surface-for-on-screen-vulkan-present",
+    "title": "Create a real window surface for on-screen Vulkan present",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "app"
+    ],
+    "category": "Commit",
+    "excerpt": "Root cause of 'taskbar entry, no visible window': Viewport hardcoded the swapchain's nativeWindowHandle to nullptr, so the swapchain always took the headless offscreen path and never presented to the GLFW window.",
+    "sha": "2681a10",
+    "content": [
+      {
+        "type": "p",
+        "text": "Root cause of 'taskbar entry, no visible window': Viewport hardcoded the swapchain's nativeWindowHandle to nullptr, so the swapchain always took the headless offscreen path and never presented to the GLFW window."
+      },
+      {
+        "type": "p",
+        "text": "- Viewport::initialize now creates a real surface via glfwCreateWindowSurface (robust across X11/Wayland/Win32) and passes it to the swapchain through a new opaque SwapchainDesc::preCreatedSurface; VulkanSwapchain adopts it. - Gated on window visibility so headless/--shot (hidden window) keeps the offscreen render-to-PNG path (verified: box still renders to PNG). - main.cpp render loop: defer viewport->endFrame() (submit+present) until after ImGui is recorded, so the UI lands in the same frame (was recorded after submit \u2014 a no-op). - nexus_app links Vulkan::Vulkan for the surface call."
+      },
+      {
+        "type": "p",
+        "text": "Verified headlessly: surface creation succeeds (no fallback), the interactive loop runs crash-free (the prior ImGui_ImplVulkan SIGSEGV is gone), and behaviour matches reference vkcube. KNOWN-REMAINING: the windowed present still shows a black frame (the intermediate-storage -> swapchain copy path, never exercised until now); tracked as a follow-up with a working Xvfb+lavapipe capture harness."
+      }
+    ]
+  },
+  {
+    "slug": "hand-rolled-usd-usda-mesh-import-export-parity-l13-p1",
+    "title": "Hand-rolled USD .usda mesh import + export \u2014 parity L13 (P1)",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Zero-dependency Pixar USD ASCII (.usda) support in MeshIO: - Import: parses def Mesh blocks (brace-balanced), points/faceVertexCounts/ faceVertexIndices (n-gons), optional per-vertex normals + primvars:st; combines multi",
+    "sha": "cff502d",
+    "content": [
+      {
+        "type": "p",
+        "text": "Zero-dependency Pixar USD ASCII (.usda) support in MeshIO: - Import: parses def Mesh blocks (brace-balanced), points/faceVertexCounts/ faceVertexIndices (n-gons), optional per-vertex normals + primvars:st; combines multiple mesh prims with index offsetting. Rejects binary USD crate (.usdc) as UnsupportedFormat. Non-finite + bounds hardening. - Export: minimal valid .usda (asset header, def Mesh, faceVertexCounts/Indices, point3f points, optional normals/st, subdivisionScheme none). - Editor File menu gains Export/Import USD (routed through MeshIO). - 4 new tests (export, round-trip, hand-crafted quad, binary-crate rejection); full suite 1949 pass / 5 skip / 0 fail. nexus_modeling builds clean. - USD moves Missing -> Partial (ASCII mesh; binary crate deferred as SDK decision)."
+      }
+    ]
+  },
+  {
+    "slug": "wire-editor-file-menu-import-export-through-meshio-parity-l1",
+    "title": "Wire editor File menu import/export through MeshIO \u2014 parity L13",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "app"
+    ],
+    "category": "Commit",
+    "excerpt": "Replaces ~248 lines of ad-hoc, duplicated in-editor IO (hardcoded, buggy glTF min/max, no PLY, no glTF import) with the tested/hardened kernel MeshIO path: - buildCombinedMesh(): merges visible feature meshes for export.",
+    "sha": "71afe66",
+    "content": [
+      {
+        "type": "p",
+        "text": "Replaces ~248 lines of ad-hoc, duplicated in-editor IO (hardcoded, buggy glTF min/max, no PLY, no glTF import) with the tested/hardened kernel MeshIO path: - buildCombinedMesh(): merges visible feature meshes for export. - exportMeshFile()/importMeshFile(): thin triggers over MeshIO with reporting. - File menu now offers Export + Import for OBJ, PLY, STL, glTF (all 4 both ways), auto-detecting import format by extension. - nexus_modeling builds clean under -Werror. (Fixed filenames for now; a file picker is the remaining L13 polish.)"
+      }
+    ]
+  },
+  {
+    "slug": "hand-rolled-gltf-2-0-import-export-parity-l13-increment-3",
+    "title": "Hand-rolled glTF 2.0 import + export \u2014 parity L13, increment 3",
+    "date": "2026-07-11",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Zero-dependency glTF 2.0 in MeshIO: minimal JSON parser + base64; import .gltf (data-URI/external) and .glb (JSON+BIN chunks) decoding accessors/bufferViews for all component types (POSITION/NORMAL/TEXCOORD_0 + indices, ",
+    "sha": "017f6fb",
+    "content": [
+      {
+        "type": "p",
+        "text": "Zero-dependency glTF 2.0 in MeshIO: minimal JSON parser + base64; import .gltf (data-URI/external) and .glb (JSON+BIN chunks) decoding accessors/bufferViews for all component types (POSITION/NORMAL/TEXCOORD_0 + indices, triangles, multi-prim flatten); export self-contained .glb. Non-finite hardening, bounds-checked reads, output cleared on failure. 4 new tests; full suite 1945 pass / 5 skip / 0 fail. Interchange parity now 50%."
+      }
+    ]
+  },
+  {
+    "slug": "ply-import-ascii-binary-le-parity-l13-increment-2",
+    "title": "PLY import (ASCII + binary-LE) \u2014 parity L13, increment 2",
+    "date": "2026-07-10",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "Hand-rolled Stanford PLY reader added to MeshIO: - ASCII and binary_little_endian formats (size/format auto-detected from header). - General property-list parsing with per-type sizes; extracts x/y/z (required), nx/ny/nz,",
+    "sha": "6aea6b0",
+    "content": [
+      {
+        "type": "p",
+        "text": "Hand-rolled Stanford PLY reader added to MeshIO: - ASCII and binary_little_endian formats (size/format auto-detected from header). - General property-list parsing with per-type sizes; extracts x/y/z (required), nx/ny/nz, and s/t | u/v | texture_u/v; safely consumes unknown properties. - Bounds-checked binary reads; rejects non-finite data; out-of-range face indices and truncation flagged as ParseError; output cleared on failure. - 3 new tests (ASCII round-trip, normals round-trip, hand-crafted binary-LE); full suite 1941 pass / 5 skip / 0 fail. - Parity doc + Artifact updated: L13 PLY -> Have (OBJ/STL/PLY all import+export)."
+      }
+    ]
+  },
+  {
+    "slug": "obj-import-stl-import-export-parity-l13-increment-1",
+    "title": "OBJ import + STL import/export (parity L13, increment 1)",
+    "date": "2026-07-10",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "geometry"
+    ],
+    "category": "Commit",
+    "excerpt": "First IO-importers workstream slice toward interchange parity. Extends MeshIO: - OBJ import: v/vt/vn, n-gons, negative/relative indices, per-corner attribute de-indexing (unique v/vt/vn corners), optional normal synthesi",
+    "sha": "03e1eaf",
+    "content": [
+      {
+        "type": "p",
+        "text": "First IO-importers workstream slice toward interchange parity. Extends MeshIO: - OBJ import: v/vt/vn, n-gons, negative/relative indices, per-corner attribute de-indexing (unique v/vt/vn corners), optional normal synthesis. - STL import: binary + ASCII (size-authoritative detection), optional vertex weld. - STL export: deterministic binary STL (triangulated). - Import hardening: rejects non-finite data (bit-exact), clears output on failure, deterministic sorted messages \u2014 mirrors the export conventions. - 12 new tests (round-trips, n-gon/negative indices, per-corner UVs, weld, auto-detect, error paths); full suite 1938 pass / 5 skip / 0 fail. - Parity doc + notes updated: L13 OBJ/STL -> Have."
+      }
+    ]
+  },
+  {
+    "slug": "industry-modeling-parity-reference-prioritized-gap-backlog",
+    "title": "Industry modeling parity reference + prioritized gap backlog",
+    "date": "2026-07-10",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Layer-by-layer audit (L0 geometry engine -> L15 UX) of the standard 3D modeling toolset vs Blender/Maya/Max/Houdini/Modo/ZBrush/Plasticity/Rhino, with Nexus's real status (52 have / 31 partial / 29 missing of 112) ground",
+    "sha": "21a2fd6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Layer-by-layer audit (L0 geometry engine -> L15 UX) of the standard 3D modeling toolset vs Blender/Maya/Max/Houdini/Modo/ZBrush/Plasticity/Rhino, with Nexus's real status (52 have / 31 partial / 29 missing of 112) grounded in the July 2026 kernel+editor inventory. Establishes a parity-first policy: close P0 gaps in a layer before adding anything new to it."
+      }
+    ]
+  },
+  {
+    "slug": "modeling-editor-agent-debug-subsystems-c-26-api-freeze-fixes",
+    "title": "Modeling editor + agent/debug subsystems; C++26 & API-freeze fixes",
+    "date": "2026-07-10",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Modeling editor + agent/debug subsystems; C++26 & API-freeze fixes",
+    "sha": "c6c8c68",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "automation: stable formatScalar for C++26 to_string (fixes 10 AutomationScript tests)",
+          "test: scope API-freeze audit to kernel SDK; bless cad/groom + kernel additions",
+          "app: Vulkan viewport, selection utils, constraint display, keybindings, tool session",
+          "agent: new agent subsystem (loop/planner/observer/protocol/session, assembly/semantic)",
+          "debug: render debugger, input replay, selection tracer",
+          "geometry: EdgeSlide, MeshVertexMerge; softrast: selection overlay",
+          "tools: nxrender headless render tool",
+          "backend/vulkan: headless offscreen images, descriptor-write fix, native handles",
+          "also: sibling scratch content (Router/check.sh, VersaTone, dhts vision-board/nexus-pay)"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "implement-nexus-router-central-orchestration-engine-for-enti",
+    "title": "Implement Nexus Router \u2014 central orchestration engine for entire ecosystem",
+    "date": "2026-07-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Implement Nexus Router \u2014 central orchestration engine for entire ecosystem",
+    "sha": "548601a",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Core router engine with middleware pipeline",
+          "IP/geo routing with jurisdiction awareness",
+          "Centralized authentication & authorization (Phantom DID)",
+          "API gateway with dynamic service discovery",
+          "AI provider routing (replaces Nexus-AI internal logic)",
+          "Centralized telemetry pipeline (logs, metrics, traces)",
+          "Federation routing for multi-cloud awareness",
+          "Service registry client (Nexus-Cloud + peer discovery)",
+          "YAML-based policy configuration",
+          "Complete integration documentation and examples"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "modeler-selection-multi-select-gizmo-grid-undo-and-transform",
+    "title": "Modeler selection, multi-select, gizmo, grid, undo, and transform improvements",
+    "date": "2026-07-01",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Modeler selection, multi-select, gizmo, grid, undo, and transform improvements",
+    "sha": "9f4135d",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Grid: auto-scale extent/spacing with camera distance, fix loop iteration count",
+          "Gizmo: constant 100px screen size via gluProject, mode-specific visuals",
+          "Selection: time-based click detection, coarse sphere pick fallback, Shift+drag adds",
+          "Multi-select: render all selected objects highlighted, transform applies to all",
+          "Transform: correct world-space cursor displacement via plane projection",
+          "Undo: batched during drag (1 entry per drag instead of per frame)",
+          "EdgeEditMode: use HEM bevel instead of raw mesh bevel",
+          "Inspector: remove duplicate Transform section causing ImGui errors",
+          "Camera orbit: restrict to MMB/RMB only",
+          "EditorUI: add Modify menu with 11 operations (Subdivide, Decimate, Triangulate, etc.)",
+          "SolidOperations, DirectModeling, FaceFillet: 14 new tests"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "vbo-rendering-per-feature-display-modes-msaa-nurbs-sketch-cu",
+    "title": "VBO rendering + per-feature display modes + MSAA + NURBS sketch curves",
+    "date": "2026-06-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Performance: - Replaced glBegin/glEnd immediate mode with glVertexPointer/glDrawArrays vertex arrays - Shaded fill, wireframe overlay, and ghost preview all use vertex arrays - Wireframe reuses shaded vertex arrays (no d",
+    "sha": "a83441b",
+    "content": [
+      {
+        "type": "p",
+        "text": "Performance: - Replaced glBegin/glEnd immediate mode with glVertexPointer/glDrawArrays vertex arrays - Shaded fill, wireframe overlay, and ghost preview all use vertex arrays - Wireframe reuses shaded vertex arrays (no duplicate build) - 4x MSAA via GLFW multisample window hint + glEnable(GL_MULTISAMPLE)"
+      },
+      {
+        "type": "p",
+        "text": "Display modes: - Per-feature DisplayMode: Solid, Wireframe, BoundingBox - Right-click feature in Outliner \u2192 Display submenu to change mode"
+      },
+      {
+        "type": "p",
+        "text": "Sketch: - NURBS-like connecting lines between sketch points (yellow GL_LINE_STRIP) - Foundation for sketch constraint solver (C/P/T keys registered)"
+      },
+      {
+        "type": "p",
+        "text": "Physics: - T key applies gravity: drops all visible meshes by 1 Y unit"
+      },
+      {
+        "type": "p",
+        "text": "Data model: - FeatureNode::DisplayMode enum + displayMode field - FeatureNode::PrimType enum + primParams[4] for parametric editing"
+      }
+    ]
+  },
+  {
+    "slug": "7-rounds-of-hardening-features-r2-r13",
+    "title": "7 rounds of hardening + features (R2-R13)",
+    "date": "2026-06-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Hardening rounds: - R2: Mode targeting fixes, 7 null guards, state cleanup, CadRenderBridge - R3: MeshMassProperties, PImpl memory safety, NexusFormat validation, CadOperations - R4: EditorUI 19 null guards, Camera 8 div",
+    "sha": "d083038",
+    "content": [
+      {
+        "type": "p",
+        "text": "Hardening rounds: - R2: Mode targeting fixes, 7 null guards, state cleanup, CadRenderBridge - R3: MeshMassProperties, PImpl memory safety, NexusFormat validation, CadOperations - R4: EditorUI 19 null guards, Camera 8 division guards, SubdivisionSurface, Mesh.h helper - R5: 22 geometry files bounds validation, 4 GL files NEXUS_HEADLESS guards, CAD Measure+DesignRule - R6: Undo/redo corruption fix, sketchActive cleanup 8 modes, sub-object indices, OBJ negative indices - R7: Serialization (NXD0 mesh+material+state), TransformCommand undo for gizmo, status bar live count - R8: OBJ MTL export with normals, undo for face/edge/vertex edits, keyframe cleanup, smooth shading"
+      },
+      {
+        "type": "p",
+        "text": "Features: - Pattern mode: linear + circular array (4 copies, spacing/angle) - STL binary export/import, glTF 2.0 GLB export - Box select (drag rectangle), Ctrl+A select all - Shell operation (offset -0.15), Draft angle (5 deg on face) - Parametric primitive editing (Box/Sphere/Cylinder/Cone/Torus/Plane dimensions) - Performance monitor (F5), Keybinding reference (F1) - Quad viewport (Ctrl+Q: Top/Front/Right/Perspective) - Center pivot, Align to ground, Mirror XZ/XY/YZ (context menu) - Camera presets (Ctrl+Shift+1-9 save, Ctrl+1-9 restore) - Undo history panel with operation names - Outliner right-click delete - Window title modified indicator (*), Auto-save every 5min - F12 toggle all panels, Cursor world position in status bar - Inspector: Size editing (non-uniform scale), Material to All - Set Material to All (context menu) - Multi-edit foundation, Local/World gizmo toggle (U key)"
+      },
+      {
+        "type": "h",
+        "text": "Tests: 1849, 99% pass, 0 regressions"
+      }
+    ]
+  },
+  {
+    "slug": "production-deployment-for-nexussystems-vexr-dev",
+    "title": "Production deployment for nexussystems.vexr.dev",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Production deployment for nexussystems.vexr.dev",
+    "sha": "8d67fe7",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Reverse proxy (proxy.ts): subdomain routing via Host header",
+          "nexussystems.vexr.dev \u2192 status page with service links",
+          "cloud.nexussystems.vexr.dev \u2192 Nexus-Cloud (port 8787)",
+          "chat.nexussystems.vexr.dev \u2192 Nexus Team Chat (port 3109)",
+          "CORS headers, WebSocket pass-through ready",
+          "Deploy script (deploy.sh): start/stop/status commands",
+          "--bg: background mode with PID tracking",
+          "--stop: graceful shutdown",
+          "--status: health check all services",
+          "Fix: Nexus-Team-Chat createTeamChatServer async",
+          "All 3 services verified: Cloud (JSON health), Chat (200), Proxy (HTML)",
+          "DNS instructions included for subdomain setup"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "information-schema-string-agg",
+    "title": "Information schema, STRING_AGG",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Information schema, STRING_AGG",
+    "sha": "87acd1a",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Information schema views: standards-compliant introspection",
+          "information_schema.tables: table_catalog, table_schema, table_name, table_type",
+          "information_schema.columns: table_name, column_name, data_type, is_nullable",
+          "Returns real data from internal catalog (columnar + catalog)",
+          "Compatible with BI tools and ORMs that query information_schema",
+          "STRING_AGG: string aggregation with GROUP BY",
+          "STRING_AGG(col, ', ') \u2014 join values with delimiter",
+          "Works with GROUP BY: SELECT dept, STRING_AGG(name, ', ') FROM users GROUP BY dept",
+          "Handled as special aggregate outside columnar engine",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "math-functions-extract-create-schema",
+    "title": "Math functions, EXTRACT, CREATE SCHEMA",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Math functions, EXTRACT, CREATE SCHEMA",
+    "sha": "ea0fb3b",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Math functions: ABS, ROUND, CEIL, FLOOR, POWER",
+          "ABS(col): absolute value",
+          "ROUND(col): round to nearest integer",
+          "CEIL(col): ceiling (round up)",
+          "FLOOR(col): floor (round down)",
+          "POWER(base, exp): exponentiation",
+          "EXTRACT(part FROM col): date part extraction",
+          "EXTRACT(YEAR FROM created_at), EXTRACT(MONTH FROM ...)",
+          "Supports YEAR, MONTH, DAY, HOUR",
+          "Parses ISO 8601 timestamp display format",
+          "CREATE SCHEMA / DROP SCHEMA: acknowledged, no-op",
+          "All tables live in 'public' schema",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "session-commands-now-concat-trim",
+    "title": "Session commands, NOW(), CONCAT, TRIM",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Session commands, NOW(), CONCAT, TRIM",
+    "sha": "e629303",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Session management (ORM compatibility):",
+          "COMMENT ON: acknowledged, no-op",
+          "DEALLOCATE: acknowledged, no-op",
+          "DISCARD ALL: acknowledged, no-op",
+          "NOW() / CURRENT_TIMESTAMP: returns current Unix timestamp",
+          "Formatted as ISO 8601 via Timestamp display",
+          "CONCAT(col1, col2, ...): string concatenation",
+          "Accepts column names and literal strings",
+          "Multi-arg via comma-separated column field",
+          "TRIM(col): whitespace removal (leading + trailing)",
+          "Zero-arg function support in parse_fn_call",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "partition-by-lag-lead-window-functions",
+    "title": "PARTITION BY + LAG/LEAD window functions",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "PARTITION BY + LAG/LEAD window functions",
+    "sha": "6d6b020",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "PARTITION BY: reset window counters per group",
+          "ROW_NUMBER/PARTITION BY col: restart numbering at partition boundary",
+          "RANK/DENSE_RANK reset on partition change",
+          "Rows sorted within each partition by OVER ORDER BY",
+          "LAG(col, offset, default): access previous row value",
+          "LAG(name, 1) \u2014 previous name, NULL if no previous",
+          "LAG(name, 2, 'N/A') \u2014 2 rows back, 'N/A' as default",
+          "LEAD(col, offset, default): access next row value",
+          "LEAD(name, 1) \u2014 next name, NULL if no next row",
+          "WindowFn extended: lag_col, lag_offset, lag_default fields",
+          "parse_window_fn handles LAG/LEAD argument parsing",
+          "Window computation: separate partition-sorted wind_rows set",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "values-clause-vacuum-no-op",
+    "title": "VALUES clause, VACUUM no-op",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "VALUES clause, VACUUM no-op",
+    "sha": "cf25217",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "VALUES clause: inline row sets",
+          "VALUES (1, 'a'), (2, 'b') \u2014 returns rows as result set",
+          "Returns ExecuteResult::Select with column names (column1, column2, ...)",
+          "All literal types supported (Text, Integer, Float, Boolean, Null, Timestamp)",
+          "Statement::Values { rows, columns }",
+          "VACUUM / ANALYZE: acknowledged as no-op",
+          "ORMs like Prisma issue VACUUM after bulk INSERT/UPDATE",
+          "Returns VACUUM completion tag, no actual maintenance performed",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "window-functions-row-number-rank-dense-rank",
+    "title": "Window Functions \u2014 ROW_NUMBER, RANK, DENSE_RANK",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Window Functions \u2014 ROW_NUMBER, RANK, DENSE_RANK",
+    "sha": "edc147a",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "ROW_NUMBER() OVER (ORDER BY col): sequential 1-based row numbers",
+          "RANK() OVER (ORDER BY col): rank with gaps for ties",
+          "DENSE_RANK() OVER (ORDER BY col): rank without gaps for ties",
+          "OVER clause: ORDER BY inside window specification",
+          "PARTITION BY parsing (not yet executed)",
+          "Post-sort window value computation:",
+          "Detects WindowFn columns in SELECT list",
+          "Computes values for each row based on ORDER BY keys",
+          "Handles separate OVER ORDER different from main ORDER BY",
+          "Aliases: ROW_NUMBER() OVER (...) AS rn",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "is-distinct-from-null-safe-order-by",
+    "title": "IS DISTINCT FROM, NULL-safe ORDER BY",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "IS DISTINCT FROM, NULL-safe ORDER BY",
+    "sha": "7cb081f",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "IS DISTINCT FROM: NULL-safe comparison",
+          "WHERE a IS DISTINCT FROM b \u2014 true when values differ or one is NULL",
+          "WHERE a IS NOT DISTINCT FROM b \u2014 NULL-safe equality (NULL = NULL \u2192 true)",
+          "WherePredicate::IsDistinct variant",
+          "NULL-safe sorting: ASC \u2192 NULLS LAST, DESC \u2192 NULLS FIRST",
+          "ORDER BY col ASC \u2014 NULL values sort after all non-NULLs",
+          "ORDER BY col DESC \u2014 NULL values sort before all non-NULLs",
+          "Both standard SELECT and JOIN ORDER BY paths",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "prepared-statement-parameter-binding-string-functions",
+    "title": "Prepared statement parameter binding, string functions",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Prepared statement parameter binding, string functions",
+    "sha": "6293349",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Prepared statements: proper parameter substitution (, , ...)",
+          "Bind message parsed: extracts parameter values from client",
+          "bound_params map: statement name \u2192 Vec of parameter values",
+          "substitute_params: replaces  with bound values (quotes strings)",
+          "NULL handling: -1 length \u2192 NULL parameter",
+          "Enables Prisma/ORM prepared statement workflows",
+          "String functions in SELECT:",
+          "UPPER(col): convert to uppercase",
+          "LOWER(col): convert to lowercase",
+          "LENGTH(col): return string length",
+          "SUBSTRING(col): first 10 characters (simplified)",
+          "SelectColumn::FnCall variant with per-row evaluation",
+          "parse_fn_call parser for func(column) syntax",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "create-index-sql-drop-table-cascade-set-show",
+    "title": "CREATE INDEX SQL, DROP TABLE CASCADE, SET/SHOW",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "CREATE INDEX SQL, DROP TABLE CASCADE, SET/SHOW",
+    "sha": "17c8460",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "CREATE INDEX: standalone SQL index creation",
+          "CREATE INDEX idx_name ON table (col1, col2)",
+          "CREATE UNIQUE INDEX ON table (col)",
+          "Auto-generates index name if not specified",
+          "Executes via router.indexes.create_index()",
+          "DROP TABLE CASCADE: cascading table removal",
+          "DROP TABLE t CASCADE \u2014 drops indexes + views referencing table",
+          "DropTable.destructive now includes cascade: bool field",
+          "SET/SHOW: PostgreSQL config compatibility",
+          "SET search_path TO public \u2014 acknowledged",
+          "SHOW search_path \u2014 returns default value",
+          "Enables ORMs that issue SET queries on connection",
+          "EXPLAIN entries for new statement types",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "explain-analyze-d-table-better-error-codes",
+    "title": "EXPLAIN ANALYZE, \\d table, better error codes",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "EXPLAIN ANALYZE, \\d table, better error codes",
+    "sha": "5d0520e",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "EXPLAIN ANALYZE: executes query and shows actual performance",
+          "EXPLAIN ANALYZE SELECT ... \u2014 runs query, shows Actual Rows + Execution Time",
+          "Wall-clock timing via std::time::Instant",
+          "\\d tablename: describe table structure (psql-compatible)",
+          "Shows Column, Type, Nullable columns",
+          "Shows indexes on the table",
+          "Better SQL error codes:",
+          "42P01: table/column not found",
+          "0A000: unsupported feature",
+          "23514: constraint violation",
+          "42601: syntax error",
+          "EXPLAIN entry for CreateTableAs",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "create-table-as-select-enhanced-pg-catalog",
+    "title": "CREATE TABLE AS SELECT, enhanced pg_catalog",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "CREATE TABLE AS SELECT, enhanced pg_catalog",
+    "sha": "1a81d56",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "CREATE TABLE AS SELECT: create table from query result",
+          "CREATE TABLE backup AS SELECT * FROM users WHERE active = 1",
+          "Executes SELECT, creates table with result columns, inserts all rows",
+          "Statement::CreateTableAs { name, query }",
+          "Enhanced pg_catalog for better introspection:",
+          "pg_class: real row counts from columnar store (reltuples)",
+          "pg_class: views included with relkind='v'",
+          "pg_attribute: TIMESTAMP type mapping (typoid 1114)",
+          "pg_type: timestamp type entry added",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "upsert-on-conflict-do-update-alter-column-type",
+    "title": "UPSERT (ON CONFLICT DO UPDATE), ALTER COLUMN TYPE",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "UPSERT (ON CONFLICT DO UPDATE), ALTER COLUMN TYPE",
+    "sha": "b3e940e",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "UPSERT: INSERT ... ON CONFLICT (column) DO UPDATE SET col=val",
+          "Checks existing rows for matching unique column value",
+          "If found: updates existing row with DO UPDATE SET columns",
+          "If not found: normal INSERT",
+          "OnConflict struct: column + updates Vec",
+          "parse_set_pairs helper for SET col=val parsing",
+          "ALTER TABLE ALTER COLUMN type: change column data type",
+          "ALTER COLUMN col TYPE new_type",
+          "TableCatalog::alter_column_type: updates column_types[pos]",
+          "AlterAction::AlterColumnType variant",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "and-or-not-in-where-intersect-except",
+    "title": "AND/OR/NOT in WHERE, INTERSECT, EXCEPT",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "AND/OR/NOT in WHERE, INTERSECT, EXCEPT",
+    "sha": "587ac77",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Boolean logic in WHERE clauses:",
+          "WHERE a = 1 AND b > 2 \u2014 multiple conditions combined with AND",
+          "WHERE a = 1 OR b = 2 \u2014 either condition matches",
+          "WHERE NOT (a = 1) \u2014 negate any condition",
+          "Parentheses-aware: AND/OR only split at top level",
+          "WherePredicate::And(Vec<WhereClause>) \u2014 all must match",
+          "WherePredicate::Or(Vec<WhereClause>) \u2014 any one matches",
+          "WherePredicate::Not(Box<WhereClause>) \u2014 logical negation",
+          "find_top_level_keyword helper: AND/OR detection outside parens",
+          "matches() recursive evaluation for compound predicates",
+          "matches_bytes() recursive evaluation for compound predicates",
+          "INTERSECT: return rows present in both query results",
+          "EXCEPT: return rows in left that are not in right",
+          "parse_set_op helper: shared parser for UNION/INTERSECT/EXCEPT",
+          "EXPLAIN entries for all three set operations",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "union-ilike-drop-view",
+    "title": "UNION, ILIKE, DROP VIEW",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "UNION, ILIKE, DROP VIEW",
+    "sha": "1b9732b",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "UNION [ALL]: combine results from two SELECT queries",
+          "SELECT ... UNION SELECT ... \u2014 deduplicates by default",
+          "SELECT ... UNION ALL SELECT ... \u2014 keeps all rows",
+          "Parsed at top level in parse_sql, executed recursively",
+          "Union result uses dedup_rows helper",
+          "ILIKE: case-insensitive pattern matching",
+          "WHERE name ILIKE '%smith%' \u2014 matches Smith, SMITH, smith",
+          "NOT ILIKE supported",
+          "Like predicate extended with case_insensitive bool",
+          "like_match applies to_lowercase when case_insensitive",
+          "DROP VIEW: formal SQL support (was pgwire-only)",
+          "DROP VIEW view_name \u2014 removes from router.views",
+          "Added to Statement AST, parser, executor, EXPLAIN",
+          "EXPLAIN updated for all three new statements",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "session-nextval-currval-case-when-coalesce",
+    "title": "Session nextval/currval, CASE WHEN, COALESCE",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Session nextval/currval, CASE WHEN, COALESCE",
+    "sha": "c1843c6",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Session-local currval: per-connection sequence tracking",
+          "nextval() intercepted in pgwire, value stored in session_seqs map",
+          "currval() returns session-local value, not global",
+          "Prevents cross-connection currval contamination",
+          "CASE WHEN expressions: conditional values in SELECT",
+          "CASE WHEN col = 'val' THEN 'result' ELSE 'default' END [AS alias]",
+          "Multiple WHEN clauses supported",
+          "Parsed as SelectColumn::CaseExpr, evaluated per-row",
+          "COALESCE: returns first non-NULL column value",
+          "COALESCE(col1, col2, 'default') [AS alias]",
+          "Parsed as SelectColumn::Coalesce, evaluated per-row",
+          "evaluate_select_column helper: unified row value extraction",
+          "Handles Named, All, CaseExpr, Coalesce",
+          "Replaces the old col_indices approach in standard SELECT",
+          "parse_case_expr / parse_coalesce parsing functions",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "insert-returning-timestamp-type-fk-cascade-delete",
+    "title": "INSERT RETURNING, TIMESTAMP type, FK CASCADE DELETE",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "INSERT RETURNING, TIMESTAMP type, FK CASCADE DELETE",
+    "sha": "33a39bd",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "INSERT ... RETURNING id: get inserted values back immediately",
+          "INSERT RETURNING id, name or RETURNING *",
+          "Returns ExecuteResult::Select with the last inserted row",
+          "format_value helper for Timestamp display in results",
+          "TIMESTAMP/DATE type: store as i64 Unix epoch, display ISO 8601",
+          "ColumnType::Timestamp, Literal::Timestamp(i64)",
+          "parse_timestamp: ISO 8601 \u2192 epoch (YYYY-MM-DD[ HH:MM:SS])",
+          "format_value: epoch \u2192 'YYYY-MM-DD HH:MM:SS' for display",
+          "Timestamp comparisons: i64 numeric, cross-type with Text",
+          "FK CASCADE DELETE: auto-delete child rows on parent delete",
+          "ForeignKeyStore::cascade_rows: finds referencing rows by value",
+          "DELETE executor: cascades through child tables before parent",
+          "Nested cascade: child's children also deleted",
+          "ForeignKeyStore integrated into DeltaMainRouter",
+          "Session currval: session_seqs HashMap in router for per-connection state",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "authentication-transaction-state-machine-subqueries",
+    "title": "Authentication, transaction state machine, subqueries",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Authentication, transaction state machine, subqueries",
+    "sha": "f128494",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Authentication: cleartext password auth in pgwire startup",
+          "AuthConfig: HashMap<String, String> (user \u2192 password)",
+          "Users without entries are trusted (no password required)",
+          "AuthenticationCleartextPassword flow: request password, validate, accept/reject",
+          "listen_with_router takes optional auth_config",
+          "build_auth_password() for cleartext request message",
+          "Transaction state machine (AtomicU8): 0=idle, 1=active, 2=error",
+          "BEGIN: error if already in transaction (25001)",
+          "COMMIT/ROLLBACK: error if no transaction (25P01)",
+          "DML auto-starts implicit transaction if idle",
+          "Subqueries in WHERE clause:",
+          "WHERE col = (SELECT ...) \u2014 scalar subquery",
+          "WHERE EXISTS (SELECT ...) / NOT EXISTS (SELECT ...)",
+          "WHERE col IN (SELECT ...) / NOT IN (SELECT ...)",
+          "eval_subquery: recursive executor for subquery results",
+          "evaluate_where: dispatches between matches_bytes and eval_subquery",
+          "Supported in SELECT, UPDATE, DELETE WHERE filters",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "wal-logging-for-update-delete-truncate-crash-recovery",
+    "title": "WAL logging for UPDATE/DELETE/TRUNCATE \u2014 crash recovery",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- WAL entry types extended: InsertRow(4), UpdateRow(5), DeleteRow(6), TruncateTable(7), AlterAddColumn(8), AlterDropColumn(9) - Binary encoding per mutation type: - InsertRow: [table_len][table][row_idx:u64][row_len][row",
+    "sha": "085bb1e",
+    "content": [
+      {
+        "type": "p",
+        "text": "- WAL entry types extended: InsertRow(4), UpdateRow(5), DeleteRow(6), TruncateTable(7), AlterAddColumn(8), AlterDropColumn(9) - Binary encoding per mutation type: - InsertRow: [table_len][table][row_idx:u64][row_len][row_bytes] - UpdateRow: [table][row_idx][col_len][col][val_len][val] - DeleteRow: [table][row_idx] - TruncateTable: [table] - wal_log helper in sql.rs: appends to WAL on every mutation - Executor logs WAL entries for INSERT, UPDATE, DELETE, TRUNCATE - replay_columnar() on WriteAheadLog: replays columnar entries on startup - Decodes binary format, applies to router (catalog + columnar + indexes) - DeltaMainRouter.wal: Option<Arc<RwLock<WriteAheadLog>>> field - set_wal() method; PersistentDatabase wires WAL into router - Tests: 74/74 passing"
+      }
+    ]
+  },
+  {
+    "slug": "index-utilization-in-query-planning-index-scan",
+    "title": "Index utilization in query planning (Index Scan)",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Index utilization in query planning (Index Scan)",
+    "sha": "39bb691",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "INSERT now calls index_row to populate B-Tree indexes with PKs",
+          "DELETE now calls deindex_row to remove index entries",
+          "SELECT with WHERE col = val uses B-Tree index lookup",
+          "find_best_index discovers matching single-column index",
+          "lookup returns matching PKs (row indices)",
+          "Only indexed rows are read from columnar store (vs full scan)",
+          "EXPLAIN shows 'Index Scan' when WHERE column has index",
+          "WhereClause: lookup_value_bytes() for index key extraction",
+          "WhereClause: is_compare() to check predicate type",
+          "PK encoding: row_idx as u64 LE bytes stored in B-Tree",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "proper-rollback-undo-all-columnar-changes",
+    "title": "Proper ROLLBACK \u2014 undo all columnar changes",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Proper ROLLBACK \u2014 undo all columnar changes",
+    "sha": "82d3380",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "UndoStack in DeltaMainRouter tracks all mutations for rollback",
+          "UndoAction enum: Insert, Update, Delete, Truncate, AlterAddColumn, AlterDropColumn",
+          "undo_all() in pgwire: replays undo stack in reverse on ROLLBACK",
+          "INSERT undo: delete the added row",
+          "UPDATE undo: restore old column value",
+          "DELETE undo: restore full row data",
+          "TRUNCATE undo: re-insert all cleared rows",
+          "ALTER ADD COLUMN undo: drop the added column",
+          "ALTER DROP COLUMN undo: re-add column with old data",
+          "BEGIN/COMMIT/ROLLBACK handled in pgwire directly",
+          "BEGIN: clears undo stack",
+          "COMMIT: clears undo stack (changes are already applied)",
+          "ROLLBACK: executes undo_all, then clears stack",
+          "Undo recording added to INSERT, UPDATE, DELETE, TRUNCATE executors",
+          "Transaction commands: BEGIN, BEGIN TRANSACTION, START TRANSACTION, etc.",
+          "Tests: 74/74 passing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "repair-3-pre-existing-test-failures-74-74-passing",
+    "title": "Repair 3 pre-existing test failures \u2014 74/74 passing",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- page::test_checksum_detection: checksum now covers full page data (was only covering header bytes 0..14, missing data corruption) - set_checksum / verify_checksum compute XOR over entire page - sequence::test_sequence_",
+    "sha": "448afdc",
+    "content": [
+      {
+        "type": "p",
+        "text": "- page::test_checksum_detection: checksum now covers full page data (was only covering header bytes 0..14, missing data corruption) - set_checksum / verify_checksum compute XOR over entire page - sequence::test_sequence_currval: currval returns stored value - 1 (fetch_add returns old value; stored value = last_returned + 1) - currval computes saturating_sub(1) to get last returned - wal::test_wal_append_and_replay: header layout mismatch - ENTRY_HEADER_SIZE: 18 \u2192 22 (lsn:8 + type:2 + page_id:8 + data_len:4) - page_id read: u64 from bytes 10..18 (was u32 from 10..14) - data_len read: u32 from bytes 18..22 (was u32 from 14..18)"
+      },
+      {
+        "type": "h",
+        "text": "Test suite: 74/74 passing, zero failures"
+      }
+    ]
+  },
+  {
+    "slug": "multi-column-order-by-insert-with-columns-check-constraints",
+    "title": "Multi-column ORDER BY, INSERT with columns, CHECK constraints",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Multi-column ORDER BY, INSERT with columns, CHECK constraints",
+    "sha": "88d905d",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "ORDER BY multiple columns: ORDER BY col1 ASC, col2 DESC",
+          "Tie-break sorting: primary key, then secondary, etc.",
+          "Updated parser, executor (standard + JOIN paths), EXPLAIN",
+          "INSERT with explicit columns: INSERT INTO t (c1, c2) VALUES (v1, v2)",
+          "Column mapping: maps value positions to target column indices",
+          "Unspecified columns get default NULL (or DEFAULT constraint values)",
+          "CHECK constraints: CHECK (condition) on column definitions",
+          "CREATE TABLE t (age INTEGER CHECK (age > 0))",
+          "Validate on INSERT: numeric/string comparisons, IS NULL, IN (...)",
+          "eval_check helper with numeric and string comparison support",
+          "ColumnConstraint::Check(String) variant added",
+          "ConstraintStore validates CHECK conditions during INSERT",
+          "Tests: 74 total, 3 pre-existing failures unchanged"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "is-null-like-in-between-offset-where-predicate-system",
+    "title": "IS NULL, LIKE, IN, BETWEEN, OFFSET \u2014 WHERE predicate system",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "IS NULL, LIKE, IN, BETWEEN, OFFSET \u2014 WHERE predicate system",
+    "sha": "09c677d",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Refactored WhereClause: predicate enum replaces (column, op, value) tuple",
+          "WherePredicate::Compare \u2014 col OP val (existing)",
+          "WherePredicate::IsNull \u2014 col IS [NOT] NULL",
+          "WherePredicate::Like \u2014 col [NOT] LIKE '%pattern%'",
+          "WherePredicate::InList \u2014 col [NOT] IN (1, 2, 3)",
+          "WherePredicate::Between \u2014 col [NOT] BETWEEN low AND high",
+          "LIKE pattern matching: % wildcard (any chars), _ wildcard (single char)",
+          "Cross-type comparisons: Text-to-Integer/Float coercion in Literal::compare",
+          "OFFSET pagination: SELECT ... OFFSET 10 LIMIT 20",
+          "WhereClause::matches(val) \u2014 unified row evaluation",
+          "WhereClause::matches_bytes(val, type) \u2014 byte-slice evaluation for UPDATE/DELETE",
+          "parse_where_clause handles all predicate types",
+          "EXPLAIN: simplified Filter display via {:?} debug formatting",
+          "Tests: 74 total, 3 pre-existing failures"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "full-dcc-modeling-workflow-with-13-modes-ui-panels-and-inter",
+    "title": "Full DCC modeling workflow with 13 modes, UI panels, and interactive tools",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "feat",
+      "Nexus-Modeling"
+    ],
+    "category": "Commit",
+    "excerpt": "App framework: - ModeOrchestrator with 13 registered modes (select, sketch, extrude, revolve, fillet, modeling, dimension, face-edit, edge-edit, vertex-edit, boolean, pattern, mirror) via ModeRegistry auto-registration -",
+    "sha": "4a3c311",
+    "content": [
+      {
+        "type": "p",
+        "text": "App framework: - ModeOrchestrator with 13 registered modes (select, sketch, extrude, revolve, fillet, modeling, dimension, face-edit, edge-edit, vertex-edit, boolean, pattern, mirror) via ModeRegistry auto-registration - AppContext stores document, selection, scene, orchestrator, camera, cursor world position, working plane, sub-object selection, preview mesh - ModelingApplication owns document, selection, scene, orchestrator - Orthographic/perspective camera toggle, standard views (NumPad 0/1/3/7)"
+      },
+      {
+        "type": "p",
+        "text": "Interactive tools: - Transform gizmo: translate/scale/rotate via axis drag (W/E/R keys) - Grid snap (G key) with quantized placement and transform deltas - Ctrl+vertex/edge-midpoint/face-center snap (Shift+Tab cycles mode) - Working plane selection (Tab cycles XZ/XY/YZ) with colored grid per plane - Ray-cast selection via Moller-Trumbore triangle intersection - Sub-object picking: face index + nearest vertex + hit point stored in context - Interactive extrude/revolve: click-drag-release sets height/angle, sends MouseDrag events through ModeOrchestrator::routeInput"
+      },
+      {
+        "type": "p",
+        "text": "Editors and panels (ImGui): - EditorUI: menu bar (File/Edit/View/Create/Mode/Gizmo), toolbar, status bar - Outliner: clickable feature list with type (Sketch/Extrude/Revolve) - Inspector: editable position (DragFloat3), name (InputText), material (albedo ColorEdit4, roughness/metallic DragFloat), Instance button - Context menu: create primitives, boolean submenu, delete, instance - Timeline: play/pause, frame slider, keyframe controls (I/K/Space) - Status bar: object count, selected ID, snap state, work plane, mode"
+      },
+      {
+        "type": "p",
+        "text": "Modeling operations: - Primitive modeling: M key -> 1-6 choose type -> click to place at cursor with grid snap, stored as document features with mesh - Sketch mode: S key -> 1/2/3 select point/rectangle/circle -> click to draw on working plane, SketchPreview renders points - Boolean operations: Shift+U/D/I (union/diff/intersect) via MeshBoolean, also in context menu - Chamfer/Fillet: F key -> click applies BevelChamferOperation to all meshes - Mirror: N key -> mirrors most recent feature across YZ plane - Face edit: Q key -> extrude face along normal via HalfEdgeMesh+tweakFace - Edge edit: B key -> bevel sharp edges (angle>=15deg) - Vertex edit: V key -> snap selected vertex to cursor world position - 3D dimension overlay (D key): two-click linear dimension with cross marks"
+      },
+      {
+        "type": "p",
+        "text": "Animation: - Keyframe system: I=insert at current frame, K=clear, Space=play/pause - Linear interpolation between bracketing keyframes at ~20fps playback - Timeline panel with play/pause/|< / < / > / >| controls + frame slider"
+      },
+      {
+        "type": "p",
+        "text": "Data model: - FeatureHistory: FeatureNode with id, kind, sketch, extrudeDesc, revolveDesc, cached mesh/surface, dirty/deleted/hidden flags, material (PBR: albedo, roughness, metallic) - removeFeature(), setHidden(), unhideAll() for delete/hide/isolate - CadDocument: addSketch, addExtrude, addRevolve, deleteFeature - Multi-select: Shift+click toggles, selectedIds vector, hide/isolate/unhide (H/Shift+H/Ctrl+H)"
+      },
+      {
+        "type": "p",
+        "text": "File I/O: - Save/Load: scene.nxm binary serialization (Ctrl+S/O) - Export OBJ: ASCII v/f format with per-feature vertex offsets - Import OBJ: parse v/f lines, create mesh feature with normals"
+      },
+      {
+        "type": "p",
+        "text": "Viewport rendering: - OpenGL immediate mode: shaded fill + wireframe overlay per feature - Phong lighting toggle (L key): GL_LIGHT0 directional, per-face normals - Material albedo drives vertex color and GL material properties - Ghost preview mesh rendering (semi-transparent orange, 35% alpha) - Grid on active work plane (XZ/XY/YZ) with configurable spacing ([/] keys) - View all (Home) / Frame selected (F) camera navigation"
+      },
+      {
+        "type": "p",
+        "text": "Quality: - 1832 tests, 0 regressions (1 pre-existing allowed failure) - Build with -Werror, C++23, Vulkan-first + Null backend for CI - All new .cpp files registered in src/kernel/CMakeLists.txt - New test files registered in tests/CMakeLists.txt - No vendor names, no marketing buzzwords, files named by domain concern"
+      }
+    ]
+  },
+  {
+    "slug": "having-clause-rename-table-column",
+    "title": "HAVING clause + RENAME TABLE/COLUMN",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "HAVING clause + RENAME TABLE/COLUMN",
+    "sha": "ca77142",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "HAVING clause: filter grouped/aggregated results",
+          "SELECT region, COUNT(*) FROM sales GROUP BY region HAVING COUNT(*) > 5",
+          "Works with both GROUP BY and standalone aggregates",
+          "apply_having helper: column lookup + comparison retention",
+          "RENAME TABLE: ALTER TABLE old_name RENAME TO new_name",
+          "Updates catalog (TableMeta.name) and columnar store key",
+          "RENAME COLUMN: ALTER TABLE t RENAME COLUMN old TO new",
+          "Updates catalog (column_names) and columnar chunk names",
+          "AlterAction extended with RenameTable + RenameColumn variants",
+          "Select AST: having field added, parsed after GROUP BY",
+          "TableCatalog: rename_table / rename_column methods",
+          "ColumnStore: rename_table / rename_column methods",
+          "Tests: 74 total, 3 pre-existing failures unchanged"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "drop-table-drop-index-distinct-select",
+    "title": "DROP TABLE, DROP INDEX, DISTINCT SELECT",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "DROP TABLE, DROP INDEX, DISTINCT SELECT",
+    "sha": "b767010",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "DROP TABLE [IF EXISTS]: removes from catalog, columnar store, views",
+          "IF EXISTS avoids error for missing tables",
+          "DROP INDEX [IF EXISTS]: removes index metadata + backing B-Tree",
+          "IF EXISTS avoids error for missing indexes",
+          "SELECT DISTINCT: deduplicates result rows via HashSet",
+          "SELECT DISTINCT col FROM table",
+          "Works with JOIN, WHERE, ORDER BY, LIMIT",
+          "DropTable/DropIndex added to AST, parser, executor, pgwire",
+          "TableCatalog::drop_table / ColumnStore::drop_table methods",
+          "Select.distinct boolean field for DISTINCT detection",
+          "dedup_rows helper using HashSet retain",
+          "Tests: 74 total, 3 pre-existing failures unchanged"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "proper-update-delete-with-where-inner-left-join",
+    "title": "Proper UPDATE/DELETE with WHERE + INNER/LEFT JOIN",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- UPDATE table SET col=val WHERE condition: finds matching rows, updates specific columns in columnar store, returns count - DELETE FROM table WHERE condition: finds matching rows, removes rows (NULL-fill) in reverse ord",
+    "sha": "e519dc6",
+    "content": [
+      {
+        "type": "p",
+        "text": "- UPDATE table SET col=val WHERE condition: finds matching rows, updates specific columns in columnar store, returns count - DELETE FROM table WHERE condition: finds matching rows, removes rows (NULL-fill) in reverse order, returns count - JOINs: INNER JOIN and LEFT JOIN support - SELECT * FROM orders JOIN users ON orders.user_id = users.id - SELECT * FROM a LEFT JOIN b ON a.id = b.a_id - Nested-loop join with column name resolution (table.col or col) - LEFT JOIN: includes unmatched left rows with NULLs for right columns - WHERE, ORDER BY, LIMIT applied after join - JoinClause AST: join_type (Inner/Left), tables, JoinCondition - EXPLAIN: Nested Loop Join plan with join condition details - Tests: 74 total, 3 pre-existing failures unchanged"
+      }
+    ]
+  },
+  {
+    "slug": "alter-table-add-drop-column-group-by-aggregation",
+    "title": "ALTER TABLE ADD/DROP COLUMN + GROUP BY aggregation",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- ALTER TABLE ADD COLUMN name TYPE [constraints]: adds column to catalog + columnar store, filled with NULLs for existing rows - UNIQUE constraint on added column auto-creates index - ALTER TABLE DROP COLUMN name: remove",
+    "sha": "f3394c7",
+    "content": [
+      {
+        "type": "p",
+        "text": "- ALTER TABLE ADD COLUMN name TYPE [constraints]: adds column to catalog + columnar store, filled with NULLs for existing rows - UNIQUE constraint on added column auto-creates index - ALTER TABLE DROP COLUMN name: removes column from catalog + columnar store - GROUP BY: SELECT region, COUNT(*) FROM sales GROUP BY region - Aggregate functions: COUNT(*), SUM(col), AVG(col), MIN(col), MAX(col) - Leverages existing columnar analytics engine (execute_group_by, execute_aggregate) - Column aliases: COUNT(*) AS total - AlterTable added to AST, parser, executor, pgwire command tags, EXPLAIN - Select AST extended: group_by + aggregates fields - aggregate expressions parsed from SELECT columns (COUNT(col), SUM(col)) - TableCatalog: add_column / drop_column methods - ColumnStore: add_column (NULL-filled) / drop_column methods - Tests: 74 total, 3 pre-existing failures unchanged"
+      }
+    ]
+  },
+  {
+    "slug": "unique-constraint-truncate-table",
+    "title": "UNIQUE constraint + TRUNCATE TABLE",
+    "date": "2026-06-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- UNIQUE constraint: parsed from column definitions, auto-creates unique B-Tree index - CREATE TABLE users (email TEXT UNIQUE) \u2014 duplicate inserts rejected - IndexManager integrated into DeltaMainRouter (indexes: Arc<Ind",
+    "sha": "95b62cc",
+    "content": [
+      {
+        "type": "p",
+        "text": "- UNIQUE constraint: parsed from column definitions, auto-creates unique B-Tree index - CREATE TABLE users (email TEXT UNIQUE) \u2014 duplicate inserts rejected - IndexManager integrated into DeltaMainRouter (indexes: Arc<IndexManager>) - TRUNCATE TABLE: clears all columnar data for a table without row-level operations - TRUNCATE TABLE users; \u2014 fast bulk clear - Truncate added to AST, parser, executor, pgwire command tags, EXPLAIN - Column definition preservation: column_defs stored in CreateTable AST for constraint extraction during execution - Fixed CREATE TABLE parsing: strip leading '(' from columns_str before splitting by comma (previously names like '(id' parsed as column name) - DeltaMainRouter: pool.clone() for BTree construction (avoid move-after-use) - Tests: 70/74 pass, 1 test fixed (test_parse_create_table), 3 pre-existing failures (page checksum, sequence currval, wal replay)"
+      }
+    ]
+  },
+  {
+    "slug": "views-create-view-drop-view-with-stored-query-execution",
+    "title": "Views \u2014 CREATE VIEW / DROP VIEW with stored query execution",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- DeltaMainRouter: views HashMap (name \u2192 SQL) added - CREATE VIEW name AS SELECT ... : stores view definition - DROP VIEW name: removes view definition - SELECT from view: auto-detects view name, re-executes stored SQL -",
+    "sha": "bb0f492",
+    "content": [
+      {
+        "type": "p",
+        "text": "- DeltaMainRouter: views HashMap (name \u2192 SQL) added - CREATE VIEW name AS SELECT ... : stores view definition - DROP VIEW name: removes view definition - SELECT from view: auto-detects view name, re-executes stored SQL - Handled in pgwire directly (no SQL parser changes needed) - Views appear in pg_class via existing catalog integration - SQL: CREATE VIEW active_users AS SELECT * FROM users WHERE active=1; SELECT * FROM active_users; -- executes the stored query"
+      }
+    ]
+  },
+  {
+    "slug": "foreign-keys-references-constraint-with-validation",
+    "title": "Foreign Keys \u2014 REFERENCES constraint with validation",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- ForeignKeyStore: registry of FK relationships add(), get_for_source(), get_for_target(), parse_references() - validate_reference(): checks INSERT/UPDATE values exist in target - check_delete(): enforces ON DELETE RESTR",
+    "sha": "4dce962",
+    "content": [
+      {
+        "type": "p",
+        "text": "- ForeignKeyStore: registry of FK relationships add(), get_for_source(), get_for_target(), parse_references() - validate_reference(): checks INSERT/UPDATE values exist in target - check_delete(): enforces ON DELETE RESTRICT (prevents orphan delete) - FkAction: Restrict (default), Cascade (stub), SetNull (stub) - REFERENCES parsing from CREATE TABLE column definitions - 4 tests: parse, validation-passes, validation-fails, delete-restrict - SQL: CREATE TABLE orders (user_id INTEGER REFERENCES users(id)) INSERT INTO orders VALUES (99); -- ERROR if user 99 doesn't exist"
+      }
+    ]
+  },
+  {
+    "slug": "sequences-serial-auto-incrementing-primary-keys",
+    "title": "Sequences & SERIAL \u2014 auto-incrementing primary keys",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- SequenceStore: atomic counters for auto-increment create_sequence(), nextval(), currval(), setval(), drop_sequence() Auto-creates on first nextval() call - SERIAL type: syntactic sugar for INTEGER + DEFAULT nextval('se",
+    "sha": "7f3b22a",
+    "content": [
+      {
+        "type": "p",
+        "text": "- SequenceStore: atomic counters for auto-increment create_sequence(), nextval(), currval(), setval(), drop_sequence() Auto-creates on first nextval() call - SERIAL type: syntactic sugar for INTEGER + DEFAULT nextval('seq') handle_serial_column() \u2014 creates sequence + returns constraint - Sequence naming: table_seq (e.g., users_seq for users.id) - 6 tests: nextval, currval, setval, drop, serial name, handle_serial - SQL: CREATE TABLE users (id SERIAL, name TEXT); INSERT INTO users (name) VALUES ('alice');  -- id = 1 INSERT INTO users (name) VALUES ('bob');    -- id = 2"
+      }
+    ]
+  },
+  {
+    "slug": "column-constraints-not-null-default-validation",
+    "title": "Column Constraints \u2014 NOT NULL + DEFAULT validation",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Column Constraints \u2014 NOT NULL + DEFAULT validation",
+    "sha": "f16c0af",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "ConstraintStore: per-table, per-column constraint registry",
+          "ColumnConstraint::NotNull: rejects NULL values on INSERT",
+          "ColumnConstraint::DefaultValue: auto-fills missing values",
+          "validate_insert(): checks all constraints, returns violation message",
+          "apply_defaults(): fills DEFAULT values for missing columns",
+          "parse_constraints(): parses 'NOT NULL', 'DEFAULT expr' from SQL",
+          "TableMeta: added column_constraints field",
+          "4 tests: not null violation, not null passes, default fill, default no-override",
+          "SQL: CREATE TABLE t (id INTEGER NOT NULL, name TEXT DEFAULT 'anon')"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pg-catalog-real-schema-introspection-from-internal-catalog",
+    "title": "Pg_catalog \u2014 real schema introspection from internal catalog",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- pg_class: returns real tables from TableCatalog with proper OIDs - pg_attribute: returns real columns with correct type OIDs (int4=23, text=25, bool=16, float8=701, jsonb=3802) - pg_namespace: public (2200) + pg_catalo",
+    "sha": "cfb6080",
+    "content": [
+      {
+        "type": "p",
+        "text": "- pg_class: returns real tables from TableCatalog with proper OIDs - pg_attribute: returns real columns with correct type OIDs (int4=23, text=25, bool=16, float8=701, jsonb=3802) - pg_namespace: public (2200) + pg_catalog (11) schemas - pg_type: int4, text, bool, float8, jsonb type definitions - pg_index: empty (placeholder for index listing) - \\dt: psql shorthand for table listing - All queried from live DeltaMainRouter catalog - DBeaver/Prisma/TablePlus can now introspect the schema"
+      }
+    ]
+  },
+  {
+    "slug": "explain-query-execution-plan-visibility",
+    "title": "EXPLAIN \u2014 query execution plan visibility",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- EXPLAIN SELECT ... reports query plan without executing - Shows: scan type (Seq Scan), row count, filter conditions, sort keys, limit, engine used, column list - Separate plan for each statement type: SELECT: scan type",
+    "sha": "d14bb40",
+    "content": [
+      {
+        "type": "p",
+        "text": "- EXPLAIN SELECT ... reports query plan without executing - Shows: scan type (Seq Scan), row count, filter conditions, sort keys, limit, engine used, column list - Separate plan for each statement type: SELECT: scan type, rows, filter, sort, limit, engine INSERT: table, rows, engine type (LSM Delta store) UPDATE: table, SET columns DELETE: table CREATE TABLE: name, columns, engine - SQL: EXPLAIN SELECT * FROM users WHERE name = 'alice' \u2192 Seq Scan on users (rows: ~1000) \u2192 Filter: name Eq Text(alice)"
+      }
+    ]
+  },
+  {
+    "slug": "prepared-statements-parse-bind-execute-protocol-support",
+    "title": "Prepared statements \u2014 Parse/Bind/Execute protocol support",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- pgwire: Parse ('P'), Bind ('B'), Execute ('E'), Describe ('D'), Sync ('S') messages handled in the connection loop - Prepared statement cache: name \u2192 SQL stored in HashMap - Parse: extracts statement name + SQL, stores",
+    "sha": "1bf5f05",
+    "content": [
+      {
+        "type": "p",
+        "text": "- pgwire: Parse ('P'), Bind ('B'), Execute ('E'), Describe ('D'), Sync ('S') messages handled in the connection loop - Prepared statement cache: name \u2192 SQL stored in HashMap - Parse: extracts statement name + SQL, stores in cache, returns ParseComplete - Bind: returns BindComplete (parameter binding) - Describe: returns NoData for both statement and portal - Execute (unnamed): runs the cached SQL, returns results - Enables: PREPARE stmt AS SELECT...; EXECUTE stmt(param); Tools like Prisma/DBeaver use extended query protocol"
+      }
+    ]
+  },
+  {
+    "slug": "hnsw-vector-index-approximate-nearest-neighbor-for-ai-embedd",
+    "title": "HNSW Vector Index \u2014 approximate nearest neighbor for AI embeddings",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- hnsw.rs: Hierarchical Navigable Small World algorithm Multi-layer proximity graph with greedy search Insert: random level assignment, bidirectional neighbor connections Search: greedy descent through layers, ef-based b",
+    "sha": "093702b",
+    "content": [
+      {
+        "type": "p",
+        "text": "- hnsw.rs: Hierarchical Navigable Small World algorithm Multi-layer proximity graph with greedy search Insert: random level assignment, bidirectional neighbor connections Search: greedy descent through layers, ef-based beam search at layer 0 - Distance metrics: L2 (Euclidean), Cosine, Inner Product - Configurable: M=16 connections, efConstruction=200, efSearch=50 - 5 tests: distance metrics, insert+search (20 vectors, 3D), cosine search (16 vectors, 2D), empty index, large insert (200 vectors) - SQL-ready: CREATE INDEX USING HNSW (embedding) WITH (dimensions=1536) SELECT * FROM items ORDER BY embedding <-> query LIMIT 10"
+      }
+    ]
+  },
+  {
+    "slug": "json-document-support-jsonb-type-and-operators",
+    "title": "JSON/Document support \u2014 JSONB type, -> and ->> operators",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- json.rs: parse_jsonb(), json_get_field(), json_get_field_text() json_contains() \u2014 @> operator for nested JSON queries validate_json() \u2014 input validation on INSERT/UPDATE json_values_equal() \u2014 deep equality for objects/",
+    "sha": "5f2e480",
+    "content": [
+      {
+        "type": "p",
+        "text": "- json.rs: parse_jsonb(), json_get_field(), json_get_field_text() json_contains() \u2014 @> operator for nested JSON queries validate_json() \u2014 input validation on INSERT/UPDATE json_values_equal() \u2014 deep equality for objects/arrays/numbers - ColumnType::Jsonb added with string parsing (JSONB | JSON) - SQL: CREATE TABLE t (data JSONB); SELECT data->>'key' FROM t; WHERE data @> '{role:admin}' - 6 tests: parse, get field, field not found, contains object, contains array, invalid JSON validation - Multi-model database: relational + document store in one engine"
+      }
+    ]
+  },
+  {
+    "slug": "full-text-search-gin-inverted-index-with-tf-idf-ranking",
+    "title": "Full-text search \u2014 GIN inverted index with TF-IDF ranking",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- fts.rs: tokenizer, stop word removal, inverted index (term\u2192doc IDs) - FtsIndex: index_document(), search(), remove_document() - TF-IDF ranking: term_frequency * log(N/df) per document - Intersection query: documents mu",
+    "sha": "6cb0807",
+    "content": [
+      {
+        "type": "p",
+        "text": "- fts.rs: tokenizer, stop word removal, inverted index (term\u2192doc IDs) - FtsIndex: index_document(), search(), remove_document() - TF-IDF ranking: term_frequency * log(N/df) per document - Intersection query: documents must match ALL query terms - FtsManager: multi-table, multi-column FTS indexes - 6 tests: tokenize, stop words, index+search, no results, remove document, multi-table manager - SQL-ready: WHERE content @@ 'search terms' infrastructure"
+      }
+    ]
+  },
+  {
+    "slug": "update-and-delete-crud-completeness",
+    "title": "UPDATE and DELETE \u2014 CRUD completeness",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "UPDATE and DELETE \u2014 CRUD completeness",
+    "sha": "7c1256f",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Statement enum: Update { table, sets, where_clause }, Delete { table, where_clause }",
+          "SQL parsing: parse_update(), parse_delete(), parse_where() helper",
+          "ExecuteResult: Update(usize), Delete(usize) variants",
+          "pgwire: Update/Delete match arms in query handler",
+          "ColumnStore: update_row() and delete_row() methods for cell-level mutation",
+          "UPDATE table SET col = val WHERE ... accepted and returns row count",
+          "DELETE FROM table WHERE ... accepted and returns row count",
+          "Column-level mutation infrastructure ready for full implementation"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "select-returns-real-data-columnar-store-wired-to-query-execu",
+    "title": "SELECT returns real data \u2014 columnar store wired to query executor",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "SELECT returns real data \u2014 columnar store wired to query executor",
+    "sha": "7ef8adb",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "DeltaMainRouter now includes ColumnStore",
+          "INSERT: writes to LSM (Delta) + B-Tree (Main) + Columnar store",
+          "SELECT: reads from Columnar store, builds Row objects from column data",
+          "CREATE TABLE: initializes columnar store schema for new tables",
+          "WHERE clause filtering applied against columnar data",
+          "ORDER BY and LIMIT applied to retrieved rows",
+          "Result: psql SELECT queries now return actual stored data"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "persistent-storage-data-survives-across-psql-connections",
+    "title": "Persistent storage \u2014 data survives across psql connections",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- PersistentDatabase: shared router with FileStorage + WAL replay open() creates data/ directory, opens WAL, replays on startup router shared via Arc across all pgwire connections Tables created in one session visible in",
+    "sha": "26e38e3",
+    "content": [
+      {
+        "type": "p",
+        "text": "- PersistentDatabase: shared router with FileStorage + WAL replay open() creates data/ directory, opens WAL, replays on startup router shared via Arc across all pgwire connections Tables created in one session visible in the next - pgwire: listen_with_router() accepts shared DeltaMainRouter handle_connection_with_router() handles full query lifecycle handle_query_with_router() uses SQL parser \u2192 executor \u2192 router - WAL integration: replay on startup, checkpoint to truncate - Server binary: pgwire runs on :5432 with persistent storage Data written in one psql session persists to the next"
+      }
+    ]
+  },
+  {
+    "slug": "columnar-analytics-group-by-aggregates-columnar-scans",
+    "title": "Columnar Analytics \u2014 GROUP BY, aggregates, columnar scans",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- ColumnStore: column-oriented data storage (per-column arrays) append_row(), get_column(), chunk metadata with min/max - AggregateFunc: COUNT, SUM, AVG, MIN, MAX, COUNT DISTINCT Accumulate values, get result string - ex",
+    "sha": "b97087f",
+    "content": [
+      {
+        "type": "p",
+        "text": "- ColumnStore: column-oriented data storage (per-column arrays) append_row(), get_column(), chunk metadata with min/max - AggregateFunc: COUNT, SUM, AVG, MIN, MAX, COUNT DISTINCT Accumulate values, get result string - execute_group_by(): hash-map GROUP BY with aggregate state per group - execute_aggregate(): single-row aggregate (no GROUP BY) - column_scan_filter(): scan column with predicate for matching rows - 6 tests: append/read, count, sum, min/max, group by, column scan"
+      },
+      {
+        "type": "p",
+        "text": "OLAP engine ready for: SELECT region, SUM(amount) FROM sales GROUP BY region"
+      }
+    ]
+  },
+  {
+    "slug": "acid-transactions-begin-commit-rollback-with-wal-durability",
+    "title": "ACID Transactions \u2014 BEGIN/COMMIT/ROLLBACK with WAL durability",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- TransactionManager: atomic TxnId generation, active txn tracking - BEGIN: creates txn, writes BEGIN marker to WAL - During txn: record_change() buffers before/after images - COMMIT: flushes all buffered changes to WAL,",
+    "sha": "662474f",
+    "content": [
+      {
+        "type": "p",
+        "text": "- TransactionManager: atomic TxnId generation, active txn tracking - BEGIN: creates txn, writes BEGIN marker to WAL - During txn: record_change() buffers before/after images - COMMIT: flushes all buffered changes to WAL, marks committed - ROLLBACK: discards buffered changes, writes ROLLBACK marker - MVCC-lite: last_committed_id for read visibility - Parse: BEGIN/COMMIT/ROLLBACK SQL commands recognized - Crash recovery: WAL replay restores committed txns, discards active - 6 tests: begin+commit, begin+rollback, multi-txn, double-commit fail, command parsing, rollback_all"
+      }
+    ]
+  },
+  {
+    "slug": "secondary-indexes-b-tree-indexes-on-any-column",
+    "title": "Secondary indexes \u2014 B-Tree indexes on any column",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- index.rs: IndexManager with CREATE/DROP INDEX, query planner create_index(name, table, columns, unique, type) index_row() / deindex_row() \u2014 auto-maintained on DML lookup() \u2014 O(log n) lookup via B-Tree find_best_index()",
+    "sha": "c97e7d4",
+    "content": [
+      {
+        "type": "p",
+        "text": "- index.rs: IndexManager with CREATE/DROP INDEX, query planner create_index(name, table, columns, unique, type) index_row() / deindex_row() \u2014 auto-maintained on DML lookup() \u2014 O(log n) lookup via B-Tree find_best_index() \u2014 query planner picks single-col then multi-col - 4 tests: create, lookup, planner finds index, drop - Index metadata stored per-table with backing B-Tree per index - All indexes automatically updated on row insert/delete"
+      }
+    ]
+  },
+  {
+    "slug": "sql-parser-query-executor-psql-queries-reach-the-engine",
+    "title": "SQL parser + query executor \u2014 psql queries reach the engine",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- sql.rs: SQL parser for CREATE TABLE, INSERT, SELECT WHERE clause (column = value with comparison ops) ORDER BY (ASC/DESC), LIMIT 3/4 tests passing (INSERT, SELECT with WHERE/ORDER/LIMIT, literal parsing) - Query execut",
+    "sha": "4a9b068",
+    "content": [
+      {
+        "type": "p",
+        "text": "- sql.rs: SQL parser for CREATE TABLE, INSERT, SELECT WHERE clause (column = value with comparison ops) ORDER BY (ASC/DESC), LIMIT 3/4 tests passing (INSERT, SELECT with WHERE/ORDER/LIMIT, literal parsing) - Query executor: parsed AST \u2192 DeltaMainRouter operations CREATE TABLE \u2192 catalog.create_table() INSERT \u2192 router.insert() via LSM (Delta store) SELECT \u2192 router.select() from B-Tree (Main store) - ExecuteResult: typed response with to_pgwire_response() conversion - pgwire updated to try SQL parser before fallback queries - Full stack: psql \u2192 pgwire \u2192 SQL parser \u2192 executor \u2192 Delta-Main engine"
+      }
+    ]
+  },
+  {
+    "slug": "delta-main-bridge-polymorphic-storage-virtualization",
+    "title": "Delta-Main Bridge \u2014 polymorphic storage virtualization",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- TableCatalog: CREATE TABLE with engine declaration (BTREE, LSM, AUTO) - StorageEngine: BTree (reads), Lsm (writes), Auto (pattern-detected) - DeltaMainRouter: insert() routes to LSM (Delta), select() reads B-Tree (Main",
+    "sha": "9a5d0ab",
+    "content": [
+      {
+        "type": "p",
+        "text": "- TableCatalog: CREATE TABLE with engine declaration (BTREE, LSM, AUTO) - StorageEngine: BTree (reads), Lsm (writes), Auto (pattern-detected) - DeltaMainRouter: insert() routes to LSM (Delta), select() reads B-Tree (Main) - AccessPattern: atomic read/write counters with ratio detection - Auto-migration: when read/write ratio shifts, table migrates engines >10x reads \u2192 migrate to BTree, <0.1x reads \u2192 migrate to LSM - Minimum 100 operations + 60s cooldown between migration checks - 4 tests passing (create table, access pattern, auto migration, engine parsing)"
+      },
+      {
+        "type": "p",
+        "text": "Architecture: Table \u2192 Catalog {engine, columns, pattern} \u2192 Router {Delta, Main}"
+      }
+    ]
+  },
+  {
+    "slug": "lsm-tree-engine-row-format-storage-layer",
+    "title": "LSM-Tree engine + Row format + Storage layer",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "LSM-Tree (database-engine/src/lsm.rs): - Memtable: in-memory BTreeMap for active writes - SSTable: immutable sorted files on disk with binary search - Flush: memtable \u2192 SSTable when threshold reached - Compaction: merge ",
+    "sha": "3b45295",
+    "content": [
+      {
+        "type": "p",
+        "text": "LSM-Tree (database-engine/src/lsm.rs): - Memtable: in-memory BTreeMap for active writes - SSTable: immutable sorted files on disk with binary search - Flush: memtable \u2192 SSTable when threshold reached - Compaction: merge adjacent SSTables to reclaim space - Delete: tombstone entries (None values) - 2 tests passing (put/get, flush/read after flush)"
+      },
+      {
+        "type": "p",
+        "text": "Row format (database-engine/src/row.rs): - Null bitmap (u64) + column length prefix + data - Roundtrip serialization/deserialization - 2 tests passing"
+      },
+      {
+        "type": "p",
+        "text": "Storage layer (database-engine/src/storage.rs): - FileStorage: filesystem-backed page I/O - MemoryStorage: in-memory for testing/benchmarks - Checksum verification on read"
+      },
+      {
+        "type": "h",
+        "text": "Full engine: 8 modules, 4 tested (page, buffer, lsm, row)"
+      }
+    ]
+  },
+  {
+    "slug": "postgresql-wire-protocol-psql-can-connect-to-nexus-database",
+    "title": "PostgreSQL wire protocol \u2014 psql can connect to Nexus-Database",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "database-engine/src/pgwire.rs: - Full PostgreSQL wire protocol v3.0 implementation - SSL request handshake (reject with fallback to plaintext) - Trust authentication (no password) - Server parameters: version, encoding, ",
+    "sha": "ca4284c",
+    "content": [
+      {
+        "type": "p",
+        "text": "database-engine/src/pgwire.rs: - Full PostgreSQL wire protocol v3.0 implementation - SSL request handshake (reject with fallback to plaintext) - Trust authentication (no password) - Server parameters: version, encoding, DateStyle - Simple Query protocol: SELECT, INSERT, CREATE TABLE - pg_catalog emulation: pg_class, pg_namespace (tools don't crash) - Row description + data row messages - Command complete + ready for query cycle - Proper message framing (type byte + length + payload)"
+      },
+      {
+        "type": "h",
+        "text": "database-server: pgwire listener on :5432 alongside HTTP API on :3000"
+      },
+      {
+        "type": "p",
+        "text": "Next: LSM-Tree storage engine, Delta-Main architecture for HTAP, vectorized execution engine, multi-model (JSONB, graph, vector)"
+      }
+    ]
+  },
+  {
+    "slug": "nexus-database-engine-b-tree-buffer-pool-wal-page-manager",
+    "title": "Nexus Database Engine \u2014 B-Tree, Buffer Pool, WAL, Page Manager",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "database-engine crate (Rust): - Page: 4KB fixed-size pages with 16-byte header (page_id, free_offset, item_count, page_type, checksum). Write/read data with integrity checks. - Buffer Pool: LRU page cache with pin/unpin.",
+    "sha": "928ded1",
+    "content": [
+      {
+        "type": "p",
+        "text": "database-engine crate (Rust): - Page: 4KB fixed-size pages with 16-byte header (page_id, free_offset, item_count, page_type, checksum). Write/read data with integrity checks. - Buffer Pool: LRU page cache with pin/unpin. Configurable frame count. Hit ratio tracking for monitoring. Dirty page eviction. - WAL (Write-Ahead Log): append, replay, checkpoint, truncate. Crash recovery via sequential log replay. LSN-based ordering. - B-Tree Index: insert, search, delete with O(log n) complexity. 50-insert test passing. Cell-based interior mutability for root."
+      },
+      {
+        "type": "h",
+        "text": "Architecture: Page \u2192 Buffer Pool \u2192 WAL \u2192 B-Tree \u2192 Table"
+      },
+      {
+        "type": "p",
+        "text": "Nexus-Wiki: backend expanded with user auth (JWT + bcrypt), categories endpoint, PostgreSQL full-text search triggers."
+      },
+      {
+        "type": "p",
+        "text": "Future: LSM-Tree (write-optimized), Columnar path (analytics), PostgreSQL wire protocol compatibility."
+      }
+    ]
+  },
+  {
+    "slug": "nexus-wiki-wikipedia-features-links-toc-diffs-talk-auth",
+    "title": "Nexus-Wiki \u2014 Wikipedia features: [[links]], TOC, diffs, talk, auth",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Nexus-Wiki \u2014 Wikipedia features: [[links]], TOC, diffs, talk, auth",
+    "sha": "f41f6e8",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Wiki [[Link|display]] syntax \u2014 auto-slug, blue links with navigation",
+          "Auto-generated Table of Contents from headings",
+          "Version diff viewer (unified line diff, green/red)",
+          "Talk pages \u2014 /talk sub-page per article with comment input",
+          "What Links Here \u2014 backlink tracking across all articles",
+          "User auth \u2014 register/login with password hashing",
+          "Editor attribution \u2014 username + change summary on every edit",
+          "Infobox support, blockquotes, semantic heading anchors",
+          "Content-wide [[link]] indexing for backlink resolution"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "nexus-wiki-wikipedia-like-knowledge-platform-fully-built",
+    "title": "Nexus-Wiki \u2014 Wikipedia-like knowledge platform fully built",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Backend (Python/FastAPI): - Full CRUD with PostgreSQL persistence and in-memory store - Page revisions with full history tracking - Slug-based URLs with automatic slugify - Search with PostgreSQL ILIKE - Categories + tag",
+    "sha": "154cce9",
+    "content": [
+      {
+        "type": "p",
+        "text": "Backend (Python/FastAPI): - Full CRUD with PostgreSQL persistence and in-memory store - Page revisions with full history tracking - Slug-based URLs with automatic slugify - Search with PostgreSQL ILIKE - Categories + tags on pages - Random page + recent changes endpoints - Nexus-Cloud registration integration"
+      },
+      {
+        "type": "p",
+        "text": "Frontend (React + Tailwind + Vite): - Browse view: article list with category sidebar, search, random page - Read view: full article with markdown rendering (# headings, **bold**, *italic*, , [links], - lists), category/tag display - Edit view: title, category, markdown content editor - History view: revision list with editor + change summary - Proxy /api \u2192 Python backend on :8000"
+      }
+    ]
+  },
+  {
+    "slug": "ghost-generates-react-frontends-graphics-engine-consolidated",
+    "title": "Ghost generates React frontends + graphics engine consolidated",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Tier 3: Shared graphics engine in packages/nexus-graphics-engine/ All 6 graphics apps now import from single crate",
+    "sha": "5b53d90",
+    "content": [
+      {
+        "type": "p",
+        "text": "Tier 3: Shared graphics engine in packages/nexus-graphics-engine/ All 6 graphics apps now import from single crate"
+      },
+      {
+        "type": "p",
+        "text": "Tier 4-5: Ghost now generates React + Vite + Tailwind frontends frontend/package.json, vite.config.ts, App.tsx with CRUD dashboard Proxies /api to the Bun backend port Includes input, create button, list with auto-refresh"
+      },
+      {
+        "type": "p",
+        "text": "Tier 6: Development blueprint docs/DEVELOPMENT_BLUEPRINT.md 6 tiers, every app with tech stack + build plan"
+      }
+    ]
+  },
+  {
+    "slug": "development-blueprint-every-app-with-tech-stack-status-build",
+    "title": "Development blueprint \u2014 every app with tech stack, status, build plan",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Development blueprint \u2014 every app with tech stack, status, build plan",
+    "sha": "2949015",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Tier 1: 17 production-ready apps",
+          "Tier 2: 8 substantial backends needing React frontends",
+          "Tier 3: 6 graphics apps (Rust WASM + Python + React/WebGL2)",
+          "Tier 4: 3 Python/FastAPI apps needing frontends",
+          "Tier 5: 70+ Bun/SQLite web apps (mechanical, Ghost-assisted)",
+          "Tier 6: 8 special-purpose apps (Database, Security, Monitor, etc.)",
+          "Stack decision matrix per category"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "reorganize-root-docs-docs-scripts-scripts",
+    "title": "Reorganize root \u2014 docs \u2192 docs/, scripts \u2192 scripts/",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "refactor",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Root now contains only: README.md, docker-compose.yml, .gitignore, .gitmodules",
+    "sha": "2228cec",
+    "content": [
+      {
+        "type": "p",
+        "text": "Root now contains only: README.md, docker-compose.yml, .gitignore, .gitmodules"
+      },
+      {
+        "type": "p",
+        "text": "scripts/demo/   \u2014 capstone.sh, demo.sh, demo-flow.sh, phantom-demo.sh scripts/test/   \u2014 contract-test.sh, smoke-test.sh, e2e-test.sh, test-*.sh scripts/        \u2014 run-all.sh, autopilot.py docs/           \u2014 ARCHITECTURE.md, VERSION_MATRIX.md, QUICKSTART.md"
+      },
+      {
+        "type": "p",
+        "text": "Updated: README paths, CI workflow paths, .gitignore (added scripts/, docs/, tools/)"
+      }
+    ]
+  },
+  {
+    "slug": "ci-replace-bun-install-with-npm-symlink-from-cloud",
+    "title": "CI \u2014 replace bun install with npm, symlink from Cloud",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "CI \u2014 replace bun install with npm, symlink from Cloud",
+    "sha": "ee2db27",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "bun install hangs in CI \u2192 use npm install (proven reliable)",
+          "Contract + smoke jobs: install Nexus-Cloud deps, symlink to all apps",
+          "Removed standalone nexus-cloud job (merged into integration jobs)",
+          "Combined Rust build+test (cargo test instead of check + test)",
+          "Frontend: combined install + typecheck + build into one step"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "phantom-5-hop-oblivious-routing-demo-wired-forwarder",
+    "title": "Phantom 5-hop oblivious routing demo + wired forwarder",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- phantom-demo.sh: two-node test with PQ identities, packet exchange - phantom-node: ObliviousForwarder processes incoming PhantomPackets process_packet() \u2192 Forward/Deliver/Drop FHE engine (CPU mode), std::sync::RwLock f",
+    "sha": "7ba3a80",
+    "content": [
+      {
+        "type": "p",
+        "text": "- phantom-demo.sh: two-node test with PQ identities, packet exchange - phantom-node: ObliviousForwarder processes incoming PhantomPackets process_packet() \u2192 Forward/Deliver/Drop FHE engine (CPU mode), std::sync::RwLock for forwarder - phantom-networking: TCP listener deserializes bincode PhantomPackets PacketReceived event emitted on successful deserialization"
+      }
+    ]
+  },
+  {
+    "slug": "quickstart-md-preflight-check-fresh-clone-to-running-in-5-co",
+    "title": "QUICKSTART.md + preflight check \u2014 fresh clone to running in 5 commands",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- QUICKSTART.md: architecture overview, 5-command quick start, federation guide, test suite table, CI badge reference - deploy/preflight-check.sh: Docker, compose, port, data validation - Local CI verified: 8/8 typecheck",
+    "sha": "2ec4ad5",
+    "content": [
+      {
+        "type": "p",
+        "text": "- QUICKSTART.md: architecture overview, 5-command quick start, federation guide, test suite table, CI badge reference - deploy/preflight-check.sh: Docker, compose, port, data validation - Local CI verified: 8/8 typecheck, 30/30 Rust tests, 6/6 frontend builds"
+      }
+    ]
+  },
+  {
+    "slug": "capstone-demo-cloud-phantom-discovery-pipeline-in-one-comman",
+    "title": "Capstone demo \u2014 Cloud + Phantom + Discovery + Pipeline in one command",
+    "date": "2026-06-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- capstone.sh: 6-phase ecosystem proof 1. Nexus-Cloud startup + health 2. 5 apps with Phantom DID detection 3. Cloud topology \u2014 72 tools registered, all healthy 4. Cross-app pipeline: Photos\u2192GPU-Test\u2192Design\u2192Tasks 5. Phan",
+    "sha": "89bbd21",
+    "content": [
+      {
+        "type": "p",
+        "text": "- capstone.sh: 6-phase ecosystem proof 1. Nexus-Cloud startup + health 2. 5 apps with Phantom DID detection 3. Cloud topology \u2014 72 tools registered, all healthy 4. Cross-app pipeline: Photos\u2192GPU-Test\u2192Design\u2192Tasks 5. Phantom identity verification per app 6. API contract validation (5/5) - Output: clean summary with 5 DIDs, pipeline results, contract status"
+      }
+    ]
+  },
+  {
+    "slug": "mass-phantom-discovery-binding-to-70-bun-apps",
+    "title": "Mass Phantom + Discovery binding to 70+ Bun apps",
+    "date": "2026-06-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- Ghost templates updated: server includes PhantomApp + NexusDiscovery, index awaits async createServer, tests assert phantom.status() - 70 apps bound additively: Phantom imports + init + phantom.stop() Existing CRUD rou",
+    "sha": "6f53a04",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Ghost templates updated: server includes PhantomApp + NexusDiscovery, index awaits async createServer, tests assert phantom.status() - 70 apps bound additively: Phantom imports + init + phantom.stop() Existing CRUD routes preserved untouched - tools/mass-bind-phantom.py for future automated binding - Each app gets: phantom DID in status, discovery service mesh, post-quantum identity from Phantom SDK"
+      }
+    ]
+  },
+  {
+    "slug": "nexus-discovery-phantom-sdk-integration-visualizer-rebuild-s",
+    "title": "Nexus Discovery, Phantom SDK integration, visualizer rebuild, scaffold apps",
+    "date": "2026-06-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- Nexus Discovery package: service mesh via Cloud topology resolve(), list(), call() \u2014 replaces hardcoded URLs in cross-app comms 6 tests passing, wired into Nexus-Photos + Nexus-Design - Phantom SDK integration module (",
+    "sha": "b4627c6",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Nexus Discovery package: service mesh via Cloud topology resolve(), list(), call() \u2014 replaces hardcoded URLs in cross-app comms 6 tests passing, wired into Nexus-Photos + Nexus-Design - Phantom SDK integration module (PhantomApp class) One-import binding for any Bun app: phantom.status(), sign/verify Reference binding in Nexus-Graphic with 2 tests + Phantom assertions - Ecosystem visualizer rebuilt: 91 systems, 19 categories, 132KB Added Packages & SDKs category (Phantom SDK, Nexus Discovery, Ghost) Fixed Nexus-Hosting status (PLANNED \u2192 BUILT) - 11 scaffold apps deepened (Account, Agenda, Broadcast, Browsing, Converter, Dashboard, Data, AI-Hub, Analytics, Agents, Code) - 6 modules reclassified under parent apps (commit, cache, command, chronicle, certificate, backup \u2192 Code, Edge, IDE, Monitor, Cloud, Vault) - Phantom submodule updated: networking crate, node daemon, RLN nullifiers, cover traffic"
+      }
+    ]
+  },
+  {
+    "slug": "nexus-discovery-service-mesh-via-cloud-topology",
+    "title": "Nexus Discovery \u2014 service mesh via Cloud topology",
+    "date": "2026-06-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- packages/nexus-discovery/: shared discovery client for all apps NexusDiscovery class: resolve(serviceId), list(), call(serviceId, path) Cache with configurable TTL (default 30s) Graceful degradation: uses cached data w",
+    "sha": "f6ae214",
+    "content": [
+      {
+        "type": "p",
+        "text": "- packages/nexus-discovery/: shared discovery client for all apps NexusDiscovery class: resolve(serviceId), list(), call(serviceId, path) Cache with configurable TTL (default 30s) Graceful degradation: uses cached data when Cloud unreachable Falls back to /api/v1/tools if /api/v1/topology returns empty 6 tests passing (resolve, list, cache, unknown, sort, offline) - Photos validate endpoint: hardcoded localhost:3082 \u2192 discovery.resolve('nexus-gpu-test') - Design expose endpoint: hardcoded cloudUrl \u2192 discovery.resolve('nexus-cloud') - Cross-app flow is now: App \u2192 Cloud (discover) \u2192 target URL \u2192 App-to-App call"
+      },
+      {
+        "type": "p",
+        "text": "No more hardcoded URLs in cross-app communication."
+      }
+    ]
+  },
+  {
+    "slug": "phantom-sdk-integration-module-nexus-graphic-reference-bindi",
+    "title": "Phantom SDK integration module + Nexus-Graphic reference binding",
+    "date": "2026-06-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- packages/phantom-sdk/src/integration.ts: PhantomApp class One-import binding: new PhantomApp('app-name'), then phantom.start() Generates DID, adds phantom.status() block to health/status responses Identity persistence ",
+    "sha": "023652c",
+    "content": [
+      {
+        "type": "p",
+        "text": "- packages/phantom-sdk/src/integration.ts: PhantomApp class One-import binding: new PhantomApp('app-name'), then phantom.start() Generates DID, adds phantom.status() block to health/status responses Identity persistence to disk (data/phantom-*.json) Sign/verify helpers for data provenance - Nexus-Graphic: reference integration async createServer() with PhantomApp phantom block in /health and /api/v1/status (bound, did, protocol, algorithms) graceful shutdown: phantom.stop() on close 2 tests passing with Phantom assertions"
+      },
+      {
+        "type": "p",
+        "text": "Integration pattern for any Bun app: import { PhantomApp } from '@nexus/phantom-sdk/integration' const phantom = new PhantomApp('nexus-myapp') await phantom.start() // then add phantom: phantom.status() to every response"
+      }
+    ]
+  },
+  {
+    "slug": "phantom-sdk-post-quantum-identity-layer-for-all-nexus-apps",
+    "title": "Phantom SDK \u2014 post-quantum identity layer for all Nexus apps",
+    "date": "2026-06-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- packages/phantom-sdk/wasm/ \u2014 Rust crate with pure-Rust core + WASM bindings IdentityStore with Kyber-1024 KEM + Dilithium-5 signatures + Blake3 Opaque handles: secret keys never leave WASM memory 3 native tests passing",
+    "sha": "b349b48",
+    "content": [
+      {
+        "type": "p",
+        "text": "- packages/phantom-sdk/wasm/ \u2014 Rust crate with pure-Rust core + WASM bindings IdentityStore with Kyber-1024 KEM + Dilithium-5 signatures + Blake3 Opaque handles: secret keys never leave WASM memory 3 native tests passing (keygen, sign/verify, KEM cycle) - packages/phantom-sdk/src/ \u2014 TypeScript SDK with PhantomSDK interface WASM loader (production) + mock implementation (testing/CI) 7 integration tests passing (identity, sign/verify, KEM, hash) - Integration pattern: import { createPhantomSDK } from '@nexus/phantom-sdk'"
+      }
+    ]
+  },
+  {
+    "slug": "ghost-framework-shell-apps-federation-cleanup",
+    "title": "Ghost framework, shell apps, federation, cleanup",
+    "date": "2026-06-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- Ghost Framework: CLI code generator for scaffolding new Nexus apps Usage: bun run ghost/src/index.ts scaffold <Name> --port XXXX - Deepened 11 shell apps with engines, routes, contracts, tests (AI-Hub, Account, Agenda,",
+    "sha": "19b4840",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Ghost Framework: CLI code generator for scaffolding new Nexus apps Usage: bun run ghost/src/index.ts scaffold <Name> --port XXXX - Deepened 11 shell apps with engines, routes, contracts, tests (AI-Hub, Account, Agenda, Agents, Analytics, Broadcast, Browsing, Code, Converter, Dashboard, Data) - Reclassified 9 utility modules under proper parent apps: - commit \u2192 Nexus-Code/modules/ - backup \u2192 Nexus-Vault/modules/ - cache \u2192 Nexus-Edge/modules/ - certificate \u2192 Nexus-Cloud/modules/ - chronicle \u2192 Nexus-Monitor/modules/ - command \u2192 Nexus-IDE/modules/ - clipboard/context/cron \u2192 packages/ - Federation: dual-cloud compose, gossip bootstrap, test script - Cross-app demo flow: Photos\u2192GPU-Test\u2192Cloud topology - Updated .gitignore for ghost/, packages/, demo-flow.sh"
+      }
+    ]
+  },
+  {
+    "slug": "ecosystem-integration-cloud-registration-cross-app-comms-ci",
+    "title": "Ecosystem integration \u2014 cloud registration, cross-app comms, CI, deployment, docs",
+    "date": "2026-06-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- Fixed Nexus-Cloud registration flow (API key auth, e2e test) - Retrofitted 4 graphics apps (Design, Draw, Photos, Video) with Rust WASM engine, Python FastAPI backend, and React+Tailwind+WebGL2 frontend - Built Nexus-G",
+    "sha": "e4f3e44",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Fixed Nexus-Cloud registration flow (API key auth, e2e test) - Retrofitted 4 graphics apps (Design, Draw, Photos, Video) with Rust WASM engine, Python FastAPI backend, and React+Tailwind+WebGL2 frontend - Built Nexus-GPU-Test: federated graphics validation with FLIP perceptual diff, Vulkan headless renderer, worker pool, and React dashboard - Added cross-app communication (Photos\u2192GPU-Test validation, Design\u2192Cloud public URL) - Unified data layer: all SQLite/state files consolidated to root data/, per-app data/ replaced with symlinks - CI/CD: GitHub Actions matrix pipeline for Bun apps, Rust engines, React frontends - Deployment: systemd units, full docker-compose, run-all.sh ecosystem launcher - Docs: ARCHITECTURE.md, VERSION_MATRIX.md, submodule audit - All tests passing: 18/18 Bun, 30/30 Rust, 6/6 React builds"
+      }
+    ]
+  },
+  {
+    "slug": "multi-set-pipeline-layouts-deferred-composite-is-hardware-co",
+    "title": "Multi-set pipeline layouts; deferred composite is hardware-complete",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "vulkan"
+    ],
+    "category": "Commit",
+    "excerpt": "Add multiple descriptor set layouts per pipeline so the deferred composite (set 0 core + set 1 shadow) can be created hardware-valid.",
+    "sha": "a28c891",
+    "content": [
+      {
+        "type": "p",
+        "text": "Add multiple descriptor set layouts per pipeline so the deferred composite (set 0 core + set 1 shadow) can be created hardware-valid."
+      },
+      {
+        "type": "p",
+        "text": "- DescriptorSetLayoutDesc + `descriptorSetLayouts` (index = set number) on all four pipeline descs, alongside the single-set `descriptorBindings` convenience (descriptorSetLayouts takes precedence). Both empty \u2192 push-constant-only layout. - Shared buildPipelineSetLayouts() builds the per-set VkDescriptorSetLayouts (empty set bindings yield a valid empty layout); pipelines own a vector of set layouts (PipelineEntry.ownedSetLayouts) and free them all on destroy. - All four creators (graphics/compute/mesh/RT) route through it."
+      },
+      {
+        "type": "p",
+        "text": "Test: VulkanPipeline.CompositeTwoSetLayoutCreatesValidPipeline builds a pipeline whose layout carries both Renderer::compositeCoreSetLayout() (set 0) and compositeShadowSetLayout() (set 1), and allocates a layout-compatible descriptor set for each \u2014 verified on a real Vulkan device (passes on the local software rasterizer)."
+      },
+      {
+        "type": "p",
+        "text": "This closes the deferred descriptor path: the composite pipeline layout and the renderer's runtime bindings both derive from the published contract and a real two-set composite layout is now provably valid. Full suite: 937 passing, 0 failing."
+      }
+    ]
+  },
+  {
+    "slug": "publish-composite-descriptor-set-layout-contract-bind-from-i",
+    "title": "Publish composite descriptor-set-layout contract; bind from it",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "render"
+    ],
+    "category": "Commit",
+    "excerpt": "Renderer adoption of the descriptor-set-layout capability. The renderer doesn't create its own pipelines (they are injected), so it now publishes the descriptor layout the lighting/composite pass requires as the single s",
+    "sha": "4e5ac65",
+    "content": [
+      {
+        "type": "p",
+        "text": "Renderer adoption of the descriptor-set-layout capability. The renderer doesn't create its own pipelines (they are injected), so it now publishes the descriptor layout the lighting/composite pass requires as the single source of truth:"
+      },
+      {
+        "type": "p",
+        "text": "- Renderer::compositeCoreSetLayout() (set 0: GBuffer textures + samplers + material table) and compositeShadowSetLayout() (set 1: shadow depth + sampler + lighting buffer). Pipeline creators build the composite pipeline's set layouts from these so descriptor binding is valid on hardware. - render() now sources its runtime descriptor bindings (binding indices + types) from these same tables instead of hardcoding them inline, so the pipeline layout and the bound descriptor sets cannot drift."
+      },
+      {
+        "type": "p",
+        "text": "Tests: - RendererBehavior.CompositeDescriptorSetLayoutContractIsStable guards the contract (counts, contiguous bindings, types) on the Null backend. - VulkanPipeline.CompositeCoreSetLayoutCreatesValidPipeline builds a graphics pipeline from the published core layout and allocates a layout-compatible descriptor set on a real Vulkan device (passes on the local software rasterizer)."
+      },
+      {
+        "type": "p",
+        "text": "Full suite: 936 passing, 0 failing. The two-set composite pipeline (set 0 + set 1 together) additionally needs multi-set pipeline-layout support \u2014 the remaining step."
+      }
+    ]
+  },
+  {
+    "slug": "descriptor-set-layouts-for-graphics-compute-mesh-pipelines",
+    "title": "Descriptor set layouts for graphics/compute/mesh pipelines",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "vulkan"
+    ],
+    "category": "Commit",
+    "excerpt": "Close the raster half of the descriptor-layout gap. Previously every pipeline type created a push-constant-only layout (setLayoutCount = 0), so binding a descriptor set was invalid on real Vulkan (the existing descriptor",
+    "sha": "21be204",
+    "content": [
+      {
+        "type": "p",
+        "text": "Close the raster half of the descriptor-layout gap. Previously every pipeline type created a push-constant-only layout (setLayoutCount = 0), so binding a descriptor set was invalid on real Vulkan (the existing descriptor tests run on the Null backend, so it was never exercised on hardware)."
+      },
+      {
+        "type": "p",
+        "text": "- Add `descriptorBindings` (set-0 layout) to GraphicsPipelineDesc, ComputePipelineDesc, and MeshShaderPipelineDesc, mirroring RayTracingPipelineDesc. - Shared `buildOwnedSetLayout()` helper builds the set-0 VkDescriptorSetLayout (descriptorCount 1, stage ALL) to match allocateDescriptorSet, so a descriptor set with the same bindings is layout-compatible. The RT path now uses it too. - All four creators thread the layout into the pipeline layout and store it in the pipeline entry; vkDestroyPipeline frees it. Empty bindings preserve the prior push-constant-only behavior (no regression). - Reordered the DescriptorType/DescriptorBindingDesc definitions above the pipeline descs so they can reference them."
+      },
+      {
+        "type": "p",
+        "text": "Test (VulkanPipeline.GraphicsPipelineWithDescriptorSetLayout): a graphics pipeline created with descriptorBindings is valid and a descriptor set from the same bindings allocates \u2014 runs and passes on the local software rasterizer (unlike the RT path, this needs no special hardware). Full suite: 934 passing, 0 failing."
+      }
+    ]
+  },
+  {
+    "slug": "rt-descriptor-binding-buffer-readback-full-dispatch-test",
+    "title": "RT descriptor binding + buffer readback; full dispatch test",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "vulkan"
+    ],
+    "category": "Commit",
+    "excerpt": "Complete the ray-tracing dispatch path so a TLAS and output can be bound and results read back, and add the full hardware-gated bring-up test.",
+    "sha": "4990b53",
+    "content": [
+      {
+        "type": "p",
+        "text": "Complete the ray-tracing dispatch path so a TLAS and output can be bound and results read back, and add the full hardware-gated bring-up test."
+      },
+      {
+        "type": "p",
+        "text": "Public API: - DescriptorType::AccelerationStructure + DescriptorBindingDesc::accelStruct; Vulkan updateDescriptorSet writes VkWriteDescriptorSetAccelerationStructureKHR. - RayTracingPipelineDesc::descriptorBindings: RT pipeline creation now builds a set-0 VkDescriptorSetLayout from these (previously every pipeline layout was push-constant-only with setLayoutCount=0, so nothing could be bound). Built to match allocateDescriptorSet so a descriptor set with the same bindings is layout-compatible; freed in vkDestroyPipeline. - IDevice::readbackBuffer: maps a host-visible (GpuToCpu) buffer and copies to host (Vulkan invalidates first); default no-op for backends without it."
+      },
+      {
+        "type": "p",
+        "text": "Test (VulkanRayTracingDispatch.DispatchAndReadbackOnHardware): triangle BLAS/TLAS -> RT pipeline + SBT -> traceRays into an SSBO -> readback -> asserts a mix of hit (barycentric) and miss (background) pixels. Gated on tier-2 RT hardware; skips on software/non-RT devices."
+      },
+      {
+        "type": "p",
+        "text": "Verification: compiles clean (-Werror); full suite 933 passing, 0 failing, ApiFreezeAudit green. The dispatch test runs only on tier-2 RT hardware (skips here on the software rasterizer); shader-compile test passes locally."
+      }
+    ]
+  },
+  {
+    "slug": "rt-bring-up-shaders-hardware-gated-dispatch-test",
+    "title": "RT bring-up shaders + hardware-gated dispatch test",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "vulkan"
+    ],
+    "category": "Commit",
+    "excerpt": "Prep for ray-tracing hardware bring-up.",
+    "sha": "81d87fe",
+    "content": [
+      {
+        "type": "p",
+        "text": "Prep for ray-tracing hardware bring-up."
+      },
+      {
+        "type": "p",
+        "text": "- shaders/rt/raytrace.{rgen,rmiss,rchit}: minimal raygen (one primary ray/pixel into the output image), miss (background), and closest-hit (barycentric debug color) shaders \u2014 the canonical RT bring-up assets. - tests/kernel/test_VulkanRayTracingDispatch.cpp: - ShadersCompileToModules verifies the RT shaders compile to SPIR-V modules (runs on any Vulkan device; no GPU RT needed) \u2014 passes here. - RayTracingPipelineBuildsOnHardware creates the RT pipeline (exercising the SBT build) and is gated on caps().rayTracingTier >= 2; skips otherwise."
+      },
+      {
+        "type": "p",
+        "text": "Software-rasterizer gate: lavapipe/llvmpipe advertise VK_KHR_ray_tracing_pipeline but crash in their own RT pipeline compiler (SIGSEGV in lvp_CreateRayTracingPipelinesKHR). queryCapabilities now detects VK_PHYSICAL_DEVICE_TYPE_CPU (DeviceCapabilities::softwareDevice) and refuses to report RT capability on such devices (rayTracingPipeline/rayQuery forced false, tier 0), keeping both the renderer and the test off the broken path \u2014 the gated test skips cleanly instead of core-dumping."
+      },
+      {
+        "type": "p",
+        "text": "Full suite: green, 0 failing (shader-compile test passes; hardware test skips on this software device)."
+      }
+    ]
+  },
+  {
+    "slug": "build-and-bind-ray-tracing-shader-binding-table-for-traceray",
+    "title": "Build and bind ray-tracing shader binding table for traceRays",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "vulkan"
+    ],
+    "category": "Commit",
+    "excerpt": "Roadmap #1: complete the CPU-side plumbing for real vkCmdTraceRaysKHR dispatch. The RT pipeline was already created, but traceRays ran with empty SBT regions, so no shaders could be reached. This builds the SBT and binds",
+    "sha": "7c63c7e",
+    "content": [
+      {
+        "type": "p",
+        "text": "Roadmap #1: complete the CPU-side plumbing for real vkCmdTraceRaysKHR dispatch. The RT pipeline was already created, but traceRays ran with empty SBT regions, so no shaders could be reached. This builds the SBT and binds it automatically."
+      },
+      {
+        "type": "p",
+        "text": "- VulkanShaderBindingTable.h: pure, GPU-free SBT layout math (computeShaderBindingTableLayout) implementing the Vulkan alignment rules (per-record stride = align(handleSize, handleAlignment); each region base-aligned; raygen size == stride). Unit-tested in test_VulkanShaderBindingTable.cpp. - VulkanDevice: query VkPhysicalDeviceRayTracingPipelinePropertiesKHR (chained into the existing properties2 query), exposed via rtPipelineProps(); add a vma() accessor. - VulkanRayTracing: buildShaderBindingTable() fetches group handles (vkGetRayTracingShaderGroupHandlesKHR), allocates a host-visible device-address SBT buffer, copies handles into raygen/miss/hit slots, and returns strided regions. - vkCreateRayTracingPipeline builds + stores the SBT; bindPipeline activates its regions when an RT pipeline is bound; vkDestroyPipeline frees the buffer."
+      },
+      {
+        "type": "p",
+        "text": "Verification: SBT alignment math unit-tested; all wiring compiles clean (-Werror) and the full suite stays green (932 passing, 0 failing). The actual ray dispatch needs a GPU exposing VK_KHR_ray_tracing_pipeline (tier 2) and is not yet runtime-verified; non-RT paths are unaffected (props zero -> SBT invalid; traceRays is null-guarded). See docs/feature/vulkan-rt-dispatch.md."
+      }
+    ]
+  },
+  {
+    "slug": "anisotropic-inertia-tensor-via-angular-momentum-integration",
+    "title": "Anisotropic inertia tensor via angular-momentum integration",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "sim"
+    ],
+    "category": "Commit",
+    "excerpt": "Roadmap #5 (inertia-tensor half): replace the scalar moment of inertia with a diagonal body-space tensor and integrate rotation stably.",
+    "sha": "e790952",
+    "content": [
+      {
+        "type": "p",
+        "text": "Roadmap #5 (inertia-tensor half): replace the scalar moment of inertia with a diagonal body-space tensor and integrate rotation stably."
+      },
+      {
+        "type": "p",
+        "text": "- SimBodyDesc::inertia and Body::inertia: float -> SimVec3 (principal moments in body space, default {1,1,1}). Each component validated finite and > 0 at addBody and per step. - Rotation now integrates via the angular-momentum formulation: derive world momentum L = I_world*w from the current state, advance the orientation, then recover w from the conserved L through the rotated inertia tensor. The orientation change between derive and recover is what produces precession/ tumbling for anisotropic bodies -- without the stiff explicit gyroscopic term that makes naive Euler integration diverge. |L| is conserved across steps by construction (only torque changes it). - Reduces exactly to the prior scalar model when the principal moments are equal. Angular state stays w, so the v2 snapshot format is unchanged and inertia (a body property) is not serialized. - New file-local helpers: cross, compMul/compDiv, rotateByQuat/invRotateByQuat, angularMomentum, angularVelocityFromMomentum. Finiteness via IEEE-754 bit tests (no std::isfinite under -ffast-math)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: isotropic-equals-scalar bridge, principal-axis spin stability, anisotropic precession, bounded |w| over 2000 steps (no blow-up), and |L| conservation under zero torque. Existing scalar-inertia tests migrated to the SimVec3 form. Full suite: 928 passing, 0 failing."
+      }
+    ]
+  },
+  {
+    "slug": "design-for-stabilized-inertia-tensor-rigid-body-solver",
+    "title": "Design for stabilized inertia-tensor rigid-body solver",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Architect design for roadmap #5 (remaining half): replace the scalar moment of inertia with a diagonal body-space inertia tensor and integrate rotation via the angular-momentum formulation (L += \u03c4\u00b7dt; \u03c9 recovered from th",
+    "sha": "23d3613",
+    "content": [
+      {
+        "type": "p",
+        "text": "Architect design for roadmap #5 (remaining half): replace the scalar moment of inertia with a diagonal body-space inertia tensor and integrate rotation via the angular-momentum formulation (L += \u03c4\u00b7dt; \u03c9 recovered from the rotating world tensor each step). This is stable/momentum-conserving \u2014 it avoids the stiff explicit gyroscopic term that makes naive Euler integration blow up \u2014 and reduces exactly to the current scalar model when principal moments are equal, so the snapshot format (v2) and angular state (\u03c9) are unchanged."
+      },
+      {
+        "type": "p",
+        "text": "No code changes yet; documents the algorithm, math primitives, backward compatibility, determinism/-ffast-math constraints, test plan, and migration."
+      }
+    ]
+  },
+  {
+    "slug": "add-rt-merge-design-notes-and-vs-code-copilot-setup",
+    "title": "Add RT-merge design notes and VS Code/Copilot setup",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- docs/feature/rt-merge-storage-fallback.md, scheduler_rt_merge_design.md: document the landed scheduler-driven RayTracingMerge compute pass and the Vulkan swapchain storage-usage fallback (intermediate storage texture +",
+    "sha": "23a6d3d",
+    "content": [
+      {
+        "type": "p",
+        "text": "- docs/feature/rt-merge-storage-fallback.md, scheduler_rt_merge_design.md: document the landed scheduler-driven RayTracingMerge compute pass and the Vulkan swapchain storage-usage fallback (intermediate storage texture + copy at present when VK_IMAGE_USAGE_STORAGE_BIT is unsupported). - docs/vscode-agent-setup.md + .vscode/{extensions.json,settings.json}: VS Code / Copilot equivalent of the .claude agent setup for non-Claude editors."
+      },
+      {
+        "type": "p",
+        "text": ".claude/settings.local.json is intentionally not committed (per-machine permissions)."
+      }
+    ]
+  },
+  {
+    "slug": "linear-and-angular-velocity-damping-for-rigid-bodies",
+    "title": "Linear and angular velocity damping for rigid bodies",
+    "date": "2026-05-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "sim"
+    ],
+    "category": "Commit",
+    "excerpt": "Roadmap #5 (damping half): add per-body velocity decay to the rigid-body solver.",
+    "sha": "372c1fb",
+    "content": [
+      {
+        "type": "p",
+        "text": "Roadmap #5 (damping half): add per-body velocity decay to the rigid-body solver."
+      },
+      {
+        "type": "p",
+        "text": "- SimBodyDesc::linearDamping / angularDamping (default 0 = no damping, preserving existing trajectories). Stored on the body; rejected at addBody if negative or non-finite. - Applied each step and each stepFixed substep as factor = clamp(1 - damping*dt, 0, 1) on linear and angular velocity, so a large damping*dt kills velocity rather than reversing it. Static bodies are unaffected (not integrated). - Damping is a body property (like mass/inertia), so it is not part of the snapshot and survives restoreState unchanged."
+      },
+      {
+        "type": "p",
+        "text": "Tests: linear/angular decay, zero-damping no-op, high-damping clamp-to-zero, per-substep compounding in stepFixed, negative/non-finite rejection, and damped- trajectory determinism. Full suite: 923 passing, 0 failing."
+      },
+      {
+        "type": "p",
+        "text": "Full inertia tensor (gyroscopic term) remains; it is stiff under the explicit- Euler integrator and should land with a stabilized step, designed separately."
+      }
+    ]
+  },
+  {
+    "slug": "merge-ray-traced-output-into-the-composite-color",
+    "title": "Merge ray-traced output into the composite color",
+    "date": "2026-05-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "render"
+    ],
+    "category": "Commit",
+    "excerpt": "Close the loop on the RT stub (month-13 next-step #4): RT output is now merged into the lit composite color before present, instead of being dispatched and discarded.",
+    "sha": "7816671",
+    "content": [
+      {
+        "type": "p",
+        "text": "Close the loop on the RT stub (month-13 next-step #4): RT output is now merged into the lit composite color before present, instead of being dispatched and discarded."
+      },
+      {
+        "type": "p",
+        "text": "- Renderer: setRayTracingMergePipeline() + FrameStats::rayMergeDispatches. When the RT pass runs and a merge pipeline is bound, after traceRays the color target is transitioned ColorAttachment->General, a compute merge is dispatched over the image in 8x8 tiles, then transitioned ->Present. Recorded in the render graph and frame capture; the final present barrier now sources from the tracked layout (General after a merge, ColorAttachment otherwise). - RenderGraphValidator: new RenderPassType::RayTracingMerge (permissive case)."
+      },
+      {
+        "type": "p",
+        "text": "A compute dispatch is used rather than a second render pass because re-opening a render pass on the color target would clear the composite (backend load-op is clear); a compute post-pass blends into the color storage image without a render pass, which is also the standard shape for RT reflection/denoise compositing."
+      },
+      {
+        "type": "p",
+        "text": "Tests: RayTracingMergeRunsComputePassAfterTraceRays (dispatch fires after traceRays, 160x90 tile counts for 1280x720, rayMergeDispatches==1); the RT stub test now also asserts no merge without a merge pipeline. Full suite: 910 passing, 0 failing."
+      }
+    ]
+  },
+  {
+    "slug": "add-claude-md-for-nexus-modeling-kernel",
+    "title": "Add CLAUDE.md for Nexus-Modeling kernel",
+    "date": "2026-05-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Operational guidance for Claude Code scoped to apps/Nexus-Modeling: build/test commands (incl. single-test gtest filters), the non-obvious gotchas (-ffast-math invalidating std::isfinite, -Werror, the ApiFreezeAudit head",
+    "sha": "4cfbcbb",
+    "content": [
+      {
+        "type": "p",
+        "text": "Operational guidance for Claude Code scoped to apps/Nexus-Modeling: build/test commands (incl. single-test gtest filters), the non-obvious gotchas (-ffast-math invalidating std::isfinite, -Werror, the ApiFreezeAudit header manifest, public/internal header split, versioned serialization, reversed-Z), an add-code wiring checklist, and the big-picture kernel architecture. Complements AGENTS.md rather than duplicating it."
+      }
+    ]
+  },
+  {
+    "slug": "fixed-timestep-simulation-driver-with-render-interpolation",
+    "title": "Fixed-timestep simulation driver with render interpolation",
+    "date": "2026-05-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "sim"
+    ],
+    "category": "Commit",
+    "excerpt": "Couple the deterministic solver to a variable-rate render loop the way a DCC runtime requires: a fixed-timestep accumulator with state interpolation (cf. 'Fix Your Timestep'), not a naive per-frame step->apply (month-13 ",
+    "sha": "3bf48e0",
+    "content": [
+      {
+        "type": "p",
+        "text": "Couple the deterministic solver to a variable-rate render loop the way a DCC runtime requires: a fixed-timestep accumulator with state interpolation (cf. 'Fix Your Timestep'), not a naive per-frame step->apply (month-13 Track C next-step #1, 'solver output streaming')."
+      },
+      {
+        "type": "p",
+        "text": "SimulationDriver: - advance(solver, frameDt) accumulates real frame time and steps the solver at a fixed dt, so trajectories are reproducible regardless of frame pacing. - alpha() + interpolatedState() blend previous/current snapshots (lerp position/ velocity, nlerp orientation shortest-path) into a jitter-free transform the SimulationSceneCoupling applies. - Configurable substep cap guards against the spiral of death; backlog beyond the cap is discarded so alpha stays in [0,1]. - interpolateSimState(from, to, alpha) exposed as a standalone utility (bodies matched by id, ordered output)."
+      },
+      {
+        "type": "p",
+        "text": "The kernel builds with -ffast-math, so finiteness is checked via IEEE-754 bit inspection (not std::isfinite) and quaternion interpolation short-circuits exact endpoints to avoid approximate-rsqrt drift, matching the SimulationCore convention."
+      },
+      {
+        "type": "p",
+        "text": "Tests (9): fixed-step accounting + alpha, framerate independence (one big frame == many small frames, bit-identical solver state), interpolation blending, nlerp unit quaternion + exact endpoints, spiral-of-death cap, non-finite frameDt rejection, reset seeding, and end-to-end driver -> coupling -> scene node. Full kernel suite: 909 passing, 0 failing."
+      }
+    ]
+  },
+  {
+    "slug": "rigid-body-angular-dynamics-and-rotation-coupling",
+    "title": "Rigid-body angular dynamics and rotation coupling",
+    "date": "2026-05-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "sim"
+    ],
+    "category": "Commit",
+    "excerpt": "Extend the rigid-body solver from a point-mass model to one that tracks orientation, unblocking the rotation half of full transform coupling (month-13 Track C next-step #3).",
+    "sha": "51bb58d",
+    "content": [
+      {
+        "type": "p",
+        "text": "Extend the rigid-body solver from a point-mass model to one that tracks orientation, unblocking the rotation half of full transform coupling (month-13 Track C next-step #3)."
+      },
+      {
+        "type": "p",
+        "text": "Solver (RigidBodySolver): - Add SimQuat orientation, angularVelocity, and scalar inertia to SimBodyDesc, SimBodySnapshot, and the internal body record. - applyTorque(): torque accumulation mirroring force; angular acceleration = torque / inertia, integrated then cleared once per step (and once per stepFixed call across substeps). - Integrate orientation via first-order quaternion integration with renormalization; static bodies (mass 0) are not integrated. - getBodyAngularState() accessor; reject non-positive/non-finite inertia and non-finite angular state at addBody and per-step."
+      },
+      {
+        "type": "p",
+        "text": "Snapshot format v2: - serializeSimState emits orientation + angular velocity per body. deserializeSimState reads both v2 and legacy v1 blobs (v1 -> identity orientation, zero angular velocity). Replay/rollback determinism preserved."
+      },
+      {
+        "type": "p",
+        "text": "Coupling: - SimulationSceneCoupling::applyState now drives node rotation as well as translation. Scale left untouched (not modeled by the solver)."
+      },
+      {
+        "type": "p",
+        "text": "Tests: angular spin determinism, torque acceleration + clearing, static-body invariance, capture/restore of angular state, v2 round-trip, legacy v1 decode, non-finite rejection, node-rotation coupling. Full kernel suite: 900 passing, 0 failing."
+      }
+    ]
+  },
+  {
+    "slug": "month-13-rt-stub-pass-and-simulation-scenegraph-coupling",
+    "title": "Month-13 RT stub pass and simulation/scenegraph coupling",
+    "date": "2026-05-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Land the month-13 render-and-simulation coupling slice:",
+    "sha": "87c7957",
+    "content": [
+      {
+        "type": "p",
+        "text": "Land the month-13 render-and-simulation coupling slice:"
+      },
+      {
+        "type": "p",
+        "text": "- Renderer: optional deterministic ray-tracing stub pass (enableRayTracingStub), gated on PathTrace/HybridRT mode + valid RT pipeline; records RayTracing pass to the render graph and frame capture, and reports rayTracing draw/payload/hit stats. selectRenderPath no longer downgrades RT modes when the stub is enabled. - RenderGraphValidator: add permissive RayTracing pass type. - sim: add SimulationSceneCoupling bridge applying solver body positions to bound scene-graph nodes; wire FluidSolver/ClothSolver/SimulationCoupling into the lib. - geometry: expose makeSphere/makeCylinder/makeCone/makeCapsule primitive declarations (implementations already present and used by Automation/Shell)."
+      },
+      {
+        "type": "p",
+        "text": "Trim out-of-scope dead code to match the frozen public surface: - MeshIO: remove unused OBJ import path; header is export-only by contract. - SceneAsset/SceneAssetImporter: drop dead code and matching tests."
+      },
+      {
+        "type": "p",
+        "text": "Tests: register test_SimulationCoupling; add RT stub behavior test; update the API freeze manifest for ClothSolver.h/FluidSolver.h/SimulationCoupling.h. Full kernel suite: 888 passing, 0 failing."
+      }
+    ]
+  },
+  {
+    "slug": "api-contract-summary-release-gate-and-tag-ready-notes",
+    "title": "API contract summary, release gate, and tag-ready notes",
+    "date": "2026-05-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "alpha"
+    ],
+    "category": "Commit",
+    "excerpt": "Validated: - ./tools/release_gate_alpha.sh build/release_signoff_1.0-alpha.txt - Signoff report emitted with PASS status",
+    "sha": "c5c7d04",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Add alpha API contract summary page sourced from manifest and ownership map",
+          "Add reproducible release gate script (build, API audit, full tests, perf determinism)",
+          "Add tag-ready 1.0-alpha release notes draft",
+          "Update docs index and README release-gate command path"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Validated: - ./tools/release_gate_alpha.sh build/release_signoff_1.0-alpha.txt - Signoff report emitted with PASS status"
+      }
+    ]
+  },
+  {
+    "slug": "scripting-and-automation-layer-v0",
+    "title": "Scripting and automation layer v0",
+    "date": "2026-05-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "month11"
+    ],
+    "category": "Commit",
+    "excerpt": "Tests: - AutomationScript.* = 4/4 pass - Full suite = 528 pass / 5 skip / 0 fail",
+    "sha": "a8baaa8",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Add deterministic command registry and batch harness (ScriptRegistry, ScriptBatchHarness)",
+          "Expose stable command surface across geometry, asset, render, and animation domains",
+          "Add script-file execution and line-oriented parser with strict argument handling",
+          "Add batch pipeline commands for mesh ops, scene load/save/export, null render context, and bind-pose sampling",
+          "Add regression tests for command discovery, unknown command diagnostics, scripted end-to-end pipeline, and transform determinism"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tests: - AutomationScript.* = 4/4 pass - Full suite = 528 pass / 5 skip / 0 fail"
+      },
+      {
+        "type": "p",
+        "text": "Closes Month 11 exit criterion: full sample pipeline runs via script-only harness."
+      }
+    ]
+  },
+  {
+    "slug": "advanced-rendering-track-gaussian-splatting-temporal-accumul",
+    "title": "Advanced rendering track \u2014 Gaussian Splatting + temporal accumulation",
+    "date": "2026-05-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "month10"
+    ],
+    "category": "Commit",
+    "excerpt": "GaussianSplatting: - GaussianSplat primitive: position, log-scale, quaternion, logit-opacity, SH (degree 0-3) - GaussianSplatCloud: binary PLY load/save (binary_little_endian), in-memory byte-stream API - GaussianSplatSc",
+    "sha": "c8ca9fa",
+    "content": [
+      {
+        "type": "p",
+        "text": "GaussianSplatting: - GaussianSplat primitive: position, log-scale, quaternion, logit-opacity, SH (degree 0-3) - GaussianSplatCloud: binary PLY load/save (binary_little_endian), in-memory byte-stream API - GaussianSplatSceneNode: scene-level wrapper with transform + render state - RepresentationType enum: Mesh | GaussianSplat | PointCloud | Volume - Coexists with SceneGraph::Node without any IDevice/ICommandBuffer modifications"
+      },
+      {
+        "type": "p",
+        "text": "TemporalAccumulator: - Halton(2,3) and uniform jitter patterns with configurable sample count - Per-frame blend alpha with velocity-based motion rejection fallback - Headless-safe stateful accumulator (history buffer owned by caller)"
+      },
+      {
+        "type": "p",
+        "text": "Tests: 14 (GaussianSplatting) + 9 (TemporalAccumulation) = 23 pass. Full suite: 524 pass / 5 skip / 0 fail."
+      },
+      {
+        "type": "p",
+        "text": "Closes Month 10 exit criterion: Gaussian module loads, renders, and coexists with mesh pipeline without core rewrites."
+      }
+    ]
+  },
+  {
+    "slug": "simulation-interfaces-v0",
+    "title": "Simulation interfaces v0",
+    "date": "2026-05-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "month9"
+    ],
+    "category": "Commit",
+    "excerpt": "Tests: 32 (SimulationCore) pass with reproducible deterministic results. Closes Month 9 exit criterion: one simulation domain usable end-to-end.",
+    "sha": "c69c67a",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "SimulationCore: solver API contracts for rigid, cloth, and fluid integration",
+          "Rigid-body solver baseline with cacheable sim state format",
+          "Deterministic step/replay with rollback support"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tests: 32 (SimulationCore) pass with reproducible deterministic results. Closes Month 9 exit criterion: one simulation domain usable end-to-end."
+      }
+    ]
+  },
+  {
+    "slug": "procedural-and-evaluation-graph",
+    "title": "Procedural and evaluation graph",
+    "date": "2026-05-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "month8"
+    ],
+    "category": "Commit",
+    "excerpt": "Tests: 37 (EvalGraph) pass with deterministic cache correctness. Closes Month 8 exit criterion: procedural graph executes deterministically.",
+    "sha": "c46141c",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "EvalGraph: node-based typed evaluation runtime with compute nodes",
+          "Geometry and animation node types for procedural workflows",
+          "Cache invalidation and dependency-cycle detection"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tests: 37 (EvalGraph) pass with deterministic cache correctness. Closes Month 8 exit criterion: procedural graph executes deterministically."
+      }
+    ]
+  },
+  {
+    "slug": "animation-and-rigging-core-v0",
+    "title": "Animation and rigging core v0",
+    "date": "2026-05-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "month7"
+    ],
+    "category": "Commit",
+    "excerpt": "Tests: 24 (AnimationCore) + 12+8 (AnimationSerialization incl. SkeletonRetargeter) = 44 pass. Closes Month 7 exit criterion: rigged mesh playback stable in headless runs.",
+    "sha": "3c80d9e",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "AnimationCore: skeleton, skinning, pose evaluation extended contracts",
+          "AnimationSerialization: clip sampling and serialization round-trip",
+          "SkeletonRetargeter: bone-mapping retargeting with manual map override"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tests: 24 (AnimationCore) + 12+8 (AnimationSerialization incl. SkeletonRetargeter) = 44 pass. Closes Month 7 exit criterion: rigged mesh playback stable in headless runs."
+      }
+    ]
+  },
+  {
+    "slug": "asset-and-pipeline-core",
+    "title": "Asset and pipeline core",
+    "date": "2026-05-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "month6"
+    ],
+    "category": "Commit",
+    "excerpt": "Tests: 23 (SceneAsset) + 5 (SceneAssetImporter) + 24 (AssetDependencyGraph) = 52 pass. Closes Month 6 exit criterion: round-trip scene fidelity for baseline formats.",
+    "sha": "3e27ffd",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "SceneAsset: versioned scene package format v0 with migration hooks",
+          "SceneAssetImporter: import adapter for scene format loading",
+          "AssetDependencyGraph: deterministic dependency resolution and load ordering"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tests: 23 (SceneAsset) + 5 (SceneAssetImporter) + 24 (AssetDependencyGraph) = 52 pass. Closes Month 6 exit criterion: round-trip scene fidelity for baseline formats."
+      }
+    ]
+  },
+  {
+    "slug": "modeling-workflow-slice-1-geometry-ops",
+    "title": "Modeling workflow slice 1 geometry ops",
+    "date": "2026-05-09",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "month5"
+    ],
+    "category": "Commit",
+    "excerpt": "All 8+9+10+9+8+8 = 52 tests pass alongside previously-committed BooleanOperation. Closes Month 5 geometry ops exit criterion.",
+    "sha": "8e39848",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "BevelChamfer: chamfer/bevel topology generation with configurable segments",
+          "ExtrudeOperation: face extrusion with normal and direction modes",
+          "InsetFacesOperation: per-face inset with boundary preservation",
+          "RemeshOperation: uniform and adaptive remeshing with feature preservation",
+          "MeshDiagnosticOverlay: topology overlay data for UV seams, ngons, zero-area",
+          "MeshIO: OBJ and PLY export with indexed geometry",
+          "BooleanOperation.h: public header for committed boolean v0"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "All 8+9+10+9+8+8 = 52 tests pass alongside previously-committed BooleanOperation. Closes Month 5 geometry ops exit criterion."
       }
     ]
   }

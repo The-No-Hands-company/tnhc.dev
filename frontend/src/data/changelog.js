@@ -1,10 +1,11 @@
 // Generated from the Nexus-Systems commit history — do not hand-edit.
 //
 // Regenerate with scripts/build-changelog.sh
-// Only feat and fix commits appear: a changelog full of lockfile bumps
+// Only substantive types appear (feat, fix, perf, geom, harden, scene,
+// sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 302 entries, newest first.
+// 517 entries, newest first.
 
 export const CHANGELOG = [
   {
@@ -1191,6 +1192,13 @@ export const CHANGELOG = [
     "title": "Planar faces were fanned too \u2014 the last of the tessellator's litter"
   },
   {
+    "sha": "c428d87",
+    "date": "2026-08-01",
+    "kind": "perf",
+    "area": "geometry",
+    "title": "Cache classifyPoint's tessellation, keyed on the body itself"
+  },
+  {
     "sha": "68b9a74",
     "date": "2026-08-01",
     "kind": "fix",
@@ -1653,6 +1661,13 @@ export const CHANGELOG = [
     "title": "The random source returned [0, 0.000488] instead of [0, 1)"
   },
   {
+    "sha": "d530713",
+    "date": "2026-07-23",
+    "kind": "perf",
+    "area": "geometry",
+    "title": "Broad-phase the cut, and make the vertex weld near-linear"
+  },
+  {
     "sha": "c61a30c",
     "date": "2026-07-23",
     "kind": "fix",
@@ -1688,6 +1703,13 @@ export const CHANGELOG = [
     "title": "Make the exact predicates actually exact"
   },
   {
+    "sha": "f1af781",
+    "date": "2026-07-22",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Scale-adaptive tolerances across the curve ops (Phase T)"
+  },
+  {
     "sha": "10a0ad9",
     "date": "2026-07-22",
     "kind": "fix",
@@ -1714,6 +1736,83 @@ export const CHANGELOG = [
     "kind": "fix",
     "area": "geometry",
     "title": "Resolve VoxelGrid double-definition + voxelize non-finite guard"
+  },
+  {
+    "sha": "89a3f50",
+    "date": "2026-07-21",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Complete non-finite rejection \u2014 decimate + remesh (Phase R)"
+  },
+  {
+    "sha": "0013263",
+    "date": "2026-07-21",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Bound the B-rep Boolean's imprint \u2014 near-tangent no longer hangs"
+  },
+  {
+    "sha": "ea38a6b",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Non-finite rejection across the mesh-processing surface (Phase R)"
+  },
+  {
+    "sha": "2ddfbf6",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Malformed-input fuzz battery + fix non-finite leak in weld/repair"
+  },
+  {
+    "sha": "ebcc792",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Scale-invariant triangle degeneracy (Phase T) \u2014 fixes small-model boolean"
+  },
+  {
+    "sha": "2f53dce",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Fix insertEdgeLoop heap corruption + full HEM liveness sweep (Phase R)"
+  },
+  {
+    "sha": "eb50682",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Scale-aware boolean seam weld (Phase T) \u2014 fixes large-model leak"
+  },
+  {
+    "sha": "4240ab3",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Seeded invariant fuzz harness (Phase F) + fix HEM dead-edge corruption it found"
+  },
+  {
+    "sha": "85ccc5c",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Winding-independent mesh-CSG classification + residual diagnosis"
+  },
+  {
+    "sha": "263ec59",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Mesh-CSG coplanar seam rebuild \u2014 108\u219230 leaks, coplanar box booleans now watertight"
+  },
+  {
+    "sha": "734f212",
+    "date": "2026-07-19",
+    "kind": "harden",
+    "area": "geometry",
+    "title": "Make the mesh-CSG point-in-solid classification exact (SoS)"
   },
   {
     "sha": "31bbe00",
@@ -1868,6 +1967,384 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "brep",
     "title": "2-body Boolean feature \u2014 parametric CSG tree in the feature stack"
+  },
+  {
+    "sha": "40701ad",
+    "date": "2026-07-17",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Feature-stack serialization (non-destructive save/load)"
+  },
+  {
+    "sha": "5e80b2a",
+    "date": "2026-07-17",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Non-destructive B-rep feature/modifier stack"
+  },
+  {
+    "sha": "e5dbe3b",
+    "date": "2026-07-17",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Fillet a box edge (rounded bevel via boolean)"
+  },
+  {
+    "sha": "01668e3",
+    "date": "2026-07-17",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Chamfer a box edge (flat bevel via boolean)"
+  },
+  {
+    "sha": "fbb9052",
+    "date": "2026-07-17",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Boolean never-corrupt invariant (reject non-manifold sews)"
+  },
+  {
+    "sha": "0a3a27b",
+    "date": "2026-07-16",
+    "kind": "geom",
+    "area": "brep",
+    "title": "AABB broad-phase for the boolean imprint (~190x on curved solids)"
+  },
+  {
+    "sha": "142f400",
+    "date": "2026-07-16",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Faceted sphere + faceted sphere booleans"
+  },
+  {
+    "sha": "93aff1d",
+    "date": "2026-07-16",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Boolean performance \u2014 full-pass imprint fixpoint (no rescans)"
+  },
+  {
+    "sha": "475b005",
+    "date": "2026-07-16",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Faceted curved-solid booleans via all-planar prisms"
+  },
+  {
+    "sha": "d22ff11",
+    "date": "2026-07-16",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Body::surfaceArea + document the faceted-curved-boolean gap"
+  },
+  {
+    "sha": "eed92f3",
+    "date": "2026-07-16",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Axis-touching (filled) revolve \u2014 solids of revolution with poles"
+  },
+  {
+    "sha": "32a3f5d",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Revolve a profile into a solid of revolution"
+  },
+  {
+    "sha": "162fd5a",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Extrude a planar profile to a prism solid"
+  },
+  {
+    "sha": "aecc515",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Analytic Body mass properties (volume/centroid/inertia)"
+  },
+  {
+    "sha": "4421000",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Inner-loop (hole) support + fully-interior circle imprint"
+  },
+  {
+    "sha": "30f87a6",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Circle imprint on a coplanar face (curved-boolean track)"
+  },
+  {
+    "sha": "8508b39",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Versioned analytic B-rep serialization (save/load)"
+  },
+  {
+    "sha": "abe874c",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Coincident-face handling for aligned-solid booleans"
+  },
+  {
+    "sha": "73242c1",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Collinear-edge cleanup + simplify (minimal B-rep)"
+  },
+  {
+    "sha": "b26889a",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Coplanar face-merge cleanup (undo boolean over-segmentation)"
+  },
+  {
+    "sha": "061f461",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Sew boolean result into an analytic Body (booleans compose)"
+  },
+  {
+    "sha": "41fd278",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "B-rep boolean \u2014 select + emit (the keystone)"
+  },
+  {
+    "sha": "4fe5101",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Mutual imprint of two solids (boolean segmentation step)"
+  },
+  {
+    "sha": "93b5759",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Consistent affine transform of an analytic body"
+  },
+  {
+    "sha": "be6010d",
+    "date": "2026-07-15",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Classify a face against another solid (boolean keep/discard)"
+  },
+  {
+    "sha": "536d9cb",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Point-in-solid classification (boolean classify step)"
+  },
+  {
+    "sha": "fda124c",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Imprint a Line intersection curve onto a planar face"
+  },
+  {
+    "sha": "243928d",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Analytic surface-surface intersection (boolean prerequisite)"
+  },
+  {
+    "sha": "720f0fe",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Sphere edges as Circle arcs \u2014 exact analytic sphere tessellation"
+  },
+  {
+    "sha": "ecf61b1",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Watertight curved tessellation + true Circle-arc cylinder edges"
+  },
+  {
+    "sha": "5f141c5",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Removal Euler operator mergeFaces (kill-edge-face)"
+  },
+  {
+    "sha": "88a07f2",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Removal Euler operator joinEdges (kill-edge-vertex)"
+  },
+  {
+    "sha": "b9e89bd",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Entity liveness / tombstoning (prerequisite for removal ops)"
+  },
+  {
+    "sha": "9ce8028",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Second B-rep Euler operator \u2014 splitFace (make-edge-face)"
+  },
+  {
+    "sha": "6f7aff1",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "First B-rep Euler operator \u2014 splitEdge (make-edge-vertex)"
+  },
+  {
+    "sha": "27a37cc",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Wire NURBS surfaces into analytic B-rep faces"
+  },
+  {
+    "sha": "00811aa",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Geometric-consistency validator checkGeometry()"
+  },
+  {
+    "sha": "e1d5d79",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Analytic UV sphere primitive (integrity-proven)"
+  },
+  {
+    "sha": "4148ec4",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Analytic cylinder + cone primitives (integrity-proven)"
+  },
+  {
+    "sha": "e88f8b8",
+    "date": "2026-07-14",
+    "kind": "geom",
+    "area": "brep",
+    "title": "Analytic B-rep foundation \u2014 data model + integrity validator + box"
+  },
+  {
+    "sha": "e5e81fc",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "foundation-sweep",
+    "title": "Manifold/degenerate enforcement \u2014 verify + lock in"
+  },
+  {
+    "sha": "6075a4d",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "extrude",
+    "title": "Route ExtrudeOperation (keep=false) through the half-edge core"
+  },
+  {
+    "sha": "a2a2b6f",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "foundation-sweep",
+    "title": "Close stable-element-ID gap (EdgeBridge, ModifierStack)"
+  },
+  {
+    "sha": "442c04d",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "foundation-sweep",
+    "title": "Audit robustness; canonical isFinite + fast-math guard"
+  },
+  {
+    "sha": "8c42f6b",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "inset",
+    "title": "Route InsetFacesOperation through the hardened half-edge core"
+  },
+  {
+    "sha": "2d8874d",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "hem",
+    "title": "Add HEM-native insetFace primitive (edit-op migration begins)"
+  },
+  {
+    "sha": "b313b1a",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "hem",
+    "title": "Fix insertEdgeLoop \u2014 all 6/6 half-edge local ops now integrity-clean"
+  },
+  {
+    "sha": "3dd896b",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "hem",
+    "title": "Fix extrudeFaces wall topology (5/6 local ops now clean)"
+  },
+  {
+    "sha": "f27fe31",
+    "date": "2026-07-13",
+    "kind": "geom",
+    "area": "hem",
+    "title": "Fix connectVertices topology corruption (4/6 local ops now clean)"
+  },
+  {
+    "sha": "9515799",
+    "date": "2026-07-12",
+    "kind": "geom",
+    "area": "hem",
+    "title": "Fix pokeFace topology corruption (3/6 local ops now clean)"
+  },
+  {
+    "sha": "2b21dd6",
+    "date": "2026-07-12",
+    "kind": "geom",
+    "area": "hem",
+    "title": "Fix insertEdgeVertex topology corruption; audit HEM local ops"
+  },
+  {
+    "sha": "1cc2eb6",
+    "date": "2026-07-12",
+    "kind": "geom",
+    "area": "hem",
+    "title": "Round-trip full vertex attributes (tangents + skinning)"
+  },
+  {
+    "sha": "d10e9e4",
+    "date": "2026-07-12",
+    "kind": "geom",
+    "area": "tolerance",
+    "title": "Add central scale/unit-aware Tolerance module + migrate weld/merge"
+  },
+  {
+    "sha": "0ea63f8",
+    "date": "2026-07-12",
+    "kind": "geom",
+    "area": "hem",
+    "title": "Validate Euler operators \u2014 add checkIntegrity(), fix collapse & split"
   },
   {
     "sha": "4045baf",
@@ -2120,7 +2597,1036 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "core",
     "title": "Session commands, NOW(), CONCAT, TRIM"
+  },
+  {
+    "sha": "6d6b020",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "PARTITION BY + LAG/LEAD window functions"
+  },
+  {
+    "sha": "cf25217",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "VALUES clause, VACUUM no-op"
+  },
+  {
+    "sha": "edc147a",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "Window Functions \u2014 ROW_NUMBER, RANK, DENSE_RANK"
+  },
+  {
+    "sha": "7cb081f",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "IS DISTINCT FROM, NULL-safe ORDER BY"
+  },
+  {
+    "sha": "6293349",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "Prepared statement parameter binding, string functions"
+  },
+  {
+    "sha": "17c8460",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "CREATE INDEX SQL, DROP TABLE CASCADE, SET/SHOW"
+  },
+  {
+    "sha": "5d0520e",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "EXPLAIN ANALYZE, \\d table, better error codes"
+  },
+  {
+    "sha": "1a81d56",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "CREATE TABLE AS SELECT, enhanced pg_catalog"
+  },
+  {
+    "sha": "b3e940e",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "UPSERT (ON CONFLICT DO UPDATE), ALTER COLUMN TYPE"
+  },
+  {
+    "sha": "587ac77",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "AND/OR/NOT in WHERE, INTERSECT, EXCEPT"
+  },
+  {
+    "sha": "1b9732b",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "UNION, ILIKE, DROP VIEW"
+  },
+  {
+    "sha": "c1843c6",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "Session nextval/currval, CASE WHEN, COALESCE"
+  },
+  {
+    "sha": "33a39bd",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "INSERT RETURNING, TIMESTAMP type, FK CASCADE DELETE"
+  },
+  {
+    "sha": "f128494",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "Authentication, transaction state machine, subqueries"
+  },
+  {
+    "sha": "085bb1e",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "WAL logging for UPDATE/DELETE/TRUNCATE \u2014 crash recovery"
+  },
+  {
+    "sha": "39bb691",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "Index utilization in query planning (Index Scan)"
+  },
+  {
+    "sha": "82d3380",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "Proper ROLLBACK \u2014 undo all columnar changes"
+  },
+  {
+    "sha": "448afdc",
+    "date": "2026-06-16",
+    "kind": "fix",
+    "area": "core",
+    "title": "Repair 3 pre-existing test failures \u2014 74/74 passing"
+  },
+  {
+    "sha": "88d905d",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "Multi-column ORDER BY, INSERT with columns, CHECK constraints"
+  },
+  {
+    "sha": "09c677d",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "IS NULL, LIKE, IN, BETWEEN, OFFSET \u2014 WHERE predicate system"
+  },
+  {
+    "sha": "4a3c311",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "Nexus-Modeling",
+    "title": "Full DCC modeling workflow with 13 modes, UI panels, and interactive tools"
+  },
+  {
+    "sha": "b767010",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "DROP TABLE, DROP INDEX, DISTINCT SELECT"
+  },
+  {
+    "sha": "e519dc6",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "Proper UPDATE/DELETE with WHERE + INNER/LEFT JOIN"
+  },
+  {
+    "sha": "f3394c7",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "ALTER TABLE ADD/DROP COLUMN + GROUP BY aggregation"
+  },
+  {
+    "sha": "95b62cc",
+    "date": "2026-06-16",
+    "kind": "feat",
+    "area": "core",
+    "title": "UNIQUE constraint + TRUNCATE TABLE"
+  },
+  {
+    "sha": "bb0f492",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Views \u2014 CREATE VIEW / DROP VIEW with stored query execution"
+  },
+  {
+    "sha": "4dce962",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Foreign Keys \u2014 REFERENCES constraint with validation"
+  },
+  {
+    "sha": "7f3b22a",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Sequences & SERIAL \u2014 auto-incrementing primary keys"
+  },
+  {
+    "sha": "f16c0af",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Column Constraints \u2014 NOT NULL + DEFAULT validation"
+  },
+  {
+    "sha": "cfb6080",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Pg_catalog \u2014 real schema introspection from internal catalog"
+  },
+  {
+    "sha": "d14bb40",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "EXPLAIN \u2014 query execution plan visibility"
+  },
+  {
+    "sha": "1bf5f05",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Prepared statements \u2014 Parse/Bind/Execute protocol support"
+  },
+  {
+    "sha": "093702b",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "HNSW Vector Index \u2014 approximate nearest neighbor for AI embeddings"
+  },
+  {
+    "sha": "5f2e480",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "JSON/Document support \u2014 JSONB type, -> and ->> operators"
+  },
+  {
+    "sha": "6cb0807",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Full-text search \u2014 GIN inverted index with TF-IDF ranking"
+  },
+  {
+    "sha": "7c1256f",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "UPDATE and DELETE \u2014 CRUD completeness"
+  },
+  {
+    "sha": "7ef8adb",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "SELECT returns real data \u2014 columnar store wired to query executor"
+  },
+  {
+    "sha": "26e38e3",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Persistent storage \u2014 data survives across psql connections"
+  },
+  {
+    "sha": "b97087f",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Columnar Analytics \u2014 GROUP BY, aggregates, columnar scans"
+  },
+  {
+    "sha": "662474f",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "ACID Transactions \u2014 BEGIN/COMMIT/ROLLBACK with WAL durability"
+  },
+  {
+    "sha": "c97e7d4",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Secondary indexes \u2014 B-Tree indexes on any column"
+  },
+  {
+    "sha": "4a9b068",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "SQL parser + query executor \u2014 psql queries reach the engine"
+  },
+  {
+    "sha": "9a5d0ab",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Delta-Main Bridge \u2014 polymorphic storage virtualization"
+  },
+  {
+    "sha": "3b45295",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "LSM-Tree engine + Row format + Storage layer"
+  },
+  {
+    "sha": "ca4284c",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "PostgreSQL wire protocol \u2014 psql can connect to Nexus-Database"
+  },
+  {
+    "sha": "928ded1",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Nexus Database Engine \u2014 B-Tree, Buffer Pool, WAL, Page Manager"
+  },
+  {
+    "sha": "f41f6e8",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Nexus-Wiki \u2014 Wikipedia features: [[links]], TOC, diffs, talk, auth"
+  },
+  {
+    "sha": "154cce9",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Nexus-Wiki \u2014 Wikipedia-like knowledge platform fully built"
+  },
+  {
+    "sha": "5b53d90",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Ghost generates React frontends + graphics engine consolidated"
+  },
+  {
+    "sha": "932cb0f",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "18 new apps via Ghost \u2014 Commerce, Community, Docs, Editor, Inventory, Invoice, Jobs, Journal, Knowledge, Logistics, Maps, News, Publishing, Recipes, Remote, Reporter, Reservations, Schedule"
+  },
+  {
+    "sha": "ee2db27",
+    "date": "2026-06-15",
+    "kind": "fix",
+    "area": "core",
+    "title": "CI \u2014 replace bun install with npm, symlink from Cloud"
+  },
+  {
+    "sha": "f9aeb69",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "CI pipeline + README with badge"
+  },
+  {
+    "sha": "7ba3a80",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Phantom 5-hop oblivious routing demo + wired forwarder"
+  },
+  {
+    "sha": "2ec4ad5",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "QUICKSTART.md + preflight check \u2014 fresh clone to running in 5 commands"
+  },
+  {
+    "sha": "3a7bf9c",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Phantom DB migration + docker preflight check"
+  },
+  {
+    "sha": "89bbd21",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Capstone demo \u2014 Cloud + Phantom + Discovery + Pipeline in one command"
+  },
+  {
+    "sha": "8f7e45d",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Phantom E2EE bridge compiles \u2014 Alice\u2192Bob PQ verified"
+  },
+  {
+    "sha": "0f65fec",
+    "date": "2026-06-15",
+    "kind": "fix",
+    "area": "core",
+    "title": "Smoke test \u2014 add 5-retry health check, support 'ok':true format"
+  },
+  {
+    "sha": "73b96c8",
+    "date": "2026-06-15",
+    "kind": "feat",
+    "area": "core",
+    "title": "Nexus-Phantom Bridge \u2014 E2EE architecture for chat"
+  },
+  {
+    "sha": "3dcafba",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "Contract validation at 71/71 \u2014 every app payload passes Cloud"
+  },
+  {
+    "sha": "32c07eb",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "One-command demo \u2014 proves Cloud + Phantom + discovery + pipeline"
+  },
+  {
+    "sha": "6f53a04",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "Mass Phantom + Discovery binding to 70+ Bun apps"
+  },
+  {
+    "sha": "b4627c6",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "Nexus Discovery, Phantom SDK integration, visualizer rebuild, scaffold apps"
+  },
+  {
+    "sha": "f6ae214",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "Nexus Discovery \u2014 service mesh via Cloud topology"
+  },
+  {
+    "sha": "023652c",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "Phantom SDK integration module + Nexus-Graphic reference binding"
+  },
+  {
+    "sha": "b349b48",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "Phantom SDK \u2014 post-quantum identity layer for all Nexus apps"
+  },
+  {
+    "sha": "19b4840",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "Ghost framework, shell apps, federation, cleanup"
+  },
+  {
+    "sha": "e4f3e44",
+    "date": "2026-06-14",
+    "kind": "feat",
+    "area": "core",
+    "title": "Ecosystem integration \u2014 cloud registration, cross-app comms, CI, deployment, docs"
+  },
+  {
+    "sha": "a4dd3a2",
+    "date": "2026-05-28",
+    "kind": "sim",
+    "area": "core",
+    "title": "Distance constraints (rod / rope / pendulum joints)"
+  },
+  {
+    "sha": "dc1f6ae",
+    "date": "2026-05-28",
+    "kind": "sim",
+    "area": "core",
+    "title": "Warm-started box-box solver for stable stacking"
+  },
+  {
+    "sha": "9d8fbdf",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Box-box (OBB) collision via SAT + vertex-incidence manifold"
+  },
+  {
+    "sha": "ad196bd",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Oriented-box (OBB) colliders \u2014 box vs plane and box vs round"
+  },
+  {
+    "sha": "e66512d",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Capsule colliders via unified contact resolution"
+  },
+  {
+    "sha": "45d4dac",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Rolling friction via angular coupling at contacts"
+  },
+  {
+    "sha": "0182061",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Coulomb friction (tangential impulse) at ground and body contacts"
+  },
+  {
+    "sha": "f687acd",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Iterated contact solver for stable stacking"
+  },
+  {
+    "sha": "4cf5f69",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Sweep-and-prune broadphase for body-body collision"
+  },
+  {
+    "sha": "f318fbf",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Sphere-vs-sphere body-body collision with restitution"
+  },
+  {
+    "sha": "b47c640",
+    "date": "2026-05-26",
+    "kind": "sim",
+    "area": "core",
+    "title": "Sphere-vs-ground-plane collision with restitution"
+  },
+  {
+    "sha": "a28c891",
+    "date": "2026-05-24",
+    "kind": "feat",
+    "area": "vulkan",
+    "title": "Multi-set pipeline layouts; deferred composite is hardware-complete"
+  },
+  {
+    "sha": "4e5ac65",
+    "date": "2026-05-24",
+    "kind": "feat",
+    "area": "render",
+    "title": "Publish composite descriptor-set-layout contract; bind from it"
+  },
+  {
+    "sha": "21be204",
+    "date": "2026-05-24",
+    "kind": "feat",
+    "area": "vulkan",
+    "title": "Descriptor set layouts for graphics/compute/mesh pipelines"
+  },
+  {
+    "sha": "4990b53",
+    "date": "2026-05-24",
+    "kind": "feat",
+    "area": "vulkan",
+    "title": "RT descriptor binding + buffer readback; full dispatch test"
+  },
+  {
+    "sha": "81d87fe",
+    "date": "2026-05-24",
+    "kind": "feat",
+    "area": "vulkan",
+    "title": "RT bring-up shaders + hardware-gated dispatch test"
+  },
+  {
+    "sha": "7c63c7e",
+    "date": "2026-05-24",
+    "kind": "feat",
+    "area": "vulkan",
+    "title": "Build and bind ray-tracing shader binding table for traceRays"
+  },
+  {
+    "sha": "e790952",
+    "date": "2026-05-24",
+    "kind": "feat",
+    "area": "sim",
+    "title": "Anisotropic inertia tensor via angular-momentum integration"
+  },
+  {
+    "sha": "372c1fb",
+    "date": "2026-05-24",
+    "kind": "feat",
+    "area": "sim",
+    "title": "Linear and angular velocity damping for rigid bodies"
+  },
+  {
+    "sha": "7816671",
+    "date": "2026-05-23",
+    "kind": "feat",
+    "area": "render",
+    "title": "Merge ray-traced output into the composite color"
+  },
+  {
+    "sha": "3bf48e0",
+    "date": "2026-05-23",
+    "kind": "feat",
+    "area": "sim",
+    "title": "Fixed-timestep simulation driver with render interpolation"
+  },
+  {
+    "sha": "51bb58d",
+    "date": "2026-05-23",
+    "kind": "feat",
+    "area": "sim",
+    "title": "Rigid-body angular dynamics and rotation coupling"
+  },
+  {
+    "sha": "87c7957",
+    "date": "2026-05-23",
+    "kind": "feat",
+    "area": "core",
+    "title": "Month-13 RT stub pass and simulation/scenegraph coupling"
+  },
+  {
+    "sha": "066f3ee",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Validate package manifest alias and dependency fields"
+  },
+  {
+    "sha": "8fa8286",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject duplicate scene package entry paths"
+  },
+  {
+    "sha": "ddfe947",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Sanitize geometry, scene transforms, and text-import floats"
+  },
+  {
+    "sha": "6892e86",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Sanitize non-finite ModelingShell inputs"
+  },
+  {
+    "sha": "0c16d4e",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite AutomationScript numeric args"
+  },
+  {
+    "sha": "cd71ca4",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite floats in NodeScene reconstruction inputs"
+  },
+  {
+    "sha": "30c691b",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite ScalarF32 payload in EvalGraph::setNodeOutputPayload"
+  },
+  {
+    "sha": "dad4968",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject invalid TemporalAccumulator config at entry"
+  },
+  {
+    "sha": "1c813cf",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Stabilize frustum extraction for singular matrices"
+  },
+  {
+    "sha": "166cb4f",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject invalid sample solver config at entry"
+  },
+  {
+    "sha": "51b46cf",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite mesh primitive dimensions"
+  },
+  {
+    "sha": "1128c34",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite camera lookAt vectors"
+  },
+  {
+    "sha": "a3aeca7",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite parametric sample dimensions"
+  },
+  {
+    "sha": "490425a",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite mesh export attributes"
+  },
+  {
+    "sha": "d39d63f",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject degenerate camera projection parameters"
+  },
+  {
+    "sha": "758c7f9",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite mesh import scalars"
+  },
+  {
+    "sha": "882629d",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite parametric serialization payloads"
+  },
+  {
+    "sha": "1f4545d",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite parametric convergence epsilon"
+  },
+  {
+    "sha": "abd359e",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Guard animation state graph play and tick entry inputs"
+  },
+  {
+    "sha": "d9b76bf",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject invalid animation clip timing setters"
+  },
+  {
+    "sha": "9bd7eda",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject malformed rigid-body rollback snapshots"
+  },
+  {
+    "sha": "41717d6",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject invalid rigid body descriptors and forces"
+  },
+  {
+    "sha": "57b8582",
+    "date": "2026-05-20",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject invalid fluid particle descriptors at insertion"
+  },
+  {
+    "sha": "c20bc5c",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject malformed fluid rollback snapshots"
+  },
+  {
+    "sha": "85ffb25",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject malformed cloth rollback snapshots"
+  },
+  {
+    "sha": "3c902d6",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject invalid cloth node descriptors at insertion"
+  },
+  {
+    "sha": "00d8b7d",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite cloth edge parameters"
+  },
+  {
+    "sha": "9fa2976",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject invalid pressure stiffness in FluidSolver"
+  },
+  {
+    "sha": "2384ce7",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite Camera parameters"
+  },
+  {
+    "sha": "af89211",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite point coordinates in ConstraintGraph"
+  },
+  {
+    "sha": "a915fe7",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite SimulationCore runtime state"
+  },
+  {
+    "sha": "505447e",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite clip start time in AnimationCore"
+  },
+  {
+    "sha": "43b2e9f",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite timing inputs in AnimationCore"
+  },
+  {
+    "sha": "9c546b3",
+    "date": "2026-05-19",
+    "kind": "harden",
+    "area": "core",
+    "title": "Reject non-finite/negative targetDistance in ConstraintGraph"
+  },
+  {
+    "sha": "2469e6a",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add typed reconstruction stats summary snapshot"
+  },
+  {
+    "sha": "3f04c9d",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add deterministic reconstruction stats summary API"
+  },
+  {
+    "sha": "aa5be23",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add typed reconstruction assessment stats"
+  },
+  {
+    "sha": "74224db",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add deterministic reconstruction summary batch API"
+  },
+  {
+    "sha": "e64ccfd",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add deterministic batch reconstruction assessments"
+  },
+  {
+    "sha": "ae7552c",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add typed reconstruction assessment snapshot"
+  },
+  {
+    "sha": "7e13d7b",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add configurable default reconstruction thresholds"
+  },
+  {
+    "sha": "8f2d7da",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add typed reconstruction threshold bundle"
+  },
+  {
+    "sha": "a05591f",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add threshold-configurable reconstruction summary"
+  },
+  {
+    "sha": "686eb98",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add typed reconstruction quality state helper"
+  },
+  {
+    "sha": "a52ece1",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add deterministic reconstruction quality summary helper"
+  },
+  {
+    "sha": "c95cf5c",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add reconstruction alpha-pass convenience helpers"
+  },
+  {
+    "sha": "469a5f3",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add reconstruction diagnostic convenience API"
+  },
+  {
+    "sha": "d17f215",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add NodeScene parent/child hierarchy with path resolution"
+  },
+  {
+    "sha": "c173348",
+    "date": "2026-05-09",
+    "kind": "scene",
+    "area": "core",
+    "title": "Add NodeScene layer over EvalGraph with named nodes and typed asset API"
+  },
+  {
+    "sha": "a8baaa8",
+    "date": "2026-05-09",
+    "kind": "feat",
+    "area": "month11",
+    "title": "Scripting and automation layer v0"
+  },
+  {
+    "sha": "c8ca9fa",
+    "date": "2026-05-09",
+    "kind": "feat",
+    "area": "month10",
+    "title": "Advanced rendering track \u2014 Gaussian Splatting + temporal accumulation"
+  },
+  {
+    "sha": "c69c67a",
+    "date": "2026-05-09",
+    "kind": "feat",
+    "area": "month9",
+    "title": "Simulation interfaces v0"
+  },
+  {
+    "sha": "c46141c",
+    "date": "2026-05-09",
+    "kind": "feat",
+    "area": "month8",
+    "title": "Procedural and evaluation graph"
+  },
+  {
+    "sha": "3c80d9e",
+    "date": "2026-05-09",
+    "kind": "feat",
+    "area": "month7",
+    "title": "Animation and rigging core v0"
+  },
+  {
+    "sha": "3e27ffd",
+    "date": "2026-05-09",
+    "kind": "feat",
+    "area": "month6",
+    "title": "Asset and pipeline core"
+  },
+  {
+    "sha": "8e39848",
+    "date": "2026-05-09",
+    "kind": "feat",
+    "area": "month5",
+    "title": "Modeling workflow slice 1 geometry ops"
   }
 ];
 
-export const CHANGELOG_AREAS = ["A3", "A4", "animation", "app", "auth", "brep", "build", "chat", "clients", "cloud", "cloud-views", "core", "dashboard", "deploy", "deps", "design", "did-client", "did-mapper", "docs", "draw", "email", "gate", "geometry", "graph", "hosting", "mail", "nexus-auth", "nexus-db", "phantom", "proxy", "render", "routing", "security", "shell", "signup", "tests", "web"];
+export const CHANGELOG_AREAS = ["A3", "A4", "Nexus-Modeling", "animation", "app", "auth", "brep", "build", "chat", "clients", "cloud", "cloud-views", "core", "dashboard", "deploy", "deps", "design", "did-client", "did-mapper", "docs", "draw", "email", "extrude", "foundation-sweep", "gate", "geometry", "graph", "hem", "hosting", "inset", "mail", "month10", "month11", "month5", "month6", "month7", "month8", "month9", "nexus-auth", "nexus-db", "phantom", "proxy", "render", "routing", "security", "shell", "signup", "sim", "tests", "tolerance", "vulkan", "web"];

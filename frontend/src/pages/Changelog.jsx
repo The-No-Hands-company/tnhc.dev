@@ -68,7 +68,12 @@ export default function Changelog() {
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
           Generated from the commit history, not written for an audience. Each
           line links to the commit that made the change, so nothing here can drift
-          from what the code actually does.
+          from what the code actually does. For the reasoning behind a change
+          rather than the fact of it, read the{" "}
+          <Link to="/blog" className="text-acid underline-offset-4 hover:underline">
+            blog
+          </Link>
+          .
         </p>
 
         <div className="mt-10 flex flex-wrap gap-2">

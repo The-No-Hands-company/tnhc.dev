@@ -121,7 +121,7 @@ export default function Apps() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search 100 apps…"
+                placeholder={`Search ${APPS.length} apps…`}
                 className="w-full rounded-none border border-white/20 bg-transparent py-3.5 pl-12 pr-4 font-mono text-sm text-white placeholder:text-white/30 outline-none transition-colors duration-300 focus:border-acid"
                 data-testid="apps-search-input"
               />
@@ -197,12 +197,19 @@ export default function Apps() {
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" data-testid="apps-grid">
             {filtered.map((app, i) => {
               const meta = STATUS_META[app.status];
+              // Only apps with a real URL become links. The directory used to
+              // link every card at `${slug}.tnhc.dev`, so a reader clicking any
+              // of the ~100 unbuilt apps landed on a 404 — the card promised
+              // something the ecosystem does not yet serve. An unbuilt app is
+              // now honestly inert.
+              const Card = app.url ? motion.a : motion.div;
+              const linkProps = app.url
+                ? { href: app.url, target: "_blank", rel: "noopener noreferrer" }
+                : {};
               return (
-                <motion.a
+                <Card
                   key={app.slug}
-                  href={`https://${app.slug}.tnhc.dev`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...linkProps}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
@@ -227,12 +234,14 @@ export default function Apps() {
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/35">
                       {app.category}
                     </span>
-                    <span className="flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.15em] text-acid/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      {app.slug}.tnhc
-                      <ArrowUpRight size={12} weight="bold" />
-                    </span>
+                    {app.url && (
+                      <span className="flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.15em] text-acid/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        {app.url.replace("https://", "")}
+                        <ArrowUpRight size={12} weight="bold" />
+                      </span>
+                    )}
                   </div>
-                </motion.a>
+                </Card>
               );
             })}
           </div>

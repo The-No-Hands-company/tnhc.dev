@@ -5,7 +5,7 @@ const ROWS = [
   { k: "Development", old: "Large teams of human software engineers", nexus: "AI agents write, test & deploy — zero hands" },
   { k: "Hosting", old: "Closed vendor clouds (AWS, Google, Azure)", nexus: "Self-hosted on your own hardware, free" },
   { k: "Data Control", old: "Vendor owns and monetizes your data", nexus: "You own everything — federated, never sold" },
-  { k: "Ecosystem", old: "80 separate subscription fees", nexus: "80+ apps, one open-source kernel, $0" },
+  { k: "Ecosystem", old: "A separate subscription for every tool", nexus: "One open-source kernel, one identity, $0" },
 ];
 
 const Reveal = ({ children, delay = 0, className = "" }) => (

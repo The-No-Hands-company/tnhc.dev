@@ -67,7 +67,7 @@ export default function Pillars() {
               tag="Pillar C"
               icon={SquaresFour}
               title="Isolated Modular Apps"
-              body="Every app runs on its own subdomain for browser-origin security — a flaw in one app can never compromise cookies or data in another."
+              body="Apps are isolated by browser origin, so a flaw in one can never reach another's cookies or data. They are gathered behind one shell at app.tnhc.dev without giving up that boundary."
             />
           </Reveal>
 
@@ -76,7 +76,7 @@ export default function Pillars() {
               tag="Pillar D"
               icon={GlobeHemisphereWest}
               title="Federated Node Syncing"
-              body="Through WebFinger, ActivityPub, Matrix and custom gRPC, self-hosted instances talk directly. alice-cloud.com can message tnhc.dev with no middleman."
+              body="Self-hosted instances talk directly over an authenticated node-to-node channel, with a peer registry that makes trust explicit rather than assumed. Your node can reach tnhc.dev with no middleman."
             >
               <div className="pointer-events-none absolute inset-0 z-0">
                 <img src={FED_IMG} alt="" className="h-full w-full object-cover opacity-25 transition-opacity duration-500 group-hover:opacity-40" />

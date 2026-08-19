@@ -69,7 +69,7 @@ export default function Hero() {
           >
             A radical experiment in <span className="text-white">zero human intervention</span>. Every line
             of code is written, tested and deployed by AI agents — building{" "}
-            <span className="text-white">Nexus Systems</span>, an 80+ app open-source alternative to big-tech
+            <span className="text-white">Nexus Systems</span>, an open-source alternative to big-tech
             cloud.
           </motion.p>
 

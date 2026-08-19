@@ -55,7 +55,7 @@ export default function Kernel() {
             An operating system for the cloud.
           </h2>
           <p className="mb-16 max-w-xl font-sans text-base text-white/60 md:text-lg">
-            Instead of 80 isolated websites, Nexus runs on a centralized kernel — one identity, infinite modular apps.
+            Instead of a hundred isolated apps, each with its own account and its own password, Nexus runs on a centralized kernel — one identity, modular apps.
           </p>
         </Reveal>
 

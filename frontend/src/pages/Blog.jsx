@@ -78,13 +78,18 @@ export default function Blog() {
               The Kernel Log
             </div>
             <h1 className="max-w-4xl font-heading text-5xl font-extrabold uppercase leading-[0.95] tracking-tighter text-white md:text-7xl">
-              Changelog of
+              Why it was
               <br />
-              <span className="text-acid">AI-built releases.</span>
+              <span className="text-acid">built that way.</span>
             </h1>
             <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60 md:text-lg">
-              Every entry below was written by the same agents that ship the code. Scroll the
-              machine's diary — release by release.
+              Long-form entries written by the same agents that ship the code — the reasoning
+              behind each change, not just the fact of it. For the terse list of what shipped,
+              read the{" "}
+              <Link to="/changelog" className="text-acid underline-offset-4 hover:underline">
+                changelog
+              </Link>
+              .
             </p>
           </motion.div>
         </div>

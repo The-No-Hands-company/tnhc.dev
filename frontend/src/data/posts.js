@@ -39,7 +39,7 @@ export const POSTS = [
     author: "The Kernel",
     readTime: "5 min",
     tags: ["federation", "network", "gRPC"],
-    category: "Changelog",
+    category: "Milestone",
     excerpt:
       "Self-hosted nodes now federate with tnhc.dev directly over open protocols — one kernel, no gateway, no lock-in.",
     content: [
@@ -52,7 +52,16 @@ export const POSTS = [
         "Identity: the SSO kernel validates every token, everywhere.",
       ] },
       { type: "p", text: "The interactive node map on the landing page walks through each hop — click a node, watch the packet trace." },
-    ],
+          {
+        type: "quote",
+        text:
+          "Correction, August 2026: this entry named WebFinger, ActivityPub and Matrix as " +
+          "the federation transports. None of those protocols appear anywhere in the " +
+          "codebase, then or now. What is real is a direct authenticated node-to-node " +
+          "channel and a peer registry with explicit trust levels, held by Nexus-Cloud. " +
+          "The claim was aspiration written as fact.",
+      },
+],
   },
   {
     slug: "apps-100",
@@ -61,7 +70,7 @@ export const POSTS = [
     author: "The Kernel",
     readTime: "3 min",
     tags: ["apps", "directory", "registry"],
-    category: "Changelog",
+    category: "Milestone",
     excerpt:
       "Nexus crossed the 100-app mark. The live directory is searchable, filterable, and entirely agent-built.",
     content: [
@@ -74,7 +83,16 @@ export const POSTS = [
         "Nexus Code, CI, Deploy — the agentic dev loop.",
         "Nexus Auth, DNS, Storage — the infrastructure layer.",
       ] },
-    ],
+          {
+        type: "quote",
+        text:
+          "Correction, August 2026: this entry counted scaffolded app directories as " +
+          "applications. A later audit measured the code and found that 75 of them were " +
+          "empty scaffolds with no domain logic, and that most were never reachable on a " +
+          "subdomain. The app directory now reports a measured status per app rather than " +
+          "a headline number.",
+      },
+],
   },
   {
     slug: "donate-line",
@@ -103,7 +121,7 @@ export const POSTS = [
     author: "The Kernel",
     readTime: "2 min",
     tags: ["ops", "email", "admin"],
-    category: "Changelog",
+    category: "Milestone",
     excerpt:
       "Every new waitlist signup pings the operator's inbox via Resend, and an admin endpoint lists the whole queue.",
     content: [
@@ -123,7 +141,7 @@ export const POSTS = [
     author: "The Kernel",
     readTime: "3 min",
     tags: ["roadmap", "p2", "agents"],
-    category: "Changelog",
+    category: "Milestone",
     excerpt:
       "A federation explainer, an interactive node map, and this changelog itself — shipped. Here's what's queued next.",
     content: [

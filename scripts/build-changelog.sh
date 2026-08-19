@@ -21,12 +21,15 @@ fi
 POSTS_OUT="frontend/src/data/commitPosts.js"
 
 # The terse edition: one scannable line per change.
-git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s' --date=short -600 \
+# No commit cap. A capped window silently drops the oldest entries every time
+# a new commit lands, so the changelog quietly shrinks at the far end while
+# looking healthy at the near end.
+git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s' --date=short \
   | python3 "$(dirname "$0")/build-changelog.py" > "$OUT"
 
 # The long-form edition: commits whose message actually explains something.
 # Both come from the same history, so the two views cannot contradict.
-git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s%x1f%b%x1e' --date=short -400 \
+git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s%x1f%b%x1e' --date=short \
   | python3 "$(dirname "$0")/build-commit-posts.py" > "$POSTS_OUT"
 
 echo "Wrote $OUT ($(grep -c '"sha"' "$OUT") entries)"

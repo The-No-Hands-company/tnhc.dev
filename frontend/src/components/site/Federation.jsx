@@ -7,22 +7,29 @@ const H = 640;
 const CX = 450;
 const CY = 340;
 
+// A diagram of how federation is designed to work — not a live map of nodes
+// that exist. This previously named six invented domains, gave each a region
+// and a running-app count, and labelled them Matrix / ActivityPub / WebFinger.
+// None of those protocols appear anywhere in the codebase, and none of those
+// nodes exist. A visitor reasonably read it as a status board for a live mesh.
+//
+// What is real: Nexus-Cloud carries a peer registry with trust levels, and the
+// node-to-node channel is authenticated and direct. The `.example` domains
+// below are reserved by RFC 2606 precisely so illustrations cannot be mistaken
+// for real hosts.
 const NODES = [
-  { domain: "tnhc.dev", label: "The Kernel", region: "Global", protocol: "SSO / gRPC", apps: 100, x: CX, y: CY, kernel: true },
-  { domain: "alice-cloud.com", label: "alice's node", region: "EU-Central", protocol: "Matrix", apps: 12, x: 690, y: 220, kernel: false },
-  { domain: "node-prime.io", label: "prime node", region: "US-West", protocol: "gRPC", apps: 37, x: 718, y: 400, kernel: false },
-  { domain: "openmesh.dev", label: "open mesh", region: "US-East", protocol: "ActivityPub", apps: 21, x: 520, y: 520, kernel: false },
-  { domain: "cyberforge.net", label: "cyber forge", region: "Asia-NE", protocol: "WebFinger", apps: 9, x: 380, y: 520, kernel: false },
-  { domain: "pixel-vault.app", label: "pixel vault", region: "EU-North", protocol: "Matrix", apps: 15, x: 180, y: 400, kernel: false },
-  { domain: "silent-ridge.io", label: "silent ridge", region: "SA-East", protocol: "gRPC", apps: 5, x: 210, y: 220, kernel: false },
+  { domain: "tnhc.dev", label: "The Kernel", region: "This node", protocol: "Node channel", role: "Authoritative", x: CX, y: CY, kernel: true },
+  { domain: "your-node.example", label: "a self-hosted node", region: "Illustrative", protocol: "Node channel", role: "Peer", x: 690, y: 220, kernel: false },
+  { domain: "second-node.example", label: "another operator", region: "Illustrative", protocol: "Node channel", role: "Peer", x: 718, y: 400, kernel: false },
+  { domain: "third-node.example", label: "a community node", region: "Illustrative", protocol: "Identity", role: "Peer", x: 520, y: 520, kernel: false },
+  { domain: "fourth-node.example", label: "a private node", region: "Illustrative", protocol: "Identity", role: "Peer", x: 380, y: 520, kernel: false },
+  { domain: "fifth-node.example", label: "an org node", region: "Illustrative", protocol: "Node channel", role: "Peer", x: 180, y: 400, kernel: false },
+  { domain: "sixth-node.example", label: "a lab node", region: "Illustrative", protocol: "Identity", role: "Peer", x: 210, y: 220, kernel: false },
 ];
 
 const PROTOCOLS = {
-  gRPC: "Direct bidirectional sync with the kernel — events replicated in real time.",
-  Matrix: "Federated rooms and identity bridged to the kernel over Matrix federation.",
-  ActivityPub: "Content federated through ActivityPub — follows, posts, shares across nodes.",
-  WebFinger: "Discovery protocol — nodes find each other's addresses over the open internet.",
-  "SSO / gRPC": "The center of the mesh. Validates every token, relays every event.",
+  "Node channel": "Authenticated node-to-node transport. Two Nexus nodes that already trust each other exchange events directly, with no third party relaying and no gateway in the middle.",
+  Identity: "A peer registry with trust levels, held by Nexus-Cloud. A node decides which peers it federates with; trust is granted, never assumed.",
 };
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -57,8 +64,9 @@ export default function Federation() {
           One kernel. No middleman. Any node on Earth.
         </h2>
         <p className="mt-4 max-w-2xl font-sans text-base text-white/60 md:text-lg">
-          Self-hosted instances talk to <span className="text-white">tnhc.dev</span> and each other over open
-          protocols — click a node to trace its connection, or press play to tour the mesh.
+          Self-hosted instances talk to <span className="text-white">tnhc.dev</span> and each other directly,
+          with no middleman. This is a diagram of that design, not a live map — the peer nodes shown are
+          illustrative. Click one to trace how a connection is made.
         </p>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-3">
@@ -227,8 +235,8 @@ export default function Federation() {
 
               <dl className="mt-8 space-y-4 border-t border-white/10 pt-6">
                 {[
-                  ["Protocol", node.protocol],
-                  ["Apps running", `${node.apps} modular`],
+                  ["Transport", node.protocol],
+                  ["Role", node.role],
                   ["Peer link", node.kernel ? "authoritative" : "direct to kernel"],
                 ].map(([k, v]) => (
                   <div key={k} className="flex items-baseline justify-between gap-4">
@@ -242,7 +250,7 @@ export default function Federation() {
             <div className="flex-1 border border-white/10 bg-surface/40 p-8 backdrop-blur-sm">
               <div className="mb-4 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">
                 <WebhooksLogo size={16} weight="duotone" className="text-acid" />
-                {PROTOCOLS[node.protocol].split(" ")[0]} explained
+                {node.protocol} explained
               </div>
               <motion.p
                 key={node.protocol}

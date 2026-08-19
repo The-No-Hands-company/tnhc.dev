@@ -8,7 +8,11 @@ import json
 import re
 import sys
 
-KEEP = ("feat", "fix")
+# Types that represent a real change to what the software does. `geom`,
+# `harden`, `scene` and `sim` are the modeling kernel's own prefixes and are
+# every bit as much a shipped change as a `feat` — excluding them under-
+# reported the kernel's work by roughly a hundred commits.
+KEEP = ("feat", "fix", "perf", "geom", "harden", "scene", "sim")
 # Changes that are real commits but say nothing to somebody outside the project.
 SKIP_WORDS = ("lockfile", "typo", "whitespace", "formatting", "rename", "wip")
 
@@ -45,7 +49,8 @@ def main() -> None:
     print("// Generated from the Nexus-Systems commit history — do not hand-edit.")
     print("//")
     print("// Regenerate with scripts/build-changelog.sh")
-    print("// Only feat and fix commits appear: a changelog full of lockfile bumps")
+    print("// Only substantive types appear (feat, fix, perf, geom, harden, scene,")
+    print("// sim): a changelog full of lockfile bumps and CI tweaks")
     print("// teaches a reader to stop reading it, and this one is meant to be read.")
     print("//")
     print(f"// {len(entries)} entries, newest first.")
