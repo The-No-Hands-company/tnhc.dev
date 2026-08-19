@@ -70,12 +70,14 @@ if [ -d "$REPO/apps" ]; then
                 drift=1; problems=1
             fi
         fi
-    done < <(for d in "$REPO"/apps/Nexus-*/; do
-                n=$(basename "$d")
-                c=$(find "$d" -type f \( -name '*.rs' -o -name '*.ts' -o -name '*.tsx' -o -name '*.py' -o -name '*.go' -o -name '*.jsx' \) \
-                    -not -path '*/node_modules/*' -not -path '*/target/*' -not -path '*/dist/*' 2>/dev/null | wc -l)
-                echo "$c $n"
-             done)
+    # One traversal, not one per app. Running `find` separately for each of the
+    # 112 app directories took roughly four minutes on this volume — long enough
+    # that a loop pass felt hung. A single pass, tallied per directory, does the
+    # same work in about a second.
+    done < <(find "$REPO/apps" -mindepth 2 -type f \
+                \( -name '*.rs' -o -name '*.ts' -o -name '*.tsx' -o -name '*.py' -o -name '*.go' -o -name '*.jsx' \) \
+                -not -path '*/node_modules/*' -not -path '*/target/*' -not -path '*/dist/*' 2>/dev/null \
+             | sed "s#^$REPO/apps/##" | cut -d/ -f1 | grep '^Nexus-' | sort | uniq -c)
     [ "$drift" = "0" ] && echo "  ok       no app is understated on the site"
 fi
 

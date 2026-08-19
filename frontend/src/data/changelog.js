@@ -5,9 +5,23 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 518 entries, newest first.
+// 520 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "672c021",
+    "date": "2026-08-19",
+    "kind": "fix",
+    "area": "shell",
+    "title": "Survive a bundle newer than the server, and give biome a config"
+  },
+  {
+    "sha": "9b1bff1",
+    "date": "2026-08-19",
+    "kind": "feat",
+    "area": "shell",
+    "title": "One URL scheme \u2014 the path names the app, not how it is delivered"
+  },
   {
     "sha": "00c4ab4",
     "date": "2026-08-19",

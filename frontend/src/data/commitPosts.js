@@ -6,9 +6,93 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 422 posts, newest first.
+// 424 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "survive-a-bundle-newer-than-the-server-and-give-biome-a-conf",
+    "title": "Survive a bundle newer than the server, and give biome a config",
+    "date": "2026-08-19",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "shell"
+    ],
+    "category": "Commit",
+    "excerpt": "Two problems, both found by running the thing rather than reasoning about it.",
+    "sha": "672c021",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two problems, both found by running the thing rather than reasoning about it."
+      },
+      {
+        "type": "p",
+        "text": "The dashboard serves frontend/dist from disk, so a rebuilt bundle goes live the moment the files change while the running process keeps its old code until it is restarted. The previous commit added `path` to AppEntry and shipped a bundle that required it \u2014 so between the rebuild and the restart, every app link in the launcher and grid rendered as undefined on a live site."
+      },
+      {
+        "type": "p",
+        "text": "listApps() now derives the path when the server did not send one, mirroring pathForApp. The wire shape and the normalised shape are separate types, so `path` stays required for every component while being honestly optional coming off the network. A version skew can no longer break links in either direction."
+      },
+      {
+        "type": "p",
+        "text": "Second: Nexus-Dashboard had no biome.json, so `npm run lint` ran on defaults and wanted to convert the whole codebase from two-space indentation to tabs \u2014 which is why it reported errors in files nobody had touched, and why the lint script had never been usable. Added the same config the other apps carry (space indent, width 100, recommended rules), then applied the fixes it actually asks for: line wrapping and import order. Zero tab churn."
+      },
+      {
+        "type": "p",
+        "text": "noNonNullAssertion is off for tests/ only. In a test, `find(...)!` states that the value must exist or the test itself is wrong, and the failure is a loud test failure either way. Production code keeps the rule."
+      },
+      {
+        "type": "p",
+        "text": "Verified: tsc clean, 59/59 server tests, lint clean on src and tests."
+      }
+    ]
+  },
+  {
+    "slug": "one-url-scheme-the-path-names-the-app-not-how-it-is-delivere",
+    "title": "One URL scheme \u2014 the path names the app, not how it is delivered",
+    "date": "2026-08-19",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "shell"
+    ],
+    "category": "Commit",
+    "excerpt": "Apps were reached two different ways for reasons only the implementation cared about: framed apps at /a/nexus-chat, shell-native views at /mail and /cloud. To anyone using it, that distinction is invisible and arbitrary.",
+    "sha": "9b1bff1",
+    "content": [
+      {
+        "type": "p",
+        "text": "Apps were reached two different ways for reasons only the implementation cared about: framed apps at /a/nexus-chat, shell-native views at /mail and /cloud. To anyone using it, that distinction is invisible and arbitrary."
+      },
+      {
+        "type": "p",
+        "text": "Worse, it was unstable. If Mail ever gets its own origin, or Chat becomes shell-native, the URL changes and every link to it breaks \u2014 even though the app did not move. Encoding the delivery mechanism in the URL means the URL is a lie waiting to happen."
+      },
+      {
+        "type": "p",
+        "text": "Now every app has one flat path: /chat, /draw, /hosting, /mail, /cloud. AppEntry carries `path` alongside `url`; the route decides whether to frame the origin or render the view, and the link never says which."
+      },
+      {
+        "type": "p",
+        "text": "Old /a/:id links redirect rather than 404 \u2014 a bookmark from before this change must not break because we tidied the scheme. The redirect resolves through the app list rather than string-stripping the id, so an app that legitimately keeps an /a/<id> route is not sent somewhere that does not exist."
+      },
+      {
+        "type": "p",
+        "text": "pathForApp() refuses reserved paths. A registered app called \"account\" cannot take over the account page; it keeps /a/<id> instead. Flat routes are declared after every static route, so shadowing is impossible in the router as well."
+      },
+      {
+        "type": "p",
+        "text": "Fixed a real regression found while updating the tests: the legacy route rendered Home when the app list failed to load, which tells the user nothing went wrong and offers no way to retry. Both routes now share AppsUnavailable, so \"your apps could not load\" never masquerades as \"you are home\"."
+      },
+      {
+        "type": "p",
+        "text": "Also: Nexus-Draw registered itself as \"Nexus-Draw\" while Chat, Cloud and Auth use spaces. One convention \u2014 \"Nexus Draw\" \u2014 fixed at source so the next heartbeat does not overwrite it."
+      }
+    ]
+  },
   {
     "slug": "show-nexus-mail-in-the-app-launcher-and-grid",
     "title": "Show Nexus Mail in the app launcher and grid",
