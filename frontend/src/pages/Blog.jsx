@@ -3,10 +3,25 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, CalendarBlank, Tag } from "@phosphor-icons/react";
 import { POSTS } from "@/data/posts";
+import { COMMIT_POSTS } from "@/data/commitPosts";
+
+/**
+ * The blog is the long-form edition of the changelog.
+ *
+ * Hand-written posts and generated commit posts share one stream, newest first.
+ * The commit bodies in this project already carry the reasoning — why a thing
+ * was built that way, what broke, what was traded off — so generating from them
+ * beats writing the same thing twice and having the two disagree.
+ *
+ * /changelog stays the terse version: one line per change, for scanning.
+ */
+const ALL_POSTS = [...POSTS, ...COMMIT_POSTS].sort(
+  (a, b) => new Date(b.date) - new Date(a.date),
+);
 
 const EASE = [0.22, 1, 0.36, 1];
 
-const CATEGORIES = ["All", ...new Set(POSTS.map((p) => p.category))];
+const CATEGORIES = ["All", ...new Set(ALL_POSTS.map((p) => p.category))];
 
 const fmt = (d) =>
   new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
@@ -14,7 +29,8 @@ const fmt = (d) =>
 export default function Blog() {
   const [category, setCategory] = useState("All");
 
-  const filtered = category === "All" ? POSTS : POSTS.filter((p) => p.category === category);
+  const filtered =
+    category === "All" ? ALL_POSTS : ALL_POSTS.filter((p) => p.category === category);
 
   return (
     <main className="relative min-h-screen bg-void text-white" data-testid="blog-page">

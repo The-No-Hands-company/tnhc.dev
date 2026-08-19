@@ -2,6 +2,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, CalendarBlank, Tag, ListBullets } from "@phosphor-icons/react";
 import { POSTS, getPost } from "@/data/posts";
+import { COMMIT_POSTS } from "@/data/commitPosts";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -47,7 +48,10 @@ export default function BlogPost() {
 
   if (!post) return <Navigate to="/blog" replace />;
 
-  const more = POSTS.filter((p) => p.slug !== slug).slice(0, 3);
+    // "More reading" draws from everything, so a commit post is not a dead end.
+  const more = [...POSTS, ...COMMIT_POSTS]
+    .filter((p) => p.slug !== slug)
+    .slice(0, 3);
 
   return (
     <main className="relative min-h-screen bg-void text-white" data-testid="blog-post-page">

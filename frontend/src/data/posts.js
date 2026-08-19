@@ -1,6 +1,13 @@
-// The TNHC changelog — records of AI-built releases on the kernel.
+// Hand-written posts. The generated ones live in commitPosts.js, and both are
+// merged for display — see Blog.jsx.
+//
+// This file used to describe itself as "the changelog", which is what made the
+// blog and the changelog look like the same thing. They are not: /changelog is
+// one scannable line per change, and the blog is the long-form edition.
 // Each post renders as a full page at /blog/:slug.
 // content is an array of blocks: { type: "p" | "h" | "list" | "quote", text/node }
+
+import { COMMIT_POSTS } from "@/data/commitPosts";
 
 export const POSTS = [
   {
@@ -132,5 +139,13 @@ export const POSTS = [
 ];
 
 export function getPost(slug) {
-  return POSTS.find((p) => p.slug === slug) || null;
+  // Generated commit posts are looked up here too, so a post URL works whether
+  // the piece was written by hand or generated from a commit body. Keeping the
+  // lookup in one place means /blog/:slug cannot work for one kind and 404 for
+  // the other.
+  return (
+    POSTS.find((p) => p.slug === slug) ||
+    COMMIT_POSTS.find((p) => p.slug === slug) ||
+    null
+  );
 }

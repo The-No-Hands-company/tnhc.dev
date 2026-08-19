@@ -18,7 +18,16 @@ if [ ! -d "$REPO/.git" ]; then
     exit 1
 fi
 
+POSTS_OUT="frontend/src/data/commitPosts.js"
+
+# The terse edition: one scannable line per change.
 git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s' --date=short -600 \
   | python3 "$(dirname "$0")/build-changelog.py" > "$OUT"
 
+# The long-form edition: commits whose message actually explains something.
+# Both come from the same history, so the two views cannot contradict.
+git -C "$REPO" log --pretty=format:'%H%x1f%ad%x1f%s%x1f%b%x1e' --date=short -400 \
+  | python3 "$(dirname "$0")/build-commit-posts.py" > "$POSTS_OUT"
+
 echo "Wrote $OUT ($(grep -c '"sha"' "$OUT") entries)"
+echo "Wrote $POSTS_OUT ($(grep -c '"slug"' "$POSTS_OUT") posts)"
