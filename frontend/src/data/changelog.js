@@ -5,9 +5,16 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 517 entries, newest first.
+// 518 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "00c4ab4",
+    "date": "2026-08-19",
+    "kind": "feat",
+    "area": "shell",
+    "title": "Show Nexus Mail in the app launcher and grid"
+  },
   {
     "sha": "64d0427",
     "date": "2026-08-18",

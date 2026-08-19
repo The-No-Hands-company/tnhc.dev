@@ -6,9 +6,49 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 421 posts, newest first.
+// 422 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "show-nexus-mail-in-the-app-launcher-and-grid",
+    "title": "Show Nexus Mail in the app launcher and grid",
+    "date": "2026-08-19",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "shell"
+    ],
+    "category": "Commit",
+    "excerpt": "Mail was reachable at app.tnhc.dev/mail but appeared nowhere in \"Your apps\", so the only way to find it was to know the URL.",
+    "sha": "00c4ab4",
+    "content": [
+      {
+        "type": "p",
+        "text": "Mail was reachable at app.tnhc.dev/mail but appeared nowhere in \"Your apps\", so the only way to find it was to know the URL."
+      },
+      {
+        "type": "p",
+        "text": "The cause is structural, not a missing record. The grid is built from Cloud's tool registry, and Nexus-Email is not in it \u2014 none of the 86 registered tools is a mail record. It cannot simply be registered either: Mail has no public host of its own. The webmail UI is part of this app and reaches the mail API over a private proxy, so a registry entry would have to point at app.<domain>/mail, which toAppEntries deliberately drops as selfHost \u2014 and if it did not, the shell would end up framing itself."
+      },
+      {
+        "type": "p",
+        "text": "So the grid now has two sources rather than one: Cloud's registry, and the views this shell serves itself. shellNativeEntries() contributes Mail with the relative url /mail, which is the existing signal Launcher already uses to route in-app instead of through /a/:id. mergeApps() lets a shell-native view win over a registry record with the same id or destination, so if Nexus-Email is ever registered with Cloud there is still one tile per mailbox, and it is the one that works."
+      },
+      {
+        "type": "p",
+        "text": "Health is probed rather than assumed. The mail API has no /health route, so any HTTP response \u2014 including the 404 it returns for / \u2014 proves it is up and routing; only a connection failure or timeout marks it offline."
+      },
+      {
+        "type": "p",
+        "text": "A Cloud outage no longer empties the grid. Mail lives in this app, so the registry going away is no reason to hide it; two server tests asserted the old empty-grid contract and now assert this one."
+      },
+      {
+        "type": "p",
+        "text": "Grid.tsx routes relative urls through Link instead of a plain anchor. It was reloading the whole shell to reach a page the shell was already running \u2014 which also affected Cloud's /cloud view."
+      }
+    ]
+  },
   {
     "slug": "consolidate-the-ecosystem-into-one-canonical-register",
     "title": "Consolidate the ecosystem into one canonical register",
