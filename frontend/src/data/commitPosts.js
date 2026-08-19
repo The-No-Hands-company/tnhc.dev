@@ -2825,7 +2825,7 @@ export const COMMIT_POSTS = [
       },
       {
         "type": "p",
-        "text": "Verified live against a scratch gated route: no session gets 302 to auth.tnhc.dev with redirect_uri=https://echo.tnhc.dev/probe, and a real session is forwarded upstream carrying X-Nexus-Identity."
+        "text": "Verified live against a scratch gated route: no session gets 302 to auth.tnhc.dev with redirect_uri=a scratch test route, and a real session is forwarded upstream carrying X-Nexus-Identity."
       }
     ]
   },

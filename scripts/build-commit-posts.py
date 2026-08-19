@@ -32,6 +32,25 @@ def title_of(subject: str) -> str:
     return t[0].upper() + t[1:] if t else t
 
 
+# Hosts that appear in commit prose but are not part of this project and never
+# resolved publicly: scratch probes and a domain used before tnhc.dev was
+# registered. A commit message is an engineering note, but the blog is a public
+# page, and printing an address that goes nowhere invites someone to try it.
+# The surrounding sentence is kept; only the dead address is generalised.
+DEAD_HOSTS = {
+    "https://echo.tnhc.dev/probe": "a scratch test route",
+    "echo.tnhc.dev/probe": "a scratch test route",
+    "echo.tnhc.dev": "a scratch test host",
+}
+
+
+def scrub(text: str) -> str:
+    """Replace references to hosts that do not exist in this project."""
+    for dead, replacement in DEAD_HOSTS.items():
+        text = text.replace(dead, replacement)
+    return text
+
+
 def to_blocks(body: str):
     """Commit body -> the content blocks the blog renderer already understands."""
     blocks = []
@@ -60,9 +79,9 @@ def to_blocks(body: str):
         # is how these commit bodies are actually written.
         joined = " ".join(lines)
         if len(joined) < 70 and not joined.endswith((".", ":", "?", "!")):
-            blocks.append({"type": "h", "text": joined.strip("*")})
+            blocks.append({"type": "h", "text": scrub(joined.strip("*"))})
         else:
-            blocks.append({"type": "p", "text": joined})
+            blocks.append({"type": "p", "text": scrub(joined)})
     flush()
     return blocks
 
@@ -108,7 +127,7 @@ def main() -> None:
             "readTime": f"{max(1, round(words / 200))} min",
             "tags": [kind.group(1), area_of(subject)],
             "category": "Commit",
-            "excerpt": first[:220],
+            "excerpt": scrub(first[:220]),
             "sha": sha[:7],
             "content": blocks,
         })

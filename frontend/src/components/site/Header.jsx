@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const NAV = [
@@ -12,6 +12,14 @@ const NAV = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  // This header is shared with pages that are not the landing page. Its logo
+  // and nav used to assume otherwise: the logo only scrolled to the top of
+  // whatever page you were on, and each nav item looked up a section id that
+  // exists only on the landing page, found nothing, and did nothing at all.
+  // On /changelog every one of them was silently dead.
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const onLanding = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -20,8 +28,15 @@ export default function Header() {
   }, []);
 
   const go = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (onLanding) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    // Off the landing page the section does not exist here — go there and let
+    // the hash carry the destination. This also makes the sections linkable:
+    // tnhc.dev/#kernel now means something.
+    navigate(`/#${id}`);
   };
 
   return (
@@ -35,8 +50,17 @@ export default function Header() {
       data-testid="site-header"
     >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-4 md:px-12">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        {/* On the landing page the wordmark scrolls you back up; anywhere
+            else it has to actually navigate home, which is what a logo in the
+            top-left is universally expected to do. */}
+        <Link
+          to="/"
+          onClick={(e) => {
+            if (onLanding) {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
           className="group flex items-center gap-3"
           data-testid="logo-home-button"
         >
@@ -49,7 +73,7 @@ export default function Header() {
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.3em] text-white/40 sm:inline">
             /TNHC
           </span>
-        </button>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((n) => (
