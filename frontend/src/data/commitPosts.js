@@ -6,7 +6,7 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 756 posts, newest first.
+// 758 posts, newest first.
 
 export const COMMIT_POSTS = [
   {
@@ -21009,6 +21009,76 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "put-user-back-in-scope",
+    "title": "Put `user` back in scope",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Every page of the hosting dashboard rendered \"Something went wrong. An unexpected error occurred in this part of the application.\"",
+    "sha": "57a289a",
+    "content": [
+      {
+        "type": "p",
+        "text": "Every page of the hosting dashboard rendered \"Something went wrong. An unexpected error occurred in this part of the application.\""
+      },
+      {
+        "type": "p",
+        "text": "ReferenceError: user is not defined, thrown by Dashboard on every render and caught by the error boundary, which reported the failure without naming it."
+      },
+      {
+        "type": "p",
+        "text": "An earlier change moved the EmailVerificationBanner block out of a nested position \u2014 it had been a syntax error, two elements in one expression with no fragment. The comment left behind reasoned carefully about whether the block could ever render, and concluded it could not, since it needs `user` while the surrounding condition requires !isAuthenticated. What it did not consider is that an unreachable branch still has to *evaluate*: `user` is read to decide whether to render, and Dashboard never destructured it. PersonalDashboard does; Dashboard took only isAuthenticated and login."
+      },
+      {
+        "type": "p",
+        "text": "Found by driving a real browser at the page. The API, assets, lazy chunks and translations were all serving correctly \u2014 nothing in the request path was wrong, and no amount of checking responses would have shown this."
+      },
+      {
+        "type": "p",
+        "text": "Verified: /, /my-sites, /sites, /deploy, /federation, /tokens, /directory and /api-docs all render with no console errors and no error boundary."
+      }
+    ]
+  },
+  {
+    "slug": "do-not-answer-file-requests-with-the-spa-shell",
+    "title": "Do not answer file requests with the SPA shell",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "api",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "The fallback added when the dashboard started being served was too broad. It skipped only /api, /metrics, /.well-known and requests that did not accept HTML \u2014 but `fetch` and dynamic `import()` both send `Accept: */*`, w",
+    "sha": "5314229",
+    "content": [
+      {
+        "type": "p",
+        "text": "The fallback added when the dashboard started being served was too broad. It skipped only /api, /metrics, /.well-known and requests that did not accept HTML \u2014 but `fetch` and dynamic `import()` both send `Accept: */*`, which counts as accepting HTML. So any missing .js, .json, .css or source map answered 200 with index.html instead of 404."
+      },
+      {
+        "type": "p",
+        "text": "That is worse than a 404 in a specific way: a dynamic import handed HTML throws, and since every page in this client is a lazy chunk, a single missing asset would break all of them with an error naming nothing useful. It also silently turned a missing translation file into unparseable JSON."
+      },
+      {
+        "type": "p",
+        "text": "A path with an extension is asking for a file, not a route. Those now fall through to the real 404."
+      },
+      {
+        "type": "p",
+        "text": "Verified: /locales/zz/nope.json answers 404, /locales/en/translation.json still 200 with application/json, /my-sites still 200."
       }
     ]
   },
