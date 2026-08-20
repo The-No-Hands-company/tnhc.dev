@@ -6,9 +6,37 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 752 posts, newest first.
+// 753 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "let-the-shell-frame-it-and-bump-the-now-buildable-submodule",
+    "title": "Let the shell frame it, and bump the now-buildable submodule",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "app.tnhc.dev/hosting showed a browser refusal page. The CSP fix for that has been committed since 0d94a80 and could not ship: the image had not been buildable for some time, so the running container predated it. d9c7110 ",
+    "sha": "9cafc93",
+    "content": [
+      {
+        "type": "p",
+        "text": "app.tnhc.dev/hosting showed a browser refusal page. The CSP fix for that has been committed since 0d94a80 and could not ship: the image had not been buildable for some time, so the running container predated it. d9c7110 fixes the build; this bumps the pointer and deploys it."
+      },
+      {
+        "type": "p",
+        "text": "SHELL_ORIGINS is set here rather than left to the app's default. That default builds app.${PUBLIC_DOMAIN}, and PUBLIC_DOMAIN on this node is hosting.tnhc.dev \u2014 the app's own hostname, not the bare domain \u2014 so it emitted app.hosting.tnhc.dev, which resolves to nothing. Caught by reading the header the running container actually sent, not the code. Which origin hosts the shell is a deployment fact and belongs in the deployment file."
+      },
+      {
+        "type": "p",
+        "text": "Verified after rebuild: frame-ancestors 'self' https://app.tnhc.dev, hosting.tnhc.dev answering 200, container healthy with zero restarts, /api/health responding, and the sites behind the Rust proxy unaffected."
+      }
+    ]
+  },
   {
     "slug": "name-this-node-instead-of-reporting-that-none-exist",
     "title": "Name this node instead of reporting that none exist",

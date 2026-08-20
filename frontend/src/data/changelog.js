@@ -5,9 +5,16 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 956 entries, newest first.
+// 957 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "9cafc93",
+    "date": "2026-08-20",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Let the shell frame it, and bump the now-buildable submodule"
+  },
   {
     "sha": "485c19c",
     "date": "2026-08-19",

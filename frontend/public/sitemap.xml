@@ -2,3782 +2,3787 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tnhc.dev/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/apps</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/changelog</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/blog/let-the-shell-frame-it-and-bump-the-now-buildable-submodule</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/name-this-node-instead-of-reporting-that-none-exist</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/let-shell-native-pages-scroll</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/lead-with-reachable-tools-not-heartbeats</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/survive-a-bundle-newer-than-the-server-and-give-biome-a-conf</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/one-url-scheme-the-path-names-the-app-not-how-it-is-delivere</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/show-nexus-mail-in-the-app-launcher-and-grid</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/consolidate-the-ecosystem-into-one-canonical-register</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/send-attachments-and-reply-from-the-reader</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/conversations-attachment-downloads-and-safe-html</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/imap4rev1-so-ordinary-mail-clients-can-use-a-nexus-mailbox</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-smtp-daemon-and-deploy-sh-starts-it</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/authenticate-inbound-mail-at-the-smtp-door</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/spf-evaluation-and-dmarc-alignment</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/dkim-signing-and-verification</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/smtp-outbound-mx-resolution-delivery-client-and-the-worker</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/smtp-inbound-the-session-the-listener-and-the-relay-policy</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/webmail-in-the-shell</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/search-and-the-http-api-the-webmail-will-consume</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/internal-and-federated-delivery</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rfc-5322-and-mime-parsing-and-generation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-mail-store-and-identity-model</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-email-a-sovereign-mail-system</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/forward-the-client-s-scheme-not-the-tunnel-hop-s</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/channels-can-be-created-and-existing-ones-actually-show</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/read-the-fields-cloud-actually-returns</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/point-the-launcher-at-cloud-retire-cloud-s-own-frontend</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/drop-the-users-view-and-never-render-object-object</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/port-cloud-s-users-federation-identity-api-views-into-the-sh</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/port-cloud-s-overview-tools-views-into-the-shell</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/allow-list-lookup-must-be-own-property-only</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/allow-listed-proxy-for-cloud-s-control-plane-api</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/cloud-s-console-as-shell-native-views</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/give-account-and-admin-the-ecosystem-chrome</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-the-nh-cli-actually-run-and-build</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/actually-render-the-shell-in-the-ecosystem-palette</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/adopt-ecosystem-design-tokens-via-zinc-scale-alias</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/vendor-script-drift-guard-for-chat-and-cloud-token-copies</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/apps-adopt-the-ecosystem-design-tokens</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/preserve-the-shell-plan-s-execution-ledger</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/pointer-bump-resolve-the-contradicting-frame-headers-on-the</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/pointer-bump-clap-flag-fix-unblocks-nexus-proxy-cargo-test</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/regenerate-design-tokens-before-dev-not-just-build</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-the-api-server-s-csp-comment-claiming-a-fix-it-isn-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/compact-topbar-when-embedded-not-hidden</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/close-the-shell-s-own-clickjacking-hole</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/frame-the-console-in-the-shell-and-only-in-the-shell</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/honour-the-shell-s-embed-flag</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/republish-minio-on-9010-so-storage-tnhc-dev-serves-again</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-the-cli-a-first-class-ecosystem-surface</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/serve-frame-ancestors-csp-from-the-actual-public-path-nexus</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/correct-framing-headers-on-the-embeddable-apps</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/distinguish-loading-failed-app-list-from-a-genuinely-unknown</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-app-list-has-three-states-not-two</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/route-a-appid-through-the-shell</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/mount-apps-in-a-frame</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-app-launcher</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sidebar-is-a-complementary-landmark-test-scopes-assertion</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-shell-sidebar-is-complementary-not-navigation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-three-regions</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/untrack-the-typescript-build-cache</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/forbid-git-add-a-and-correct-a-stale-test-baseline</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/adopt-the-ecosystem-design-tokens</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-task-3-s-verification-which-failed-on-working-code</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/unit-correct-token-values-and-real-tailwind-v4-namespaces</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/tokens-need-units-and-tailwind-v4-namespaces</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-token-file-and-its-generator</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/flatten-nested-tokens-into-css-custom-properties</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/correct-the-rationale-for-duplicating-isembedded</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implementation-plan-for-the-ecosystem-shell-and-design-syste</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/design-for-the-ecosystem-shell-and-design-system</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/one-tile-per-destination</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/close-the-hosting-bypass-and-gate-draw</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-labelling-decompressed-bodies-as-compressed</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/one-stale-cookie-must-not-shadow-a-valid-session</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/real-crypto-everywhere-it-is-used-and-stop-showing-signed-in</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/real-post-quantum-crypto-for-draw-via-bun-ffi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/signing-in-with-no-return-address-no-longer-looks-like-failu</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-the-sdk-claiming-cryptography-it-is-not-doing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/desktop-admin-and-mobile-on-ecosystem-sso</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/relay-websockets-so-chat-updates-live-again</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chat-client-talks-to-its-own-origin-not-a-stale-stored-one</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-front-door-is-applied-and-redirects-goes-in-public</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/keep-the-return-address-at-sign-in-and-give-the-apex-a-front</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/harden-the-login-gate-and-switch-it-on-for-chat</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ecosystem-sso-cutover-phase-4-task-4</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/keep-the-return-address-when-sending-someone-to-sign-in</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ecosystem-identity-middleware-and-provisioning-sso-phase-4-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/identity-token-verification-sso-phase-4-task-2</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bind-every-service-to-loopback-so-the-proxy-is-the-only-way</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/run-the-draw-backend-and-stop-nexus-chat-s-env-from-leaking</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implementation-plan-for-sso-phase-4-integration-and-hardenin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/heartbeat-to-cloud-and-make-deploy-sh-idempotent</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/heartbeat-to-cloud-and-make-deploy-sh-idempotent-0211733</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bring-the-dashboard-up-at-app-tnhc-dev</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/operator-admin-panel</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/account-page-password-recovery-codes-sessions</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/let-users-change-their-own-password-and-enforce-the-length-r</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/app-grid-and-a-root-route-that-knows-who-you-are</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/request-access-and-claim-pages</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/explain-an-unbuilt-spa-instead-of-serving-nothing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/serve-the-spa-and-proxy-auth-onto-one-origin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/mark-the-pre-commit-secret-scanner-executable-in-the-index</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/build-the-app-grid-from-cloud-s-registry</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implementation-plan-for-sso-phase-3-the-dashboard</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implementation-plan-for-sso-phase-3-the-dashboard-dc154ed</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/login-gate-with-audience-scoped-identity-forwarding</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/carry-a-requiresauth-policy-on-each-route</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/export-handlerequest-and-only-listen-when-run-directly</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exchange-a-session-for-an-audience-scoped-identity-token</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/identity-token-claim-set</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/detach-services-with-setsid-so-they-survive-their-launcher</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/export-handlerequest-and-only-listen-when-run-directly-544585e</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exchange-a-session-for-an-audience-scoped-identity-token-b8d0886</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/identity-token-claim-set-39df5c4</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/detach-services-with-setsid-so-they-survive-their-launcher-4a84ca8</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/black-screen-on-https-use-wss-guard-collab-websocket</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ai-generation-panel-with-apply-to-canvas</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ai-generation-panel-with-apply-to-canvas-9834851</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/deterministic-diagram-synthesizer</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/collaborative-binding-live-presence-pill</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implementation-plan-for-sso-phase-2-the-gate</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/yjs-collaboration-and-ai-helpers-work-in-progress</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/http-routes-for-the-account-lifecycle</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/lift-the-request-handler-out-of-bun-serve</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/operator-minted-invite-codes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/single-use-recovery-codes-issued-at-claim-time</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/claim-an-approved-account-with-a-one-time-code</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/public-access-requests-with-one-time-claim-codes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/account-status-state-machine-replaces-the-disabled-flag</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/drop-the-undefined-phantom-stop-switch-user-patch-to-status</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implementation-plan-for-sso-phase-1-identity</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/design-for-ecosystem-sso-and-the-front-door</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bring-nexus-chat-up-with-the-rest-of-the-stack</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/serve-chat-tnhc-dev-from-nexus-chat</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/drop-the-fake-fill-zoom-tools-and-give-the-eraser-a-real-hot</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/restore-saved-elements-on-reload-and-debounce-autosave</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-resize-handles-responding-on-locked-hidden-elements</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-draw-phase-1-editor-spec-build-plan</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/lock-two-phase-2-decisions-absorb-over-100-cost-keep-acme-ts</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implementation-plan-for-user-custom-domains-phase-2</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/design-spec-for-user-custom-domains-phase-2-cloudflare-for-s</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/route-the-tnhc-dev-wildcard-to-nexus-hosting-sites</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-global-cloud-ecosystem-taxonomy-v4-master-blueprint</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-openid-connect-authorization-code-flow-with-pkce</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/edge-ordering-check-failed-on-any-graph-with-ten-or-more-edg</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/drop-bincode-it-was-declared-but-never-used</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/clear-the-real-advisories-and-stop-informational-ones-failin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/repair-three-apps-that-could-not-start-and-a-health-check-th</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/pin-team-chat-s-base-url-so-it-stops-publishing-a-dead-hostn</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/record-how-auth-s-seed-credentials-reach-it-and-why-not-via</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-deploying-production-on-an-unrecognised-argument</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/move-sign-in-to-auth-tnhc-dev-the-apex-is-the-marketing-site</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/relay-redirects-and-rebuild-forwarded-headers-serve-the-apex</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/apex-sign-in-page-with-validated-redirect-back</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-publishing-the-signing-key-sign-service-tokens-with-rs2</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/issue-a-shared-session-cookie-so-one-login-covers-the-ecosys</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/on-demand-tls-gated-by-cloud-s-tls-ask-endpoint</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/dynamic-proxy-routing-never-resolved-an-upstream</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/finish-the-root-script-reorg-2228cecc-left-half-done</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-73-a-cut-that-can-bend</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/cut-a-face-along-a-polyline-the-seam-a-traced-quartic-produc</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-72-searching-for-the-shape-of-a-lie</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/trimboolean-returned-zero-area-bowties-found-by-sweeping-for</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-71-the-assertion-that-could-not-fail</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-nurbs-surface-intersector-behind-a-test-that-could-not-f</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/give-every-published-artifact-a-source-in-the-repo-and-re-me</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-70-marching-a-curve-that-has-no-formula</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/trace-the-quartic-surface-intersections-the-analytic-table-c</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-69-asking-the-empty-body-why</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/say-why-a-boolean-returned-nothing-and-the-answer-reorders-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-68-the-pair-that-was-never-in-the-table</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-cone-was-missing-from-the-surface-intersection-table-sil</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-67-a-boundary-predicted-in-advance</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-cut-line-may-cross-a-boundary-more-than-twice</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-66-the-hole-becomes-the-boundary</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-cut-whose-line-runs-through-a-hole</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-65-which-piece-keeps-the-hole</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/splitting-a-face-gave-its-holes-to-the-wrong-piece</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-64-passing-because-nothing-had-succeeded</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/planar-faces-were-fanned-too-the-last-of-the-tessellator-s-l</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-63-asked-the-same-question-five-thousand-times</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/cache-classifypoint-s-tessellation-keyed-on-the-body-itself</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-62-where-the-points-come-from</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-sphere-with-a-lattice-anchored-to-the-surface-not-the-fa</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-61-and-the-corrections-the-scope-document-earned</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/tomesh-fanned-every-curved-face-and-so-never-refined-one</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-60-the-oracle-was-the-broken-one</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-analytic-integrator-a-hole-a-fan-and-a-boundary-it-jumpe</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/part-v-going-back-to-the-beginning-chapters-56-59</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-3d-tetrahedralizer-under-filled-its-own-convex-hull</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nurbs-refinement-a-crash-a-no-op-and-a-rational-curve-that-m</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-sphere-parametrised-about-an-axis-its-grid-did-not-use</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-convex-hull-that-was-neither-closed-wound-nor-convex</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/curved-patches-integrated-inside-out-read-orientation-from-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-boolean-s-result-as-an-operand-coincident-curved-faces-rea</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-cone-s-base-was-a-ring-of-chords-under-faces-claiming-an-e</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-face-drawn-twice-split-a-pinched-loop-before-triangulating</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-fan-apex-was-decided-by-the-last-bit-of-a-tied-coordinat</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-50-going-to-look</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-last-place-a-sample-point-could-be-off-its-own-face</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-49-bands</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-ball-on-a-rod-and-a-sample-point-never-on-its-own-face</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-48-the-cap-that-would-not-cut</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/cylinders-side-by-side-and-the-cap-that-would-not-cut</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-47-a-primitive-you-could-not-model-with</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-cone-can-be-combined-with-something</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-46-a-rare-follow-up</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-face-may-have-more-than-one-hole</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-45-one-cause-wearing-two-faces</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-face-s-bounding-box-vetoes-a-wrong-containment-verdict</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-editor-can-reach-the-analytic-b-rep</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-44-a-sliver-seven-thousandths-wide</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-face-s-sample-point-needs-clearance-not-just-membership</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-43-the-third-time-is-the-confession</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-seam-crossing-that-lands-on-a-vertex-must-still-count</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-42-where-the-ring-happened-to-start</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-fan-apex-decided-how-much-space-a-curved-patch-enclosed</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-41-refusing-to-cut-is-not-the-safe-option</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-circle-may-cross-a-face-s-boundary-more-than-twice</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-40-the-long-way-round</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-imprint-could-pick-the-arc-going-the-long-way-round</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-seam-radius-was-rounded-to-float-between-two-doubles</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-39-six-bites-and-no-ring</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-sphere-can-take-a-seam-and-the-seam-closes-into-a-ring</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-loose-weld-band-is-a-modeling-scale-not-a-float-workarou</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-float-coordinate-entry-is-now-a-reversal-not-an-open-que</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-37-the-double-migration-and-the-four-calls-that-kept</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/lift-the-b-rep-s-precision-ceiling-the-last-floats-were-in-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-b-rep-s-construction-math-is-double-too-primitives-param</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-analytic-b-rep-is-double-precision</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/record-the-geometry-kernel-s-trade-offs-each-with-the-altern</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/step-1-done-the-tomesh-crack-was-overlap-and-the-degenerate</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/scope-tomesh-s-curved-patch-tessellation-with-the-crack-cons</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-boolean-must-carry-its-operands-reversal-not-just-impose-i</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-reversed-curved-face-can-now-say-so-facedef-reversed</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapters-35-36-the-flag-that-dissolved-the-bedrock-and-the-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/honour-imprintcurve-s-kinvalid-contract-stop-the-ear-clipper</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-6-curved-boolean-the-shared-vertical-seam-offset-cylin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/correct-the-curved-boolean-handoff-the-vertical-seam-is-not</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-5-curved-boolean-the-offset-cylinder-s-arc-bite-seam</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ieee-754-semantics-ffast-math-was-silently-de-exacting-the-e</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-4e-curved-boolean-an-imprint-segments-a-face-it-does-n</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-4d-curved-boolean-accept-a-latitude-crossing-at-an-edg</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-4c-curved-boolean-classify-a-face-by-its-material-not</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-4b-curved-boolean-carry-face-inner-loops-through-the-s</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-4a-curved-boolean-share-the-seam-ring-between-operands</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/reproducible-html-book-edition-renderer</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-3-curved-boolean-wire-circle-seams-into-the-imprint-dr</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-2-curved-boolean-imprint-a-circle-onto-a-cylindrical-f</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-1-curved-boolean-carry-arc-geometry-across-the-sew</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/circle-imprint-no-longer-drops-legitimate-near-corner-arc-bi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/b-rep-union-watertight-splitedge-no-longer-manufactures-mism</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/drop-duplicate-coplanar-faces-in-booleantobody-so-overlaps-s</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/three-real-bugs-in-videoeditor-ub-split-ripple-transition-di</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/close-the-mesh-boolean-class-1-seam-leak-3x-tolerance-seam-w</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-insphere-predicate-tetdelaunay3d-uses-it-for-the-cavit</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/edgeslide-meshvertexmerge-were-broken-dead-code-never-even-b</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sectiontool-profiletool-emitted-every-cross-section-point-tw</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/normalize-the-quaternion-in-sanitizetransform-before-buildin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/transform-tomatrix-composed-t-s-r-instead-of-t-r-s</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/decimator-discarded-partial-work-and-miscounted-faces</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nurbssurface-partials-had-the-same-defect-as-the-curve-wrong</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nurbscurve-derivative-was-wrong-for-every-curve-above-degree</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-planar-faces-via-green-s-theorem-analytic-b-rep-is-now</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-analytic-surface-area-share-the-parametric-integrator</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-analytic-mass-properties-for-the-sphere-too-robustly</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-analytic-mass-properties-for-cylinder-and-cone-faces</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/a-real-cone-surface-and-the-check-that-catches-a-face-lying</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/mesh-inertia-tensor-was-wrong-and-removes-the-workaround-it</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-26-what-the-cube-could-not-show</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/repair-the-topology-validator-and-the-winding-bug-it-uncover</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-25-nothing-turned-red</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ambient-occlusion-never-saw-an-occluder-shadow-ray-bias</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-random-source-returned-0-0-000488-instead-of-0-1</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-24-the-cost-that-was-somewhere-else</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/broad-phase-the-cut-and-make-the-vertex-weld-near-linear</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-23-the-tree-that-never-grew</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/repair-meshbvh-it-was-returning-wrong-answers-and-not-accele</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-22-the-triangle-that-was-not-a-t-junction</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/drop-cap-sub-triangles-closes-the-extreme-density-seam-resid</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-the-vertex-weld-being-all-or-nothing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-21-the-offset-that-could-not-exist</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/classify-boolean-faces-without-a-probe-offset-closes-seam-cl</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-20-the-bedrock-was-not-bedrock</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-the-exact-predicates-actually-exact</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/full-documentation-set-beginner-user-developer-guides-html-e</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chapter-19-the-triangle-that-was-too-small</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/size-the-bowyer-watson-super-triangle-to-the-input-s-thinnes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/harden-cdt-constraint-recovery-to-sloan-s-ordered-rule</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/robust-cdt-constraint-enforcement-halves-mesh-boolean-leaks</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/resolve-voxelgrid-double-definition-voxelize-non-finite-guar</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-the-kernel-logbook-a-chaptered-book-format-narrative-of</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/booleantobody-watertight-or-empty-invariant-near-degenerate</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sos-capstone-complete-classifypoint-is-now-fully-exact</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sos-step-2-exact-degeneracy-free-segment-vs-triangle-crossin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sos-step-1-exact-never-ambiguous-point-vs-plane-side-pointpl</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/twisted-extrude-twisted-prism-twistextrude</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/open-box-shell-tray-makeopenbox-the-open-surface-path</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/pyramid-cone-primitive-makepyramid</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/axis-touching-partial-revolve-cylindrical-cone-sector-pie-sl</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/tube-pipe-primitive-maketube-direct-annular-extrude</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/hollow-shell-op-hollowbox-via-boolean-difference</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/loft-ruled-solid-between-two-profiles-loftprofiles</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/partial-revolve-a-capped-arc-solid-revolveprofilepartial</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-plane-cylinder-perpendicularity-in-ssi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-plane-plane-parallel-classification-in-ssi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-in-plane-straddle-wired-into-imprint-s-line-crossing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-segment-vs-triangle-predicate-segmentcrossestriangleex</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-arithmetic-point-vs-plane-predicate-faceplaneside-via</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/interior-trim-loop-holes-on-nurbs-faces-parameter-space-hole</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/curved-polyline-pcurves-curved-nurbs-trim-boundaries</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/trimmed-nurbs-tessellation-tomesh-walks-the-pcurve-trim-regi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nurbs-trimmed-faces-parameter-space-trim-curves-pcurves</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/2-body-boolean-feature-parametric-csg-tree-in-the-feature-st</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/mark-robust-boolean-csg-as-solid-foundation-pillar-landed</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/booleanoperation-now-uses-the-robust-csg-pipeline-iter-5-don</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/robust-mesh-boolean-pipeline-classify-assemble-stitch-iter-4</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/whole-mesh-cut-along-intersection-curve-boolean-iter-3</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/repair-broken-cdt-per-triangle-retriangulation-boolean-iter</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/exact-tri-tri-intersection-segment-robust-boolean-foundation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-foundation-robustness-depth-axis-downgrade-cosmetic-bool</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/modifierstack-serialization-save-io-round-trip-l5-iter-3</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/modifierstack-array-displace-modifiers-result-caching-l5-ite</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/non-destructive-modifierstack-parity-l5-keystone-iter-1</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/render-the-imgui-editor-ui-in-the-window</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/create-a-real-window-surface-for-on-screen-vulkan-present</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/hand-rolled-usd-usda-mesh-import-export-parity-l13-p1</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/wire-editor-file-menu-import-export-through-meshio-parity-l1</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/hand-rolled-gltf-2-0-import-export-parity-l13-increment-3</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ply-import-ascii-binary-le-parity-l13-increment-2</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/obj-import-stl-import-export-parity-l13-increment-1</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/industry-modeling-parity-reference-prioritized-gap-backlog</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/modeling-editor-agent-debug-subsystems-c-26-api-freeze-fixes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-nexus-router-central-orchestration-engine-for-enti</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/modeler-selection-multi-select-gizmo-grid-undo-and-transform</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/vbo-rendering-per-feature-display-modes-msaa-nurbs-sketch-cu</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/7-rounds-of-hardening-features-r2-r13</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/production-deployment-for-nexussystems-vexr-dev</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/information-schema-string-agg</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/math-functions-extract-create-schema</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/session-commands-now-concat-trim</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/partition-by-lag-lead-window-functions</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/values-clause-vacuum-no-op</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/window-functions-row-number-rank-dense-rank</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/is-distinct-from-null-safe-order-by</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/prepared-statement-parameter-binding-string-functions</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/create-index-sql-drop-table-cascade-set-show</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/explain-analyze-d-table-better-error-codes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/create-table-as-select-enhanced-pg-catalog</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/upsert-on-conflict-do-update-alter-column-type</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/and-or-not-in-where-intersect-except</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/union-ilike-drop-view</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/session-nextval-currval-case-when-coalesce</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/insert-returning-timestamp-type-fk-cascade-delete</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/authentication-transaction-state-machine-subqueries</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/wal-logging-for-update-delete-truncate-crash-recovery</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/index-utilization-in-query-planning-index-scan</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/proper-rollback-undo-all-columnar-changes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/repair-3-pre-existing-test-failures-74-74-passing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/multi-column-order-by-insert-with-columns-check-constraints</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/is-null-like-in-between-offset-where-predicate-system</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/full-dcc-modeling-workflow-with-13-modes-ui-panels-and-inter</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/having-clause-rename-table-column</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/drop-table-drop-index-distinct-select</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/proper-update-delete-with-where-inner-left-join</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/alter-table-add-drop-column-group-by-aggregation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/unique-constraint-truncate-table</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/views-create-view-drop-view-with-stored-query-execution</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/foreign-keys-references-constraint-with-validation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sequences-serial-auto-incrementing-primary-keys</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/column-constraints-not-null-default-validation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/pg-catalog-real-schema-introspection-from-internal-catalog</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/explain-query-execution-plan-visibility</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/prepared-statements-parse-bind-execute-protocol-support</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/hnsw-vector-index-approximate-nearest-neighbor-for-ai-embedd</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/json-document-support-jsonb-type-and-operators</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/full-text-search-gin-inverted-index-with-tf-idf-ranking</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/update-and-delete-crud-completeness</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/select-returns-real-data-columnar-store-wired-to-query-execu</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/persistent-storage-data-survives-across-psql-connections</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/columnar-analytics-group-by-aggregates-columnar-scans</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/acid-transactions-begin-commit-rollback-with-wal-durability</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/secondary-indexes-b-tree-indexes-on-any-column</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sql-parser-query-executor-psql-queries-reach-the-engine</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/delta-main-bridge-polymorphic-storage-virtualization</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/lsm-tree-engine-row-format-storage-layer</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/postgresql-wire-protocol-psql-can-connect-to-nexus-database</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-database-engine-b-tree-buffer-pool-wal-page-manager</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-wiki-wikipedia-features-links-toc-diffs-talk-auth</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-wiki-wikipedia-like-knowledge-platform-fully-built</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ghost-generates-react-frontends-graphics-engine-consolidated</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/development-blueprint-every-app-with-tech-stack-status-build</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/reorganize-root-docs-docs-scripts-scripts</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ci-replace-bun-install-with-npm-symlink-from-cloud</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-5-hop-oblivious-routing-demo-wired-forwarder</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/quickstart-md-preflight-check-fresh-clone-to-running-in-5-co</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/capstone-demo-cloud-phantom-discovery-pipeline-in-one-comman</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/mass-phantom-discovery-binding-to-70-bun-apps</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-discovery-phantom-sdk-integration-visualizer-rebuild-s</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-discovery-service-mesh-via-cloud-topology</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-sdk-integration-module-nexus-graphic-reference-bindi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-sdk-post-quantum-identity-layer-for-all-nexus-apps</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ghost-framework-shell-apps-federation-cleanup</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ecosystem-integration-cloud-registration-cross-app-comms-ci</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/multi-set-pipeline-layouts-deferred-composite-is-hardware-co</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/publish-composite-descriptor-set-layout-contract-bind-from-i</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/descriptor-set-layouts-for-graphics-compute-mesh-pipelines</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rt-descriptor-binding-buffer-readback-full-dispatch-test</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rt-bring-up-shaders-hardware-gated-dispatch-test</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/build-and-bind-ray-tracing-shader-binding-table-for-traceray</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/anisotropic-inertia-tensor-via-angular-momentum-integration</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/design-for-stabilized-inertia-tensor-rigid-body-solver</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-rt-merge-design-notes-and-vs-code-copilot-setup</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/linear-and-angular-velocity-damping-for-rigid-bodies</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/merge-ray-traced-output-into-the-composite-color</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-claude-md-for-nexus-modeling-kernel</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fixed-timestep-simulation-driver-with-render-interpolation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rigid-body-angular-dynamics-and-rotation-coupling</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/month-13-rt-stub-pass-and-simulation-scenegraph-coupling</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/api-contract-summary-release-gate-and-tag-ready-notes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/scripting-and-automation-layer-v0</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/advanced-rendering-track-gaussian-splatting-temporal-accumul</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/simulation-interfaces-v0</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/procedural-and-evaluation-graph</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/animation-and-rigging-core-v0</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/asset-and-pipeline-core</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/modeling-workflow-slice-1-geometry-ops</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-double-posting-on-send-and-stop-losing-history-on-reloa</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/channels-can-be-created-and-existing-ones-actually-show-329193f</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/render-chat-in-the-ecosystem-palette</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/vendor-ecosystem-design-tokens-for-the-palette-drift-guard</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-emitting-a-contradicting-x-frame-options-fix-frame-ance</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/honour-the-shell-s-embed-flag-c186a03</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/say-why-sign-in-failed-instead-of-a-bare-dead-end</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/desktop-admin-and-mobile-sign-in-to-the-ecosystem</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-sending-a-credential-the-client-no-longer-has</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-asking-a-stale-localstorage-value-which-server-we-talk</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/delete-the-credential-machinery-nothing-calls-any-more</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/delete-the-local-login-in-favour-of-ecosystem-sso</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/authenticate-from-the-ecosystem-identity-header</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/verify-ecosystem-identity-tokens-against-auth-s-jwks</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bind-to-loopback-so-the-proxy-is-the-only-way-in</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/let-the-server-actually-start-in-both-lite-and-full-mode</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-the-workspace-compile-and-its-test-suite-pass</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/let-lite-mode-start-and-stop-tracking-the-secret-it-writes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/skip-migration-reconciliation-on-a-fresh-database</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-message-signing-dilithium-5-signatures-on-messages</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-db-migration-repository-for-nexus</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-identity-api-endpoint-for-nexus-users</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-protocol-e2ee-identity-layer-for-nexus-users</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/allow-iframe-embedding-from-nexus-cloud-portal</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/register-with-nexus-cloud-on-startup-30s-heartbeat</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-mobile-ui-components-with-server-integration</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-missing-api-methods-store-settings-and-fix-undefined-var</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rewrite-api-ts-methods-were-outside-the-class</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/align-kotlin-to-1-9-24-to-match-react-native-gradle-plugin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-plain-apk-build-script-with-no-colon</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-standalone-apk-build-scripts</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-broken-import-in-registerscreen</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/wire-onopenprofile-prop-and-userprofilecard-popup</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/runtime-issues-in-phases-20-24-sql-conflicts-http-methods-ro</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-16-advanced-collaboration-productivity-v1-5</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-15-04-creator-monetization-15-05-server-discovery</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/email-service-friendly-errors-session-persistence-invite-url</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/12-factor-database-url-redis-url-correct-nexus-prefix-disabl</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-migrations-resolve-duplicate-version-00007-collision</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/full-s2s-correctness-pass</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/federated-server-room-browser</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/wire-relationship-update-gateway-event-to-friendspanel</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/inbound-sig-verification-gateway-push-caddy-tls</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/http-fallback-in-discovery-port-in-well-known-m-server</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/cross-server-friend-requests-via-username-server</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/cast-uuid-timestamptz-columns-to-text-in-emoji-attachment-th</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/resolve-all-compile-errors-and-migration-issues-smoke-test-p</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-8-5-complete-federation-ux-admin-peering-dashboard-ide</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-15-complete-user-badges-server-supporter-tiers-canvas</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-14-complete-message-forwarding-server-events-sticker-p</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-13-complete-pollcard-scheduled-send-bookmarks-drafts-n</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-13-polls-scheduled-messages-bookmarks-drafts-disappear</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-12-forum-channels-stage-instances-announcement-crosspo</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/complete-protocol-layer-and-fix-all-runtime-bugs</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-settings-sub-pages-bot-token-scheme-and-matrix-bri</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-9-5-zero-infra-single-binary-mode</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/friends-system-member-list-user-profiles-presence-fix</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/remove-all-bridge-adapter-compat-language-nexus-is-its-own-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/reframe-nexus-identity-as-post-discord-not-discord-compatibl</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/resolve-remaining-anypool-compile-errors-in-gateway-and-fede</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-lite-mode-single-binary-sqlite-for-self-hosting</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-post-login-functionality</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/resolve-all-local-dev-startup-issues</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/launch-deployment-infra-security-hardening-benchmarks-govern</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/wire-federationclient-implement-all-federation-stubs</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/directory-db-queries-servers-rooms-search-resolve</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/federated-identity-mxid-resolution-user-profile-endpoint</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/pdu-signature-verification-persistence-in-receive-transactio</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/load-federation-signing-key-from-db-on-startup</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/federation-protocol-s2s-directory-matrix-bridge-stub</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/extensibility-bot-api-webhooks-slash-commands-plugins-themes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/v0-6-desktop-client-tauri-2-shell-system-tray-ptt-hotkey-ove</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/voice-webrtc-sfu-signaling-state-management-str0m-integratio</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/chat-mvp-messages-reactions-dms-read-states-real-time-events</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/initial-nexus-scaffold-privacy-first-discord-alternative</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/remove-run-command-from-destructive-actions-stops-blocking-c</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/remove-strict-mode-instruction-from-system-prompt-when-no-gu</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/change-strict-mode-defaults-from-strict-balanced-permanently</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/move-copy-export-to-conversation-footer-bottom-of-messages</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/conversation-level-copy-export-md-buttons</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/default-to-reasoning-models-deepseek-reasoner-nvidia-nemotro</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/prioritize-providers-with-configured-api-keys-over-free-keyl</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/clean-provider-key-ui-dropdown-single-input-instead-of-44-st</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-populateproviderkeys-synchronous-no-await-no-async-no-f</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/preload-provider-keys-during-page-init-so-inputs-show-immedi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/aggressive-provider-routing-optimization-no-more-dead-air</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/wire-run-agent-task-into-loop-implement-phase-for-real-code</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/proper-7-phase-loop-engineering-with-multi-agent-orchestrati</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rewrite-autonomous-loop-as-in-process-python-engine</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/autonomous-loop-engineering-system-for-nexus-ai</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/populateproviderkeys-now-fetches-providers-if-cache-empty</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/provider-api-key-management-in-ui-backend</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/shutdown-exemption-for-nostack-health-classify-in-web-spa</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-project-root-to-pythonpath-in-main-py</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/comprehensive-nostack-api-reference-and-usage-guide</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nostack-go-sdk-skill-suggestions-in-main-web-ui</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-nostack-methods-to-typescript-sdk</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-nostack-methods-to-python-sdk-sync-async-clients</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/websocket-sse-streaming-for-nostack-skills-makefile-nostack</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nostack-health-endpoint-enhanced-cli-with-suggestions</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/skill-classification-endpoint-recommend-skills-from-task-des</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sprint-error-handling-16-new-tests</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/remove-duplicate-pwa-meta-tags-add-missing-sections-to-skill</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/xss-hardening-and-input-validation-in-nostack-js</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nostack-panel-in-main-web-ui-fix-deprecation-warning</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/desktop-app-built-in-ui-fix-2-xfailed-tests</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sprint-state-system-templates-npm-deps-updated</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-nostack-test-suite-skills-panel-to-web-spa</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/track-mobile-desktop-vscode-extension-in-git-add-nostack-to</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nostack-integration-across-all-apps-mobile-app-rewrite</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-nostack-api-endpoints-fix-lazy-imports-and-db-warnings</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-nostack-31-specialist-skills-for-nexus-ai-virtual-engine</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/adopt-structured-chat-thread-and-relax-strict-write-file-gat</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/grouped-activity-trace-sections-with-per-section-counts</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-collapsible-live-activity-trace-for-agent-execution</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/extract-inline-css-from-index-html-into-organized-css-files</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/collapse-tool-steps-hide-diagnostic-noise-reduce-llm-timeout</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/resolve-github-repo-analysis-flow-end-to-end-working</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/read-file-list-files-must-bypass-dispatch-builtin-to-use-ses</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/expose-relative-read-file-prefix-in-clone-result-and-tighten</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/correct-broken-provider-configs-and-improve-error-routing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/strip-injected-memory-kg-from-client-history-and-fix-chat-ti</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-list-files-read-file-loops-and-improve-github-repo-path</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/reduce-warmup-demotion-window-and-add-admin-provider-reset-e</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/remove-all-hardcoded-ai-responses-add-bypass-history-endpoin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/agent-always-produces-final-answer-github-repo-workflow</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/live-trace-panel-task-history-panel-swarm-sse-upgrade</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/public-launch-ux-hardening-onboarding-state-persistence-erro</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/promote-benchmark-credibility-and-sdk-packaging-gaps-to-x</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/commit-remaining-staged-changes-from-sec26-and-platform-gap</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/dataset-backed-benchmark-runners-artifact-export-and-release</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-42-of-68-section-26-production-readiness-gap-items</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/production-grade-implementation-of-11-downgraded-features</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/deep-audit-downgrade-11-overclaimed-features-add-section-26</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-benchmark-harness-sdk-improvements-deployment-prof</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-sections-6-1-6-7-schema-registry-audit-log-rate-li</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/complete-all-10-partial-feature-gaps-promote-to-x</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nai-api-contract-00081-part-6-fix-test-assertions-and-add-50</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nai-api-contract-00081-part-6-budget-aware-provider-routing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-section-3-agent-loop-and-core-intelligence</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-section-2-provider-routing-and-openai-api-surface</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/complete-section-1-foundational-infrastructure-k8s-helm-guni</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-section-1-foundational-infrastructure</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-debate-hypothesis-loops-and-adaptive-routing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-4-3-roadmap-diff-viewer-self-improvement-loop-document</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-session-badge-state-and-audit-events</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/safety-policy-profiles-runtime-api-and-frontend-settings-ui</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sprint-j-knowledge-graph-execution-trace-replay-ensemble-tog</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/register-with-nexus-cloud-on-startup-30s-heartbeat-15bc1ac</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/complete-versaai-audit-add-15-missed-modules-to-porting-trac</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-sovereign-model-roadmap-nexus-prime-4-stage-plan</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/port-versaai-rag-autonomy-model-routing-transparent-process</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-2-persistent-context-windows-11</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-1-super-intelligence-layer-10</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/multi-user-auth-jwt-webhook-triggers-and-mcp-server-support</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-prime-cloud-architect-persona-nexus-status-tool-6</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/docker-compose-with-ollama-full-nexus-ai-deployment-stack-5</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rename-to-nexus-ai-bake-into-nexus-systems-ecosystem-4</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-ollama-provider-with-glm-5-1-cloud-support-3</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/replace-git-subprocess-with-github-contents-api-for-clone-pu</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/deduplicate-repeated-tool-steps-in-ui</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/broken-js-crashing-entire-page-send-ui-completely-non-functi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/broken-js-crashing-entire-page-header-overflow-menu</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bust-sw-cache-serving-old-page-with-rogue-install-prompt</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/double-render-install-banner-always-visible-plan-step-number</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/install-banner-rate-limit-toast-graceful-exhaustion</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/auto-save-rename-chats-star-unstar-layout-scroll-fix</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/agent-asks-for-github-username-org-before-creating-repos-fre</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/write-file-parse-failures-plan-numbering-enforce-push-after</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sandbox-protection-create-repo-rate-limiting-cost-tracking-c</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/usage-dashboard-provider-health-reactions-spreadsheet-api-ca</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/search-pins-shortcuts-token-counter-theme-youtube-pdf-diff-a</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/search-pin-theme-shortcuts-token-counter-youtube-pdf-diff-pe</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/projects-artifacts-panel-edit-retry-tts-custom-instructions</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/github-gist-persistence-db-survives-redeploys-without-a-volu</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sqlite-persistence-split-roadmap-md</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rewrite-readme-full-roadmap</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/pwa-personas-image-gen-haptics-swipe-multi-turn-clarify</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/dynamic-repos-sandboxed-exec-artifacts-7-new-tools</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/clarify-plan-actions-for-structured-complex-task-handling</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/restore-requirements-txt-after-rogue-agent-overwrote-it</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/streaming-stop-button-agent-memory-voice-input-export-share</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/task-complexity-router-smart-provider-selection-per-task</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bypass-llm-entirely-for-github-clone-tasks</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/extract-and-inject-github-urls-so-llm-can-t-substitute-place</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/agent-acts-immediately-instead-of-asking-unnecessary-questio</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/simplify-dockerfile-to-unblock-railway-deployment</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/history-sidebar-settings-panel-code-viewer-agent-thinking</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bypass-llm-for-time-queries-smarter-rate-limit-handling</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-get-time-tool-for-timezone-time-queries</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/handle-plain-text-llm-responses-don-t-exhaust-providers-on-p</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/dom-hierarchy-crash-on-send</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/streaming-web-search-file-upload-mobile-ui</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/auto-fallback-across-providers-on-rate-limit</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-9-free-llm-providers-from-awesome-free-llm-apis</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/multi-turn-sessions-agent-loop-claude-provider-new-chat-ui</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/retire-the-frontend-return-a-json-service-pointer</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/serve-the-vendored-design-tokens-and-adopt-the-palette</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/vendor-ecosystem-design-tokens-for-the-palette-drift-guard-efafc0c</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/frame-the-console-in-the-shell-and-only-in-the-shell-240917a</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/persist-requiresauth-and-drop-the-login-form-from-the-portal</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/give-the-login-gate-a-switch-it-never-had</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bind-to-loopback-instead-of-every-interface</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/publish-hostnames-as-proxied-cnames-to-the-tunnel-with-dynam</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-serving-shared-pool-credentials-to-anonymous-callers</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/open-apps-at-their-public-url-and-stop-advertising-revoked-o</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bound-the-tool-history-so-the-registry-store-stops-growing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-owning-identity-nexus-auth-authenticates-the-ecosystem</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/an-unconfigured-database-no-longer-crashes-the-control-plane</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-publishing-backend-addresses-to-anonymous-callers</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sovereign-dns-user-auth-s3-storage-topology-data-and-gate-th</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/adopt-structured-chat-thread-and-relax-strict-write-file-gat-ad57ad6</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-public-status-html-node-status-network-health</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/full-zo-computer-feature-parity-more</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nexus-ai-integration-auth-terminal-cleanup</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/wire-networkpanel-into-app-jsx-left-column</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-1-nexus-computer-initial-build</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/drop-the-login-form-use-the-ecosystem-session</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/send-unauthenticated-browsers-to-the-ecosystem-sign-in-page</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/authenticate-against-nexus-auth-instead-of-a-private-user-ta</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/default-the-data-root-to-a-path-the-running-user-can-write</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/build-cancel-env-import-notify-webhooks-auto-deploy-toggle-s</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-feat-sse-auth-process-leak-volumes-resource-limits-stats</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/container-log-streaming-sse-status-feed-custom-domains-image</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-feat-write-queue-build-lock-port-support-docker-compose</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rollback-status-sync-webhook-panel-activity-feed-per-project</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/real-build-engine-websocket-log-streaming-full-dashboard</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/let-the-ecosystem-shell-frame-this-app</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-nh-actually-run-and-actually-build</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-low-resource-and-geo-routing-enabled-real-flags</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/republish-minio-on-9010-storage-tnhc-dev-depends-on-it</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stop-publishing-redis-minio-host-ports-that-the-root-infra-s</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-configurable-frame-ancestors-csp-to-every-framable-respo</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/supersede-the-previous-active-deployment</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/stream-object-bodies-that-arrive-as-a-node-readable</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sign-upload-urls-against-an-endpoint-clients-can-reach</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-deploy-path-works-schema-drift-a-bad-call-and-three-type</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/authenticate-against-the-ecosystem-s-oidc-provider</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/the-stack-now-starts-migrations-api-and-proxy-all-come-up</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-the-frontend-and-cli-build-they-never-have</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/make-the-crate-build-it-never-has</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/restore-the-network-name-every-service-references</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/docker-deploys-consolidated-schema-and-make-the-migration-ac</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/register-with-nexus-cloud-on-startup-30s-heartbeat-1fe9f05</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-nexus-ecosystem-network-health-sections-to-landing-page</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/auto-create-bucket-on-startup-production-compose-setup-scrip</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/new-landing-page-honest-self-contained-no-fake-stats</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/new-nexus-hosting-landing-page</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/status-call-for-help-section-screenshots-placeholder-improve</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/rename-project-to-nexus-hosting-complete-codebase-rename</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/wire-all-remaining-gaps-ban-enforcement-suspension-cli-stora</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/content-scanner-email-enforcement-node-trust-ui-user-admin-c</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/upgrade-runbook-incident-response-playbook-category-4</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/remove-all-paid-tiers-fedhost-is-always-free-implement-remai</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/email-verification-per-user-quotas-ip-bans-abuse-reports-cat</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/base64-0-22-api-missing-hmac-dep-redis-0-25-pubsub-api</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/caddyfile-dual-routing-docker-compose-proxy-service-spa-rout</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/complete-all-9-todos-fedhost-proxy-fully-functional</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/implement-todos-2-6-in-fedhost-proxy-crate</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fh-teams-cli-richer-scaffolds-rust-storage-rs-implemented</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-feat-ts-production-errors-password-gate-unit-tests-cli-d</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/sitesettings-tabs-admin-user-site-management-diff-ui-clone-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/usage-dashboard-auth-mobile-polish-federation-blocklist-hard</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/blocklist-ui-admin-processes-tab-git-webhook-guide-openapi-b</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/federated-static-only-federation-blocklist-indonesia-first-i</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/low-resource-mode-fedhost-proxy-rust-crate-skeleton</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/2fa-login-blocker-openapi-complete-webhook-delivery-ui-runti</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/nlpl-dynamic-site-hosting-process-manager-frontend-panel-exa</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/load-test-suite-updated-roadmap-honest-assessment-to-reflect</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/redis-rate-limiting-migration-runner-storage-migration-compl</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/token-scopes-ui-scope-tests-fh-create-completion-openapi-1-0</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fh-create-templates-admin-tabs-wired-scope-enforcement-deplo</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/admin-audit-log-site-health-tabs-webhook-crud-cleanup</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/admin-audit-log-site-health-tabs-webhook-crud-cleanup-07fb5ff</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/smart-caching-etags-sitemap-robots-auto-gen-clone-api-deploy</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/smart-cache-control-headers-webhooks-schema</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/complete-operator-documentation-self-hosting-deployment-prod</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/unlock-message-personal-dashboard-fh-watch-deployment-diff-t</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/deployment-diff-api-sitedetail-quick-links-unlock-message-co</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/invitation-accept-page-account-settings-live-build-logs-graf</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-feat-deploy-environment-webhook-delivery-log-sse-analyti</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-feat-git-webhook-migrations-openapi-0-9-0-unit-tests-doc</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-feat-brute-force-protection-data-retention-webhooks-retr</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fix-feat-comprehensive-improvements-across-every-feature</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/form-backend-build-pipeline-2fa-site-transfer-bulk-export-im</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/email-system-invitations-staging-environments-usage-dashboar</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/redirect-rules-custom-headers-site-health-monitoring-quota-e</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/unit-tests-5-suites-federation-md-protocol-spec-openapi-0-8</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/analytics-auth-deployment-pagination-orphan-cleanup-cli-logo</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/publishing-md-for-npm-cli-release-fix-gossip-roadmap-entry</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/dns-01-acme-challenge-gossip-correctness-note-tls-docs-npm-p</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/remove-all-replit-dependencies-implement-acme-tls-audit-log</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/redis-rate-limiting-sync-retry-queue-migrate-ts-i18n-http-ba</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/storage-abstraction-migrations-lru-cache-rbac-hmac-cookies-h</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/react-lazy-loading-site-preview-modal-fh-init-production-che</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/i18n-across-all-pages-security-e2e-tests-npm-publish-workflo</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/critical-security-hardening-geographic-routing-conflict-reso</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/i18n-bahasa-indonesia-node-marketplace-tls-acme-api-docs-pag</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/webhooks-playwright-e2e-suite-fh-analytics-status-changelog</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/ci-pipeline-full-openapi-0-7-0-spec-updated-api-docs</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/analytics-button-in-mysites-fh-rollback-command-bootstrap-re</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/federation-sync-pull-rollback-preview-onboarding-github-acti</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phase-6-analytics-access-control-cli-docker-gossip-discovery</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/bump-better-sqlite3-to-12-9-0-so-it-builds-on-modern-node</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-embeddable-widget-js-for-any-nexus-product</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/initial-scaffold-nexus-network-federation-dashboard</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/send-unauthenticated-browsers-to-the-ecosystem-sign-in-page-fa544c2</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/accept-nexus-auth-sessions-keeping-service-tokens-for-machin</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/load-env-at-startup-so-vault-can-actually-start</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/backup-module-key-route-rework-express-handler-typing</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/production-readiness-improvements</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/expiry-enforcement-secret-versioning-pagination-getall-is-ac</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-cloud-contract-routes-and-tests</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/add-nexus-network-health-widget-to-sidebar</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/initial-commit-devvault-v0-1-0</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/oblivious-routing-wired-into-phantom-node-fhe-forwarder-proc</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-node-packet-send-receive-connect-and-send-bincode-wi</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-node-compiles-and-runs-two-nodes-verified</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/phantom-networking-compiles-libp2p-0-53-api-fixes</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/networking-node-daemon-rln-nullifiers-cover-traffic</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/fhe-key-reuse-optimization-100-1000x-speedup-for-simulations</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/point-nexus-porter-at-dhts-ecosystem-porter</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/resolve-repo-paths-from-the-checkout-instead-of-home-workspa</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/register-nexusclaw-nexus-forge-and-nexus-porter-add-version</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tnhc.dev/blog/auto-install-deps-before-running-tests-database-url-for-host</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.5</priority>
   </url>
 </urlset>
