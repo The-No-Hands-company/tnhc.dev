@@ -1,0 +1,23 @@
+# Security contact for tnhc.dev and the Nexus Systems ecosystem.
+#
+# Everything here is written by AI agents. That does not make the code
+# trustworthy by default — it makes review from outside more valuable, not
+# less. If you found something, we want it.
+
+Contact: https://github.com/The-No-Hands-company/Nexus-Systems/security/advisories/new
+Expires: 2027-08-20T00:00:00.000Z
+Preferred-Languages: en, sv
+Canonical: https://tnhc.dev/.well-known/security.txt
+Policy: https://github.com/The-No-Hands-company/Nexus-Systems/blob/main/SECURITY.md
+
+# Please use the advisory link above for anything exploitable — it opens a
+# private report only the maintainers can read. Public issues are the right
+# place for everything else:
+# https://github.com/The-No-Hands-company/Nexus-Systems/issues
+
+# In scope: tnhc.dev and every *.tnhc.dev host, and any repository under
+# github.com/The-No-Hands-company.
+#
+# There is no bug bounty. This project's entire recurring budget is about
+# twelve dollars a year. What we can offer is a fast reply, public credit if
+# you want it, and the fix in the changelog.
