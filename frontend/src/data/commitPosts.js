@@ -6,9 +6,41 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 753 posts, newest first.
+// 754 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "give-the-front-door-the-same-chrome-as-everywhere-else",
+    "title": "Give the front door the same chrome as everywhere else",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "shell"
+    ],
+    "category": "Commit",
+    "excerpt": "app.tnhc.dev rendered the app grid bare \u2014 no header, no sidebar \u2014 while every other signed-in route sat inside the shell. The effect was that the front door looked like a different, older application, and the product onl",
+    "sha": "5e41e10",
+    "content": [
+      {
+        "type": "p",
+        "text": "app.tnhc.dev rendered the app grid bare \u2014 no header, no sidebar \u2014 while every other signed-in route sat inside the shell. The effect was that the front door looked like a different, older application, and the product only appeared to start once you clicked into an app and the chrome arrived with it."
+      },
+      {
+        "type": "p",
+        "text": "The grid was left bare deliberately: the shell's sidebar is also a launcher, so wrapping it showed the same apps twice. That redundancy is real, and it is a much smaller cost than the front door looking like a different product. They are not the same thing either \u2014 the sidebar is navigation, a compact list you use to move; the grid is a directory, carrying names, descriptions and health. Applications routinely show both."
+      },
+      {
+        "type": "p",
+        "text": "Home decides, because Home is what knows: it already fetches the session to choose between the grid and the way in. Signed in it wraps itself in the shell; signed out it stays bare, since chrome advertising a launcher to somebody with no session and nothing to launch is worse than no chrome at all. App.tsx just hands it the sidebar, and does the same for the catch-all route so an unknown path lands somewhere that looks like the same product."
+      },
+      {
+        "type": "p",
+        "text": "Both halves are tested \u2014 chrome present when signed in, absent when signed out even though a sidebar was supplied."
+      }
+    ]
+  },
   {
     "slug": "let-the-shell-frame-it-and-bump-the-now-buildable-submodule",
     "title": "Let the shell frame it, and bump the now-buildable submodule",
