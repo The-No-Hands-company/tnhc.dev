@@ -10,7 +10,7 @@
 // is what stops that from happening again. If an app is wrong here, fix
 // the register and regenerate; do not patch this file.
 //
-// 113 apps — 6 live, 1 beta, 24 in development.
+// 114 apps — 6 live, 1 beta, 25 in development.
 
 export const CATEGORIES = [
   "Core",
@@ -68,6 +68,7 @@ export const APPS = [
   {"slug": "knowledge", "name": "Nexus Knowledge", "category": "Data", "status": "planned", "blurb": "Knowledge base and structured reference", "icon": "Database"},
   {"slug": "security", "name": "Nexus Security", "category": "Security", "status": "planned", "blurb": "Security posture, policy, and hardening", "icon": "ShieldWarning"},
   {"slug": "guardian", "name": "Nexus Guardian", "category": "Security", "status": "building", "blurb": "Runtime threat monitoring and abuse response", "icon": "Shield"},
+  {"slug": "phantom", "name": "Phantom", "category": "Security", "status": "building", "blurb": "Anonymous routing protocol: FHE-encrypted routing metadata, zk membership proofs,…", "icon": "Eye"},
   {"slug": "confidential", "name": "Nexus Confidential", "category": "Security", "status": "planned", "blurb": "Confidential workload handling", "icon": "ShieldCheck"},
   {"slug": "compliance", "name": "Nexus Compliance", "category": "Security", "status": "planned", "blurb": "Compliance frameworks and evidence collection", "icon": "ShieldCheck"},
   {"slug": "provenance", "name": "Nexus Provenance", "category": "Security", "status": "planned", "blurb": "Artifact provenance and supply-chain attestation", "icon": "ShieldCheck"},

@@ -64,6 +64,7 @@ ICON = {
     "Nexus-Converter": "Repeat", "Nexus-PDF": "FileText",
     "Nexus-Team-Chat": "ChatDots", "Nexus-Social": "ChatTeardropText",
     "Nexus-Community": "ChatsCircle", "Nexus-Support": "Lightbulb",
+    "Phantom": "Eye",
 }
 
 def parse_register():
@@ -76,15 +77,30 @@ def parse_register():
     for line in body.splitlines():
         if line.startswith("### "):
             cat = line[4:].strip()
-        m = re.match(r"\|\s*\*\*(Nexus[A-Za-z0-9-]*)\*\*\s*\|\s*(.+?)\s*\|\s*(.+?)\s*\|$", line)
+        # Any bolded name, not just Nexus-*. The pattern used to be
+        # `Nexus[A-Za-z0-9-]*`, which silently dropped every register row whose
+        # name did not start with "Nexus" — apps/Phantom sat in the register
+        # unpublished and unmentioned, with no warning, because of one word in
+        # this regex. This script cannot invent an app; it could quietly lose
+        # one, which is the same problem wearing the other face.
+        m = re.match(r"\|\s*\*\*([A-Za-z][A-Za-z0-9-]*)\*\*\s*\|\s*(.+?)\s*\|\s*(.+?)\s*\|$", line)
         if m and cat:
             rows.append({"name": m.group(1), "role": m.group(2),
                          "status_doc": m.group(3).replace("*", ""), "cat": cat})
+        elif cat and line.startswith("| **"):
+            # A bolded row inside a category that the pattern did not match is
+            # a row about to go missing. Say so rather than drop it.
+            print(f"  WARN: register row not parsed, will be missing from the "
+                  f"site: {line.strip()}", file=sys.stderr)
     return rows
 
 def slug_for(name):
     if name == "Nexus":
         return "chat"
+    # Names without the prefix (Phantom) slug as themselves; stripping a
+    # prefix that is not there would have mangled them.
+    if not name.startswith("Nexus-"):
+        return name.lower()
     s = name[len("Nexus-"):].lower()
     return {"team-chat": "team-chat", "email": "mail", "dashboard": "app",
             "systems-api": "systems-api", "gpu-test": "gpu-test"}.get(s, s)
