@@ -6,9 +6,33 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 754 posts, newest first.
+// 756 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "hosting-is-a-website-host-not-just-plumbing",
+    "title": "Hosting is a website host, not just plumbing",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "ecosystem"
+    ],
+    "category": "Commit",
+    "excerpt": "The register described Nexus-Hosting as \"static-site and app hosting with presigned upload and deploy\" \u2014 accurate about the mechanism, silent about what it offers a person. It is a website host: custom domains, TLS, buil",
+    "sha": "e4f21b2",
+    "content": [
+      {
+        "type": "p",
+        "text": "The register described Nexus-Hosting as \"static-site and app hosting with presigned upload and deploy\" \u2014 accurate about the mechanism, silent about what it offers a person. It is a website host: custom domains, TLS, builds, forms, analytics, and the option to run the node yourself instead."
+      },
+      {
+        "type": "p",
+        "text": "The site's app directory is generated from this line, so it was describing plumbing there too."
+      }
+    ]
+  },
   {
     "slug": "give-the-front-door-the-same-chrome-as-everywhere-else",
     "title": "Give the front door the same chrome as everywhere else",
@@ -20985,6 +21009,39 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "actually-serve-the-hosting-dashboard",
+    "title": "Actually serve the hosting dashboard",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "api",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "The dashboard was built, copied into the image, and never served. Visiting hosting.tnhc.dev got an operator status page of API links; every route the client defines \u2014 /my-sites, /sites/:id, /deploy/:id, /federation, /tok",
+    "sha": "a251aa7",
+    "content": [
+      {
+        "type": "p",
+        "text": "The dashboard was built, copied into the image, and never served. Visiting hosting.tnhc.dev got an operator status page of API links; every route the client defines \u2014 /my-sites, /sites/:id, /deploy/:id, /federation, /tokens \u2014 answered {\"error\":{\"code\":\"NOT_FOUND\"}}. Twenty-two pages including DeploySite, MySites, SiteSettings, SiteAnalytics and BuildHistory existed and were unreachable, which is why website hosting looked absent from the product when it is in fact the larger half of it."
+      },
+      {
+        "type": "p",
+        "text": "There was no express.static anywhere. The Dockerfile's COPY of federated-hosting/dist was landing in a directory nothing read."
+      },
+      {
+        "type": "p",
+        "text": "- The SPA is served, with its directory resolved by looking for index.html rather than assuming a layout. That matters here: the client's vite config emits into dist/public, so `COPY .../dist ./public` produces ./public/public. Guessing ./public found nothing and logged a warning; now the candidates are tried in order and SPA_DIR still overrides. - Client-side routes fall back to index.html so a deep link or refresh works. The fallback is deliberately narrow: /api, /metrics and /.well-known are excluded, as are non-GET and requests that did not ask for HTML. A mistyped API call must keep returning JSON rather than leave a caller parsing \"<!doctype html>\". - Hashed assets are immutable; index.html is no-cache, set explicitly because sendFile does not pass through the static middleware and would otherwise let a stale entry point ask for a bundle hash that no longer exists. - The operator status page moved to /status. It is still one request away, and the front door of a hosting product should be the product."
+      },
+      {
+        "type": "p",
+        "text": "Verified: /, /my-sites, /sites, /deploy, /federation, /tokens and /status all 200; assets load with immutable caching and index.html with no-cache; /api/nope still answers JSON; framing by the shell still permitted; draw.tnhc.dev, a site hosted on this node, unaffected. Container healthy, zero restarts."
       }
     ]
   },

@@ -46,7 +46,7 @@ export const APPS = [
   {"slug": "api", "name": "Nexus API", "category": "Core", "status": "planned", "blurb": "Public API surface for the ecosystem", "icon": "Stack"},
   {"slug": "portal", "name": "Nexus Portal", "category": "Core", "status": "planned", "blurb": "Public entry point and marketing surface", "icon": "Stack"},
   {"slug": "account", "name": "Nexus Account", "category": "Core", "status": "planned", "blurb": "End-user account and profile management", "icon": "Stack"},
-  {"slug": "hosting", "name": "Nexus Hosting", "category": "Infrastructure", "status": "live", "blurb": "Static-site and app hosting with presigned upload and deploy", "icon": "GlobeHemisphereWest", "url": "https://hosting.tnhc.dev"},
+  {"slug": "hosting", "name": "Nexus Hosting", "category": "Infrastructure", "status": "live", "blurb": "Host a website here, or run the node yourself — domains, TLS, builds, forms", "icon": "GlobeHemisphereWest", "url": "https://hosting.tnhc.dev"},
   {"slug": "deploy", "name": "Nexus Deploy", "category": "Infrastructure", "status": "building", "blurb": "Deployment orchestration and release pipelines", "icon": "Rocket"},
   {"slug": "tunnel", "name": "Nexus Tunnel", "category": "Infrastructure", "status": "building", "blurb": "Sovereign public exposure; every public URL is provisioned here", "icon": "ArrowsLeftRight"},
   {"slug": "router", "name": "Nexus Router", "category": "Infrastructure", "status": "building", "blurb": "Request routing and upstream selection", "icon": "ArrowsClockwise"},

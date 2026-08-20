@@ -22,7 +22,7 @@ const CHAPTERS = [
   {
     n: "04",
     title: "The principle",
-    body: "100% free, self-hosted and federated. Run the entire platform on your own hardware. Your data never leaves your hands — and no big-tech vendor gets to monetize it.",
+    body: "100% free and federated. Host your site on this node, or run the entire platform on your own hardware — a Raspberry Pi is enough. Same software either way, and no big-tech vendor gets to monetize your data.",
   },
 ];
 
