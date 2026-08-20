@@ -6,9 +6,45 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 758 posts, newest first.
+// 761 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "add-a-security-policy-and-let-git-see-it",
+    "title": "Add a security policy, and let git see it",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "SECURITY.md was not just missing \u2014 the root .gitignore denies everything and allowlists back, and SECURITY.md had never been added to the allowlist. So a policy file dropped in the obvious place would have been silently ",
+    "sha": "ab9f0f4",
+    "content": [
+      {
+        "type": "p",
+        "text": "SECURITY.md was not just missing \u2014 the root .gitignore denies everything and allowlists back, and SECURITY.md had never been added to the allowlist. So a policy file dropped in the obvious place would have been silently ignored, which is a quiet way for this to stay missing forever. The exception now sits beside README.md."
+      },
+      {
+        "type": "p",
+        "text": "GitHub surfaces this file on the repository, in the issue composer, and in the security tab, which are the three places someone stands when they are trying to work out where to send something. Until now all three said nothing."
+      },
+      {
+        "type": "p",
+        "text": "The policy points exploitable findings at a private advisory \u2014 enabled on this repository today, previously off, meaning the only way to report a vulnerability was to publish it. Everything else goes to public issues."
+      },
+      {
+        "type": "p",
+        "text": "The \"what we especially want to hear about\" section is the part that matters. It says the codebase is AI-written and that this changes the failure mode rather than removing it: plausible, confident, well-commented code that is wrong. It names the two email-address leaks fixed this month and says to assume there are more, because that is a better prior than the alternative. It names X3DH in apps/Nexus and the FHE and zero-knowledge work in apps/Phantom as the places where an implementation can look right and not be. And it says that documentation claiming something the code does not do is a bug here, not marketing \u2014 a rule this project has had to apply to itself repeatedly."
+      },
+      {
+        "type": "p",
+        "text": "No bounty, and the reason given plainly: about twelve dollars a year, no revenue. What is offered instead is a reply, the fix visible in the public changelog, and credit under whatever name the reporter wants."
+      }
+    ]
+  },
   {
     "slug": "hosting-is-a-website-host-not-just-plumbing",
     "title": "Hosting is a website host, not just plumbing",
@@ -21013,6 +21049,59 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "stop-publishing-owner-and-operator-email-addresses",
+    "title": "Stop publishing owner and operator email addresses",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "api",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "GET /api/sites, GET /api/nodes and GET /api/nodes/:id are unauthenticated \u2014 the public site and federation directories \u2014 and every one of them was handing out an email address to anyone who asked. Five sites and one node",
+    "sha": "6f8819b",
+    "content": [
+      {
+        "type": "p",
+        "text": "GET /api/sites, GET /api/nodes and GET /api/nodes/:id are unauthenticated \u2014 the public site and federation directories \u2014 and every one of them was handing out an email address to anyone who asked. Five sites and one node, real addresses, no credentials required."
+      },
+      {
+        "type": "p",
+        "text": "Nothing needed them. The client collects both on its create forms, and the admin view reads ownerEmail from the admin route, which has its own select and its own authorisation. A federation directory needs a domain to find a peer and a public key to authenticate it; a person's contact details are not part of discovery."
+      },
+      {
+        "type": "p",
+        "text": "publicKey stays \u2014 signed handshakes are the point of it. privateKey was already stripped on both node routes, correctly, and still is."
+      },
+      {
+        "type": "p",
+        "text": "The spec now says so too: operatorEmail is gone from the Node response schema, though it remains on CreateNodeBody because registration still supplies it."
+      },
+      {
+        "type": "p",
+        "text": "Two things found on the way, both recorded at the top of openapi.yaml:"
+      },
+      {
+        "type": "p",
+        "text": "The spec was not valid YAML. A flow mapping under /admin/sites/{id}/logs was missing one closing brace, so every parse failed. That is fixed here, and it means codegen has been unable to read this file for as long as the brace has been missing \u2014 lib/api-zod and lib/api-client-react are stale against it."
+      },
+      {
+        "type": "p",
+        "text": "orval still will not run even against the now-valid spec, failing with \"Failed to resolve input\", which points at the tool or its config rather than the file. It also cleans its output directory *before* it fails, so an attempt deletes the generated packages; recover with `git checkout -- lib/api-zod lib/api-client-react`."
+      },
+      {
+        "type": "p",
+        "text": "Because of that, the node detail route validates against the generated schema \u2014 which still marks operatorEmail required \u2014 and strips the field afterwards. The contract check stays honest and the address stays unpublished."
+      },
+      {
+        "type": "p",
+        "text": "Verified live: no ownerEmail, operatorEmail or privateKey in any public response; /api/sites, /api/nodes and /api/nodes/1 all still 200; and all eight dashboard routes render in a browser."
+      }
+    ]
+  },
+  {
     "slug": "put-user-back-in-scope",
     "title": "Put `user` back in scope",
     "date": "2026-08-20",
@@ -24381,6 +24470,43 @@ export const COMMIT_POSTS = [
       {
         "type": "p",
         "text": "Self-hosted API key registry with: - AES-256-GCM encryption at rest (per-value salt + IV) - SQLite storage via better-sqlite3 (WAL mode) - Two-tier auth: read token for projects, admin token for dashboard - Full REST API: CRUD, search, expiry tracking - Audit log with per-key access stats - Web dashboard (IBM Plex Mono, dark terminal aesthetic) - Docker + docker-compose with persistent volume - Soft-delete, tag/project filtering, copy-to-clipboard - README with curl/Node/Python usage examples"
+      }
+    ]
+  },
+  {
+    "slug": "state-the-build-reality-the-workspace-does-not-compile",
+    "title": "State the build reality \u2014 the workspace does not compile",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "docs",
+      "core",
+      "phantom"
+    ],
+    "category": "Commit",
+    "excerpt": "STATUS.md opened with \"Phase 2 COMPLETE \u2705\" and \"Next: Phase 4 - Production Deployment\", and the README said PHANTOM \"is a protocol security layer that other applications and services consume\". Neither is true, and one of",
+    "sha": "9e41c1c",
+    "content": [
+      {
+        "type": "p",
+        "text": "STATUS.md opened with \"Phase 2 COMPLETE \u2705\" and \"Next: Phase 4 - Production Deployment\", and the README said PHANTOM \"is a protocol security layer that other applications and services consume\". Neither is true, and one of them is checkable in about ninety seconds: `cargo build --workspace` fails."
+      },
+      {
+        "type": "p",
+        "text": "phantom-discovery is what breaks it, and because it is a workspace member no other crate can be tested while it does. The crate is written against a phantom-core that was never built \u2014 a `Network` type the module does not export, `NodeId` used as a tuple struct when it is `pub type NodeId = u32`, and `.sign()` called on a Kyber KEM keypair, which cannot sign. `anyhow` is imported by two modules without being a dependency. The specifics are in STATUS.md so whoever picks this up starts from the real shape of the problem rather than rediscovering it."
+      },
+      {
+        "type": "p",
+        "text": "That last one is the reason this is not a quick fix. Swapping in SigningKeyPair is forced and correct on its own, but the announcement type then has to carry a signing identity distinct from its KEM identity, and bootstrap wants a Merkle view of the network that phantom-core does not have. The crate encodes a design decision that has not been made. Making it is Phantom's next real piece of work, not a cleanup pass."
+      },
+      {
+        "type": "p",
+        "text": "Nothing consumes PHANTOM today \u2014 no Cargo.toml or package.json in the ecosystem names it, it is absent from docs/NEXUS-ECOSYSTEM.md, and it is not served anywhere on tnhc.dev. So the broken build is not exposed to anyone; it is a claim problem, and the claims are what changed here. No code is touched."
+      },
+      {
+        "type": "p",
+        "text": "The cryptographic foundations are real and worth saying so: phantom-crypto, phantom-zkvm and phantom-circuit carry genuine tfhe, plonky2, risc0 and pqcrypto work. The gap is between those crates and the protocol the documents describe."
       }
     ]
   },
