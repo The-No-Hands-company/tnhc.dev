@@ -6,9 +6,105 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 770 posts, newest first.
+// 773 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "report-issues-from-inside-the-shell-and-a-way-back-home",
+    "title": "Report issues from inside the shell, and a way back home",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "The public tracker is GitHub and the front door for it is on tnhc.dev. That serves people who already have a GitHub account and know the project lives there. It does not serve the person who is signed in, looking at some",
+    "sha": "80bbc53",
+    "content": [
+      {
+        "type": "p",
+        "text": "The public tracker is GitHub and the front door for it is on tnhc.dev. That serves people who already have a GitHub account and know the project lives there. It does not serve the person who is signed in, looking at something broken, and has no reason to own a GitHub account \u2014 which is most people who will ever hit a bug here."
+      },
+      {
+        "type": "p",
+        "text": "/report closes that without starting a second queue. A signed-in user posts to /api/issues and the server files it into the same repository under a project-owned token: one tracker, two doors, nothing to reconcile."
+      },
+      {
+        "type": "p",
+        "text": "Three things are deliberate."
+      },
+      {
+        "type": "p",
+        "text": "The token stays server-side and never reaches the browser. The reporter is identified from the Auth session rather than from anything in the request body, so a report cannot be filed in someone else's name. And the issue records an opaque subject rather than an email address, because a public tracker should not publish anyone's address \u2014 there is a test asserting no address-shaped string reaches the rendered body."
+      },
+      {
+        "type": "p",
+        "text": "GitHub's own error text is never relayed either. A 401 from GitHub means our token is wrong, which is an operator problem; its message can name the repository and the token's scopes, so callers get \"misconfigured on this node\" and the detail stays in the logs. Also tested."
+      },
+      {
+        "type": "p",
+        "text": "Reporting lives in the shell chrome rather than the app list \u2014 it is about the ecosystem rather than being one of its apps, and has to be reachable from wherever someone hit the problem."
+      },
+      {
+        "type": "p",
+        "text": "While in there: the shell's \"Nexus\" wordmark is now a link to the grid. It was a bare span, so once you were inside an app there was no way back except editing the URL. The mark is where everyone tries first."
+      },
+      {
+        "type": "p",
+        "text": "12 new tests, 71 passing in the dashboard suite, 98 in its frontend."
+      },
+      {
+        "type": "p",
+        "text": "Needs NEXUS_ISSUES_TOKEN set to a fine-grained PAT with Issues: write on The-No-Hands-company/Nexus-Systems. Without it the endpoint answers 503 saying so, rather than failing obscurely."
+      }
+    ]
+  },
+  {
+    "slug": "the-two-dns-records-that-stop-tnhc-dev-being-forged-and-why",
+    "title": "The two DNS records that stop @tnhc.dev being forged, and why there is no MX",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "tnhc.dev publishes no SPF, DKIM, DMARC or MX. The practical effect is that anyone can send mail claiming to be from this domain and receivers have nothing to check it against. That is free to fix and depends on no third ",
+    "sha": "3f498dc",
+    "content": [
+      {
+        "type": "p",
+        "text": "tnhc.dev publishes no SPF, DKIM, DMARC or MX. The practical effect is that anyone can send mail claiming to be from this domain and receivers have nothing to check it against. That is free to fix and depends on no third party:"
+      },
+      {
+        "type": "p",
+        "text": "TXT  @        v=spf1 -all TXT  _dmarc   v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s"
+      },
+      {
+        "type": "p",
+        "text": "Both are true statements about the current setup rather than aspirations. \"No host is authorised to send as this domain\" is simply correct, so `-all` is a hard fail rather than a soft one, and `p=reject` tells receivers to act on it."
+      },
+      {
+        "type": "p",
+        "text": "No `rua=` address, because aggregate reports arrive by email and this domain cannot receive email. A reporting address nobody can read is decoration."
+      },
+      {
+        "type": "p",
+        "text": "The absence of an MX is deliberate and documented rather than left to look like an oversight. Cloudflare's dashboard suggests adding one; it is right that mail cannot reach @tnhc.dev and wrong that an MX alone would fix it. Nothing can answer on port 25 from outside: the mail service listens on 127.0.0.1:2525 and 127.0.0.1:2587, inbound :25 is unreachable, and the tunnel carries HTTP only \u2014 every published route in it is an http:// upstream. An MX pointing at a host that cannot answer earns retry storms and bounces that look like our fault."
+      },
+      {
+        "type": "p",
+        "text": "Outbound is recorded with the measurements rather than the previous hand-waving about IP reputation. IPv4 :25 outbound is blocked by the ISP, there is no IPv6 at all, and :587/:465 are open but only reach a relay \u2014 a third party. Even unblocking :25 leaves the Spamhaus PBL residential listing and a missing PTR the ISP controls. No self-hosted engineering routes around that, and the document says so plainly so it is not re-litigated every few months."
+      },
+      {
+        "type": "p",
+        "text": "The records themselves still need adding by hand: the CF_API_TOKEN in apps/Nexus-Cloud/.env no longer verifies."
+      }
+    ]
+  },
   {
     "slug": "api-tnhc-dev-redirects-to-the-api-directory",
     "title": "Api.tnhc.dev redirects to the API directory",
@@ -21149,6 +21245,55 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "honour-the-shell-s-embed-flag-and-stop-the-deploy-gate-no-on",
+    "title": "Honour the shell's embed flag, and stop the deploy gate no one can pass",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Two things, both found from \"the sign-in button on /hosting is unnecessary\".",
+    "sha": "51ee2d0",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two things, both found from \"the sign-in button on /hosting is unnecessary\"."
+      },
+      {
+        "type": "p",
+        "text": "**Hosting never honoured ?embed=1.** The shell frames every app with that parameter so the app can drop its own chrome; Draw, Chat and Cloud have respected it since the shell was built and Hosting, added later, had zero references to it. So app.tnhc.dev/hosting rendered the shell's identity controls and Hosting's own \"Sign In\" together \u2014 two sign-in affordances on one screen, one of them meaningless because the shell had already authenticated you."
+      },
+      {
+        "type": "p",
+        "text": "Only the auth controls are hidden when embedded. Page navigation deliberately stays: the shell's sidebar lists *apps*, so hiding Hosting's own nav would strand someone inside the frame with no route to my-sites or deploy."
+      },
+      {
+        "type": "p",
+        "text": "That frontend had no test runner at all \u2014 no vitest, no test script \u2014 so it gets one, matching Nexus-Draw's. A test that cannot run is the thing this codebase keeps getting caught by."
+      },
+      {
+        "type": "p",
+        "text": "**The deploy gate was a thirty-day timer, not an abuse control.** Chasing why outbound mail fails turned this up: deploy.ts blocks unverified non-admin accounts after 30 days and tells them to \"check your inbox for a verification link\". That link can never arrive. Outbound port 25 is blocked by the ISP, there is no IPv6 at all, and tnhc.dev publishes no MX, SPF, DKIM or DMARC \u2014 mail cannot leave this machine by any route we control, and 587/465 being open only matters to a relay, which is a third party."
+      },
+      {
+        "type": "p",
+        "text": "So every non-admin account becomes permanently unable to deploy on its thirty-first day, with the only stated remedy impossible. The one real account is unverified, non-admin, and was still inside that window when this was found \u2014 days from silently losing the ability to deploy."
+      },
+      {
+        "type": "p",
+        "text": "The check is now conditional on SMTP_HOST rather than deleted, so it returns by itself if outbound mail ever becomes possible. Abuse is already controlled upstream anyway: access is invite-only and an operator approves each request before an account exists."
+      },
+      {
+        "type": "p",
+        "text": "auth.ts also sends a verification mail but is explicitly non-blocking and swallows failures, so it needed nothing."
       }
     ]
   },

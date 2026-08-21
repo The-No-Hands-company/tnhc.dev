@@ -21,6 +21,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/blog/report-issues-from-inside-the-shell-and-a-way-back-home</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tnhc.dev/blog/the-two-dns-records-that-stop-tnhc-dev-being-forged-and-why</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/api-tnhc-dev-redirects-to-the-api-directory</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
@@ -3322,6 +3332,11 @@
   </url>
   <url>
     <loc>https://tnhc.dev/blog/real-build-engine-websocket-log-streaming-full-dashboard</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tnhc.dev/blog/honour-the-shell-s-embed-flag-and-stop-the-deploy-gate-no-on</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
   </url>
