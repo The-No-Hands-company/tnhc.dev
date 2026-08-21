@@ -6,7 +6,7 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 766 posts, newest first.
+// 767 posts, newest first.
 
 export const COMMIT_POSTS = [
   {
@@ -21109,6 +21109,71 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "clear-all-60-type-errors-and-make-the-build-enforce-them",
+    "title": "Clear all 60 type errors and make the build enforce them",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "fix",
+      "types",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "`tsc -p artifacts/api-server` reported 60 errors and nothing ran it. `build` was `tsx ./build.ts`, which strips types without checking them, and `typecheck` was a separate script the build never invoked \u2014 so this package",
+    "sha": "8646f98",
+    "content": [
+      {
+        "type": "p",
+        "text": "`tsc -p artifacts/api-server` reported 60 errors and nothing ran it. `build` was `tsx ./build.ts`, which strips types without checking them, and `typecheck` was a separate script the build never invoked \u2014 so this package has been shipping unchecked for as long as both have existed."
+      },
+      {
+        "type": "p",
+        "text": "`build` is now `tsc --noEmit && tsx ./build.ts`. Verified by introducing a deliberate type error: the build fails with exit 2 and names the file. tsc is called directly rather than through `npm run` because the Dockerfile drives the build with pnpm and nesting one runner inside another is fragile."
+      },
+      {
+        "type": "p",
+        "text": "(Note for anyone reproducing this: `npx tsc` here resolves to a squatted placeholder package that prints \"This is not the tsc command you are looking for\" and exits non-zero \u2014 it never compiles anything. `npm run typecheck` and `./node_modules/.bin/tsc` are real. That is why 60 errors sat unnoticed behind a command that appeared to succeed.)"
+      },
+      {
+        "type": "p",
+        "text": "Most of these were not cosmetic."
+      },
+      {
+        "type": "p",
+        "text": "**Sixteen came from one line.** federation.ts did `manifestData = await res.json() as typeof manifestData` \u2014 and at that point the compiler has narrowed manifestData to `null`, so the cast was to null and every property access below resolved on `never`. The entire site-sync body was unchecked. Naming the type fixed all sixteen."
+      },
+      {
+        "type": "p",
+        "text": "**Six more from another.** deploymentDiff.ts built its file lists with Promise.all where one branch was `Promise.resolve([])`, inferred `never[]`, so both arrays became a union of array types and pushing required their intersection: never."
+      },
+      {
+        "type": "p",
+        "text": "**Inserts that would have failed at the database.** abuse.ts wrote adminId, target and detail to admin_audit_log, which has actor_id, target_type, target_id and after \u2014 actor_id is notNull, so abuse takedowns and IP bans were never audited. gossip.ts inserted discovered peers without operatorName, operatorEmail, storageCapacityGb or bandwidthCapacityGb, all notNull, so peer discovery has never registered anybody. It also wrote `privateKey: \"\"` for peers, which is both false and the pattern we just removed elsewhere."
+      },
+      {
+        "type": "p",
+        "text": "**Modules that could not have been loaded.** healthMonitor.ts imported webhookNodeOffline/webhookNodeOnline, which webhooks.ts does not export; \"node_online\" and \"node_offline\" were already valid event types, so it was reaching past the API that existed. siteHealthMonitor.ts wrote to a siteHealthChecksTable that was never defined and called an emailSiteDown that does not exist. gossip.ts imported verifyMessage, which federation.ts does not export. dockerDeploy.ts used `sql` without importing it and destructured a row array one level too deep."
+      },
+      {
+        "type": "p",
+        "text": "**A broken cryptographic path.** acme.ts computed the DNS-01 TXT value with `acme.crypto.digest(\"SHA-256\", ...)`. acme-client's CryptoInterface has no digest method, so DNS-01 issuance would have thrown on first use \u2014 it has never worked. Now computed with node's crypto per RFC 8555 \u00a78.4. HTTP-01, the path actually in use, was unaffected."
+      },
+      {
+        "type": "p",
+        "text": "**A 2FA flow that could not run.** twoFactor.ts imported setSessionCookie from lib/auth, where it did not exist \u2014 it was a private function in routes/auth.ts \u2014 and SessionData had no twoFactorPending field for routes/auth.ts to set. setSessionCookie now lives in lib/auth so both paths share one definition of the cookie's flags; httpOnly/secure/sameSite drifting apart between two copies is a security bug waiting to happen."
+      },
+      {
+        "type": "p",
+        "text": "**Dead code that read as a guard.** sites.ts validated that docker sites carry an image, but CreateSiteBody's siteType union has no \"docker\" and the body has no `image` field, so the check could never fire. Removed rather than disabled. Docker sites can still be deployed \u2014 dockerDeploy.ts reads siteType from the database row, which does support it \u2014 but they cannot be created through the API. Closing that needs \"docker\" and `image` added to openapi.yaml and lib/api-zod regenerated, which is blocked on the orval failure documented at the top of that spec."
+      },
+      {
+        "type": "p",
+        "text": "Adds site_health_checks (migration 0009) so the health monitor has the table it was written against. 293 tests pass, 0 type errors."
       }
     ]
   },
