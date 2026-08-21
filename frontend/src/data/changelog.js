@@ -5,9 +5,16 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 964 entries, newest first.
+// 965 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "c3b9e75",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "tests",
+    "title": "Stop the suite fighting the live service for a port and a database"
+  },
   {
     "sha": "5e41e10",
     "date": "2026-08-20",

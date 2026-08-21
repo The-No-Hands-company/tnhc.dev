@@ -6,9 +6,41 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 764 posts, newest first.
+// 765 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "stop-the-suite-fighting-the-live-service-for-a-port-and-a-da",
+    "title": "Stop the suite fighting the live service for a port and a database",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "tests"
+    ],
+    "category": "Commit",
+    "excerpt": "`bun test tests/` failed 9 of 18. Every failure traced to one line: createServer() binds port 3075, and the running nexus-draw service already holds it on this machine. EADDRINUSE, then a cascade \u2014 `handle` stayed undefi",
+    "sha": "c3b9e75",
+    "content": [
+      {
+        "type": "p",
+        "text": "`bun test tests/` failed 9 of 18. Every failure traced to one line: createServer() binds port 3075, and the running nexus-draw service already holds it on this machine. EADDRINUSE, then a cascade \u2014 `handle` stayed undefined, so afterAll threw too, and four test files went down together."
+      },
+      {
+        "type": "p",
+        "text": "Behind that sat the more damaging fault. The engine opened \"data/nexus-draw.sqlite\" with the path hard-coded, which is the same file the live service uses. Had the port been free, this suite would have created, modified and deleted real boards. The port collision was accidentally the only thing preventing it, and fixing the port alone would have removed that protection without anyone noticing."
+      },
+      {
+        "type": "p",
+        "text": "So both are fixed together. The database path now comes from NEXUS_DRAW_DB, and each test sets PORT=0 to ask the OS for a free port plus a private SQLite file under tmpdir. Port 0 is what the tests were written for anyway \u2014 they already read handle.server.port rather than assuming 3075."
+      },
+      {
+        "type": "p",
+        "text": "18 of 18 pass, and the live database is byte-for-byte unchanged after a run."
+      }
+    ]
+  },
   {
     "slug": "add-phantom-which-was-never-in-the-bible-at-all",
     "title": "Add Phantom, which was never in the bible at all",
