@@ -5,9 +5,58 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 977 entries, newest first.
+// 984 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "7f8f45d",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Harden terminal UI lifecycle"
+  },
+  {
+    "sha": "ad75aa0",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Build multi-tab terminal view"
+  },
+  {
+    "sha": "ddb81a8",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Add terminal session controller"
+  },
+  {
+    "sha": "f85b366",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Relay terminal websocket"
+  },
+  {
+    "sha": "063eb3e",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Add admin terminal entry"
+  },
+  {
+    "sha": "2d95fc3",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "terminal",
+    "title": "Restrict host shells to admins"
+  },
+  {
+    "sha": "0015d0c",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Finish cloud console polish"
+  },
   {
     "sha": "f99882a",
     "date": "2026-08-21",
