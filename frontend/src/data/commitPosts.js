@@ -6,7 +6,7 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 768 posts, newest first.
+// 769 posts, newest first.
 
 export const COMMIT_POSTS = [
   {
@@ -21109,6 +21109,39 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "stop-the-migrate-service-turning-every-rebuild-into-an-outag",
+    "title": "Stop the migrate service turning every rebuild into an outage",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "compose",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "`docker compose up -d --build app` took hosting.tnhc.dev down earlier today. The app depends_on migrate with service_completed_successfully, migrate exits non-zero every single time, and compose therefore aborts the whol",
+    "sha": "6521c77",
+    "content": [
+      {
+        "type": "p",
+        "text": "`docker compose up -d --build app` took hosting.tnhc.dev down earlier today. The app depends_on migrate with service_completed_successfully, migrate exits non-zero every single time, and compose therefore aborts the whole run and leaves the app stopped. `--no-deps` was the workaround; this is the fix."
+      },
+      {
+        "type": "p",
+        "text": "migrate ran `pnpm --filter @workspace/db run migrate`, which dies with \"Cannot find package 'tsx' imported from /app/lib/db/\". The identical command run from that directory works \u2014 `cd lib/db && node --import tsx/esm ./src/migrate.ts` applies migrations and exits 0. tsx is installed and resolvable there; pnpm's filtered run simply does not give node the resolution base that --import needs. So the command now runs the script directly."
+      },
+      {
+        "type": "p",
+        "text": "Verified two ways. The runner, invoked by hand against the production database, reported \"Applying 2 pending migration(s)\" and applied 0008 and 0009 \u2014 which were already present in the schema because they had been applied through psql, so this only corrected the _migrations bookkeeping. Both are idempotent, and the table now tracks 5. Then the full `up -d --build app` that failed before exited 0, migrate exited clean, and all routes answered 200."
+      },
+      {
+        "type": "p",
+        "text": "This is why the enrolment deploy needed --no-deps and why the note in 34e8523 said to use it. That note can go: the command works now."
       }
     ]
   },
