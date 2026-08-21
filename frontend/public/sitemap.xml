@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/blog/the-notification-bell-in-the-shell-header</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/proxy-notifications-so-the-shell-can-read-them</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
@@ -3357,6 +3362,16 @@
   </url>
   <url>
     <loc>https://tnhc.dev/blog/real-build-engine-websocket-log-streaming-full-dashboard</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tnhc.dev/blog/say-so-when-an-event-reaches-nobody</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tnhc.dev/blog/make-the-suite-runnable-and-the-test-event-testable</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
   </url>

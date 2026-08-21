@@ -5,9 +5,30 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 986 entries, newest first.
+// 991 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "0e9c93c",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "terminal",
+    "title": "Close integration regression"
+  },
+  {
+    "sha": "c9576b5",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "The notification bell in the shell header"
+  },
+  {
+    "sha": "6e51e62",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "terminal",
+    "title": "Integrate shell view in production"
+  },
   {
     "sha": "5f08265",
     "date": "2026-08-21",
@@ -6027,6 +6048,20 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "deploy",
     "title": "Real build engine, WebSocket log streaming, full dashboard"
+  },
+  {
+    "sha": "d16ab76",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "notifications",
+    "title": "Say so when an event reaches nobody"
+  },
+  {
+    "sha": "b401ffd",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "notifications",
+    "title": "Make the suite runnable, and the test event testable"
   },
   {
     "sha": "a5380ad",

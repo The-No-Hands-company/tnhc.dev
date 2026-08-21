@@ -6,9 +6,41 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 780 posts, newest first.
+// 783 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "the-notification-bell-in-the-shell-header",
+    "title": "The notification bell in the shell header",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Hosting has fanned every event out to webhooks for a while; the backend added last commit records the same events per user. This is where a person finally sees them.",
+    "sha": "c9576b5",
+    "content": [
+      {
+        "type": "p",
+        "text": "Hosting has fanned every event out to webhooks for a while; the backend added last commit records the same events per user. This is where a person finally sees them."
+      },
+      {
+        "type": "p",
+        "text": "Shell stays layout-only: the bell arrives through a named `utility` slot, so the component that fetches is not the component that lays out, and Shell remains renderable in a test with no server \u2014 the property its own comment claims."
+      },
+      {
+        "type": "p",
+        "text": "Every failure in the bell is silent. Hosting being unreachable is not a problem the user can act on from the header of an unrelated app, and a red error in the chrome of every page would be worse than no bell at all."
+      },
+      {
+        "type": "p",
+        "text": "The read-all test asserts the POST, not the badge. It was written asserting the badge, which clears optimistically \u2014 so it passed with the request deleted. Six mutations now each fail at least one test; the control passes."
+      }
+    ]
+  },
   {
     "slug": "proxy-notifications-so-the-shell-can-read-them",
     "title": "Proxy notifications so the shell can read them",
@@ -21465,6 +21497,60 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "say-so-when-an-event-reaches-nobody",
+    "title": "Say so when an event reaches nobody",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "notifications",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "notify() returned quietly when an event had no recipients. That is the exact failure this module exists to prevent, and it is invisible: the emitter succeeded, nothing threw, and the row was simply never written.",
+    "sha": "d16ab76",
+    "content": [
+      {
+        "type": "p",
+        "text": "notify() returned quietly when an event had no recipients. That is the exact failure this module exists to prevent, and it is invisible: the emitter succeeded, nothing threw, and the row was simply never written."
+      },
+      {
+        "type": "p",
+        "text": "Measured on this node: zero users have is_admin=1, so every node_online, node_offline and new_peer would have been discarded without trace, and two of five sites have an owner_id matching no user. The code was not wrong \u2014 there was nobody to tell. An operator has to be able to find that out."
+      }
+    ]
+  },
+  {
+    "slug": "make-the-suite-runnable-and-the-test-event-testable",
+    "title": "Make the suite runnable, and the test event testable",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "notifications",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Three unit files \u2014 cloud, geoRouting, notify \u2014 failed to *import* when DATABASE_URL was unset, because @workspace/db throws at module load. vitest reported the remaining 283 as passing and exited green, so a clean-shell ",
+    "sha": "b401ffd",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three unit files \u2014 cloud, geoRouting, notify \u2014 failed to *import* when DATABASE_URL was unset, because @workspace/db throws at module load. vitest reported the remaining 283 as passing and exited green, so a clean-shell run looked healthy while three files never executed. A setup file now supplies a deliberately unreachable, credential-free URL; these are unit tests and none of them connects. From a clean environment: 25 files and 305 tests, where it was 22 and 283."
+      },
+      {
+        "type": "p",
+        "text": "notify.test.ts asserted two constants while its own comment claimed it covered the drop-unknown-events rule. It did not \u2014 that rule was described and never checked. It now asserts the rendering contract that matters: unknown events dropped rather than shown as raw enums, no \"undefined\" in a title, no invented /sites/undefined href, and every event the emitters can produce having a sentence to render."
+      },
+      {
+        "type": "p",
+        "text": "POST /api/webhooks/test refused unless WEBHOOK_URLS was set. Notifications need no URL, so the one endpoint built for testing event delivery could not test the only delivery path this node actually has."
       }
     ]
   },
