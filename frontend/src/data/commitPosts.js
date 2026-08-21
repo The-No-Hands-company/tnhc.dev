@@ -6,7 +6,7 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 763 posts, newest first.
+// 764 posts, newest first.
 
 export const COMMIT_POSTS = [
   {
@@ -21077,6 +21077,71 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "enrol-nodes-by-proof-of-possession-stop-minting-their-keys",
+    "title": "Enrol nodes by proof of possession, stop minting their keys",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "feat",
+      "nodes",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "POST /nodes generated an Ed25519 keypair server-side whenever a caller supplied no publicKey, and wrote the private half to nodes.private_key. A federation node's private key is its identity, so this database could imper",
+    "sha": "eae35e6",
+    "content": [
+      {
+        "type": "p",
+        "text": "POST /nodes generated an Ed25519 keypair server-side whenever a caller supplied no publicKey, and wrote the private half to nodes.private_key. A federation node's private key is its identity, so this database could impersonate every node it had ever issued, and the operator had no way to know their key had existed anywhere but their own machine."
+      },
+      {
+        "type": "p",
+        "text": "It was stripped from responses \u2014 correctly, and it still is \u2014 but stripping a secret from the wire is not the same as not holding it. Only one private key is ever read: signMessage is called with localNode.privateKey and nothing else. Every remote node's stored private key was written, never used, and would have been catastrophic in a database leak. Liability with no corresponding function."
+      },
+      {
+        "type": "h",
+        "text": "## What replaces it"
+      },
+      {
+        "type": "p",
+        "text": "POST /nodes/enroll creates a `pending` node with no keys at all and issues one single-use token. POST /nodes/claim takes {token, publicKey, signature} and activates the node. install-node.sh generates the keypair on the operator's machine, signs the token to prove it holds it, and sends only the public half. The private key is never transmitted, so it cannot be stored here by accident."
+      },
+      {
+        "type": "p",
+        "text": "The signature is the part that matters. Without it, anyone holding a token could register somebody else's public key \u2014 and since the federation handshake trusts a node's registered key, the victim's signatures would then authenticate as the attacker's node, with neither party able to detect it. Signing the token proves the caller holds the private half of the key it is registering."
+      },
+      {
+        "type": "p",
+        "text": "/nodes/claim is deliberately not session-authenticated. The machine being enrolled is not a browser and has no session; the token is the authorisation, which is why it is 32 random bytes, single-use, expires in 24 hours, and is stored only as a SHA-256 hash. site_invitations keeps its tokens in plaintext, so a read of that table yields working invitations. This table does not have that property."
+      },
+      {
+        "type": "p",
+        "text": "Invalid, spent and revoked tokens all return one message. Distinguishing them confirms a token existed, which is not something a guesser should be told."
+      },
+      {
+        "type": "p",
+        "text": "POST /nodes/:id/generate-keys survives, restricted to the local node, because that key genuinely has to live on this server to sign outgoing handshakes. Its response no longer claims the private key is \"stored securely\" \u2014 it says which node holds it and why."
+      },
+      {
+        "type": "h",
+        "text": "## Two bugs found by testing rather than assuming"
+      },
+      {
+        "type": "p",
+        "text": "The enrolment routes had to mount before nodesRouter. nodes.ts defines /nodes/:id, so /nodes/enroll would otherwise match it with id=\"enroll\" and fail as a malformed lookup."
+      },
+      {
+        "type": "p",
+        "text": "And the installer's signing did not work at all. Ed25519 signing is one-shot, so OpenSSL needs the input length up front and refuses a pipe with \"unable to determine file size for oneshot\" \u2014 which, piped onward into base64, produced an empty signature and no error. Every enrolment would have been rejected server-side for a bad signature with nothing anywhere explaining why. It signs from a file now, checks the result is the 88 characters an Ed25519 signature must be, and a test runs the real openssl commands so it cannot regress silently again."
+      },
+      {
+        "type": "p",
+        "text": "8 new tests, 293 passing across the api-server suite. The migration adds the `pending` status and the token table; ALTER TYPE ... ADD VALUE is transaction-safe from PostgreSQL 12, and the new value is not referenced in the same transaction."
       }
     ]
   },
