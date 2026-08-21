@@ -112,6 +112,40 @@ if [ -d "$REPO/apps" ]; then
     [ "$drift" = "0" ] && echo "  ok       no app is understated on the site"
 fi
 
+echo "── disk headroom ─────────────────────────────────────"
+
+# Every live service runs from this machine, and the code is built on the same
+# volumes. On 2026-08-20 a Rust build filled /run/media/zajferx/Data to zero
+# bytes free and killed the process serving cloud.tnhc.dev. Nothing noticed:
+# the outage was found by accident, during an unrelated build error, some time
+# after it began.
+#
+# Liveness alone cannot catch this early — by the time a host answers 502 the
+# service is already gone. Free space is the leading indicator, so it is
+# checked here, beside the thing it takes down.
+#
+# 15% is the warning line and 8% the alarm. A Phantom debug build was 101.8
+# GiB before its profile was fixed; the margin has to survive one large build,
+# not one large file.
+for mount in /run/media/zajferx/Data /; do
+    if ! avail_pct=$(df --output=pcent "$mount" 2>/dev/null | tail -1 | tr -dc '0-9'); then
+        printf "  SKIP     %-28s cannot read free space\n" "$mount"
+        continue
+    fi
+    free_pct=$((100 - avail_pct))
+    human=$(df -h "$mount" 2>/dev/null | tail -1 | awk '{print $4}')
+
+    if [ "$free_pct" -lt 8 ]; then
+        printf "  LOW      %-28s %s free (%s%%) — a build here can take production down\n" \
+            "$mount" "$human" "$free_pct"
+        problems=1
+    elif [ "$free_pct" -lt 15 ]; then
+        printf "  TIGHT    %-28s %s free (%s%%)\n" "$mount" "$human" "$free_pct"
+    else
+        printf "  ok       %-28s %s free (%s%%)\n" "$mount" "$human" "$free_pct"
+    fi
+done
+
 echo "──────────────────────────────────────────────────────"
 [ "$problems" = "0" ] && echo "APPS: all clear" || echo "APPS: attention needed"
 exit $problems
