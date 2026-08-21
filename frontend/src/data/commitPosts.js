@@ -6,7 +6,7 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 767 posts, newest first.
+// 768 posts, newest first.
 
 export const COMMIT_POSTS = [
   {
@@ -21109,6 +21109,47 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "make-the-image-actually-typecheck-and-stop-api-docs-404ing",
+    "title": "Make the image actually typecheck, and stop /api-docs 404ing",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "build",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Deploying the typecheck gate exposed three faults it had been hiding. The gate failed two builds before passing, and both failures were real.",
+    "sha": "34e8523",
+    "content": [
+      {
+        "type": "p",
+        "text": "Deploying the typecheck gate exposed three faults it had been hiding. The gate failed two builds before passing, and both failures were real."
+      },
+      {
+        "type": "p",
+        "text": "**lib/db and lib/api-zod had no build script.** The Dockerfile has called `pnpm --filter @workspace/db run build` since it was written, getting nothing, with `2>/dev/null || true` swallowing both the silence and the exit code. They are composite projects that publish the declaration files api-server typechecks against, so the first gated build failed with 72 TS6305 \"has not been built\" errors. Both have build scripts now, the suppression is gone, and api-server builds its own references first so it does not depend on anything having run beforehand."
+      },
+      {
+        "type": "p",
+        "text": "**.dockerignore excluded dist but not tsbuildinfo.** `COPY . .` brought in a build-info file describing a dist/ that was deliberately excluded from the image, so tsc concluded the output was up to date and emitted nothing \u2014 the build scripts ran and produced no declarations. Nothing noticed before because esbuild reads TypeScript source directly and never needed them; the moment something typechecked, it surfaced."
+      },
+      {
+        "type": "p",
+        "text": "**/api-docs answered 404 while rendering fine.** The SPA fallback excluded API paths with `req.path.startsWith(\"/api\")`, which also matches \"/api-docs\" \u2014 so the page fell through to the API 404 handler, and Express, which mounts routers segment-aware, had nothing serving it. The exclusions are segment-aware now, so \"/api\" and \"/api/...\" are excluded and \"/api-docs\" is not. Any future \"/api-something\" page would have hit the same wall."
+      },
+      {
+        "type": "p",
+        "text": "Verified in a browser after deploy: all eight routes 200 and rendering, no error boundaries. The one console error left is /federation's 401 from an unauthenticated page load, which is the endpoint behaving correctly."
+      },
+      {
+        "type": "p",
+        "text": "Note for the next deploy: `up -d --build app` pulls in the migrate service, which fails with \"Cannot find package 'tsx'\" \u2014 a missing dependency in that image, unrelated to any migration \u2014 and its failure aborts the compose run and leaves the app stopped. Use `up -d --no-deps app`, or fix migrate's deps."
       }
     ]
   },

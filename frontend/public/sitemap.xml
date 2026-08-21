@@ -3321,6 +3321,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/blog/make-the-image-actually-typecheck-and-stop-api-docs-404ing</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/clear-all-60-type-errors-and-make-the-build-enforce-them</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
