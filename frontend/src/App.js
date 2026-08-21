@@ -10,6 +10,16 @@ import BlogPost from "@/pages/BlogPost";
 import Changelog from "@/pages/Changelog";
 import ApiDocs from "@/pages/ApiDocs";
 
+/**
+ * True when this bundle is being served from the API subdomain.
+ *
+ * Read once at module load rather than per render: the hostname cannot change
+ * without a full navigation, and a function call in a route element would
+ * re-evaluate on every render for a value that is fixed.
+ */
+const IS_API_HOST =
+  typeof window !== "undefined" && window.location.hostname.startsWith("api.");
+
 function SmoothScroll() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -36,7 +46,17 @@ function App() {
       <SmoothScroll />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          {/*
+            api.tnhc.dev serves the API directory at its root.
+
+            The subdomain is a Cloudflare Pages custom domain on this same
+            project, so it delivers this same bundle — without this, someone
+            typing api.tnhc.dev would land on the marketing page, which is
+            the opposite of what the hostname promises. /api still works on
+            the apex, and both render the identical component, so there is one
+            page and no copy to keep in sync.
+          */}
+          <Route path="/" element={IS_API_HOST ? <ApiDocs /> : <Landing />} />
           <Route path="/apps" element={<Apps />} />
           <Route path="/api" element={<ApiDocs />} />
           <Route path="/blog" element={<Blog />} />
