@@ -36,12 +36,17 @@ SURFACES = [
         "base": "https://hosting.tnhc.dev/api",
         "auth": "Public reads. Writes need `Authorization: Bearer fh_<token>` "
                 "with a read/write/deploy/admin scope, or a browser session.",
-        "spec": "lib/api-spec/openapi.yaml in the Nexus-Hosting repo — not served over HTTP.",
+        # Served since 2026-08-21. Probed like any other endpoint below, so if
+        # it stops answering this page says so rather than linking a 404.
+        "spec": "https://hosting.tnhc.dev/openapi.yaml",
         "probes": [
             ("GET", "/sites", "Every site this node hosts."),
             ("GET", "/nodes", "Federation peers this node knows."),
             ("GET", "/nodes/1", "One node by id."),
         ],
+        # Not under the /api base, so it is probed separately.
+        "extra_probes": [("GET", "https://hosting.tnhc.dev/openapi.yaml",
+                          "OpenAPI 3.1 description — 49 of 127 routes.")],
     },
     {
         "app": "Nexus-Cloud", "slug": "cloud",
@@ -124,15 +129,23 @@ def main():
                   f"publishing an API for an app the bible does not list", file=sys.stderr)
             continue
 
+        # Absolute entries are probed as given; relative ones hang off the base.
+        # The spec lives outside the /api prefix, so it needs the former —
+        # without this the "extra_probes" key would sit in the table looking
+        # meaningful and doing nothing, which is the exact failure this file's
+        # docstring exists to prevent.
+        targets = [(m, p, d, s["base"] + p) for m, p, d in s["probes"]]
+        targets += [(m, u, d, u) for m, u, d in s.get("extra_probes", [])]
+
         endpoints = []
-        for method, path, desc in s["probes"]:
-            code, ctype = probe(s["base"] + path)
+        for method, path, desc, url in targets:
+            code, ctype = probe(url)
             # 2xx answered; 3xx means it exists but wants a session; 401/403 the
             # same. Anything else is not something to advertise.
             reachable = code and (code < 400 or code in (401, 403))
             if not reachable:
                 unreachable += 1
-                print(f"  WARN: {s['base']}{path} answered {code or 'nothing'} — "
+                print(f"  WARN: {url} answered {code or 'nothing'} — "
                       f"listed as unreachable", file=sys.stderr)
             endpoints.append({
                 "method": method, "path": path, "desc": desc,

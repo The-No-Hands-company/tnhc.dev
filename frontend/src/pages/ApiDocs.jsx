@@ -157,14 +157,28 @@ export default function ApiDocs() {
 
         <section className="mt-16 border border-white/10 bg-surface/30 p-8 backdrop-blur-sm">
           <h2 className="font-heading text-xl font-bold tracking-tight">
-            No published OpenAPI specs, and saying so
+One published spec, and what it does not cover
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/60">
-            None of these services serves a machine-readable spec over HTTP
-            today — every <code className="font-mono text-white/70">openapi.json</code>{" "}
-            answers 404. Nexus-Hosting has one in its repository that its codegen
-            currently cannot read. Listing spec URLs that 404 would make this page
-            the thing it exists to prevent, so it lists none.
+            Nexus-Hosting serves an OpenAPI 3.1 description at{" "}
+            <a
+              href="https://hosting.tnhc.dev/openapi.yaml"
+              className="underline underline-offset-4 hover:text-white"
+            >
+              /openapi.yaml
+            </a>
+            . It is enough to generate a client against, and it{" "}
+            <span className="text-white">
+              describes 49 of that service&rsquo;s 127 routes
+            </span>{" "}
+            — a little under forty percent. That number is not hidden here or in
+            the document, and a test fails if it gets worse without anyone
+            noticing.
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">
+            The other five surfaces publish nothing machine-readable yet. Rather
+            than list spec URLs that would 404, this page links the one that
+            exists and says plainly that the rest do not.
           </p>
           <a
             href="https://github.com/The-No-Hands-company/Nexus-Systems/issues"

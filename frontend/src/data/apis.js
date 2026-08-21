@@ -4,7 +4,7 @@
 // endpoint below was probed at build time; `reachable: false` means it did
 // not answer and the page says so rather than pretending otherwise.
 //
-// 6 API surfaces, 9 endpoints, 0 unreachable at build time.
+// 6 API surfaces, 10 endpoints, 0 unreachable at build time.
 
 export const APIS = [
   {
@@ -15,7 +15,7 @@ export const APIS = [
     "registerStatus": "Live",
     "base": "https://hosting.tnhc.dev/api",
     "auth": "Public reads. Writes need `Authorization: Bearer fh_<token>` with a read/write/deploy/admin scope, or a browser session.",
-    "spec": "lib/api-spec/openapi.yaml in the Nexus-Hosting repo \u2014 not served over HTTP.",
+    "spec": "https://hosting.tnhc.dev/openapi.yaml",
     "endpoints": [
       {
         "method": "GET",
@@ -39,6 +39,14 @@ export const APIS = [
         "desc": "One node by id.",
         "status": 200,
         "contentType": "application/json",
+        "reachable": true
+      },
+      {
+        "method": "GET",
+        "path": "https://hosting.tnhc.dev/openapi.yaml",
+        "desc": "OpenAPI 3.1 description \u2014 49 of 127 routes.",
+        "status": 200,
+        "contentType": "application/yaml",
         "reachable": true
       }
     ]
