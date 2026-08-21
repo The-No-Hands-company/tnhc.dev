@@ -6,9 +6,97 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 773 posts, newest first.
+// 775 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "use-the-design-tokens-that-exist-not-the-ones-that-look-righ",
+    "title": "Use the design tokens that exist, not the ones that look right",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Part of why the dashboard \"looks too simple\" is that a chunk of its styling silently did nothing.",
+    "sha": "d495f8e",
+    "content": [
+      {
+        "type": "p",
+        "text": "Part of why the dashboard \"looks too simple\" is that a chunk of its styling silently did nothing."
+      },
+      {
+        "type": "p",
+        "text": "The shell aliases Tailwind's zinc scale onto the ecosystem tokens \u2014 index.css maps --color-zinc-900 to --nexus-color-bg-canvas and so on \u2014 so the way to style here is `bg-zinc-900`, `text-zinc-500`, `border-zinc-700`. The semantic names (`bg-bg-canvas`, `text-text-muted`, `border-border-subtle`) come from nexus-theme.css, which this app does not import. Written here they compile to nothing and the element renders unstyled."
+      },
+      {
+        "type": "p",
+        "text": "Measured on the live page before the fix:"
+      },
+      {
+        "type": "p",
+        "text": "rootBg      rgba(0, 0, 0, 0)      bg-bg-canvas resolved to nothing signInBg    rgba(0, 0, 0, 0)      the primary call to action had no fill cardBorder  rgb(230, 242, 238)    border-border-subtle fell back to currentColor, so \"subtle\" borders rendered at full text brightness"
+      },
+      {
+        "type": "p",
+        "text": "After: the button fills blue-600 with white text, and borders are rgb(20,32,32) \u2014 actually subtle."
+      },
+      {
+        "type": "p",
+        "text": "This was not only my new code. App.tsx, Launcher.tsx and AppFrame.tsx carried the same names and had the same problem; the sweep covers all of them, eleven occurrences. index.css is left alone: it is the definition site, and rewriting the mapping is how the shell ends up painting stock zinc again."
+      },
+      {
+        "type": "p",
+        "text": "There is a comment in index.css warning about exactly this failure \u2014 that importing the wrong stylesheet leaves the var() references pointing at nothing and Tailwind tree-shakes the block, so the shell \"silently renders in stock zinc\". The trap it describes was still live in five files."
+      },
+      {
+        "type": "p",
+        "text": "98 tests pass."
+      }
+    ]
+  },
+  {
+    "slug": "rebuild-the-front-door-and-stop-a-test-that-could-file-real",
+    "title": "Rebuild the front door, and stop a test that could file real issues",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "**The signed-out page.** It was a max-w-xl section pinned to the top-left of an empty black viewport \u2014 a heading, three buttons, one line of text, and roughly eighty-five percent dead space. It had no header, no footer a",
+    "sha": "8c893c4",
+    "content": [
+      {
+        "type": "p",
+        "text": "**The signed-out page.** It was a max-w-xl section pinned to the top-left of an empty black viewport \u2014 a heading, three buttons, one line of text, and roughly eighty-five percent dead space. It had no header, no footer and no landmarks at all: a screen reader found zero header, main and nav elements. It offered no route back to tnhc.dev, so arriving from the marketing site was one-way. And it asked a stranger to request an account without showing them one thing they would get."
+      },
+      {
+        "type": "p",
+        "text": "Now: proper banner/main/contentinfo landmarks, centred rather than pinned, a link home in both the header and a footer nav, and a \"Running right now\" list built from /api/apps with live health. That registry is already public and the whole directory is on tnhc.dev/apps, so this reveals nothing new \u2014 it just stops the front door being coy about a product that is running."
+      },
+      {
+        "type": "p",
+        "text": "**A test that guarded the wrong thing.** Home.test.tsx asserted the text \"Nexus Chat\" never appears for a signed-out visitor, under the name \"never shows the grid\". Those are different claims. App names are not secret: /api/apps serves them unauthenticated and tnhc.dev publishes all of them. What must not appear is Grid's interactive affordance \u2014 a link into an app for someone with no session, which lands on a login redirect and looks broken. The test now asserts exactly that, by role rather than by text, and says why."
+      },
+      {
+        "type": "p",
+        "text": "**A test that could have filed real GitHub issues.** issues.test.ts called fileIssue with `undefined` for the token to mean \"not configured\". An omitted argument falls through to the default, which reads process.env.NEXUS_ISSUES_TOKEN \u2014 and bun auto-loads apps/Nexus-Dashboard/.env. The moment a real token appeared on this machine the suite began making live calls to GitHub; with a valid one it would have filed an issue titled \"t\" on every single run. It got away with it only because the call failed. Every fileIssue test now stubs fetch to throw, so a mistake of that shape cannot reach the network again, and \"no token\" is spelled as an empty string rather than an omission."
+      },
+      {
+        "type": "p",
+        "text": "**deploy.sh** adopts NEXUS_ISSUES_TOKEN from apps/Nexus-Dashboard/.env the same way it adopts Cloud's key. Passing an unset variable through explicitly would have set it to empty in the child and overridden the .env bun would otherwise load \u2014 turning \"configured\" into \"silently unconfigured\". Missing token is a soft failure: /api/issues answers 503 explaining itself and the node still boots."
+      },
+      {
+        "type": "p",
+        "text": "98 frontend tests, 71 backend, all passing."
+      }
+    ]
+  },
   {
     "slug": "report-issues-from-inside-the-shell-and-a-way-back-home",
     "title": "Report issues from inside the shell, and a way back home",

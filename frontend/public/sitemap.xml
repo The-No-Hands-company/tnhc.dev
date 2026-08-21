@@ -21,6 +21,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/blog/use-the-design-tokens-that-exist-not-the-ones-that-look-righ</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tnhc.dev/blog/rebuild-the-front-door-and-stop-a-test-that-could-file-real</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/report-issues-from-inside-the-shell-and-a-way-back-home</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>

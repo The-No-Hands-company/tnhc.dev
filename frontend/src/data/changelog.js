@@ -5,9 +5,23 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 972 entries, newest first.
+// 974 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "d495f8e",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Use the design tokens that exist, not the ones that look right"
+  },
+  {
+    "sha": "8c893c4",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Rebuild the front door, and stop a test that could file real issues"
+  },
   {
     "sha": "80bbc53",
     "date": "2026-08-21",
