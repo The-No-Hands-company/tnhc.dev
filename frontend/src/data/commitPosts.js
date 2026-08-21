@@ -6,7 +6,7 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 765 posts, newest first.
+// 766 posts, newest first.
 
 export const COMMIT_POSTS = [
   {
@@ -21109,6 +21109,39 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "created-by-must-be-text-the-enrolment-migration-would-have-f",
+    "title": "Created_by must be text \u2014 the enrolment migration would have failed",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "nodes",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "nodeEnrollmentTokens.created_by was declared integer and referenced users.id, which is a varchar UUID. Postgres refuses a foreign key between columns of different types, so migration 0008 would have failed the moment it ",
+    "sha": "d95d255",
+    "content": [
+      {
+        "type": "p",
+        "text": "nodeEnrollmentTokens.created_by was declared integer and referenced users.id, which is a varchar UUID. Postgres refuses a foreign key between columns of different types, so migration 0008 would have failed the moment it ran against a real database \u2014 and this was committed as ready to deploy."
+      },
+      {
+        "type": "p",
+        "text": "site_invitations gets this right with text(\"invited_by\"). I did not look."
+      },
+      {
+        "type": "p",
+        "text": "Found by running the actual TypeScript compiler, which had not been run: `npx tsc` in this repo resolves to a stale placeholder package that prints \"This is not the tsc command you are looking for\" and exits non-zero, so every typecheck I ran through npx reported success without compiling anything. The real binary is at node_modules/typescript/bin/tsc, and it reports 61 errors in this package \u2014 none of which the build catches, because `build` is `tsx ./build.ts`, which strips types without checking them, and `typecheck` is a separate script the build never invokes."
+      },
+      {
+        "type": "p",
+        "text": "This commit fixes only the two that were mine. The other 59 predate this work and are listed for whoever picks them up: federation.ts has 16, sites.ts 7, deploymentDiff.ts 6, dockerDeploy.ts 5. Several look real rather than cosmetic \u2014 sites.ts compares siteType against \"docker\" when the union does not include it, so that branch is unreachable."
       }
     ]
   },
