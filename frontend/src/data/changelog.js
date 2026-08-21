@@ -5,9 +5,16 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 984 entries, newest first.
+// 986 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "5f08265",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Proxy notifications so the shell can read them"
+  },
   {
     "sha": "7f8f45d",
     "date": "2026-08-21",
@@ -6022,6 +6029,13 @@ export const CHANGELOG = [
     "title": "Real build engine, WebSocket log streaming, full dashboard"
   },
   {
+    "sha": "a5380ad",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "notifications",
+    "title": "Tell people what the system is doing"
+  },
+  {
     "sha": "971f45a",
     "date": "2026-08-21",
     "kind": "feat",
@@ -6898,4 +6912,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "chat", "chatview", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "email", "extrude", "federation", "flow", "foundation", "foundation-sweep", "gate", "geometry", "graph", "hem", "hosting", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "observability", "ops", "phantom", "portal", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "startup", "storage", "systems-api", "terminal", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "chat", "chatview", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "email", "extrude", "federation", "flow", "foundation", "foundation-sweep", "gate", "geometry", "graph", "hem", "hosting", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "ops", "phantom", "portal", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "startup", "storage", "systems-api", "terminal", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];

@@ -6,9 +6,53 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 778 posts, newest first.
+// 780 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "proxy-notifications-so-the-shell-can-read-them",
+    "title": "Proxy notifications so the shell can read them",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Notifications live in Nexus-Hosting, which owns the events that produce them \u2014 deploys, site health, federation. The shell needs them for its bell and the shell is a different origin.",
+    "sha": "5f08265",
+    "content": [
+      {
+        "type": "p",
+        "text": "Notifications live in Nexus-Hosting, which owns the events that produce them \u2014 deploys, site health, federation. The shell needs them for its bell and the shell is a different origin."
+      },
+      {
+        "type": "p",
+        "text": "Proxied rather than fetched cross-origin from the page. Calling hosting.tnhc.dev directly would need CORS with credentials, which is exactly the per-origin boundary this ecosystem keeps deliberately: the shell iframes each app from its own host so a flaw in one cannot reach another's cookies."
+      },
+      {
+        "type": "p",
+        "text": "Unlike the mail proxy, this one attaches no identity of its own. Mail trusts x-nexus-subject to decide whose mailbox to open, so that proxy is the only thing standing between a user and everyone else's mail. Here the session cookie is .tnhc.dev-scoped and Hosting does its own authorisation, so forwarding the cookie is enough \u2014 and a bug in this file therefore cannot hand somebody another user's notifications, because it never asserts who they are."
+      },
+      {
+        "type": "p",
+        "text": "An allow-list, not a passthrough: the notification surface and the two mark-read writes, nothing else. A traversal like /api/notifications/../sites is refused here rather than forwarded, and a test asserts Hosting never saw it."
+      },
+      {
+        "type": "p",
+        "text": "Unauthenticated callers are refused before anything is forwarded. A proxy that asks upstream first tells it a request happened even when it should have stopped."
+      },
+      {
+        "type": "p",
+        "text": "Hosting being unreachable answers 503 rather than throwing. The bell going quiet is acceptable; the shell erroring because an unrelated service is down is not."
+      },
+      {
+        "type": "p",
+        "text": "7 proxy tests, 100 in the dashboard suite."
+      }
+    ]
+  },
   {
     "slug": "a-real-shell-on-the-host-and-the-guards-in-front-of-it",
     "title": "A real shell on the host, and the guards in front of it",
@@ -21421,6 +21465,63 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "tell-people-what-the-system-is-doing",
+    "title": "Tell people what the system is doing",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "notifications",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Nothing in this ecosystem could tell a user anything. A site going down, a deploy failing, a peer joining \u2014 all of it was either silent or went to an external webhook nobody had configured.",
+    "sha": "a5380ad",
+    "content": [
+      {
+        "type": "p",
+        "text": "Nothing in this ecosystem could tell a user anything. A site going down, a deploy failing, a peer joining \u2014 all of it was either silent or went to an external webhook nobody had configured."
+      },
+      {
+        "type": "p",
+        "text": "That is worse here than it would be elsewhere, because outbound email is not a fallback: port 25 is blocked by the ISP, there is no IPv6, and a relay would be a third party (docs/EMAIL-DNS.md). An in-app notification is the only channel this node has."
+      },
+      {
+        "type": "p",
+        "text": "Built on the event spine that already exists rather than beside it. deliverWebhook is the single funnel every emitter in this service already goes through, so notify() hangs off that. One event path instead of two to keep in step, and any future event that learns to call deliverWebhook gets notifications without touching notify.ts again."
+      },
+      {
+        "type": "p",
+        "text": "The notify() call is awaited and placed before the HTTP delivery on purpose. An outbound webhook can hang for its whole timeout, and the person who needs to know their site is down should not be waiting on somebody else's endpoint. notify() never throws \u2014 the event already happened, and losing the note about it is strictly better than losing the thing itself."
+      },
+      {
+        "type": "p",
+        "text": "Events render as sentences, not enum names: \"Deploy failed for example.com\", \"Peer x.tnhc.dev went offline\". An event nobody has written a sentence for is dropped rather than shown raw, because a list of identifiers is not a notification."
+      },
+      {
+        "type": "p",
+        "text": "Routing: site events reach the site's owner, everything else reaches admins, and admins also receive site events they do not own. On a node run by one person, not being told your own site failed because you are not technically its owner would be absurd."
+      },
+      {
+        "type": "p",
+        "text": "Retention is 90 days plus a 500-per-user ceiling, oldest first, read before unread of the same age. Unbounded, the first symptom is a slow dashboard and the second is a full disk \u2014 which this machine has already had once."
+      },
+      {
+        "type": "p",
+        "text": "Every route is scoped to the caller by user_id with no parameter that can widen it, and marking read uses that predicate as the authorisation rather than as a filter \u2014 without it, anyone who can guess an integer marks somebody else's notifications read. A row belonging to another user answers 404, not 403: confirming it exists tells a guesser they found a real one."
+      },
+      {
+        "type": "p",
+        "text": "isAdmin is an integer flag, not a boolean; the typecheck caught that, which is the same shape of mistake migration 0008 nearly shipped."
+      },
+      {
+        "type": "p",
+        "text": "Migration 0010 tested against a schema clone of production first: applies clean, cascade on user delete verified. 298 tests pass, 0 type errors."
       }
     ]
   },

@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/blog/proxy-notifications-so-the-shell-can-read-them</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/a-real-shell-on-the-host-and-the-guards-in-front-of-it</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
@@ -3352,6 +3357,11 @@
   </url>
   <url>
     <loc>https://tnhc.dev/blog/real-build-engine-websocket-log-streaming-full-dashboard</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tnhc.dev/blog/tell-people-what-the-system-is-doing</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
   </url>
