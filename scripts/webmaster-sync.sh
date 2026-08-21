@@ -19,7 +19,7 @@ REPO="${1:-../projects/Nexus-Systems}"
 CHECK=0
 [ "${1:-}" = "--check" ] && { CHECK=1; REPO="../projects/Nexus-Systems"; }
 
-GEN=(frontend/src/data/changelog.js frontend/src/data/commitPosts.js frontend/src/data/apps.js)
+GEN=(frontend/src/data/changelog.js frontend/src/data/commitPosts.js frontend/src/data/apps.js frontend/src/data/apis.js)
 
 if [ ! -d "$REPO/.git" ]; then
     echo "FAIL: not a git repository: $REPO" >&2
@@ -34,6 +34,7 @@ before=$(md5sum "${GEN[@]}" 2>/dev/null || true)
 
 bash scripts/build-changelog.sh "$REPO" >/dev/null || { echo "FAIL: changelog generation" >&2; exit 1; }
 python3 scripts/build-apps.py     >/dev/null || { echo "FAIL: app directory generation" >&2; exit 1; }
+python3 scripts/build-apis.py     >/dev/null || { echo "FAIL: API directory generation" >&2; exit 1; }
 
 after=$(md5sum "${GEN[@]}" 2>/dev/null || true)
 

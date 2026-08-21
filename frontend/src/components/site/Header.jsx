@@ -93,6 +93,13 @@ export default function Header() {
           >
             Apps
           </Link>
+          <Link
+            to="/api"
+            className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors duration-300 hover:text-acid"
+            data-testid="nav-api"
+          >
+            API
+          </Link>
             {/* This said Changelog and pointed at /blog. They are different
                 things: the blog is written, the changelog is generated from
                 commits and cannot drift from what actually shipped. */}

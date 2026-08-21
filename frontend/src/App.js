@@ -8,6 +8,7 @@ import Apps from "@/pages/Apps";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Changelog from "@/pages/Changelog";
+import ApiDocs from "@/pages/ApiDocs";
 
 function SmoothScroll() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/apps" element={<Apps />} />
+          <Route path="/api" element={<ApiDocs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/changelog" element={<Changelog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
