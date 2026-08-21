@@ -5,9 +5,16 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 976 entries, newest first.
+// 977 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "f99882a",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "terminal",
+    "title": "A real shell on the host, and the guards in front of it"
+  },
   {
     "sha": "f742ee6",
     "date": "2026-08-21",
@@ -6842,4 +6849,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "chat", "chatview", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "email", "extrude", "federation", "flow", "foundation", "foundation-sweep", "gate", "geometry", "graph", "hem", "hosting", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "observability", "ops", "phantom", "portal", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "startup", "storage", "systems-api", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "chat", "chatview", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "email", "extrude", "federation", "flow", "foundation", "foundation-sweep", "gate", "geometry", "graph", "hem", "hosting", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "observability", "ops", "phantom", "portal", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "startup", "storage", "systems-api", "terminal", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];

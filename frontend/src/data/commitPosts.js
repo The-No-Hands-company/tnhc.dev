@@ -6,9 +6,53 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 777 posts, newest first.
+// 778 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "a-real-shell-on-the-host-and-the-guards-in-front-of-it",
+    "title": "A real shell on the host, and the guards in front of it",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "terminal"
+    ],
+    "category": "Commit",
+    "excerpt": "Nexus-Terminal was the six-file ghost scaffold: SQLite tables named \"sessions\" and \"commands\", an endpoint that recorded a command, and nothing anywhere that executed anything. 101 lines that logged work it never did.",
+    "sha": "f99882a",
+    "content": [
+      {
+        "type": "p",
+        "text": "Nexus-Terminal was the six-file ghost scaffold: SQLite tables named \"sessions\" and \"commands\", an endpoint that recorded a command, and nothing anywhere that executed anything. 101 lines that logged work it never did."
+      },
+      {
+        "type": "p",
+        "text": "It now attaches a genuine pty over a WebSocket at /api/v1/terminal/attach. This is an uncontained shell running as the user that runs every Nexus service \u2014 the choice made deliberately on 2026-08-21 over a scoped command runner and a containerised shell, with the tradeoff stated. docs/TERMINAL-SECURITY.md records what that costs, in the terms it costs it: anyone reaching this with a session can read every credential on the box, docker exec into the database, and sign as this node in federation. It also notes the two ways to tighten it later, neither needing a rewrite."
+      },
+      {
+        "type": "p",
+        "text": "`script -qfc` rather than node-pty. Interactive programs need a pseudo-terminal \u2014 without one there is no job control, no colour, and anything using readline or curses misbehaves. script is in util-linux, already present, and allocates a real pty; node-pty would need native compilation on every deploy for the same result. The cost is that resize is not plumbed through, so COLUMNS and LINES are fixed at spawn from the client's size. That is written down rather than left to be discovered."
+      },
+      {
+        "type": "p",
+        "text": "Four things stand in front of it, all tested through the HTTP surface rather than by calling helpers, because what matters is what an attacker reaches:"
+      },
+      {
+        "type": "p",
+        "text": "- Off by default. Deploying the code is not the same act as deciding to hand out shells; NEXUS_TERMINAL_ENABLED must be set. - Identity from Auth, asked with the caller's own cookies. A test asserts that a forged x-nexus-subject header gains nothing \u2014 the difference between an auth check and a suggestion. - Eight concurrent shells, reaped after 30 minutes idle, so abandoned tabs do not hold the ceiling closed with nobody able to see why. - Every session and every keystroke audited with the subject that caused it. Input is recorded before it runs: an audit written afterwards loses exactly the command that crashed the process. That includes what someone types at a password prompt, which a shell cannot distinguish \u2014 a real cost, stated."
+      },
+      {
+        "type": "p",
+        "text": "Health now reports phantom, whether the shell is enabled, and how many are open. The scaffold's own test has asserted phantom on /health since the app was generated and had been failing ever since, because nothing ever ran it."
+      },
+      {
+        "type": "p",
+        "text": "11 tests, 0 type errors. The browser side is not built yet \u2014 this is the server, and the endpoint refuses everything until switched on."
+      }
+    ]
+  },
   {
     "slug": "actually-add-the-home-link-this-time-and-show-who-is-signed",
     "title": "Actually add the home link this time, and show who is signed in",
