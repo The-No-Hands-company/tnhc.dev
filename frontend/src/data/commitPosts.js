@@ -6,9 +6,41 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 761 posts, newest first.
+// 763 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "add-phantom-which-was-never-in-the-bible-at-all",
+    "title": "Add Phantom, which was never in the bible at all",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "register"
+    ],
+    "category": "Commit",
+    "excerpt": "apps/Phantom has been on disk and in .gitmodules since long before this document existed, and it appeared in it zero times. Not as a stub, not as planned \u2014 absent. The register calls itself the one canonical list, and it",
+    "sha": "0e15780",
+    "content": [
+      {
+        "type": "p",
+        "text": "apps/Phantom has been on disk and in .gitmodules since long before this document existed, and it appeared in it zero times. Not as a stub, not as planned \u2014 absent. The register calls itself the one canonical list, and it was missing an entire nine-crate repository implementing the privacy protocol this project is arguably most ambitious about."
+      },
+      {
+        "type": "p",
+        "text": "That omission is not clerical. A thing nobody wrote down is a thing nobody audits, and Phantom is what that looks like after a while: its workspace did not compile, three of its four integration test files were written against APIs that had never been implemented, and its own STATUS.md opened with \"Phase 2 COMPLETE\" and \"Next: Phase 4 - Production Deployment\". Every one of those was checkable in about ninety seconds by anyone who knew to look."
+      },
+      {
+        "type": "p",
+        "text": "It goes under Security, and the row says plainly that it is a protocol layer for other services to consume rather than an app. Status is In development: substantive code, not deployed, nothing consumes it today."
+      },
+      {
+        "type": "p",
+        "text": "Counts move with it \u2014 114 rows, 25 in development, 32 with real code \u2014 and the framing sentence now names both non-prefixed directories instead of one, since apps/Nexus was already the exception it claimed was unique."
+      }
+    ]
+  },
   {
     "slug": "add-a-security-policy-and-let-git-see-it",
     "title": "Add a security policy, and let git see it",
@@ -24470,6 +24502,119 @@ export const COMMIT_POSTS = [
       {
         "type": "p",
         "text": "Self-hosted API key registry with: - AES-256-GCM encryption at rest (per-value salt + IV) - SQLite storage via better-sqlite3 (WAL mode) - Two-tier auth: read token for projects, admin token for dashboard - Full REST API: CRUD, search, expiry tracking - Audit log with per-key access stats - Web dashboard (IBM Plex Mono, dark terminal aesthetic) - Docker + docker-compose with persistent volume - Soft-delete, tag/project filtering, copy-to-clipboard - README with curl/Node/Python usage examples"
+      }
+    ]
+  },
+  {
+    "slug": "make-the-workspace-build-and-fix-the-fifteen-bugs-that-hid-b",
+    "title": "Make the workspace build, and fix the fifteen bugs that hid behind it",
+    "date": "2026-08-20",
+    "author": "The Kernel",
+    "readTime": "5 min",
+    "tags": [
+      "fix",
+      "core",
+      "phantom"
+    ],
+    "category": "Commit",
+    "excerpt": "`cargo test --workspace` now passes: 184 tests, 0 failures. Before this it did not compile, and because phantom-discovery is a workspace member, no crate in the workspace could be tested. Four integration files totalling",
+    "sha": "92070d2",
+    "content": [
+      {
+        "type": "p",
+        "text": "`cargo test --workspace` now passes: 184 tests, 0 failures. Before this it did not compile, and because phantom-discovery is a workspace member, no crate in the workspace could be tested. Four integration files totalling 1,228 lines had never been compiled even once."
+      },
+      {
+        "type": "p",
+        "text": "Everything below was found by making them run. None of it would have been caught by a green CI, because there was no green CI to be had."
+      },
+      {
+        "type": "h",
+        "text": "## The identity was brute-forceable"
+      },
+      {
+        "type": "p",
+        "text": "phantom-core declared `NodeId = u32` and discovery used that value as the nullifier preimage: H(node_id || epoch || network_commitment). Epoch and commitment are both public, so a 32-bit identity means enumerating 2^32 candidates against a published nullifier \u2014 minutes of GPU time to deanonymise the entire network. The nullifier exists to stop double-announcements *without* revealing who announced; a guessable preimage keeps the cost and discards the anonymity."
+      },
+      {
+        "type": "p",
+        "text": "NodeIdentity is now 32 secret bytes with a Debug impl that refuses to print them, and NodeId stays the public routing index it always was. They are different things and finally have different types."
+      },
+      {
+        "type": "h",
+        "text": "## Membership proofs could never resolve a witness"
+      },
+      {
+        "type": "p",
+        "text": "initialize_network built Merkle leaves as F::from_canonical_u32(id) \u2014 a raw field encoding of a routing index. prove_membership looked leaves up as PoseidonHash(bytes_to_fields(identity)) \u2014 a hash of a 32-byte secret. Those are different values for the same node, so every lookup returned \"Node not found in network\", for every node ever committed. The flagship \"prove I am in the network without saying which node I am\" operation has never worked."
+      },
+      {
+        "type": "p",
+        "text": "commit_to_identities builds the tree the way the lookup reads it. commit_to_network is kept, and now documents that it commits to topology and cannot answer a membership query."
+      },
+      {
+        "type": "h",
+        "text": "## Crashes and dead code paths"
+      },
+      {
+        "type": "p",
+        "text": "- BootstrapConfig::default() panicked on every call. It parsed \"bootstrap1.phantom.network:8080\" as a SocketAddr, which takes literal IPs only, and unwrapped the error. Any node starting with defaults died there. Bootstrap addresses are Strings now, resolved when a connection is attempted, which also lets an operator move a bootstrap node without reshipping clients."
+      },
+      {
+        "type": "p",
+        "text": "- bootstrap() could not succeed against its own mock: it advertised merkle_root [0xAA; 32] and verified that against a real blake3 commitment over a 100-node graph. Both sides now derive from the same tree, so the verification stays a real check instead of being removed to get past it."
+      },
+      {
+        "type": "p",
+        "text": "- prefer_diversity was on by default and inert. The query path truncated to `limit` before calling select_diverse_nodes, so that function chose `limit` nodes from exactly `limit` candidates and handed back the random sample it was given. Regional balancing never ran."
+      },
+      {
+        "type": "p",
+        "text": "- announcements were signed with a Kyber KEM keypair, which cannot sign. The comments said Dilithium-5 throughout; it was simply never wired to SigningKeyPair."
+      },
+      {
+        "type": "p",
+        "text": "- NullifierRegistry::register returned Result<bool> with no Err arm anywhere in its body. It returns bool. anyhow in a library's public API is replaced with concrete error types."
+      },
+      {
+        "type": "h",
+        "text": "## Tests that asserted things the code never did"
+      },
+      {
+        "type": "p",
+        "text": "- A wire header violating both of its own size invariants, then unwrapping. There is now a test asserting the rejection deliberately. - build_random_topology contained no randomness: node i joined to i+1..=i+5, a ring lattice where a broadcast advances 5 positions per round and needs exactly 10 rounds for 50 nodes \u2014 which is why `rounds <= 8` failed. - Test epochs of 0..9 against a wall-clock epoch system, leaving every nullifier ~2.9 million epochs stale and correctly evicted. - Topology tests asserting directed adjacency counts under a field named edge_count: a complete graph on 10 nodes has 45 edges, not 90. - Four gossip tests using one manager as both sender and receiver, so loop prevention correctly rejected everything and they measured nothing. - Three types imported by an integration test that had never been written. - Every doc example that touched a real API was wrong about it \u2014 wrong constructor arity, methods that do not exist, missing fields, `?` outside a function. Doctests do not run when the crate does not build, so the documentation drifted for exactly as long as the build was broken."
+      },
+      {
+        "type": "h",
+        "text": "## The integration seam"
+      },
+      {
+        "type": "p",
+        "text": "PacketConstructor and Plonky2ProofGenerator::commit_to_network were named by the end-to-end test and did not exist. Both are thin \u2014 PhantomPacket::construct already did the FHE work, initialize_network already cached proofs \u2014 what was missing was something owning all three parts at once."
+      },
+      {
+        "type": "p",
+        "text": "PacketConstructor reads the network commitment at call time rather than caching it: membership changes as nodes join, and a packet built against a stale root is refused by the first relay to check it, so a cached copy is a bug that only appears under churn. commitment_is_current() exists so a caller can see when the prover's cached proofs have gone stale."
+      },
+      {
+        "type": "h",
+        "text": "## What is still not true, said out loud"
+      },
+      {
+        "type": "p",
+        "text": "PhantomPacket::construct documents four steps and implements one. The routing table is genuinely FHE-encrypted \u2014 a relay cannot learn the route. The payload is stored verbatim, the zk path proof is a placeholder, and the nullifier is hash(packet_id), which prevents nothing because a fresh packet id yields a fresh nullifier. The README says nodes \"route packets they literally cannot decrypt\"; that is true of routing metadata and false of contents, and the difference is the whole threat model. The function's doc comment now says so."
+      },
+      {
+        "type": "p",
+        "text": "Two tests are #[ignore]d with their reasons rather than deleted or inverted: payload_is_not_readable_on_the_wire, and the end-to-end test, which reaches Plonky2 and stops at \"54 generators weren't run\" \u2014 a membership circuit declaring targets nothing assigns. Both should pass unchanged when the work lands; neither asserts the current broken behaviour, because a test that does that fails on the day someone fixes it."
+      },
+      {
+        "type": "h",
+        "text": "## Build hygiene, and why it is in this commit"
+      },
+      {
+        "type": "p",
+        "text": "[profile.dev] set opt-level and never set debug, defaulting to full symbols for every crate including dependencies compiled at opt-level 3. target/ reached 101.8 GiB across 70,511 files, filled the volume that also runs production, and killed the process serving cloud.tnhc.dev. With line-tables-only for workspace crates and debug=false for dependencies, the same build produces 3.3 GiB."
       }
     ]
   },

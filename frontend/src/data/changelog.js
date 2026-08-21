@@ -5,7 +5,7 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 962 entries, newest first.
+// 963 entries, newest first.
 
 export const CHANGELOG = [
   {
@@ -6636,6 +6636,13 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "vault",
     "title": "Initial commit \u2014 DevVault v0.1.0"
+  },
+  {
+    "sha": "92070d2",
+    "date": "2026-08-20",
+    "kind": "fix",
+    "area": "phantom",
+    "title": "Make the workspace build, and fix the fifteen bugs that hid behind it"
   },
   {
     "sha": "97ffc9b",
