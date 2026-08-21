@@ -5,9 +5,16 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 969 entries, newest first.
+// 970 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "0fa09f7",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "proxy",
+    "title": "Api.tnhc.dev redirects to the API directory"
+  },
   {
     "sha": "c3b9e75",
     "date": "2026-08-21",

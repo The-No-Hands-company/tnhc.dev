@@ -6,9 +6,49 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 769 posts, newest first.
+// 770 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "api-tnhc-dev-redirects-to-the-api-directory",
+    "title": "Api.tnhc.dev redirects to the API directory",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "api.<DOMAIN> already resolved. *.tnhc.dev is a wildcard CNAME to the tunnel and only the apex has its own record pointing at tnhc-dev.pages.dev, so the name reached this proxy, matched nothing, fell through to the Hostin",
+    "sha": "0fa09f7",
+    "content": [
+      {
+        "type": "p",
+        "text": "api.<DOMAIN> already resolved. *.tnhc.dev is a wildcard CNAME to the tunnel and only the apex has its own record pointing at tnhc-dev.pages.dev, so the name reached this proxy, matched nothing, fell through to the Hosting site-proxy and answered 404 \u2014 indistinguishable from any unused subdomain."
+      },
+      {
+        "type": "p",
+        "text": "That also means this did not need a Cloudflare Pages custom domain, which is fortunate: the CF_API_TOKEN in apps/Nexus-Cloud/.env no longer verifies, so the API route to adding one is closed until it is replaced. The wildcard delivers the host to code we own."
+      },
+      {
+        "type": "p",
+        "text": "A redirect rather than a proxy. The directory lives at one canonical URL; serving Pages content under a second hostname would duplicate the page, split its cache, and hide the real address from anyone who bookmarks it."
+      },
+      {
+        "type": "p",
+        "text": "302, not 301, matching the reasoning in tnhc.dev/frontend/public/_redirects. If api.<DOMAIN> is later added as a Pages custom domain it stops reaching this proxy at all, and a permanent redirect cached in browsers would go on sending people away from the thing it is supposed to serve."
+      },
+      {
+        "type": "p",
+        "text": "The host-aware root route committed in aa3f911 stays: it is what makes that Pages path work if it is ever taken, and it costs nothing meanwhile."
+      },
+      {
+        "type": "p",
+        "text": "Verified after a proxy restart: api.tnhc.dev returns 302 to https://tnhc.dev/api which returns 200, and all seven hosts answer as before."
+      }
+    ]
+  },
   {
     "slug": "stop-the-suite-fighting-the-live-service-for-a-port-and-a-da",
     "title": "Stop the suite fighting the live service for a port and a database",
