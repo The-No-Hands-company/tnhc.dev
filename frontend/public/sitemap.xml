@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/blog/actually-add-the-home-link-this-time-and-show-who-is-signed</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/use-the-design-tokens-that-exist-not-the-ones-that-look-righ</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
@@ -3342,6 +3347,11 @@
   </url>
   <url>
     <loc>https://tnhc.dev/blog/real-build-engine-websocket-log-streaming-full-dashboard</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tnhc.dev/blog/serve-the-openapi-description-and-measure-what-it-leaves-out</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
   </url>

@@ -6,9 +6,53 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 775 posts, newest first.
+// 777 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "actually-add-the-home-link-this-time-and-show-who-is-signed",
+    "title": "Actually add the home link this time, and show who is signed in",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "shell"
+    ],
+    "category": "Commit",
+    "excerpt": "Commit 80bbc535 was titled \"and a way back home\" and did not contain one. Its diff to Shell.tsx was a single line \u2014 the react-router import \u2014 because the edit that was supposed to replace the wordmark used str.replace() ",
+    "sha": "f742ee6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Commit 80bbc535 was titled \"and a way back home\" and did not contain one. Its diff to Shell.tsx was a single line \u2014 the react-router import \u2014 because the edit that was supposed to replace the wordmark used str.replace() against a pattern that did not match. replace() returns the string unchanged when it misses, the script printed success, and I wrote a commit message describing a feature that was never there."
+      },
+      {
+        "type": "p",
+        "text": "That is the same failure this session has spent its time removing: something reporting success without doing the work. Every edit here asserted its anchor before writing, and the result was grepped afterwards rather than trusted."
+      },
+      {
+        "type": "p",
+        "text": "So, actually now: the wordmark links to the grid, and there is a \"Report a problem\" link in the sidebar chrome."
+      },
+      {
+        "type": "p",
+        "text": "Also the header showed nothing but the wordmark, so a signed-in user had no confirmation of which account they were using and no route to their password, sessions or recovery codes without knowing /account existed. It now shows an initial and a username linking there, with the email as the tooltip \u2014 the address is longer, less readable, and not what anyone scans for."
+      },
+      {
+        "type": "p",
+        "text": "Identity is passed into Shell rather than fetched by it. Shell's own comment claims it \"fetches nothing, so it can be rendered in a test without a server\", and a fetch would have quietly falsified that. App.tsx does the fetching, and a failure leaves it null so the header simply omits the identity \u2014 the shell has to render for signed-out visitors too, and an unreachable /me is not a reason to show them a broken page."
+      },
+      {
+        "type": "p",
+        "text": "Using <Link> does mean Shell now needs a router in context, which it did not before. Its tests wrap in MemoryRouter and say why, rather than leaving the next person to discover it."
+      },
+      {
+        "type": "p",
+        "text": "Three tests cover the new behaviour: the identity links to /account with the email as title, it is omitted entirely when nobody is signed in, and the home and report links are always present. 101 frontend tests, 71 backend."
+      }
+    ]
+  },
   {
     "slug": "use-the-design-tokens-that-exist-not-the-ones-that-look-righ",
     "title": "Use the design tokens that exist, not the ones that look right",
@@ -21333,6 +21377,47 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "serve-the-openapi-description-and-measure-what-it-leaves-out",
+    "title": "Serve the OpenAPI description, and measure what it leaves out",
+    "date": "2026-08-21",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "api",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "lib/api-spec/openapi.yaml has existed for as long as this service has \u2014 13,000 lines of valid OpenAPI 3.1 \u2014 and nothing served it. Every openapi.json on every Nexus host answered 404, so no client could be generated agai",
+    "sha": "971f45a",
+    "content": [
+      {
+        "type": "p",
+        "text": "lib/api-spec/openapi.yaml has existed for as long as this service has \u2014 13,000 lines of valid OpenAPI 3.1 \u2014 and nothing served it. Every openapi.json on every Nexus host answered 404, so no client could be generated against any API in the ecosystem. The document was right there the whole time."
+      },
+      {
+        "type": "p",
+        "text": "It is now at /openapi.yaml. YAML rather than JSON because js-yaml is not a dependency here and adding one to re-emit the same document in another syntax buys nothing: Swagger UI, orval and openapi-generator all read YAML."
+      },
+      {
+        "type": "p",
+        "text": "The more useful half is the measurement. Comparing the spec's paths against the routes the code actually registers: the spec lists 50, of which 49 exist, while the service has 127. That is a little under forty percent coverage, and the fiftieth path documents an endpoint the code does not have \u2014 a small warning about what unchecked specs drift into."
+      },
+      {
+        "type": "p",
+        "text": "tests/unit/specCoverage.test.ts records that floor and fails if it drops, so adding undocumented routes becomes a decision someone makes rather than something that happens quietly. It does not demand 100%: a partial spec is far more useful than none, and a partial spec presented as complete is how the next person gets misled."
+      },
+      {
+        "type": "p",
+        "text": "Two of its three assertions exist to stop it passing vacuously \u2014 one checks the spec parse finds more than 40 paths, the other that the route scan finds more than 100. Without those, a formatting change that broke either regex would make the coverage assertion trivially true. That failure mode has bitten this codebase repeatedly and it was worth two extra lines."
+      },
+      {
+        "type": "p",
+        "text": "The floor is 49, not the 50 I first wrote: the test caught me conflating \"paths in the spec\" with \"routes actually documented\"."
       }
     ]
   },

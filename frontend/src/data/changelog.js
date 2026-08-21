@@ -5,9 +5,16 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 974 entries, newest first.
+// 976 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "f742ee6",
+    "date": "2026-08-21",
+    "kind": "fix",
+    "area": "shell",
+    "title": "Actually add the home link this time, and show who is signed in"
+  },
   {
     "sha": "d495f8e",
     "date": "2026-08-21",
@@ -5957,6 +5964,13 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "deploy",
     "title": "Real build engine, WebSocket log streaming, full dashboard"
+  },
+  {
+    "sha": "971f45a",
+    "date": "2026-08-21",
+    "kind": "feat",
+    "area": "api",
+    "title": "Serve the OpenAPI description, and measure what it leaves out"
   },
   {
     "sha": "51ee2d0",
