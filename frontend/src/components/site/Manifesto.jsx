@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const IMG =
-  "https://images.unsplash.com/photo-1704920110270-5c107519cdc4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxkYXJrJTIwZnV0dXJpc3RpYyUyMGVtcHR5JTIwcm9vbSUyMGRlc2t8ZW58MHx8fHwxNzgxOTIxNzcxfDA&ixlib=rb-4.1.0&q=85";
+  "/img/hero-3.webp";
 
 const CHAPTERS = [
   {

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowDown } from "@phosphor-icons/react";
 
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1693648793394-0b76b7eb042e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxtZXRhbGxpYyUyMGFic3RyYWN0JTIwM2QlMjBmbHVpZCUyMGRhcmt8ZW58MHx8fHwxNzgyMjA2MDA2fDA&ixlib=rb-4.1.0&q=85";
+  "/img/hero-2.webp";
 
 const EASE = [0.76, 0, 0.24, 1];
 

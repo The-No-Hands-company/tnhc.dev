@@ -1,0 +1,9 @@
+Satoshi is published by the Indian Type Foundry (Fontshare) under the
+ITF Free Font Licence, which permits use in commercial and personal
+projects, including embedding in websites served from your own origin.
+
+Full licence: https://www.fontshare.com/licenses/itf-ffl
+
+The .woff2 files beside this notice were downloaded from cdn.fontshare.com
+and are served from tnhc.dev so that no visitor's browser has to contact a
+third party to read the site. Regenerate with scripts/vendor-fonts.sh.

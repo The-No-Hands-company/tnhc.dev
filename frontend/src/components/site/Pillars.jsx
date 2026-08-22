@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Brain, Fingerprint, SquaresFour, GlobeHemisphereWest } from "@phosphor-icons/react";
 
-const FED_IMG = "https://images.pexels.com/photos/30766684/pexels-photo-30766684.png";
+const FED_IMG = "/img/hero-1.webp";
 
 const Reveal = ({ children, className = "", delay = 0 }) => (
   <motion.div
