@@ -5,7 +5,8 @@ import { toast } from "sonner";
 import { ArrowUpRight, CircleNotch } from "@phosphor-icons/react";
 import Donate from "@/components/site/Donate";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// Same-origin by default: tnhc.dev/api/waitlist* is served by workers/waitlist.
+const API = `${process.env.REACT_APP_BACKEND_URL || ""}/api`;
 
 export default function Waitlist() {
   const [email, setEmail] = useState("");

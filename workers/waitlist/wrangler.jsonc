@@ -1,0 +1,19 @@
+{
+  // Waitlist API for tnhc.dev. See src/index.js for the contract.
+  "name": "tnhc-waitlist",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+  // Only reachable through tnhc.dev; no separate workers.dev address.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "tnhc.dev/api/waitlist*", "zone_name": "tnhc.dev" },
+    { "pattern": "tnhc.dev/api/admin/*", "zone_name": "tnhc.dev" }
+  ],
+  "d1_databases": [
+    // No database_id: wrangler creates the database on first deploy and
+    // reuses it afterwards.
+    { "binding": "DB", "database_name": "tnhc-waitlist" }
+  ],
+  "observability": { "enabled": true }
+}
