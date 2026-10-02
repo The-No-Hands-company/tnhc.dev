@@ -252,7 +252,16 @@ export default function Apps() {
       <footer className="border-t border-white/10">
         <div className="mx-auto flex max-w-[1600px] flex-col items-start justify-between gap-4 px-6 py-8 md:flex-row md:items-center md:px-12">
           <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">
-            © {new Date().getFullYear()} The No Hands Company
+            © {new Date().getFullYear()} The No Hands Company ·{" "}
+            <a
+              href="https://zajfan.tnhc.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-acid"
+              data-testid="apps-footer-founder"
+            >
+              Founder: Zajfan
+            </a>
           </span>
           <a
             href="https://www.paypal.me/tnhcns"
