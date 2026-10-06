@@ -13,7 +13,7 @@ DATA = SITE / "frontend/src/data"
 OUT = SITE / "frontend/public/sitemap.xml"
 BASE = "https://tnhc.dev"
 
-STATIC = ["/", "/apps", "/blog", "/changelog"]
+STATIC = ["/", "/apps", "/blog", "/changelog", "/charter", "/phantom"]
 
 
 def slugs_from(path):

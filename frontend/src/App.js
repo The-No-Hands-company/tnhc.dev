@@ -9,6 +9,8 @@ import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Changelog from "@/pages/Changelog";
 import ApiDocs from "@/pages/ApiDocs";
+import Charter from "@/pages/Charter";
+import PhantomStatus from "@/pages/PhantomStatus";
 
 /**
  * True when this bundle is being served from the API subdomain.
@@ -62,6 +64,8 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/changelog" element={<Changelog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/charter" element={<Charter />} />
+          <Route path="/phantom" element={<PhantomStatus />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="bottom-right" theme="dark" />

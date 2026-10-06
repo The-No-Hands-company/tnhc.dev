@@ -6,9 +6,2042 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 783 posts, newest first.
+// 857 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "route-cloudflare-email-ingress-through-the-proxy-wire-mail-s",
+    "title": "Route Cloudflare email ingress through the proxy, wire mail secrets",
+    "date": "2026-10-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "email-ingress.<domain> is pinned in the proxy to POST /internal/v1/cloudflare-email on loopback mailapi, outside the login gate; every other path 404s. The README's direct tunnel route to :3140 would have exposed mailapi",
+    "sha": "b133068",
+    "content": [
+      {
+        "type": "p",
+        "text": "email-ingress.<domain> is pinned in the proxy to POST /internal/v1/cloudflare-email on loopback mailapi, outside the login gate; every other path 404s. The README's direct tunnel route to :3140 would have exposed mailapi's X-Nexus-Subject-trusting API publicly."
+      },
+      {
+        "type": "p",
+        "text": "deploy.sh adopts the ingress token and Resend SMTP settings from apps/Nexus-Email/.env and exports them only around the service that needs each, and draw/calendar web now use $CADDY_BIN like chat-web."
+      }
+    ]
+  },
+  {
+    "slug": "security-pass-verified-plain-git-no-trust-on-first-use",
+    "title": "Security pass, verified plain git, no trust on first use",
+    "date": "2026-10-03",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "feat",
+      "forge"
+    ],
+    "category": "Commit",
+    "excerpt": "Review of all Forge code for exploitability, then the open items.",
+    "sha": "c79ce22",
+    "content": [
+      {
+        "type": "p",
+        "text": "Review of all Forge code for exploitability, then the open items."
+      },
+      {
+        "type": "p",
+        "text": "Security fixes: - the policy file was read from wherever the server's HEAD pointed; a server repointing HEAD at a branch with an unreviewed allowed_signers change made it the policy in force. The policy ref is now fixed (refs/heads/main) on server and client. Test + mutation. - argument injection on the client: object ids from the server's ref log went into git's argv. Every log entry is now validated (hex ids, plain ref names, exact field set, no control characters) and checkUpdates refuses non-hex ids; revisions follow --end-of-options. Tests feed \"--output=\u2026\", \"--all\", \"-p\" and hostile entries with consistent hashes. Mutation: dropping the shape check fails them. - client git hardened against an untrusted server: http(s) transports only, no redirects, fsckObjects on fetch, no credentials in URLs, no plain http to other machines. - server: push bodies streamed into git with a byte cap instead of buffered (test forces a chunked push; mutation proves the cap is what stops it), at most 16 git processes (503 past that), nosniff/CSP/ no-referrer on every response, usernames from an allowlist. - signature check: one `git log --format=%H %G?` per ref, stopping at the first bad commit, instead of two processes per commit."
+      },
+      {
+        "type": "p",
+        "text": "Open items: - trust on first use closed: trust roots have sha256 fingerprints, `admin repo create` prints it, a first `forge verify` without --trust-root refuses and shows the served one (--trust-on-first-use to accept explicitly). - git-remote-nexus (`forge install-helper` generates it 0755): `git clone nexus::\u2026`, fetch and pull run the full verification first and copy objects only from the verified mirror. A pull from a compromised server fails and leaves the clone untouched (mutation-checked)."
+      },
+      {
+        "type": "p",
+        "text": "KISS/DRY: `forge log verify` removed (strict subset of verify, with its own pin file and a git env that read ~/.gitconfig); one runGit for server, hooks and client; unused runGit stdin option removed. The project typecheck now covers the tests."
+      },
+      {
+        "type": "p",
+        "text": "Gate: typecheck (src + tests), lint, 87/87."
+      }
+    ]
+  },
+  {
+    "slug": "forge-verify-enforces-the-push-policy-on-the-client",
+    "title": "`forge verify` enforces the push policy on the client",
+    "date": "2026-10-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "forge"
+    ],
+    "category": "Commit",
+    "excerpt": "The server's pre-receive hook was the only enforcement, so a compromised server could let anything in. `forge verify <url>` mirrors the repository and replays every push in the ref log through the same checkUpdates() the",
+    "sha": "130f5e3",
+    "content": [
+      {
+        "type": "p",
+        "text": "The server's pre-receive hook was the only enforcement, so a compromised server could let anything in. `forge verify <url>` mirrors the repository and replays every push in the ref log through the same checkUpdates() the hook runs, with the state before each push rebuilt from the log:"
+      },
+      {
+        "type": "p",
+        "text": "- policy check split into checkPush (server: live refs) and checkUpdates (any reconstructed \"state before the push\") - ref-log entries carry `push`, the seq of the first entry of the same push, so a multi-ref push is judged as a whole: judged entry by entry, a push that adds a key on main and uses it on another branch would pass the client while the server refuses it - GET /<repo>.git/nexus/trust-root (read access); the client pins its digest, or compares it with --trust-root - incremental: pushes verified on an earlier run are skipped, safe because the pinned head proves they are unchanged"
+      },
+      {
+        "type": "p",
+        "text": "Tests run a compromised forge (its pre-receive accepts everything, the log is still written): an unsigned commit and a mallory-signed commit both pass `forge log verify` and fail `forge verify`; so does the multi-ref push, a swapped trust root, a --trust-root mismatch and a rewritten chain. Mutations: per-entry replay and dropping the trust-root pin each fail their test. Test timeout raised to 30s (bunfig.toml): the integration tests spawn dozens of git processes and flaked at 5s under load."
+      },
+      {
+        "type": "p",
+        "text": "Forge gate: typecheck, lint, 75/75."
+      }
+    ]
+  },
+  {
+    "slug": "never-accept-a-push-whose-policy-hook-cannot-run-gate-forge",
+    "title": "Never accept a push whose policy hook cannot run; gate Forge in CI",
+    "date": "2026-10-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "forge"
+    ],
+    "category": "Commit",
+    "excerpt": "git skips a hook that is not executable, prints a hint, and accepts the push. The hook wrappers were checked in, and this repository lives on a filesystem with core.fileMode=false, so git recorded them as 100644: on any ",
+    "sha": "9cf13c3",
+    "content": [
+      {
+        "type": "p",
+        "text": "git skips a hook that is not executable, prints a hint, and accepts the push. The hook wrappers were checked in, and this repository lives on a filesystem with core.fileMode=false, so git recorded them as 100644: on any fresh checkout (CI, another machine, the Docker image) every push would have been accepted with no signature check and no ref log. Tests passed only because every file is 0777 on this disk."
+      },
+      {
+        "type": "p",
+        "text": "- Hooks are generated at startup into <storage>/.forge-hooks (a name no repository can have) with mode 0755, pointing at the absolute .ts entrypoints, then probed by actually running them; a forge whose hooks do not run does not start. - Before every receive-pack request the hooks are re-checked; if they stopped being executable the push gets a 503 instead of going through unchecked. - Reproduced first: with the per-push guard removed, git logs \"hook was ignored because it's not set as executable\" and the unsigned push lands; the test fails. With it, 64/64."
+      },
+      {
+        "type": "p",
+        "text": "Also: Forge joins the CI bun-apps matrix (it had no CI job); check.sh now runs typecheck + lint before the tests; a test no longer uses `git tag --no-sign`, which older runner gits lack."
+      }
+    ]
+  },
+  {
+    "slug": "make-bun-run-check-pass-on-real-tooling-refresh-the-lockfile",
+    "title": "Make `bun run check` pass on real tooling; refresh the lockfile",
+    "date": "2026-10-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "forge"
+    ],
+    "category": "Commit",
+    "excerpt": "Forge's node_modules was 23 dangling links into a root .bun store that no longer exists, so typecheck and lint had never actually run here. Repaired outside the monorepo (bun install of Forge's package.json in an isolate",
+    "sha": "348d4a8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Forge's node_modules was 23 dangling links into a root .bun store that no longer exists, so typecheck and lint had never actually run here. Repaired outside the monorepo (bun install of Forge's package.json in an isolated directory, then swapped in; node_modules is git-ignored), which avoids the workspace-wide `bun install` that hangs. bun.lock is the one that install produced, without the dependencies dropped in 2f359823."
+      },
+      {
+        "type": "p",
+        "text": "With a real tsc, the project tsconfig (DOM lib) rejects `for await` over a ReadableStream, so the push-body reader is now an explicit read loop that cancels the stream when it passes the limit. New test: a chunked body over the limit gets 413; disabling the limit fails it."
+      },
+      {
+        "type": "p",
+        "text": "bun run check: clean. bun test: 59 pass. ./check.sh: PASS."
+      }
+    ]
+  },
+  {
+    "slug": "move-off-hosting-s-port-exit-on-sigterm-make-the-image-build",
+    "title": "Move off Hosting's port, exit on SIGTERM, make the image buildable",
+    "date": "2026-10-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "forge"
+    ],
+    "category": "Commit",
+    "excerpt": "- Default port 8090 -> 8094. 8090 is Nexus-Hosting's production site-proxy on the host machine; Forge could not start beside it. 8094 is unused anywhere in the repo. The Nexus-Systems-API batch registry and docs follow. ",
+    "sha": "1899949",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Default port 8090 -> 8094. 8090 is Nexus-Hosting's production site-proxy on the host machine; Forge could not start beside it. 8094 is unused anywhere in the repo. The Nexus-Systems-API batch registry and docs follow. - main.ts: the SIGINT/SIGTERM handlers only stopped the Cloud heartbeat. A handler replaces the default exit, so Forge ignored every SIGTERM (found when a `timeout 8` smoke run kept listening). It now stops the server, letting in-flight requests finish, closes the db and exits. - Dockerfile: it copied a bun.lockb that does not exist, and it ran a bundled dist/ that would not contain the hooks git executes, so every push would have been refused. It now runs from source on bun 1.3.12 with no npm install (the backend has no npm runtime dependencies). Compose publishes on 127.0.0.1 only and health-checks with bun (the image has no curl). Not built here; the server and SIGTERM path were smoke-tested on the host."
+      },
+      {
+        "type": "p",
+        "text": "Forge 58/58, Nexus-Systems-API 4/4."
+      }
+    ]
+  },
+  {
+    "slug": "hash-chained-ref-log-and-a-forge-log-verify-cli",
+    "title": "Hash-chained ref log and a `forge log verify` CLI",
+    "date": "2026-10-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "forge"
+    ],
+    "category": "Commit",
+    "excerpt": "A post-receive hook appends every accepted ref update to <repo>.git/nexus/ref-log.jsonl as {seq, time, ref, old, new, pusher, prev, hash}, under a lock so concurrent pushes cannot share a sequence number; it refuses to a",
+    "sha": "7c31602",
+    "content": [
+      {
+        "type": "p",
+        "text": "A post-receive hook appends every accepted ref update to <repo>.git/nexus/ref-log.jsonl as {seq, time, ref, old, new, pusher, prev, hash}, under a lock so concurrent pushes cannot share a sequence number; it refuses to append to a log that is already broken. The log is served (read access) at GET /<repo>.git/nexus/ref-log."
+      },
+      {
+        "type": "p",
+        "text": "`forge log verify <url>` checks every link, replays the log to the ref state it implies and compares that with `git ls-remote`, and pins the head it saw so a later consistent rewrite of the whole chain is caught. `forge admin` creates users, expiring tokens, repositories (with a trust root) and grants: the only way to get credentials now that the fake login is gone."
+      },
+      {
+        "type": "p",
+        "text": "README rewritten to say what exists and what does not; new docs/SECURITY-MODEL.md gives the guarantees and, as plainly, the limits: the server still enforces the policy, the trust root lives on the server, an unpinned client cannot see a consistent rewrite, and log entries are not signed yet."
+      },
+      {
+        "type": "p",
+        "text": "Mutations: dropping the ref comparison or the pin check each fails a test."
+      }
+    ]
+  },
+  {
+    "slug": "refuse-pushes-that-are-not-signed-under-the-repository-s-pol",
+    "title": "Refuse pushes that are not signed under the repository's policy",
+    "date": "2026-10-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "forge"
+    ],
+    "category": "Commit",
+    "excerpt": "A pre-receive hook, installed through core.hooksPath on the http-backend command line (never copied into a repository, so a repo cannot replace it), runs the signed-push policy:",
+    "sha": "79520b1",
+    "content": [
+      {
+        "type": "p",
+        "text": "A pre-receive hook, installed through core.hooksPath on the http-backend command line (never copied into a repository, so a repo cannot replace it), runs the signed-push policy:"
+      },
+      {
+        "type": "p",
+        "text": "- every commit a push introduces, on any ref, must carry an SSH signature from a key in the policy in force; annotated tags must be signed too; only OpenSSH signatures count - the policy in force is .nexus/allowed_signers (git's own allowedSignersFile format) at the default branch's tip BEFORE the push, or the repository's trust root when that file is absent. So a commit cannot authorise its own signer, a key added in a push cannot sign later commits of the same push, and a revoked key stays revoked on branches cut before the revocation. - a policy change that does not parse is refused, so a typo cannot lock the repository - only refs/heads/* and refs/tags/* may be pushed; deletions refused - fail closed: a missing trust root, missing hook environment or a crashing check refuses the push"
+      },
+      {
+        "type": "p",
+        "text": "13 end-to-end tests with real keys, real signing and real pushes. Mutation: checking only the tip commit fails the merge test. Removing gpg.minTrustLevel does not fail anything, because git 2.55 already exits 1 on \"No principal matched\" (checked by hand); the setting stays as a second layer and the comment says so."
+      }
+    ]
+  },
+  {
+    "slug": "serve-git-over-smart-http-behind-one-default-deny-access-che",
+    "title": "Serve git over smart HTTP behind one default-deny access check",
+    "date": "2026-10-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "forge"
+    ],
+    "category": "Commit",
+    "excerpt": "Quarantines the placeholder surface and replaces it with a real core.",
+    "sha": "c1a93bd",
+    "content": [
+      {
+        "type": "p",
+        "text": "Quarantines the placeholder surface and replaces it with a real core."
+      },
+      {
+        "type": "p",
+        "text": "Quarantine (files left in place, nothing registers them any more): - ~150 api/ route modules that answered every request with canned success, including POST /api/commit-signing/verify, which \"verified\" any payload, /api/permissions/check, which always said write:true, and /api/auth/login, which issued an admin JWT to anyone, signed with a hard-coded fallback secret. - the matching ~150 frontend pages; the app routes only the repo list and repo detail pages, which now read the real API."
+      },
+      {
+        "type": "p",
+        "text": "Core: - git smart HTTP via `git http-backend`: an allowlist of exactly the upload-pack and receive-pack endpoints; the dumb protocol is 404; the receive-pack advertisement needs write, not just the POST; an ambiguous ?service= is a 400 and http-backend sees a rebuilt query. - one authorize() decision, default-deny: anonymous may only read public repositories; private repositories answer 401/404 the same whether or not they exist. - opaque access tokens that always expire (max 30 days), stored as SHA-256, accepted as Bearer or as the Basic password git sends. - repository names from an allowlist, so no traversal or option injection reaches the filesystem or git. - git runs in an environment built from nothing (no inherited GIT_*, no user config), with fsckObjects, denyNonFastForwards and denyDeletes set on the command line where a repo's own config cannot undo them. - metadata on bun:sqlite with a schema version; the silent in-memory fallback (which reset every grant on restart) is gone."
+      },
+      {
+        "type": "p",
+        "text": "Tests: real clones and pushes against a real server, plus raw-request bypass attempts; mutating authorize() to allow-all fails 8 of them. tests/vcs.test.ts still fails as before: node_modules/simple-git is a dangling symlink (pre-existing, not touched here)."
+      }
+    ]
+  },
+  {
+    "slug": "record-the-scheduling-behaviour-notes",
+    "title": "Record the scheduling behaviour notes",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Project finish and the milestone display rule, silent start-no-earlier-than in manual mode, summary deadlines, summary roll-ups and demotion, calendar re-derivation in both modes, unversioned DELETE /tasks/:id, and writa",
+    "sha": "3113458",
+    "content": [
+      {
+        "type": "p",
+        "text": "Project finish and the milestone display rule, silent start-no-earlier-than in manual mode, summary deadlines, summary roll-ups and demotion, calendar re-derivation in both modes, unversioned DELETE /tasks/:id, and writable archived projects."
+      }
+    ]
+  },
+  {
+    "slug": "accept-a-dashboard-hop-subject-only-in-the-nexus-subject-sha",
+    "title": "Accept a Dashboard-hop subject only in the Nexus subject shape",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "The hop believed any non-empty x-nexus-subject once the secret matched. It now requires the same pattern validation uses (^[A-Za-z0-9._:@-]{1,200}$); anything else is anonymous. The auth tests also restore NEXUS_AUTH_INT",
+    "sha": "740e3d7",
+    "content": [
+      {
+        "type": "p",
+        "text": "The hop believed any non-empty x-nexus-subject once the secret matched. It now requires the same pattern validation uses (^[A-Za-z0-9._:@-]{1,200}$); anything else is anonymous. The auth tests also restore NEXUS_AUTH_INTERNAL_URL after each test instead of leaking it."
+      }
+    ]
+  },
+  {
+    "slug": "refuse-a-database-whose-schema-is-newer-than-the-code",
+    "title": "Refuse a database whose schema is newer than the code",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "openDatabase now throws a clear error when PRAGMA user_version is beyond the last migration it knows, closes the handle, and does not switch the file to WAL, instead of silently running an old build against a newer schem",
+    "sha": "32daf0d",
+    "content": [
+      {
+        "type": "p",
+        "text": "openDatabase now throws a clear error when PRAGMA user_version is beyond the last migration it knows, closes the handle, and does not switch the file to WAL, instead of silently running an old build against a newer schema."
+      }
+    ]
+  },
+  {
+    "slug": "create-the-personal-workspace-on-the-caller-s-first-request",
+    "title": "Create the personal workspace on the caller's first request",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "It was created only by GET /workspaces, so a first request elsewhere (for example /me/tasks) found no personal workspace. The server now ensures it right after identity resolves, for every authenticated request.",
+    "sha": "d40f844",
+    "content": [
+      {
+        "type": "p",
+        "text": "It was created only by GET /workspaces, so a first request elsewhere (for example /me/tasks) found no personal workspace. The server now ensures it right after identity resolves, for every authenticated request."
+      }
+    ]
+  },
+  {
+    "slug": "cap-request-bodies-and-backstop-every-server-error",
+    "title": "Cap request bodies and backstop every server error",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Bodies over 1 MiB are refused by Bun before they are read (413). Identity resolution now runs inside the handler's try, and Bun.serve's error() returns the generic 500 envelope for anything thrown outside it, so no path ",
+    "sha": "13ba4d2",
+    "content": [
+      {
+        "type": "p",
+        "text": "Bodies over 1 MiB are refused by Bun before they are read (413). Identity resolution now runs inside the handler's try, and Bun.serve's error() returns the generic 500 envelope for anything thrown outside it, so no path can answer with a stack trace."
+      }
+    ]
+  },
+  {
+    "slug": "convert-only-404s-to-not-found-in-access-helpers",
+    "title": "Convert only 404s to not-found in access helpers",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "statusAccess, linkAccess and linkableTask caught every error and answered 404, so a database fault looked like a missing resource. They now rethrow anything that is not a 404, which reaches the server's 500 handler.",
+    "sha": "aa44e40",
+    "content": [
+      {
+        "type": "p",
+        "text": "statusAccess, linkAccess and linkableTask caught every error and answered 404, so a database fault looked like a missing resource. They now rethrow anything that is not a 404, which reaches the server's 500 handler."
+      }
+    ]
+  },
+  {
+    "slug": "only-assign-tasks-to-someone-who-can-see-the-project",
+    "title": "Only assign tasks to someone who can see the project",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "In a restricted project an assignee must be an owner, an admin or listed on the project (canSeeProject), else 422 assignee_not_member. Removing someone from a workspace also unassigns their tasks in its projects.",
+    "sha": "670c1b1",
+    "content": [
+      {
+        "type": "p",
+        "text": "In a restricted project an assignee must be an owner, an admin or listed on the project (canSeeProject), else 422 assignee_not_member. Removing someone from a workspace also unassigns their tasks in its projects."
+      }
+    ]
+  },
+  {
+    "slug": "never-schedule-a-manual-task-before-the-project-start",
+    "title": "Never schedule a manual task before the project start",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "In manual mode the stored start acted as the floor on its own, so a start stored before the project start was scheduled there. The floor is now the later of the project start and the stored start, as the spec requires.",
+    "sha": "80fd897",
+    "content": [
+      {
+        "type": "p",
+        "text": "In manual mode the stored start acted as the floor on its own, so a start stored before the project start was scheduled there. The floor is now the later of the project start and the stored start, as the spec requires."
+      }
+    ]
+  },
+  {
+    "slug": "store-summary-roll-ups-and-report-every-task-a-write-moved",
+    "title": "Store summary roll-ups and report every task a write moved",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "A task that gains its first child now drops its own duration and start constraint, and reschedule runs in both modes: it stores each summary's start, finish and progress from the engine's roll-up (auto mode also writes l",
+    "sha": "cd40b45",
+    "content": [
+      {
+        "type": "p",
+        "text": "A task that gains its first child now drops its own duration and start constraint, and reschedule runs in both modes: it stores each summary's start, finish and progress from the engine's roll-up (auto mode also writes leaf dates) and bumps a version only when a value changed. A summary that loses its last child is an unscheduled leaf again. refreshDerivedFinishes skips summaries."
+      },
+      {
+        "type": "p",
+        "text": "Every schedule-affecting write now returns a top-level rescheduled array with the id, version, dates and progress of each other task it changed, so an optimistic client can refresh versions instead of meeting a 409."
+      }
+    ]
+  },
+  {
+    "slug": "keep-ranks-short-with-fixed-width-rankafter-and-rankbefore",
+    "title": "Keep ranks short with fixed-width rankAfter and rankBefore",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Appends and moves to either open end bisected toward the end, adding about one character every five calls. rankAfter/rankBefore increment or decrement a fixed width instead and never end in \"0\"; rankBetween stays for tru",
+    "sha": "3807435",
+    "content": [
+      {
+        "type": "p",
+        "text": "Appends and moves to either open end bisected toward the end, adding about one character every five calls. rankAfter/rankBefore increment or decrement a fixed width instead and never end in \"0\"; rankBetween stays for true between-two inserts."
+      }
+    ]
+  },
+  {
+    "slug": "critical-path-scheduling-engine",
+    "title": "Critical-path scheduling engine",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Forward and backward passes over all four link types with lag, working-day calendars, deadlines as negative float, manual-mode violations, auto-mode constraints, pinned completed work, and summary roll-up.",
+    "sha": "134c43b",
+    "content": [
+      {
+        "type": "p",
+        "text": "Forward and backward passes over all four link types with lag, working-day calendars, deadlines as negative float, manual-mode violations, auto-mode constraints, pinned completed work, and summary roll-up."
+      }
+    ]
+  },
+  {
+    "slug": "use-real-packages-and-restore-async-handler-support",
+    "title": "Use real packages and restore async handler support",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Use real packages and restore async handler support",
+    "sha": "bae9f35",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Removed stub bun-types and symlinked node_modules",
+          "Installed real packages: typescript 5.9.3, bun-types 1.3.14, @biomejs/biome 1.9.4",
+          "Restored Handler type to Promise<Response> | Response for async support",
+          "Updated router test to await handler result before calling .text()"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "replace-the-broken-scaffold-with-a-tested-service-skeleton",
+    "title": "Replace the broken scaffold with a tested service skeleton",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "The scaffold never ran: 0/2 tests, an undefined PhantomApp, filters never bound, a critical path that ignored dependencies and a sync that duplicated data. This keeps its name, port 3152 and Cloud registration and nothin",
+    "sha": "d6bc300",
+    "content": [
+      {
+        "type": "p",
+        "text": "The scaffold never ran: 0/2 tests, an undefined PhantomApp, filters never bound, a critical path that ignored dependencies and a sync that duplicated data. This keeps its name, port 3152 and Cloud registration and nothing else."
+      }
+    ]
+  },
+  {
+    "slug": "implementation-plan-for-the-nexus-project-backend-plan-1-of",
+    "title": "Implementation plan for the Nexus Project backend (plan 1 of 2)",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Fourteen TDD tasks: replace the broken scaffold, then a pure scheduling engine (working-day calendar, dependency graph, CPM with all four link types, property tests and a 5,000-task benchmark), the SQLite store, and the ",
+    "sha": "5c35e18",
+    "content": [
+      {
+        "type": "p",
+        "text": "Fourteen TDD tasks: replace the broken scaffold, then a pure scheduling engine (working-day calendar, dependency graph, CPM with all four link types, property tests and a 5,000-task benchmark), the SQLite store, and the authenticated API for workspaces, projects, statuses, tasks, dependencies, calendars, the schedule and My tasks. Frontend and delivery follow in plan 2, written against the real API."
+      }
+    ]
+  },
+  {
+    "slug": "design-nexus-project-scheduling-core-and-views",
+    "title": "Design Nexus Project scheduling core and views",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "One project management system for solo users and teams: workspaces with roles, an arbitrarily nested WBS, per-project statuses, all four dependency types with lag, working-day calendars, a pure scheduling engine shared b",
+    "sha": "a98f786",
+    "content": [
+      {
+        "type": "p",
+        "text": "One project management system for solo users and teams: workspaces with roles, an arbitrarily nested WBS, per-project statuses, all four dependency types with lag, working-day calendars, a pure scheduling engine shared by server and browser (true critical path, float, manual and auto modes), and Board, List and Timeline views delivered as a proxied app."
+      }
+    ]
+  },
+  {
+    "slug": "coherent-rotation-snapshots-and-bash-effective-assignments",
+    "title": "Coherent rotation snapshots and Bash-effective assignments",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "security"
+    ],
+    "category": "Commit",
+    "excerpt": "Residual recovery fix round 2, left staged in the worktree since 2026-08-16 and committed now so the branch can be integrated into main.",
+    "sha": "0299de8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Residual recovery fix round 2, left staged in the worktree since 2026-08-16 and committed now so the branch can be integrated into main."
+      },
+      {
+        "type": "p",
+        "text": "- prepare takes the root, Cloud and Chat environment locks before reading any credential file, and holds them through copy and re-validation; the MinIO/Cloud/Chat storage pair must resolve to one access/secret pair. - Assignments are matched in every Bash-effective form (indent, export, quoting, KEY+=), counted for uniqueness, and rendered through one path. - Test sentinels carry secret-scanner allowlist pragmas."
+      },
+      {
+        "type": "p",
+        "text": "rotation.test.sh: 28/28."
+      }
+    ]
+  },
+  {
+    "slug": "stop-self-declaring-requiresauth-in-cloud-registration",
+    "title": "Stop self-declaring requiresAuth in Cloud registration",
+    "date": "2026-09-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "calendar"
+    ],
+    "category": "Commit",
+    "excerpt": "Whether an app sits behind the SSO gate is Cloud's operator-only switch; registration ignores what an app says about itself. The calendar-sharing branch removed the field and pinned its absence with a test; main still se",
+    "sha": "1be12b7",
+    "content": [
+      {
+        "type": "p",
+        "text": "Whether an app sits behind the SSO gate is Cloud's operator-only switch; registration ignores what an app says about itself. The calendar-sharing branch removed the field and pinned its absence with a test; main still sent it, which left that test red after the merge. Calendar's events stay private regardless: every read is owner- or grant-scoped."
+      },
+      {
+        "type": "p",
+        "text": "Calendar: 53/53 tests, tsc clean."
+      }
+    ]
+  },
+  {
+    "slug": "stop-appending-a-blank-line-to-every-message-sent-over-smtp",
+    "title": "Stop appending a blank line to every message sent over SMTP",
+    "date": "2026-09-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "The DATA loop split on the message's final line terminator and emitted one more, empty, line. Receivers stored bytes that differed from ours; relayed mail no longer matched its origin. Found by the two-node egress test.",
+    "sha": "5f79f94",
+    "content": [
+      {
+        "type": "p",
+        "text": "The DATA loop split on the message's final line terminator and emitted one more, empty, line. Receivers stored bytes that differed from ours; relayed mail no longer matched its origin. Found by the two-node egress test."
+      }
+    ]
+  },
+  {
+    "slug": "nexus-mailctl-for-mailboxes-addresses-peers-and-the-node-key",
+    "title": "Nexus-mailctl for mailboxes, addresses, peers and the node key",
+    "date": "2026-09-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "Administration is a CLI on the node rather than an HTTP API: shell access already means operator. Addresses may only be bound in this node's domain, and a peer key is checked to be a valid, non-weak Ed25519 point before ",
+    "sha": "60fbe4e",
+    "content": [
+      {
+        "type": "p",
+        "text": "Administration is a CLI on the node rather than an HTTP API: shell access already means operator. Addresses may only be bound in this node's domain, and a peer key is checked to be a valid, non-weak Ed25519 point before it is pinned \u2014 the same check the ingest path now applies."
+      }
+    ]
+  },
+  {
+    "slug": "run-federation-and-the-delivery-worker-in-nexus-mailsmtpd",
+    "title": "Run federation and the delivery worker in nexus-mailsmtpd",
+    "date": "2026-09-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "The daemon now serves the federation listener (2580, loopback), drains the outbound queue \u2014 which no binary did before \u2014 and prunes old nonces. Pinned peers are federated destinations in both the MTA and the webmail API.",
+    "sha": "308004a",
+    "content": [
+      {
+        "type": "p",
+        "text": "The daemon now serves the federation listener (2580, loopback), drains the outbound queue \u2014 which no binary did before \u2014 and prunes old nonces. Pinned peers are federated destinations in both the MTA and the webmail API. NEXUS_EMAIL_EGRESS is parsed strictly; DKIM signs when a key and selector are configured. deploy.sh passes the new settings with safe defaults."
+      }
+    ]
+  },
+  {
+    "slug": "deliver-federated-rows-and-route-outside-mail-through-an-egr",
+    "title": "Deliver federated rows, and route outside mail through an egress peer",
+    "date": "2026-09-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "The worker no longer skips non-SMTP rows. Federated rows go over the node channel; SMTP rows follow Egress::Direct or Egress::Peer. With no transport configured, federated mail is deferred rather than dropped.",
+    "sha": "795e579",
+    "content": [
+      {
+        "type": "p",
+        "text": "The worker no longer skips non-SMTP rows. Federated rows go over the node channel; SMTP rows follow Egress::Direct or Egress::Peer. With no transport configured, federated mail is deferred rather than dropped."
+      }
+    ]
+  },
+  {
+    "slug": "send-handoffs-to-pinned-peers-over-https",
+    "title": "Send handoffs to pinned peers over HTTPS",
+    "date": "2026-09-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "FederatedTransport becomes async and returns Delivered/Rejected/Deferred; HttpTransport signs for the pinned host, never follows redirects, and treats everything short of an explicit per-recipient refusal as a deferral.",
+    "sha": "c52cab4",
+    "content": [
+      {
+        "type": "p",
+        "text": "FederatedTransport becomes async and returns Delivered/Rejected/Deferred; HttpTransport signs for the pinned host, never follows redirects, and treats everything short of an explicit per-recipient refusal as a deferral."
+      }
+    ]
+  },
+  {
+    "slug": "accept-signed-handoffs-from-pinned-peers",
+    "title": "Accept signed handoffs from pinned peers",
+    "date": "2026-09-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "POST /federation/v1/mail verifies the peer's signature against this node's own public host, refuses stale and replayed requests, holds every peer to its own domain, delivers local recipients, and relays outside ones only",
+    "sha": "89151d2",
+    "content": [
+      {
+        "type": "p",
+        "text": "POST /federation/v1/mail verifies the peer's signature against this node's own public host, refuses stale and replayed requests, holds every peer to its own domain, delivers local recipients, and relays outside ones only for peers granted it. GET /federation/v1/key publishes this node's key."
+      }
+    ]
+  },
+  {
+    "slug": "minors-home-bell-unread-count-flagged-off-palette-colours-co",
+    "title": "Minors \u2014 Home bell, Unread count+flagged, off-palette colours, comment/test cleanups",
+    "date": "2026-08-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "- Home.tsx: passes utility={<NotificationBell />} to Shell, matching every other signed-in route \u2014 / was the only shell route missing the bell. - Home.tsx: sign-in CTA uses bg-accent/text-accent-foreground (was bg-blue-6",
+    "sha": "58d986b",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Home.tsx: passes utility={<NotificationBell />} to Shell, matching every other signed-in route \u2014 / was the only shell route missing the bell. - Home.tsx: sign-in CTA uses bg-accent/text-accent-foreground (was bg-blue-600/text-white); the \"running now\" status dot reuses Pill tone=\"success\" instead of reimplementing it with bg-emerald-400. - Unread.tsx: renders \"count plus flagged\" per the spec table (a count linking to /mail, plus flagged messages) instead of listing every unread message's subject. malformed-response.test.tsx's bare-array test updated to assert the count instead of a subject line, since a single unflagged message no longer renders its subject by design. - Home.test.tsx: getAllByText(...).length > 0 was tautological (getAllByText throws on zero matches, so length is always >= 1) \u2014 changed to toBeGreaterThanOrEqual(2), matching what the comment already claimed (HealthStrip and Pinned both render the name). - vitest.config.ts: comment no longer claims nexus-design's peer React is \"19.x\" \u2014 package.json pins it to 18.3.1, same as this app."
+      }
+    ]
+  },
+  {
+    "slug": "bound-the-drawer-s-empty-state-route-grid-add-keyboard-nav-c",
+    "title": "Bound the drawer's empty state, route Grid, add keyboard nav (C2, C3, I5)",
+    "date": "2026-08-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "C2 \u2014 the drawer's empty-query state showed all 86 apps (more than half offline) \u2014 exactly the wall the drawer exists to remove. filterApps.ts gains emptyQueryApps(apps, { pinnedIds, recentIds }): pinned, then recent, the",
+    "sha": "d796503",
+    "content": [
+      {
+        "type": "p",
+        "text": "C2 \u2014 the drawer's empty-query state showed all 86 apps (more than half offline) \u2014 exactly the wall the drawer exists to remove. filterApps.ts gains emptyQueryApps(apps, { pinnedIds, recentIds }): pinned, then recent, then alphabetical healthy apps, capped at EMPTY_QUERY_CAP = 12, offline never included. filterApps itself is untouched and still used for the typed-query case, which still reaches offline entries (dimmed, unactivatable). New usePinnedApps.ts (shell-local localStorage, same footing as density) backs real pins, and Pinned.tsx gets a Pin/Unpin control per row instead of only ever showing the healthy-apps fallback."
+      },
+      {
+        "type": "p",
+        "text": "C3 \u2014 Grid was built and tested but unrouted. Routed at /apps (wrapped in ShellView, same pattern as /cloud, /account, ...) rather than folded into Overlay as a second mode: Grid is already a complete page with its own loading/error/empty states, and duplicating that inside the drawer would just be two copies of the same three states. The drawer's footer gained a \"See all N apps\" link."
+      },
+      {
+        "type": "p",
+        "text": "I5 \u2014 arrow keys move a highlighted index through the results (wrapping), Enter activates the highlighted entry via useNavigate, and is a no-op on a highlighted offline entry (mirrors its non-activatable click behaviour)."
+      },
+      {
+        "type": "p",
+        "text": "App.test.tsx's shared shell-native-views test now scopes its drawer assertion to the dialog with `within()` \u2014 /apps renders Grid behind the drawer, which lists the same apps a second time in the page body."
+      }
+    ]
+  },
+  {
+    "slug": "wire-density-tokens-into-layout-add-a-real-toggle-c1",
+    "title": "Wire density tokens into layout, add a real toggle (C1)",
+    "date": "2026-08-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Density was defined as two complete token scales but nothing consumed them: generate.ts's unitFor() never handled the control/widget groups (so --nexus-control-height and --nexus-widget-padding emitted as bare unitless n",
+    "sha": "6b8996f",
+    "content": [
+      {
+        "type": "p",
+        "text": "Density was defined as two complete token scales but nothing consumed them: generate.ts's unitFor() never handled the control/widget groups (so --nexus-control-height and --nexus-widget-padding emitted as bare unitless numbers), and Shell.tsx called useDensity() for its side effect alone, discarding the setter \u2014 there was no way to actually switch density."
+      },
+      {
+        "type": "p",
+        "text": "- generate.ts: unitFor() now returns px for the control/widget groups too. - Shell.tsx: captures the density setter, adds a real toggle button (\"Density: Balanced\"/\"Compact\", aria-pressed), and gives the search trigger a height driven by --nexus-control-height instead of padding. - WidgetShell.tsx: padding now targets var(--nexus-widget-padding) directly instead of a fixed p-4, so it visibly changes with density. - Tests: toggling flips data-nexus-density and back; WidgetShell/Shell reference the tokens (not fixed classes); balanced/compact widget padding and control height are asserted distinct."
+      },
+      {
+        "type": "p",
+        "text": "(The --spacing-*/--text-* Tailwind aliasing that makes this apply app-wide lives in index.css, committed alongside the token/guard fixes.)"
+      }
+    ]
+  },
+  {
+    "slug": "add-a-real-focus-trap-to-overlay",
+    "title": "Add a real focus trap to Overlay",
+    "date": "2026-08-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "Tab/Shift+Tab now wrap at the panel's first/last focusable element instead of walking out to the page behind it. The spec calls the palette focus-trapped while open; the previous implementation only did initial focus and",
+    "sha": "4078618",
+    "content": [
+      {
+        "type": "p",
+        "text": "Tab/Shift+Tab now wrap at the panel's first/last focusable element instead of walking out to the page behind it. The spec calls the palette focus-trapped while open; the previous implementation only did initial focus and restore-on-close. Focusable elements are queried fresh on every keypress rather than cached at open, since the drawer's own content (search results) changes while it stays open."
+      }
+    ]
+  },
+  {
+    "slug": "widen-contrast-gate-fix-border-tokens-tokenize-card-input-co",
+    "title": "Widen contrast gate, fix border tokens, tokenize card/input, complete barrel",
+    "date": "2026-08-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "- contrast.ts: BACKGROUNDS now includes bg.raised; RULES gains accent.hover, accent.active, border.subtle, border.strong (3:1 against all backgrounds) and text.inverse (4.5:1, checked only against accent.primary via a ne",
+    "sha": "2e3f1ea",
+    "content": [
+      {
+        "type": "p",
+        "text": "- contrast.ts: BACKGROUNDS now includes bg.raised; RULES gains accent.hover, accent.active, border.subtle, border.strong (3:1 against all backgrounds) and text.inverse (4.5:1, checked only against accent.primary via a new per-rule `against` override \u2014 it's the primary Button's own label colour and never renders on the canvas backgrounds). - All four theme JSONs: border.subtle/border.strong alpha raised so they actually clear 3:1 against every background (previous values were 1.2-2.0:1, invisible-by-design but also non-compliant). contrast-report.md regenerated, 196/196 pairs pass. - card.tsx / input.tsx: border-white/10 and placeholder:text-white/30 replaced with the border.subtle token via a new --color-border-subtle Tailwind alias in the dashboard's index.css. - components.test.ts: widened the hex/rgba guard to also catch bare Tailwind white/black colour utilities (confirmed it failed against the unmodified card.tsx/input.tsx before fixing them); added a barrel test that dynamically imports src/index.ts and checks every expected symbol exists, not just that a path string appears in the source. - index.ts: barrel now re-exports CardHeader/CardTitle/CardDescription/ CardContent/CardFooter, previously unreachable through it."
+      }
+    ]
+  },
+  {
+    "slug": "dashboard-home-is-a-dashboard-apps-live-in-the-drawer",
+    "title": "Dashboard home is a dashboard, apps live in the drawer",
+    "date": "2026-08-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "shell"
+    ],
+    "category": "Commit",
+    "excerpt": "Wires up everything built in this plan but never mounted: Shell now takes apps instead of a sidebar ReactNode, drops the Launcher app list in favor of AppsDrawer (opened from a rail button or Cmd/Ctrl+K), stamps the dens",
+    "sha": "9c12bb6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Wires up everything built in this plan but never mounted: Shell now takes apps instead of a sidebar ReactNode, drops the Launcher app list in favor of AppsDrawer (opened from a rail button or Cmd/Ctrl+K), stamps the density attribute via useDensity, and uses Avatar/Kbd from the kit. Home retires <Grid/> for a HealthStrip plus the four dashboard widgets, wrapped in Shell instead of rendering bare. App.tsx's Shell/Home call sites, Shell.test.tsx, Home.test.tsx and App.test.tsx are updated to match \u2014 the old \"sidebar is also a launcher, so home stays bare\" invariant is exactly what this removes."
+      }
+    ]
+  },
+  {
+    "slug": "malformed-200-responses-must-not-crash-widget-render",
+    "title": "Malformed 200 responses must not crash widget render",
+    "date": "2026-08-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "shell"
+    ],
+    "category": "Commit",
+    "excerpt": "Today, Unread and Activity each parsed an assumed response envelope and handed the raw value straight into setState, so a 200 with the wrong shape produced `data: undefined` and the render callback threw on `undefined.le",
+    "sha": "597d312",
+    "content": [
+      {
+        "type": "p",
+        "text": "Today, Unread and Activity each parsed an assumed response envelope and handed the raw value straight into setState, so a 200 with the wrong shape produced `data: undefined` and the render callback threw on `undefined.length` with no ErrorBoundary to catch it \u2014 a worse failure than the empty/error confusion WidgetShell exists to prevent. Each widget now validates the array shape and routes a mismatch through the same error path used for HTTP failures, without coercing to []."
+      },
+      {
+        "type": "p",
+        "text": "Unread also accepts a bare-array response, matching the convention every other mail function in api.ts already uses, alongside the enveloped {messages: [...]} shape in case this endpoint follows the notifications/calendar pattern instead."
+      },
+      {
+        "type": "p",
+        "text": "Adds malformed-response.test.tsx proving each case lands in the ERROR state without throwing; confirmed failing against the prior code before the fix."
+      }
+    ]
+  },
+  {
+    "slug": "implement-faithful-localstorage-polyfill-with-fidelity-test",
+    "title": "Implement faithful localStorage polyfill with fidelity test",
+    "date": "2026-08-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "test"
+    ],
+    "category": "Commit",
+    "excerpt": "jsdom 25 does not provide localStorage despite environment config. Implemented faithful polyfill: getItem returns null ONLY for absent keys (not empty strings), setItem coerces to string, length is dynamic getter, key(i)",
+    "sha": "68dab3c",
+    "content": [
+      {
+        "type": "p",
+        "text": "jsdom 25 does not provide localStorage despite environment config. Implemented faithful polyfill: getItem returns null ONLY for absent keys (not empty strings), setItem coerces to string, length is dynamic getter, key(i) is consistent. Added test asserting round-trip of empty strings to lock in correct Storage semantics and prevent regressions."
+      }
+    ]
+  },
+  {
+    "slug": "stop-overlay-s-focus-effect-re-running-on-inline-onclose",
+    "title": "Stop Overlay's focus effect re-running on inline onClose",
+    "date": "2026-08-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "Overlay's focus-management effect depended on [open, onClose]. Real callers pass onClose={() => setOpen(false)} \u2014 a new function identity every parent render \u2014 so any unrelated re-render while the overlay was open tore t",
+    "sha": "82e38d7",
+    "content": [
+      {
+        "type": "p",
+        "text": "Overlay's focus-management effect depended on [open, onClose]. Real callers pass onClose={() => setOpen(false)} \u2014 a new function identity every parent render \u2014 so any unrelated re-render while the overlay was open tore the effect down (cleanup yanked focus back to the trigger) and immediately re-ran it (re-captured activeElement, now the trigger, and refocused the first child). Net effect: a focus flicker to the trigger and back on every render, and restoreTo left pointing at whatever was focused at the wrong moment \u2014 exactly the kind of bug this component exists to prevent."
+      },
+      {
+        "type": "p",
+        "text": "Fixed by depending on [open] alone and routing the Escape handler through an onCloseRef kept current in its own effect, so the main effect never needs onClose as a dependency."
+      },
+      {
+        "type": "p",
+        "text": "Added a 6th test that rerenders with open still true but a new onClose identity, and asserts the previously-focused trigger's own focus() is never called. A bare before/after document.activeElement comparison does not catch this: React's teardown-then-rerun happens synchronously within one act() flush, so by the time rerender() returns, focus has already round-tripped through the trigger and back to the inside button \u2014 the transient steal is real but invisible to a settled-state check with only one trigger/child pair. Confirmed the new test fails against the pre-fix implementation (\"expected \\\"focus\\\" to not be called at all, but actually been called 1 times\") before applying the fix."
+      }
+    ]
+  },
+  {
+    "slug": "stop-installing-a-stray-react-runtime-copy-revert-tsc-exclud",
+    "title": "Stop installing a stray react runtime copy; revert tsc exclude",
+    "date": "2026-08-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "The real defect behind the TS7016 failures was packages/nexus-design carrying its own node_modules/react (19.2.8) despite declaring react only as a peerDependency \u2014 bun auto-installs unsatisfied peers, and with no versio",
+    "sha": "4f84d4b",
+    "content": [
+      {
+        "type": "p",
+        "text": "The real defect behind the TS7016 failures was packages/nexus-design carrying its own node_modules/react (19.2.8) despite declaring react only as a peerDependency \u2014 bun auto-installs unsatisfied peers, and with no version pinned anywhere it grabbed the newest matching semver. That copy had no @types/react beside it, so any tsc resolution reaching into nexus-design's src (e.g. the overlay test's relative import) failed to find react's types."
+      },
+      {
+        "type": "p",
+        "text": "- package.json: mark the peer optional (peerDependenciesMeta) so bun stops auto-materialising it, and add @types/react as a devDependency so the package can typecheck its own components against the major its consumers use. - Re-running bun install with only that change removed node_modules/react entirely \u2014 confirmed via `ls node_modules/react` (ENOENT). Good for tsc, but it also broke the package's own `bun test`: tests/components.test.ts imports .tsx files to inspect their exports, which needs a real react/jsx-dev-runtime module to execute, not just types. So a react devDependency was added back, pinned exactly (18.3.1, matching the Dashboard frontend) rather than left to resolve implicitly \u2014 the fix is an explicit, version-pinned devDependency, not the unpinned peer auto-install that caused the drift to 19.x in the first place. - tsconfig.json (Dashboard frontend): reverted the `exclude` of src/shell/__tests__ added in the previous commit. It's no longer needed \u2014 with @types/react now present in nexus-design and its react pinned to the same major/minor as this app, `tsc --noEmit` passes with the test directory included, so every shell test file is type-checked again."
+      },
+      {
+        "type": "p",
+        "text": "vite.config.ts's resolve.dedupe (from the previous commit) is unchanged and still needed independently: it's the runtime-bundling counterpart to this fix, ensuring only one React instance ships in the app bundle regardless of which node_modules a given import resolves against."
+      }
+    ]
+  },
+  {
+    "slug": "dedupe-react-across-the-app-build-not-just-tests",
+    "title": "Dedupe react across the app build, not just tests",
+    "date": "2026-08-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "vitest.config.ts already aliased react/react-dom for tests. The same dual-copy hazard reaches the real app bundle: @nexus/design declares react as a peerDependency but carries a stray 19.x copy in its own node_modules, a",
+    "sha": "85db4f3",
+    "content": [
+      {
+        "type": "p",
+        "text": "vitest.config.ts already aliased react/react-dom for tests. The same dual-copy hazard reaches the real app bundle: @nexus/design declares react as a peerDependency but carries a stray 19.x copy in its own node_modules, and this app imports design components from that package's src by relative path. Without deduping, Vite's resolution can pick the stray copy for some imports and this app's 18.3.1 for others, shipping two React instances and breaking hooks at runtime in dev, build and preview."
+      },
+      {
+        "type": "p",
+        "text": "- vite.config.ts: resolve.dedupe: [\"react\", \"react-dom\"] \u2014 the idiomatic Vite fix, covers dev/build/preview without hard-coding a path. - tsconfig.json: exclude src/shell/__tests__, since tsc has no dedupe equivalent and type-checking overlay.test.tsx's relative import walks into @nexus/design's node_modules/react, which has no @types and breaks `tsc -b` / `tsc --noEmit` for a dependency this project doesn't own. Vitest still runs and type-checks the file fine via esbuild's non-blocking transform."
+      },
+      {
+        "type": "p",
+        "text": "Verified with a temporary probe import (not committed): building with Overlay actually wired into the app bundle emits the React 18.3.1 version string only \u2014 the 19.2.8 string from the design package's stray copy does not appear anywhere in the output."
+      }
+    ]
+  },
+  {
+    "slug": "focus-trapped-overlay-that-restores-focus-on-close",
+    "title": "Focus-trapped Overlay that restores focus on close",
+    "date": "2026-08-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "Adds the first modal surface in nexus-design: role=\"dialog\", aria-modal, focus moves in on open and returns to the previously focused element on close, Escape dismisses. Wires it into the barrel export.",
+    "sha": "ac35e55",
+    "content": [
+      {
+        "type": "p",
+        "text": "Adds the first modal surface in nexus-design: role=\"dialog\", aria-modal, focus moves in on open and returns to the previously focused element on close, Escape dismisses. Wires it into the barrel export."
+      },
+      {
+        "type": "p",
+        "text": "Also aliases react/react-dom in the Dashboard frontend's vitest config. The overlay test imports Overlay straight from nexus-design's .tsx source (by design, per the task split), and that package carries its own node_modules/react (installed to satisfy its peerDependency, currently 19.x) alongside the frontend's 18.3.1. Without the alias, Vite's resolution picks whichever node_modules/react is nearest the importing file, two React copies load, and hooks fail with \"Cannot read properties of null (reading 'useRef')\" \u2014 not a defect in the component itself."
+      }
+    ]
+  },
+  {
+    "slug": "declare-the-kit-s-real-dependencies-and-remove-every-hex-lit",
+    "title": "Declare the kit's real dependencies and remove every hex literal",
+    "date": "2026-08-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "- package.json now declares clsx/tailwind-merge deps and react peerDep that button/card/input already imported; the package only ever compiled inside Dashboard, which happened to supply them. - Extracted the duplicated c",
+    "sha": "9c3b795",
+    "content": [
+      {
+        "type": "p",
+        "text": "- package.json now declares clsx/tailwind-merge deps and react peerDep that button/card/input already imported; the package only ever compiled inside Dashboard, which happened to supply them. - Extracted the duplicated cn() helper (three drifting copies) to a single src/components/ui/cn.ts. - button.tsx, card.tsx, input.tsx now source colour exclusively from Tailwind utilities that resolve to ecosystem tokens (zinc-* for surfaces/ text, accent/accent-hover/accent-active/accent-foreground for the brand accent) instead of hard-coded hex. - Added the four --color-accent* aliases to Dashboard's existing @theme block so those utilities resolve. - New tests/components.test.ts guards: no hex literal, no raw rgba(), and exactly one cn() definition in src/components/ui/."
+      }
+    ]
+  },
+  {
+    "slug": "write-contrast-report-md-to-package-root-not-gitignored-dist",
+    "title": "Write contrast-report.md to package root, not gitignored dist/",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "Three of four themes never render on a real screen, so the contrast report needs to be tracked and diffable to actually serve as verified evidence. dist/ stays gitignored and unchanged in role \u2014 only the report's write t",
+    "sha": "51b2e14",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three of four themes never render on a real screen, so the contrast report needs to be tracked and diffable to actually serve as verified evidence. dist/ stays gitignored and unchanged in role \u2014 only the report's write target moved. The gate still runs, and still writes the report, before any CSS is written."
+      }
+    ]
+  },
+  {
+    "slug": "emit-theme-and-density-scoped-tokens-behind-a-contrast-gate",
+    "title": "Emit theme- and density-scoped tokens behind a contrast gate",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "renderScopedCss emits base tokens once plus per-theme/per-density blocks scoped to [data-nexus-theme]/[data-nexus-density], with the void/balanced defaults also written to bare :root. The build script now loads all four ",
+    "sha": "484cecb",
+    "content": [
+      {
+        "type": "p",
+        "text": "renderScopedCss emits base tokens once plus per-theme/per-density blocks scoped to [data-nexus-theme]/[data-nexus-density], with the void/balanced defaults also written to bare :root. The build script now loads all four themes and two densities, runs validateTheme against each palette before writing any CSS, and writes dist/contrast-report.md; a failing pair aborts the build (exit 1) without touching dist/nexus-tokens.css."
+      },
+      {
+        "type": "p",
+        "text": "Reworked the five generate.test.ts assertions that referenced color/space/ typography.size on the base token file (moved out in Task 1) to build their pair list from base + the void theme + the balanced density instead, the same combination the build script feeds to renderThemeCss."
+      }
+    ]
+  },
+  {
+    "slug": "implementation-plan-for-the-design-foundation-and-shell",
+    "title": "Implementation plan for the design foundation and shell",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Twelve tasks, each ending in an independently testable deliverable and a commit. Every step carries the actual code rather than a description of it, because the implementer sees only their own task.",
+    "sha": "ac1fcc0",
+    "content": [
+      {
+        "type": "p",
+        "text": "Twelve tasks, each ending in an independently testable deliverable and a commit. Every step carries the actual code rather than a description of it, because the implementer sees only their own task."
+      },
+      {
+        "type": "p",
+        "text": "Two tasks exist because reading the code contradicted the spec's assumptions. The kit's existing button, card and input hard-code six hex literals, so the no-hex guard the spec asks for fails on day one; and @nexus/design declares no dependencies at all despite importing react, clsx and tailwind-merge, which means those components have only ever compiled inside Dashboard and have never been built or tested from their own package. Task 4 fixes both before any new component is added to them."
+      },
+      {
+        "type": "p",
+        "text": "The contrast gate gets a test that feeds it a known-bad palette and requires rejection. Three of the four themes ship without being rendered on a real screen in this increment, so a validator that cannot fail would be worse than no validator \u2014 it would make three untried guesses look verified."
+      },
+      {
+        "type": "p",
+        "text": "Corrected against the codebase rather than assumed: React is 18.3 and not 19, and @testing-library/jest-dom is not installed, so every assertion in the plan uses toBeTruthy/toBeNull and attribute reads. A plan that reaches for toBeInTheDocument would fail at runtime for whoever ran it."
+      },
+      {
+        "type": "p",
+        "text": "Deferred deliberately, matching the spec: the grouped browse grid behind the palette still routes to the existing Grid.tsx, and Table/Tabs/Toast are not built until an app needs one."
+      }
+    ]
+  },
+  {
+    "slug": "design-the-nexus-token-family-and-the-shell-that-renders-in",
+    "title": "Design the Nexus token family and the shell that renders in it",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Two deliverables specified together on purpose: a token layer shaped as a theme family, and a dashboard rebuilt as a dashboard. A ground colour and a density scale cannot be judged as swatches \u2014 only as a working interfa",
+    "sha": "5a5271b",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two deliverables specified together on purpose: a token layer shaped as a theme family, and a dashboard rebuilt as a dashboard. A ground colour and a density scale cannot be judged as swatches \u2014 only as a working interface \u2014 so they are decided in one pass."
+      },
+      {
+        "type": "p",
+        "text": "Void stays the default. Abyss Teal, Petrol and Slate Blue are defined as data alongside it, because the intent is user-selectable themes later and retrofitting a family onto a single palette costs more than shaping it that way now. The switcher itself \u2014 persistence, cross-origin propagation, flash-of-wrong-theme \u2014 is deliberately a separate spec: this one settles the design judgement while the palettes are in front of us, and defers the plumbing, which is self-contained."
+      },
+      {
+        "type": "p",
+        "text": "The substantive colour work is per-theme accent and state tuning, and it is not an inconsistency. #CCFF00 is a yellow-green: against Void it reads as signal, against Abyss Teal it sits close in hue and quietly stops meaning \"this is live\". Green-on-teal is the sharper failure \u2014 a #2AC57D health pill on an Abyss canvas is mush \u2014 so success shifts per ground. Slate damps the accent because near-complementary acid on cool blue vibrates at pill size."
+      },
+      {
+        "type": "p",
+        "text": "Because only Void will be exercised on real screens in this increment, the spec requires a contrast validator that checks every text/surface and state/surface pair across four themes and two densities and fails the build below AA. Three themes shipping as untried guesses is the risk; a gate that can fail is the mitigation."
+      },
+      {
+        "type": "p",
+        "text": "The shell rebuild is driven by a number rather than taste: Cloud's registry returns 86 tools, 50 of them offline. Home currently renders all of them as a grid while the sidebar lists them again \u2014 the code comment concedes the duplication and argues for it, and that argument does not survive 86 entries more than half dead. Apps move behind a command palette, offline results shown dimmed and unactivatable rather than hidden, and home is freed for the things that change hour to hour."
+      },
+      {
+        "type": "p",
+        "text": "The component kit is scoped to what the shell actually needs \u2014 Pill, Kbd, Avatar, Overlay, EmptyState, Skeleton \u2014 alongside the existing button, card and input. Table, Tabs and Toast are deliberately excluded: a primitive designed without a real consumer is designed wrong, and they land with the first app that needs one."
+      },
+      {
+        "type": "p",
+        "text": "Recorded as open questions rather than silently resolved: design_guidelines.json names Cabinet Grotesk for headings while the implementation dropped it and uses Satoshi throughout, so the guidelines and the site disagree; and the old landing CSS under apps/Nexus-Hosting/sites still carries orange and pink gradients from a pre-acid theme, a second stale definition of the brand."
+      }
+    ]
+  },
+  {
+    "slug": "install-what-apps-actually-declare-and-skip-the-one-that-can",
+    "title": "Install what apps actually declare, and skip the one that cannot boot",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "smoke"
+    ],
+    "category": "Commit",
+    "excerpt": "The smoke job pointed every app's node_modules at Nexus-Cloud's. That works for the eighty-odd scaffolds because they have no dependencies to miss, and cannot work for one that does. Two failed every run, reported only a",
+    "sha": "c4afb02",
+    "content": [
+      {
+        "type": "p",
+        "text": "The smoke job pointed every app's node_modules at Nexus-Cloud's. That works for the eighty-odd scaffolds because they have no dependencies to miss, and cannot work for one that does. Two failed every run, reported only as closed ports until the previous commit made them print why:"
+      },
+      {
+        "type": "p",
+        "text": "Nexus-Draw  \u2192 Cannot find package 'yjs' from src/collab.ts Nexus-API   \u2192 Cannot find module '@workspace/db' from src/index.ts"
+      },
+      {
+        "type": "p",
+        "text": "Of the ninety-one apps this job starts, exactly three declare runtime dependencies, so the fix is three installs rather than ninety. Nexus-Draw and Nexus-Auth now get a real `npm install` before the symlink step, which only fills in apps that have nothing. Verified: Draw resolves yjs and stays up."
+      },
+      {
+        "type": "p",
+        "text": "Nexus-Auth is installed too even though it currently passes. It declares `pg`, Cloud's tree does not contain it, and it survives only because nothing touches the database during startup. That is luck rather than design, and one lazy import away from becoming another closed port."
+      },
+      {
+        "type": "p",
+        "text": "Nexus-API is skipped by name. Its two `@workspace/*` dependencies live inside the Nexus-Hosting submodule, which this job does not check out \u2014 and checking it out is not enough. Following the failures through: with Hosting cloned and `pnpm install --filter \"nexus-api...\"` run from Hosting's own workspace root (the one that lists ../Nexus-API), the module errors do resolve \u2014 and it then refuses to boot without DATABASE_URL, and after that without ISSUER_URL, with S3, Google Cloud Storage and ACME among its twenty-nine dependencies implying more behind those."
+      },
+      {
+        "type": "p",
+        "text": "Starting it here would mean provisioning a database, an OIDC issuer and object storage, at which point this is no longer a check that every app comes up but an integration environment. It is skipped by name with the requirements written down, overridable through SMOKE_SKIP, and the comment says plainly that this is not a claim that it passes. Two competing pnpm workspace definitions \u2014 the superproject's pnpm-workspace.yaml and Hosting's own, which reaches out to ../Nexus-API \u2014 are worth untangling before anyone tries."
+      }
+    ]
+  },
+  {
+    "slug": "stop-pinning-a-bun-quirk-and-make-smoke-say-why-a-service-di",
+    "title": "Stop pinning a Bun quirk, and make smoke say why a service died",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "tests"
+    ],
+    "category": "Commit",
+    "excerpt": "Two findings from the second CI run of PR #6.",
+    "sha": "25103c8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two findings from the second CI run of PR #6."
+      },
+      {
+        "type": "p",
+        "text": "terminal-proxy.test.ts asserted that a browser close arrives at the upstream as `{code: 4002, reason: \"\"}`, with a comment explaining that Bun 1.3.12 supplies an empty reason even when the client sent one. That is a property of the runtime, not of the relay, and the workflow resolves `bun-version: latest` \u2014 which now passes the reason through. So the suite passed locally on 1.3.12 and failed on CI, for a reason that had nothing to do with the code under test."
+      },
+      {
+        "type": "p",
+        "text": "The contract is that the relay forwards what its callback observes and invents nothing. The code carries the meaning and must survive intact; the reason is either the browser's or empty, and a value of the relay's own devising is the thing that would actually be a bug. Asserted that way, it holds on both runtimes."
+      },
+      {
+        "type": "p",
+        "text": "Worth noting separately: `bun-version: latest` means the runtime under CI changes without a commit. That is a reproducibility hazard and this failure is what it looks like. Pinning it is a judgement about which version the ecosystem targets, so it is left alone here rather than changed across six jobs on the way past."
+      },
+      {
+        "type": "p",
+        "text": "smoke-test.sh reported `\u2717 Nexus-Draw :3075 (not listening)` and nothing else. Each app's output already went to /tmp/$name-smoke.log and was never printed, so the reason was written down and then thrown away \u2014 and in CI that file dies with the runner. It now prints the tail of that log beside the failure."
+      },
+      {
+        "type": "p",
+        "text": "The underlying cause is worth recording even though this commit does not change it: the script points every app's node_modules at Nexus-Cloud's, and Cloud has none of Draw's dependencies (yjs, y-protocols, lib0) or Nexus-API's twenty-nine. Those two cannot resolve their own imports and exit at startup, which is exactly why those two and not the other eighty-nine \u2014 the rest are scaffolds with no runtime dependencies to miss. Eleven apps declare any at all, so installing per app is tractable, but it changes what this job costs to run and that is a decision rather than a fix to slip in."
+      }
+    ]
+  },
+  {
+    "slug": "pin-test-upstreams-by-preload-and-make-calendar-s-frontend-i",
+    "title": "Pin test upstreams by preload, and make Calendar's frontend installable",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "ci"
+    ],
+    "category": "Commit",
+    "excerpt": "Two failures from the first CI run of PR #6. One of them was mine, introduced two commits ago, and it passed locally for a reason worth writing down.",
+    "sha": "f287ec8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two failures from the first CI run of PR #6. One of them was mine, introduced two commits ago, and it passed locally for a reason worth writing down."
+      },
+      {
+        "type": "p",
+        "text": "Dashboard's src/server.ts reads its upstream addresses into top-level consts, so their values are frozen by whichever test file imports it first \u2014 decided by alphabetical load order. Each file set only the upstreams it cared about. Adding tests/calendar-proxy.test.ts put a file ahead of cloud-proxy.test.ts that does not set NEXUS_CLOUD_URL, so CLOUD_URL froze to its production default of 127.0.0.1:8787."
+      },
+      {
+        "type": "p",
+        "text": "On this machine that is the live Cloud. It answered, the app list contained nexus-chat, and the suite passed. On a CI runner nothing listens there, so two tests failed for reasons unrelated to what they test. The same applied to NEXUS_TERMINAL_URL and the live Terminal on 3110."
+      },
+      {
+        "type": "p",
+        "text": "A preload fixes the class rather than the instance: tests/setup.ts pins every upstream before any test file is imported, so load order stops mattering and no future file can change what a different file's module graph points at. Verified by making the mock Cloud return a sentinel id and confirming it reaches the assertion \u2014 proof the mock is in use, where a green suite alone proved nothing because it was green before the fix too."
+      },
+      {
+        "type": "p",
+        "text": "Nexus-Calendar's frontend declared `\"typescript\": \"catalog:\"`. That is pnpm's workspace-catalog protocol, and Calendar is not one of the packages in pnpm-workspace.yaml \u2014 so it resolves for nobody: npm rejects it outright with EUNSUPPORTEDPROTOCOL and pnpm has no catalog in scope there. That frontend has never been installable by either tool, which is consistent with deploy.sh warning that the calendar UI has to be built by hand. Pinned to ^5.9.3, the version the catalog names. Every other `catalog:` in the repository is inside apps/Nexus-Hosting, which *is* in the workspace, and is left alone."
+      },
+      {
+        "type": "p",
+        "text": "The clean-room replay that missed this originally redirected npm's output and chained it with `||`, so a failing install was swallowed and check.sh ran anyway \u2014 on an app whose gate does not touch its frontend. The replay now runs each step under `set -e` with its exit code checked, which is the same mistake this branch has been fixing everywhere else."
+      }
+    ]
+  },
+  {
+    "slug": "put-the-proxy-under-ci-hand-cors-back-to-the-apps-verify-rep",
+    "title": "Put the proxy under CI, hand CORS back to the apps, verify repo shape",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "fix",
+      "edge"
+    ],
+    "category": "Commit",
+    "excerpt": "Three gaps from the audit, and one claim in it that turned out to be wrong.",
+    "sha": "e33db86",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three gaps from the audit, and one claim in it that turned out to be wrong."
+      },
+      {
+        "type": "p",
+        "text": "The proxy and the gate now have a gate of their own, and a CI job. Every request to every host on the domain passes through deploy/production, and it had no coverage whatsoever \u2014 which is exactly how two of gate.test.ts's own assertions came to sit red on main for days. Coverage should follow blast radius and nothing here has more."
+      },
+      {
+        "type": "p",
+        "text": "tests/terminal-public-hop.test.ts is excluded from that gate, named and explained rather than quietly dropped. It spawns a real Auth stub, Terminal, Dashboard and proxy and drives real PTYs, and it hangs waiting for two active shells. That is not the gate's doing: it reproduces with GATE_SKIP_AUTH=true and it reproduces at the commit *before* the gate was rewritten. It is a long-standing break in the Dashboard-to-Terminal chain that stayed invisible because this directory had nothing to show it in. One real defect in it is fixed here anyway \u2014 its Auth stub never served /api/v1/auth/identity-token, so the gate could not mint and every request became a login redirect \u2014 but the hang is elsewhere and is left open."
+      },
+      {
+        "type": "p",
+        "text": "CORS goes back to the applications. The proxy used to `set` Access-Control-Allow-Origin to \"*\" on every response, replacing whatever the upstream had decided: an app that deliberately narrowed its origins had that undone, and an app answering Access-Control-Allow-Credentials: true ended up with the one combination browsers refuse outright, so a credentialed cross-origin call failed for what looked like a reason in the app. The blanket OPTIONS short-circuit is gone too \u2014 it announced a fixed method and header list on behalf of apps it had never consulted, before routing and before the gate. Preflights now travel to their upstream and the app answers for itself."
+      },
+      {
+        "type": "p",
+        "text": "The gate lets OPTIONS through unauthenticated, which is new and deliberate: a preflight is uncredentialed by specification, so gating one can only fail, and the browser reads the resulting 302 as \"preflight refused\" and never sends the real request. The request it precedes is still gated normally, and there is a test for each half."
+      },
+      {
+        "type": "p",
+        "text": "Honouring a matched route's `kind` closes a gap introduced when that field was added: it was written by buildRouteMap and then ignored by the handler, which always assumed \"app\". buildRouteMap only ever produces \"app\", so behaviour is unchanged \u2014 but the field is now read rather than decorative, and a route table that says something is the thing that decides."
+      },
+      {
+        "type": "p",
+        "text": "scripts/bootstrap.sh is new: `--verify` checks that .gitmodules and the index agree, and the default run registers and updates every submodule. CI runs the verify half, which needs no network."
+      },
+      {
+        "type": "p",
+        "text": "The correction. The audit said a fresh clone yields five working trees and six empty directories. That is wrong, and testing it rather than restating it is how I found out: a clone populates all eleven gitlinks and `git submodule init` registers all eleven. Nothing has drifted either \u2014 every submodule sits at exactly the commit the superproject records. The real condition is narrower and local: six are unregistered in *this* working copy's .git/config, so `git submodule update` silently skips them here, and no command in the repository put that right. Now one does."
+      },
+      {
+        "type": "p",
+        "text": "Verified in a git-archive clean room and in a real shallow clone, which is what actions/checkout produces: 68 tests pass, the structure check passes on a clone and fails as it should on an injected bad .gitmodules. The typecheck error set for deploy/production is unchanged from baseline \u2014 same errors, shifted lines."
+      }
+    ]
+  },
+  {
+    "slug": "one-contract-for-who-is-asking-and-close-the-service-token-h",
+    "title": "One contract for who is asking, and close the service-token hole",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "feat",
+      "identity"
+    ],
+    "category": "Commit",
+    "excerpt": "The ecosystem had three answers to \"who is asking\" and no CI covering any of them. chat verified the proxy's identity token properly in Rust; Dashboard and Calendar each hand-rolled a TypeScript verifier; and only chat's",
+    "sha": "d42dd42",
+    "content": [
+      {
+        "type": "p",
+        "text": "The ecosystem had three answers to \"who is asking\" and no CI covering any of them. chat verified the proxy's identity token properly in Rust; Dashboard and Calendar each hand-rolled a TypeScript verifier; and only chat's was complete. This extracts the contract into @nexus/identity, adopts it in both TypeScript services, and puts all three under CI."
+      },
+      {
+        "type": "p",
+        "text": "The extraction is not tidying. Auth signs its service tokens with the same key and publishes one kid, so a signature check cannot tell a user from a machine \u2014 `typ: \"identity\"` is what does, and `issueServiceToken()` sets no typ at all while taking both `sub` and `aud` from its caller. Neither TypeScript verifier checked `typ`, and neither checked `iss`. A service token minted for `calendar.tnhc.dev` with `serviceId: \"usr-victim\"` therefore authenticated as that user. `tokens:issue` belongs to founder and admin, so this is privilege escalation rather than anonymous access \u2014 an admin could act as anybody \u2014 but it is exactly the failure chat's Rust module documents and has always rejected."
+      },
+      {
+        "type": "p",
+        "text": "@nexus/identity is a port of apps/Nexus/crates/nexus-common/src/identity.rs, including the parts the hand-rolled versions omitted: the issuer check, the typ check, a required audience, and a floor between JWKS refreshes triggered by an unrecognised kid. That last one matters because the kid is read from an unauthenticated header \u2014 without a floor, anyone can make a service hit Auth once per request. 28 tests, every one a rejection path."
+      },
+      {
+        "type": "p",
+        "text": "Adoption differs per service because the contracts genuinely differ:"
+      },
+      {
+        "type": "p",
+        "text": "- Calendar's x-nexus-identity path now calls the package. Its own test fixture turned out to be minting `iss: \"https://auth.tnhc.dev\"` and no typ, which is not what Auth produces; the package rejected it and the fixture was wrong. - Dashboard now reads x-nexus-identity *at all*, which it never did \u2014 the proxy's careful minting and stripping of that header had exactly one consumer in the whole ecosystem. Its existing Bearer path is left alone: it carries Auth's service tokens, which have no typ by design, so routing them through the identity verifier would break a working flow rather than fix one. Explicit credentials still beat an ambient cookie, and a refused token no longer falls through to one."
+      },
+      {
+        "type": "p",
+        "text": "Also here, found by verifying rather than assuming:"
+      },
+      {
+        "type": "p",
+        "text": "- The new Dashboard test set NEXUS_AUTH_INTERNAL_URL to an ephemeral port, which broke four unrelated tests in server.test.ts depending on which file bun loaded first \u2014 src/server.ts captures that value into a top-level const on first import, exactly as mail-proxy.test.ts warns. It now agrees with the other proxy tests. A clean-room run caught this; running the new file alone did not, which is the whole argument for running the suite. - Dashboard's gate built nothing before running backend tests, and tests/server.test.ts asserts on the CSP of the SPA shell \u2014 served out of frontend/dist, a build artifact that is not committed. It passed locally only because a stale dist was lying around, and failed on a clean checkout. The gate now builds the frontend first. - scripts/check.sh only ever swept apps/. Shared packages are gated too now; leaving @nexus/identity out would mean the code every service trusts to answer \"who is asking\" had no gate at all."
+      },
+      {
+        "type": "p",
+        "text": "CI gains an `identity` job covering the package and both adopting services. Nexus-Calendar and Nexus-Dashboard had no CI whatsoever before this."
+      },
+      {
+        "type": "p",
+        "text": "Verified in a git-archive clean room, which is what actions/checkout produces: all three units pass. 28 + 87 + 149 tests. Every new source typechecks clean under --strict."
+      }
+    ]
+  },
+  {
+    "slug": "make-events-private-to-their-owner",
+    "title": "Make events private to their owner",
+    "date": "2026-08-26",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "feat",
+      "calendar"
+    ],
+    "category": "Commit",
+    "excerpt": "calendar.tnhc.dev has been serving a single shared calendar. The events table had no owner column, so every signed-in Nexus user could read, edit and delete everyone else's events; Dashboard's proxy authenticated the cal",
+    "sha": "556060d",
+    "content": [
+      {
+        "type": "p",
+        "text": "calendar.tnhc.dev has been serving a single shared calendar. The events table had no owner column, so every signed-in Nexus user could read, edit and delete everyone else's events; Dashboard's proxy authenticated the caller into a local `who` and then forwarded the request with only a content-type, so Calendar never learned who was asking. Anonymous users were kept out \u2014 those paths sit under /api/ and the proxy gates them \u2014 which made this an authenticated-user boundary failure rather than an open one."
+      },
+      {
+        "type": "p",
+        "text": "The design and a task-by-task plan for exactly this were committed on 25 August, the day after the service went live. This implements their first three tasks: owned schema with a fail-closed migration, trusted identity with owner-scoped CRUD, and a hardened Dashboard hop. Sharing, public links and the frontend work remain as specified and unbuilt."
+      },
+      {
+        "type": "p",
+        "text": "Ownership. `events` gains `owner_subject NOT NULL`, tracked by PRAGMA user_version and rebuilt inside one immediate transaction. The owner comes from the caller and there is no path from request data to it: `ownerSubject` is not an accepted input field, so a body carrying one is a 400 rather than a silent reassignment, and it is absent from the UPDATE column list so no patch can hand an event to another account. Reads are scoped in SQL, and an event belonging to someone else returns the same 404 as one that does not exist, so the API cannot be walked to discover which ids are real."
+      },
+      {
+        "type": "p",
+        "text": "Migration fails closed. Production holds one event that predates ownership, and it has no defensible owner \u2014 every alternative to stopping is a guess, and a wrong guess hands one person's calendar to another. Startup refuses until NEXUS_CALENDAR_LEGACY_OWNER_SUBJECT names the subject those rows belong to. Nothing is made globally visible as a shortcut."
+      },
+      {
+        "type": "p",
+        "text": "Identity. Calendar accepts a caller from two places the browser cannot forge: an RS256 x-nexus-identity token verified against Auth's JWKS with a required audience, or Dashboard's x-nexus-subject when the request also carries a shared deployment secret compared in constant time. A bare x-nexus-subject is ignored, and with no secret configured the hop is refused entirely rather than degrading to \"\" == \"\". Tests cover alg:none, an HS256 downgrade, a wrong audience, an expired token, a tampered signature and an unpublished kid."
+      },
+      {
+        "type": "p",
+        "text": "The Dashboard hop moves into calendar-proxy.ts and now does what proxyToMail 250 lines above it already did: allow-list the paths, allow-list the methods, build a fresh Headers so the browser's cookie and any header it chose to send are dropped, and attach the Auth-derived subject. A 4xx is relayed because it is Calendar's own answer to this caller; a 5xx collapses into one envelope because its body describes internal state."
+      },
+      {
+        "type": "p",
+        "text": "Ranges use overlap instead of containment. `start >= from AND end <= to` asked for events *inside* the window: of four seeded events it returned one, dropping every multi-day event and everything on the final day. It is now `start < windowEnd AND end > windowStart`, compared through datetime() so a stored \"2026-09-01T10:00\" and a bound of \"2026-09-01T00:00:00.000Z\" compare as instants rather than as strings of different lengths. A date-only bound means the whole of that day."
+      },
+      {
+        "type": "p",
+        "text": "Also here because the work ran into them:"
+      },
+      {
+        "type": "p",
+        "text": "- Nexus-Dashboard had no check.sh at all, and a bare `bun test` at its root sweeps in 154 vitest/jsdom frontend tests that bun cannot run \u2014 142 failures that are purely the wrong runner, the same fault that kept CI red on Nexus-Draw. Scoped correctly it is 141 backend plus 154 frontend, all green. - deploy.sh was setting NEXUS_NEXUS_CALENDAR_BASE_URL, a doubled prefix from the scaffolding. Both names are read so renaming it cannot silently fall back to localhost and deregister the service. - contracts.ts returned a publicUrl its own type did not declare \u2014 an excess property nothing caught, because this app's `check` script is `bunx tsc` and its TypeScript toolchain has never actually been installed."
+      },
+      {
+        "type": "p",
+        "text": "Calendar goes from 5 tests to 86; Dashboard's backend suite from 141 to 167. Every new source file typechecks clean under --strict, verified with a borrowed compiler since Calendar's own is missing."
+      }
+    ]
+  },
+  {
+    "slug": "make-the-quality-gates-report-what-the-tests-actually-did",
+    "title": "Make the quality gates report what the tests actually did",
+    "date": "2026-08-25",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "fix",
+      "gates"
+    ],
+    "category": "Commit",
+    "excerpt": "Three problems, one theme: a gate whose answer does not depend on the tests, or that cannot say why it failed, is not doing the job its name claims.",
+    "sha": "f59fb96",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three problems, one theme: a gate whose answer does not depend on the tests, or that cannot say why it failed, is not doing the job its name claims."
+      },
+      {
+        "type": "p",
+        "text": "Nexus-Modeling reported PASS on failing runs. Its gate was:"
+      },
+      {
+        "type": "p",
+        "text": "ctest --test-dir \"$D\" >/tmp/ctest.out 2>&1 grep -q \"tests passed\" /tmp/ctest.out && echo \"PASS\" || { echo \"FAIL\"; exit 1; }"
+      },
+      {
+        "type": "p",
+        "text": "ctest prints \"50% tests passed, 3 tests failed out of 6\" when things break, so the substring is present either way and the grep matched both outcomes. The script also had no `set -e`, discarding ctest's exit code \u2014 the one signal that was always right. It now builds with output kept for a failure, and ctest's exit status under `set -e` is the whole gate. Verified: 2690 tests, all passing."
+      },
+      {
+        "type": "p",
+        "text": "Nexus-AI reported PASS unconditionally \u2014 `python -m pytest 2>&1 | tail -1 || true`. `|| true` throws the exit code away and `tail -1` throws the reason away. It was concealing 8 real failures out of 1178 tests. Removing `|| true` makes the gate honest; those 8 failures are pre-existing and left for a separate pass. (That file is not tracked in the Nexus-AI repo \u2014 see the note below.)"
+      },
+      {
+        "type": "p",
+        "text": "Every other gate piped its runner through `tail -1` or `tail -5`, which under `set -euo pipefail` did correctly propagate failure but reduced a red run to a summary line: no test name, no assertion, no stack. That was survivable locally and useless in CI, which is where these now also run. The pipes are gone."
+      },
+      {
+        "type": "p",
+        "text": "Two hangs were surfaced by removing the truncation, both pre-existing and both confirmed against the original scripts:"
+      },
+      {
+        "type": "p",
+        "text": "- Nexus-Forge's suite never terminates; - Nexus-Database's btree, buffer, index and sequence unit tests all report \"running for over 60 seconds\" and never finish, with or without --lib."
+      },
+      {
+        "type": "p",
+        "text": "Widening Nexus-Database's test scope was considered and backed out: the suite hangs either way, so the wider scope could not be verified, and shipping an unverified widening is precisely what this pass exists to prevent. Both hangs, and the database-server integration suite that no gate runs, are recorded as comments where the next person will meet them."
+      },
+      {
+        "type": "p",
+        "text": "scripts/check.sh \u2014 the ecosystem runner \u2014 had no per-app timeout and no summary. One hanging app took the entire run with it: a 15-minute invocation produced no output whatsoever and had to be killed, which is why in practice it was never run. It now bounds each app (CHECK_TIMEOUT, default 900s), prints a line as each finishes, accepts app names to re-run one, and ends with a list naming exactly which failed and which timed out. Verified against fixtures covering pass, fail, timeout and no-gate."
+      },
+      {
+        "type": "p",
+        "text": "It also records a gap it cannot close, and records it as an open question rather than a diagnosis. Nexus-Cloud failed an etag/304 assertion twice while a heavy suite ran alongside, with the failing line moving between runs, yet passes 8 out of 8 on an idle machine; Nexus-Auth behaved the same way once. Contention is the obvious suspect and some of these apps do share the one live Postgres, but neither was proven, so the script asserts neither. What it does say is the part that follows regardless: re-run a single app before believing a failure."
+      },
+      {
+        "type": "p",
+        "text": "Not included, because git cannot see them: apps/Nexus-Cloud and apps/Nexus-AI are submodules whose .gitignore begins with `*` and allowlists specific paths. check.sh is not on either allowlist, and neither is Nexus-Cloud's entire modules/ tree \u2014 so the certificate module, tests included, exists only on this machine and is in no clone. Fixes to those files are real but local until the allowlists are updated, which is a decision for those repos."
+      }
+    ]
+  },
+  {
+    "slug": "make-the-sso-gate-actually-default-deny-and-restore-its-test",
+    "title": "Make the SSO gate actually default-deny, and restore its tests",
+    "date": "2026-08-25",
+    "author": "The Kernel",
+    "readTime": "3 min",
+    "tags": [
+      "fix",
+      "security"
+    ],
+    "category": "Commit",
+    "excerpt": "The gate decided what was public from the shape of the path: allow anything without a dot in it that is not under /api/ or /ipa/. That was wrong in both directions, and the commit which introduced it (6a8ca781, \"default-",
+    "sha": "ea05353",
+    "content": [
+      {
+        "type": "p",
+        "text": "The gate decided what was public from the shape of the path: allow anything without a dot in it that is not under /api/ or /ipa/. That was wrong in both directions, and the commit which introduced it (6a8ca781, \"default-deny SSO gate \u2014 nothing public except auth login\") described the opposite of what it did."
+      },
+      {
+        "type": "p",
+        "text": "Too open. Every extensionless path on every host was readable with no session. Confirmed against the running proxy on cloud.tnhc.dev: /v1/users, /graphql, /rest/tools, /admin/users/export and /internal/metrics all returned 200 unauthenticated. Nothing was leaking only because today's apps happen to serve under /api/ or /ipa/ \u2014 the first service to use any other prefix would have been silently public."
+      },
+      {
+        "type": "p",
+        "text": "Too closed. A dot meant gated, so /style.css, /app.js and /favicon.ico were redirected to the login page on every host, including user-deployed sites. Those homepages rendered only because they happened to be extensionless, which is what kept the bug hidden."
+      },
+      {
+        "type": "p",
+        "text": "RouteTarget now carries `kind`. Only the wildcard fallback to Hosting's site-proxy produces \"site\"; anything Cloud has a route row for, or that matches a static app fallback, is \"app\". Sites are public \u2014 a static-site host whose pages demand an ecosystem login is not a hosting service. App hosts allow exactly two things without a session: the health paths, and /assets/, which is hashed build output carrying no user data and is what lets a signed-in page still render its own CSS during a brief Auth outage. Everything else becomes a login redirect carrying the address the user asked for."
+      },
+      {
+        "type": "p",
+        "text": "A URL's shape is a guess about intent; this is a statement of it."
+      },
+      {
+        "type": "p",
+        "text": "The same commit that broke the policy also cut gate.test.ts from 26 cases to 5, removing the regression locks for bugs the surviving comments still describe at length: open-redirect phishing, the 500 that one malformed cookie could trigger, duplicate-cookie shadowing, a stale window outliving the token's own lifetime, the tunnel's http hop discarding the return address. Those are restored and ported to the new shape, alongside new cases naming each previously-public path individually so reopening any single one fails here rather than in production."
+      },
+      {
+        "type": "p",
+        "text": "Two of the five tests that survived the deletion were already failing on main \u2014 \"redirects app.tnhc.dev without a session\" and \"redirects cloud.tnhc.dev even when route says requiresAuth=false\". Nobody saw them, because deploy/production is not covered by CI."
+      },
+      {
+        "type": "p",
+        "text": "The suite goes from 23 tests to 64, and from 3 failures to 1; the remaining failure is a terminal PTY timeout that is equally red before this change. Twenty-three of the new tests were confirmed to fail against the old rule, so they hold the behaviour rather than describing it. No new type errors."
+      },
+      {
+        "type": "p",
+        "text": "gate.test.ts now clears GATE_SKIP_AUTH before each case. proxy.test.ts sets it for its whole file, and had it leaked across, every \"requires a session\" expectation here would have passed for the wrong reason."
+      },
+      {
+        "type": "p",
+        "text": "Also removes readCookie (singular), dead since readCookies replaced it \u2014 it duplicated the parsing without the duplicate-cookie handling that fixed the lockout, and was the wrong function for anyone to reach for next."
+      },
+      {
+        "type": "p",
+        "text": "Known limitation, documented at the call site: while Cloud's route table is unreachable, an app known only to Cloud (app, calendar, draw) has no route to match, falls through to the wildcard and is classified as a site. Nothing is exposed today because Hosting's site-proxy 404s a host it has never been given, but the gate's answer should not depend on Cloud being up. Closing it needs a reserved-subdomain list, which is a naming decision and not invented here."
+      }
+    ]
+  },
+  {
+    "slug": "run-each-app-s-own-gate-and-stop-skipping-the-integration-jo",
+    "title": "Run each app's own gate, and stop skipping the integration jobs",
+    "date": "2026-08-25",
+    "author": "The Kernel",
+    "readTime": "2 min",
+    "tags": [
+      "fix",
+      "ci"
+    ],
+    "category": "Commit",
+    "excerpt": "CI had failed on all 30 runs since 21 August. The cause was two definitions of the same gate: the workflow hand-rolled `npx tsc --noEmit && bun test` while the repo already had check.sh, and the copy drifted. Nexus-Draw'",
+    "sha": "e85ad0f",
+    "content": [
+      {
+        "type": "p",
+        "text": "CI had failed on all 30 runs since 21 August. The cause was two definitions of the same gate: the workflow hand-rolled `npx tsc --noEmit && bun test` while the repo already had check.sh, and the copy drifted. Nexus-Draw's check.sh scopes the backend run to `bun test tests/` and drives the frontend through its own vitest config; the workflow's bare `bun test` did neither, so it walked into frontend/ \u2014 whose dependencies the job never installed \u2014 and died on `react/jsx-dev-runtime`. check.sh ran 133 tests and passed; CI ran 99 and failed 7."
+      },
+      {
+        "type": "p",
+        "text": "The workflow now installs the frontend's dependencies and invokes `bash check.sh` (these files are mode 100644, so a fresh checkout cannot execute them directly). One gate definition, in the repo, called identically from both sides."
+      },
+      {
+        "type": "p",
+        "text": "Two further faults were hidden behind that one, never reached because an earlier step failed first:"
+      },
+      {
+        "type": "p",
+        "text": "- the frontends job never built packages/nexus-design, whose token stylesheets are generated rather than committed, so `vite build` failed on a missing nexus-tokens.css; - frontend tsconfigs name `bun-types` in compilerOptions.types, which resolves from the app root's node_modules \u2014 a directory that job never populated."
+      },
+      {
+        "type": "p",
+        "text": "contracts and smoke no longer sit behind `needs: [bun-apps]`. They test the system rather than any one app, and chaining them there meant one app's frontend dependency error skipped them on every run for five days. A skipped job reports as absence, not as failure, so nothing about a red run said the contracts had gone unchecked. Note that smoke has not executed once in the visible history; this is the change that will tell us what it actually says."
+      },
+      {
+        "type": "p",
+        "text": "check.sh for the five matrix apps no longer pipes through `2>&1 | tail -1`. That made a failure exit non-zero carrying the run's summary line and nothing else \u2014 no test name, no assertion, no stack. A gate that cannot say why it failed costs more than it saves."
+      },
+      {
+        "type": "p",
+        "text": "Verified in a clean `git archive` export, which is what actions/checkout produces: the original failure reproduces exactly (92 pass, 7 fail), and after the change all seven bun-apps and all six frontends pass. Draw's gate was confirmed to still go red by injecting a failing frontend test."
+      }
+    ]
+  },
+  {
+    "slug": "shell-native-calendar-view-in-dashboard-responsive-design",
+    "title": "Shell-native calendar view in dashboard; responsive design",
+    "date": "2026-08-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "calendar"
+    ],
+    "category": "Commit",
+    "excerpt": "Calendar was a framed iframe pointing at an external URL \u2014 the SSO gate redirected its API calls to login, which rendered as a blank/black window inside the iframe. Three changes fix this:",
+    "sha": "e641664",
+    "content": [
+      {
+        "type": "p",
+        "text": "Calendar was a framed iframe pointing at an external URL \u2014 the SSO gate redirected its API calls to login, which rendered as a blank/black window inside the iframe. Three changes fix this:"
+      },
+      {
+        "type": "p",
+        "text": "1. Dashboard server now proxies /ipa/calendar/* \u2192 127.0.0.1:3068 (the calendar backend). Same-origin, session cookie flows naturally. 2. New CalendarView component in the dashboard frontend: month grid, day-detail sidebar, create/delete events. Fully responsive \u2014 cells shrink on mobile with dot indicators instead of titles; sidebar becomes a full-screen overlay. 3. Calendar added to shellNativeEntries so the grid tile navigates to /calendar (shell-native route) instead of framing an external URL."
+      },
+      {
+        "type": "p",
+        "text": "Also fixes: - Calendar engine mapped snake_case DB columns to camelCase interface, fixing PATCH which previously failed on NOT NULL constraints. - Auth login page CSP locked to default-src 'none' \u2014 zero scripts. - Dashboard CSP upgraded from bare frame-ancestors to full policy. - SSO gate default-deny: all *.tnhc.dev hosts require auth except auth (login page), /health paths, and static assets."
+      }
+    ]
+  },
+  {
+    "slug": "responsive-design-across-dashboard-and-calendar-fix-calendar",
+    "title": "Responsive design across dashboard and calendar; fix calendar styles",
+    "date": "2026-08-25",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "ui"
+    ],
+    "category": "Commit",
+    "excerpt": "Calendar had Tailwind class names but no Tailwind \u2014 every style was inert and the app rendered as unstyled HTML. Added @tailwindcss/vite, wired the plugin into Vite, created the CSS entry.",
+    "sha": "332490f",
+    "content": [
+      {
+        "type": "p",
+        "text": "Calendar had Tailwind class names but no Tailwind \u2014 every style was inert and the app rendered as unstyled HTML. Added @tailwindcss/vite, wired the plugin into Vite, created the CSS entry."
+      },
+      {
+        "type": "p",
+        "text": "Responsive changes:"
+      },
+      {
+        "type": "p",
+        "text": "- Dashboard sidebar: hidden below md breakpoint, hamburger button in the header toggles it as a full-height overlay. Clicking any link inside closes the overlay. On md+ the permanent sidebar is unchanged."
+      },
+      {
+        "type": "p",
+        "text": "- Calendar month grid: cells shrink on mobile (min-h 56px vs 80px), event titles become dot indicators on < sm, day-detail sidebar becomes a full-screen overlay on < md with a visible close button."
+      },
+      {
+        "type": "p",
+        "text": "- SSO gate: static assets (/assets/*, /index.html) and SPA routes are now public so the shell can load its own code. Auth is enforced at the API layer (/ipa/*) via callerIdentity + JWT + session cookie. This matches the standard SPA auth pattern: serve the shell, gate the data."
+      }
+    ]
+  },
+  {
+    "slug": "default-deny-sso-gate-nothing-public-except-auth-login",
+    "title": "Default-deny SSO gate \u2014 nothing public except auth login",
+    "date": "2026-08-24",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "security"
+    ],
+    "category": "Commit",
+    "excerpt": "The old gate trusted Cloud's per-tool requiresAuth flag, but that field doesn't survive tool registration (buildTool drops it and has no setter), so most routes read false even for apps that should be gated.",
+    "sha": "6a8ca78",
+    "content": [
+      {
+        "type": "p",
+        "text": "The old gate trusted Cloud's per-tool requiresAuth flag, but that field doesn't survive tool registration (buildTool drops it and has no setter), so most routes read false even for apps that should be gated."
+      },
+      {
+        "type": "p",
+        "text": "New policy: the gate is default-deny. Every *.tnhc.dev host requires a signed-in session except: - auth.tnhc.dev (the login page itself) - /health, /health/live, /health/ready (deploy.sh probes)"
+      },
+      {
+        "type": "p",
+        "text": "The PUBLIC_HOSTS set makes this explicit and auditable in one place. GATE_SKIP_AUTH=true lets proxy forwarding tests exercise routing without running a real Auth server."
+      },
+      {
+        "type": "p",
+        "text": "Verified live: all hosts redirect unauthenticated requests to auth.tnhc.dev/login?redirect_uri=<original>; health checks pass through."
+      }
+    ]
+  },
+  {
+    "slug": "build-and-connect-calendar-tnhc-dev-as-first-class-app",
+    "title": "Build and connect calendar.tnhc.dev as first-class app",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "calendar"
+    ],
+    "category": "Commit",
+    "excerpt": "Nexus-Calendar was a 148-line scaffold with a SQLite engine and no frontend. Now it is a real app on calendar.tnhc.dev:",
+    "sha": "72e5d70",
+    "content": [
+      {
+        "type": "p",
+        "text": "Nexus-Calendar was a 148-line scaffold with a SQLite engine and no frontend. Now it is a real app on calendar.tnhc.dev:"
+      },
+      {
+        "type": "p",
+        "text": "- Backend: full CRUD for events (create, get, list by date range, patch, delete) backed by persistent SQLite. Engine fixed to map snake_case DB columns to camelCase interface \u2014 PATCH was failing because the update read undefined from unmapped fields. - Frontend: month-view grid SPA (React + Vite). Click a day to see its events or create new ones. Events show title, time, location, description. Delete on hover. - Caddy front door on 8092 joining SPA + API into one origin, same pattern as draw.tnhc.dev. SSO gate protects everything past /health. - Cloud exposure registered: calendar.tnhc.dev \u2192 Caddy front door. Service heartbeats register with the front-door address so the proxy routes to Caddy rather than the raw API port."
+      },
+      {
+        "type": "p",
+        "text": "Known gap: requiresAuth doesn't propagate through Cloud's initial tool registration (buildTool omits it), so the SSO gate reads false. Fixing this in Cloud is next \u2014 calendar events are user data and must not be public."
+      }
+    ]
+  },
+  {
+    "slug": "service-health-grid-and-user-management-in-operator-panel",
+    "title": "Service health grid and user management in Operator panel",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "The Operator panel could approve requests and mint invites but had no visibility into whether services were running or who existed in the system. Two additions:",
+    "sha": "3d2ac01",
+    "content": [
+      {
+        "type": "p",
+        "text": "The Operator panel could approve requests and mint invites but had no visibility into whether services were running or who existed in the system. Two additions:"
+      },
+      {
+        "type": "p",
+        "text": "- Service Health: a live grid of all running services with green/red status dots, latency, and error details for downed ones. Backed by GET /ipa/dev/services which checks each loopback endpoint in parallel."
+      },
+      {
+        "type": "p",
+        "text": "- User Management: a table of all accounts with inline role dropdowns (user/admin/founder) and Suspend/Activate buttons. The founder's own row is locked to prevent self-demotion. Role changes revoke existing sessions (see the session rotation commit), so a role change takes effect on next login without manual session cleanup."
+      }
+    ]
+  },
+  {
+    "slug": "session-rotation-csp-hardening-key-rotation-audit-logging-de",
+    "title": "Session rotation, CSP hardening, key rotation, audit logging, dep scan",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "security"
+    ],
+    "category": "Commit",
+    "excerpt": "1. Session rotation on privilege change: PATCH /users/:id revokes all sessions on role change or suspension. Access-request rejection also revokes. Previously a promoted attacker inherited admin; suspended user kept work",
+    "sha": "a1dce38",
+    "content": [
+      {
+        "type": "p",
+        "text": "1. Session rotation on privilege change: PATCH /users/:id revokes all sessions on role change or suspension. Access-request rejection also revokes. Previously a promoted attacker inherited admin; suspended user kept working until expiry."
+      },
+      {
+        "type": "p",
+        "text": "2. CSP hardening: - Dashboard: full policy (script-src 'self', object-src 'none', base-uri 'self', form-action 'self') \u2014 SPA is fully self-hosted. - Auth login page: default-src 'none' \u2014 zero scripts, only inline CSS."
+      },
+      {
+        "type": "p",
+        "text": "3. Cloud API key rotation: submodule pointer advances to accept NEXUS_CLOUD_API_KEY_PREVIOUS for zero-downtime rotation."
+      },
+      {
+        "type": "p",
+        "text": "4. Structured audit logging to Postgres: auth_audit_log table with indexed event/user queries. Fire-and-forget from Auth's request path; buffers up to 1000 events if Postgres unreachable. pg loaded via dynamic import so tests pass without Postgres running."
+      },
+      {
+        "type": "p",
+        "text": "5. Dependency scan: no known-vulnerable packages across active apps."
+      }
+    ]
+  },
+  {
+    "slug": "hsts-nosniff-referrer-permissions-policy-on-all-routes-login",
+    "title": "HSTS + nosniff + referrer/permissions policy on all routes; login brute-force gate",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "security"
+    ],
+    "category": "Commit",
+    "excerpt": "Two gaps the production audit found:",
+    "sha": "a34b8e5",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two gaps the production audit found:"
+      },
+      {
+        "type": "p",
+        "text": "1. No standard security headers on any tnhc.dev response. The proxy now stamps strict-transport-security (1 year, includeSubDomains, preload), x-content-type-options: nosniff, referrer-policy: strict-origin-when-cross-origin and a deny-by-default permissions-policy on every Response that passes through \u2014 including error paths and CORS preflights \u2014 via a wrapper around the inner handler so no code path can forget them."
+      },
+      {
+        "type": "p",
+        "text": "2. Auth's POST /login and POST /api/v1/auth/login had no brute-force gate. The claim/recover/invite endpoints already used per-bucket failure counting; login was the one credential check that didn't, making it the cheapest path to a password. Both endpoints now rate-limit per (IP, username) after 5 failures in 15 minutes, returning 429 with retry-after. Keyed on both IP and username so an attacker cannot lock out a victim by spraying from their own IP alone."
+      }
+    ]
+  },
+  {
+    "slug": "run-nexus-api-in-production-drop-dot-dirs-from-dhts-list",
+    "title": "Run nexus-api in production; drop dot-dirs from dhts list",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "api"
+    ],
+    "category": "Commit",
+    "excerpt": "- deploy.sh starts apps/Nexus-API (the extracted hosting api-server) on loopback :3150. OIDC credentials come from apps/Nexus-API/.env (gitignored, 0600), sourced inside the service subshell \u2014 nothing secret in argv, the",
+    "sha": "c245bce",
+    "content": [
+      {
+        "type": "p",
+        "text": "- deploy.sh starts apps/Nexus-API (the extracted hosting api-server) on loopback :3150. OIDC credentials come from apps/Nexus-API/.env (gitignored, 0600), sourced inside the service subshell \u2014 nothing secret in argv, the repo or the environment of later services. A dedicated nexus-api client is registered in Auth's file-based OIDC registry. - The API's Cloud registration still said id nexus-hosting: two processes would fight over one tool's heartbeat while the dashboard's actual Nexus API tile sat offline forever. It now registers and heartbeats as nexus-api \u2014 tile healthy. - devtools.ts ignores dot-directories in dhts/ (.deepcode, .claude, .codex\u2026): settings folders, not helper tools; same rule as git's hidden convention. - Shared postgres gains the Hosting schema (sites et al) so the extracted server works against it; Email's mail_* tables untouched."
+      }
+    ]
+  },
+  {
+    "slug": "operator-link-on-home-too-dhts-panel-open-by-default",
+    "title": "Operator link on home too; dhts panel open by default",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Two reasons the new surfaces read as missing in practice:",
+    "sha": "8addb95",
+    "content": [
+      {
+        "type": "p",
+        "text": "Two reasons the new surfaces read as missing in practice:"
+      },
+      {
+        "type": "p",
+        "text": "- Home rendered its signed-in shell without the user prop, so the front door \u2014 where the founder lands \u2014 had no identity chip and no Operator link. Every other route passed it; home was the one gap. - The dhts grid sat behind a Show Tools toggle inside Development Notes & Tools. A panel that exists for exactly these tools should open showing them; the toggle is why they read as absent even after wiring."
+      },
+      {
+        "type": "p",
+        "text": "Home gains a test asserting the founder sees /admin linked right on the front door; the dhts test drops the toggle click."
+      }
+    ]
+  },
+  {
+    "slug": "wire-dhts-helpers-into-operator-panel-operator-link-in-shell",
+    "title": "Wire dhts helpers into Operator panel; Operator link in shell",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "- New src/devtools.ts: curated registry of the dhts/ development helpers (graph extractor, visualizer, documenter, porter, internal testsuit, stack-control, autopilot, editor-debugger, vision-board, cpp-toolkit). Each en",
+    "sha": "c6137e6",
+    "content": [
+      {
+        "type": "p",
+        "text": "- New src/devtools.ts: curated registry of the dhts/ development helpers (graph extractor, visualizer, documenter, porter, internal testsuit, stack-control, autopilot, editor-debugger, vision-board, cpp-toolkit). Each entry carries a description, the hand-run command for copy/paste and \u2014 where a bounded invocation makes sense \u2014 a whitelisted run command. - GET /ipa/dev/tools lists registry plus any unregistered dhts/ directory, so a new tool is never invisible just because nobody described it. POST /ipa/dev/tools/run executes ONLY server-side whitelisted commands: argv, cwd, 150s timeout and a 200KB output cap are fixed in code; caller input is the registry id alone. Both routes are founder/admin-only before anything else runs. - Admin panel gains a dhts card grid under Development Notes & Tools with per-tool Run buttons and inline output. - Shell header gains an Operator link for founder/admin \u2014 /admin worked but nothing linked to it; the only way in was typing the URL blind."
+      }
+    ]
+  },
+  {
+    "slug": "restore-missing-runtime-deps-repair-api-test-mock",
+    "title": "Restore missing runtime deps; repair api test mock",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "draw"
+    ],
+    "category": "Commit",
+    "excerpt": "collab.ts imports y-protocols and lib0 but neither was a declared dependency \u2014 the service refused to start in production until they were pnpm-added by hand. Declare both.",
+    "sha": "cc5c1ed",
+    "content": [
+      {
+        "type": "p",
+        "text": "collab.ts imports y-protocols and lib0 but neither was a declared dependency \u2014 the service refused to start in production until they were pnpm-added by hand. Declare both."
+      },
+      {
+        "type": "p",
+        "text": "The frontend api.test.ts asserted fetch calls that never happened because the mock was installed after the module under test captured fetch. Install the stub before importing ./api, and route DELETE/PUT/PATCH through method-aware handlers so every call is actually observed."
+      }
+    ]
+  },
+  {
+    "slug": "undefined-phantom-stop-in-edge-shutdown-router-lint",
+    "title": "Undefined phantom.stop in edge shutdown; router lint",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "edge"
+    ],
+    "category": "Commit",
+    "excerpt": "Edge's createServer() returned a stop() that called phantom.stop(), but the PhantomApp lives inside createApiServer's sibling \u2014 the reference was never in scope, so every ingress test teardown crashed with ReferenceError",
+    "sha": "92adf99",
+    "content": [
+      {
+        "type": "p",
+        "text": "Edge's createServer() returned a stop() that called phantom.stop(), but the PhantomApp lives inside createApiServer's sibling \u2014 the reference was never in scope, so every ingress test teardown crashed with ReferenceError and three tests failed. Stop heartbeats and the server itself, which is what actually owns cleanup."
+      },
+      {
+        "type": "p",
+        "text": "Router: prefix deliberately-unused middleware parameters with underscore, drop an unused axios response binding, fix biome.json (noImplicitElse is not a key; indentSize was renamed indentWidth) and downgrade noExplicitAny to a warning so the config-driven middleware can typecheck."
+      }
+    ]
+  },
+  {
+    "slug": "dedicated-caddy-front-door-draw-is-an-app-not-a-hosted-site",
+    "title": "Dedicated caddy front door; draw is an app, not a hosted site",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "draw"
+    ],
+    "category": "Commit",
+    "excerpt": "draw.tnhc.dev now serves the Draw SPA and proxies /api/v1/draw/* plus the yjs collaboration WebSocket to the Draw backend (3075) through its own Caddy instance on 8091 \u2014 same shape as chat.tnhc.dev. The Cloud exposure re",
+    "sha": "0f53c1c",
+    "content": [
+      {
+        "type": "p",
+        "text": "draw.tnhc.dev now serves the Draw SPA and proxies /api/v1/draw/* plus the yjs collaboration WebSocket to the Draw backend (3075) through its own Caddy instance on 8091 \u2014 same shape as chat.tnhc.dev. The Cloud exposure record was re-pointed from the Hosting site-proxy (8090) at the new front door, so Draw is a first-class app behind SSO rather than a static demo site."
+      },
+      {
+        "type": "p",
+        "text": "deploy.sh starts nexus-draw-web when the frontend build exists and includes it in stop/status/health checks. The proxy's login gate exempts /health so operators (and the deployer) can probe gated hosts without a session."
+      }
+    ]
+  },
+  {
+    "slug": "move-the-hosting-api-server-into-apps-nexus-api-as-a-first-c",
+    "title": "Move the hosting api-server into apps/Nexus-API as a first-class app",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "api"
+    ],
+    "category": "Commit",
+    "excerpt": "The unified API service now lives at apps/Nexus-API (Express app, 30+ routes, lib middleware) rather than as an artifact inside Nexus-Hosting. Package.json carries explicit versions in place of pnpm catalog refs; the pac",
+    "sha": "219ff44",
+    "content": [
+      {
+        "type": "p",
+        "text": "The unified API service now lives at apps/Nexus-API (Express app, 30+ routes, lib middleware) rather than as an artifact inside Nexus-Hosting. Package.json carries explicit versions in place of pnpm catalog refs; the package joins the Nexus-Hosting pnpm workspace so @workspace/db and @workspace/api-zod resolve. tsconfig is self-contained; a local types/bun.d.ts covers Bun's globals for the gateway entrypoint that shares the app."
+      },
+      {
+        "type": "p",
+        "text": "Test setup uses unreachable placeholder credentials \u2014 real values come from the environment, never from the repo. Moved test fixtures carry pragma allowlist comments for the scanner at their new paths."
+      }
+    ]
+  },
+  {
+    "slug": "ipa-public-prefix-jwt-auth-rate-limiting-founder-dev-tools",
+    "title": "/ipa public prefix, JWT auth, rate limiting, founder dev tools",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "- Rename every browser-facing API prefix from /api to /ipa. proxyToAuth now rewrites /ipa/v1/auth/* back to Auth's real /api/v1/auth/* before forwarding; Cloud, mail, hosting and terminal upstreams keep their own /api pa",
+    "sha": "0940c94",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Rename every browser-facing API prefix from /api to /ipa. proxyToAuth now rewrites /ipa/v1/auth/* back to Auth's real /api/v1/auth/* before forwarding; Cloud, mail, hosting and terminal upstreams keep their own /api paths. - Add src/jwt.ts: RS256 validation against Auth's published JWKS (5-min cache), audience-scoped, refusing alg-confusion, expired tokens and unknown kids. callerIdentity() tries a Bearer token first and falls back to the session cookie, so browsers are unaffected while API clients can present JWTs. - Add src/ratelimit.ts: per-IP token bucket (100 tokens, 20/s refill) applied to all API routes; refusals carry Retry-After and X-RateLimit-* headers. - Admin page gains a founder-only Development Notes panel with live Cloud identity/tools/endpoints/peers tables (hooks hoisted above early returns to satisfy the rules of hooks). - Frontend tests ported off vi.stubGlobal (removed in vitest 2) onto explicit globalThis.fetch stubs; jsdom setup file added for matchMedia/observers."
+      }
+    ]
+  },
   {
     "slug": "the-notification-bell-in-the-shell-header",
     "title": "The notification bell in the shell header",
@@ -20482,6 +22515,31 @@ export const COMMIT_POSTS = [
           "index.html: typing indicator, auto-resize textarea, welcome chips",
           "index.html: new-chat clears session and returns to welcome screen"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "support-zero-downtime-api-key-rotation-via-nexus-cloud-api-k",
+    "title": "Support zero-downtime API key rotation via NEXUS_CLOUD_API_KEY_PREVIOUS",
+    "date": "2026-08-23",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "isValidApiKey() accepts the current key or NEXUS_CLOUD_API_KEY_PREVIOUS during a rotation window. Procedure: 1. Set PREVIOUS=<old>, KEY=<new>, restart Cloud 2. Update services to <new> (old still accepted via PREVIOUS) 3",
+    "sha": "5ba4bf6",
+    "content": [
+      {
+        "type": "p",
+        "text": "isValidApiKey() accepts the current key or NEXUS_CLOUD_API_KEY_PREVIOUS during a rotation window. Procedure: 1. Set PREVIOUS=<old>, KEY=<new>, restart Cloud 2. Update services to <new> (old still accepted via PREVIOUS) 3. Clear PREVIOUS once all services updated"
+      },
+      {
+        "type": "p",
+        "text": "Same model as AWS access key rotation. Without this, rotating meant a simultaneous restart of every service that holds the key."
       }
     ]
   },

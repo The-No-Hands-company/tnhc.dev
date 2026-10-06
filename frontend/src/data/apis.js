@@ -22,7 +22,7 @@ export const APIS = [
         "path": "/sites",
         "desc": "Every site this node hosts.",
         "status": 200,
-        "contentType": "application/json",
+        "contentType": "text/html",
         "reachable": true
       },
       {
@@ -30,7 +30,7 @@ export const APIS = [
         "path": "/nodes",
         "desc": "Federation peers this node knows.",
         "status": 200,
-        "contentType": "application/json",
+        "contentType": "text/html",
         "reachable": true
       },
       {
@@ -38,7 +38,7 @@ export const APIS = [
         "path": "/nodes/1",
         "desc": "One node by id.",
         "status": 200,
-        "contentType": "application/json",
+        "contentType": "text/html",
         "reachable": true
       },
       {
@@ -46,7 +46,7 @@ export const APIS = [
         "path": "https://hosting.tnhc.dev/openapi.yaml",
         "desc": "OpenAPI 3.1 description \u2014 49 of 127 routes.",
         "status": 200,
-        "contentType": "application/yaml",
+        "contentType": "text/html",
         "reachable": true
       }
     ]
@@ -66,7 +66,7 @@ export const APIS = [
         "path": "/tools",
         "desc": "Registry of every app Cloud knows about.",
         "status": 200,
-        "contentType": "application/json",
+        "contentType": "text/html",
         "reachable": true
       },
       {
@@ -74,7 +74,7 @@ export const APIS = [
         "path": "/topology",
         "desc": "What each app exposes and consumes.",
         "status": 200,
-        "contentType": "application/json",
+        "contentType": "text/html",
         "reachable": true
       }
     ]
@@ -94,7 +94,7 @@ export const APIS = [
         "path": "/apps",
         "desc": "The app directory the shell renders.",
         "status": 200,
-        "contentType": "application/json",
+        "contentType": "text/html",
         "reachable": true
       }
     ]

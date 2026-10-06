@@ -19,7 +19,7 @@ REPO="${1:-../projects/Nexus-Systems}"
 CHECK=0
 [ "${1:-}" = "--check" ] && { CHECK=1; REPO="../projects/Nexus-Systems"; }
 
-GEN=(frontend/src/data/changelog.js frontend/src/data/commitPosts.js frontend/src/data/apps.js frontend/src/data/apis.js)
+GEN=(frontend/src/data/changelog.js frontend/src/data/commitPosts.js frontend/src/data/apps.js frontend/src/data/apis.js frontend/src/data/charter.js frontend/src/data/phantomStatus.js)
 
 if [ ! -d "$REPO/.git" ]; then
     echo "FAIL: not a git repository: $REPO" >&2
@@ -35,6 +35,17 @@ before=$(md5sum "${GEN[@]}" 2>/dev/null || true)
 bash scripts/build-changelog.sh "$REPO" >/dev/null || { echo "FAIL: changelog generation" >&2; exit 1; }
 python3 scripts/build-apps.py     >/dev/null || { echo "FAIL: app directory generation" >&2; exit 1; }
 python3 scripts/build-apis.py     >/dev/null || { echo "FAIL: API directory generation" >&2; exit 1; }
+HANDBOOK="${HANDBOOK:-../handbook}"
+[ -d "$HANDBOOK/.git" ] || git clone --quiet https://github.com/The-No-Hands-company/handbook.git "$HANDBOOK"
+git -C "$HANDBOOK" pull --quiet --ff-only origin main || echo "WARN: could not update handbook; using local copy"
+python3 scripts/build-markdown-page.py --repo "$HANDBOOK" --file charter.md \
+    --out frontend/src/data/charter.js --export CHARTER \
+    --source https://github.com/The-No-Hands-company/handbook/blob/main/charter.md \
+    || { echo "FAIL: charter generation" >&2; exit 1; }
+python3 scripts/build-markdown-page.py --repo "$REPO/apps/Phantom" --file STATUS.md \
+    --out frontend/src/data/phantomStatus.js --export PHANTOM_STATUS \
+    --source https://github.com/The-No-Hands-company/Phantom/blob/main/STATUS.md \
+    || { echo "FAIL: Phantom status generation" >&2; exit 1; }
 
 after=$(md5sum "${GEN[@]}" 2>/dev/null || true)
 

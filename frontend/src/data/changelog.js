@@ -5,9 +5,800 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 991 entries, newest first.
+// 1123 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "b133068",
+    "date": "2026-10-06",
+    "kind": "feat",
+    "area": "core",
+    "title": "Route Cloudflare email ingress through the proxy, wire mail secrets"
+  },
+  {
+    "sha": "458a513",
+    "date": "2026-10-05",
+    "kind": "feat",
+    "area": "core",
+    "title": "Add Resend and Cloudflare Nexus Email bridges"
+  },
+  {
+    "sha": "c79ce22",
+    "date": "2026-10-03",
+    "kind": "feat",
+    "area": "forge",
+    "title": "Security pass, verified plain git, no trust on first use"
+  },
+  {
+    "sha": "130f5e3",
+    "date": "2026-10-03",
+    "kind": "feat",
+    "area": "forge",
+    "title": "`forge verify` enforces the push policy on the client"
+  },
+  {
+    "sha": "9cf13c3",
+    "date": "2026-10-03",
+    "kind": "fix",
+    "area": "forge",
+    "title": "Never accept a push whose policy hook cannot run; gate Forge in CI"
+  },
+  {
+    "sha": "1899949",
+    "date": "2026-10-03",
+    "kind": "fix",
+    "area": "forge",
+    "title": "Move off Hosting's port, exit on SIGTERM, make the image buildable"
+  },
+  {
+    "sha": "7c31602",
+    "date": "2026-10-03",
+    "kind": "feat",
+    "area": "forge",
+    "title": "Hash-chained ref log and a `forge log verify` CLI"
+  },
+  {
+    "sha": "79520b1",
+    "date": "2026-10-03",
+    "kind": "feat",
+    "area": "forge",
+    "title": "Refuse pushes that are not signed under the repository's policy"
+  },
+  {
+    "sha": "c1a93bd",
+    "date": "2026-10-03",
+    "kind": "feat",
+    "area": "forge",
+    "title": "Serve git over smart HTTP behind one default-deny access check"
+  },
+  {
+    "sha": "740e3d7",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Accept a Dashboard-hop subject only in the Nexus subject shape"
+  },
+  {
+    "sha": "32daf0d",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Refuse a database whose schema is newer than the code"
+  },
+  {
+    "sha": "d40f844",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Create the personal workspace on the caller's first request"
+  },
+  {
+    "sha": "13ba4d2",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Cap request bodies and backstop every server error"
+  },
+  {
+    "sha": "aa44e40",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Convert only 404s to not-found in access helpers"
+  },
+  {
+    "sha": "670c1b1",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Only assign tasks to someone who can see the project"
+  },
+  {
+    "sha": "80fd897",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Never schedule a manual task before the project start"
+  },
+  {
+    "sha": "cd40b45",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Store summary roll-ups and report every task a write moved"
+  },
+  {
+    "sha": "3807435",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Keep ranks short with fixed-width rankAfter and rankBefore"
+  },
+  {
+    "sha": "9d4dca4",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Schedule and My tasks endpoints; document the service"
+  },
+  {
+    "sha": "2baf499",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Dependencies with cycle detection and a working-day calendar"
+  },
+  {
+    "sha": "8a7c273",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Tasks with a nested WBS, ranks and optimistic concurrency"
+  },
+  {
+    "sha": "5841c05",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Connect the store to the scheduling engine"
+  },
+  {
+    "sha": "d944b70",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Per-project statuses mapped to fixed categories"
+  },
+  {
+    "sha": "1890b89",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Projects with restricted visibility and workspace moves"
+  },
+  {
+    "sha": "87c6387",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Personal and team workspaces with roles"
+  },
+  {
+    "sha": "9a6d42d",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Database, trusted identity, access rules and validation"
+  },
+  {
+    "sha": "134c43b",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Critical-path scheduling engine"
+  },
+  {
+    "sha": "f76ab7e",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Topological order and cycle finding for dependencies"
+  },
+  {
+    "sha": "55aec70",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Working-day calendar for the scheduler"
+  },
+  {
+    "sha": "dcae6f0",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Fractional ranks for ordering tasks"
+  },
+  {
+    "sha": "bae9f35",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "project",
+    "title": "Use real packages and restore async handler support"
+  },
+  {
+    "sha": "d6bc300",
+    "date": "2026-09-25",
+    "kind": "feat",
+    "area": "project",
+    "title": "Replace the broken scaffold with a tested service skeleton"
+  },
+  {
+    "sha": "0299de8",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "security",
+    "title": "Coherent rotation snapshots and Bash-effective assignments"
+  },
+  {
+    "sha": "1be12b7",
+    "date": "2026-09-25",
+    "kind": "fix",
+    "area": "calendar",
+    "title": "Stop self-declaring requiresAuth in Cloud registration"
+  },
+  {
+    "sha": "5f79f94",
+    "date": "2026-09-24",
+    "kind": "fix",
+    "area": "email",
+    "title": "Stop appending a blank line to every message sent over SMTP"
+  },
+  {
+    "sha": "60fbe4e",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "Nexus-mailctl for mailboxes, addresses, peers and the node key"
+  },
+  {
+    "sha": "308004a",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "Run federation and the delivery worker in nexus-mailsmtpd"
+  },
+  {
+    "sha": "10fe13b",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "DKIM-sign outbound mail at the origin"
+  },
+  {
+    "sha": "795e579",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "Deliver federated rows, and route outside mail through an egress peer"
+  },
+  {
+    "sha": "c52cab4",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "Send handoffs to pinned peers over HTTPS"
+  },
+  {
+    "sha": "89151d2",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "Accept signed handoffs from pinned peers"
+  },
+  {
+    "sha": "5a2fccf",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "Relay a peer's outbound mail \u2014 store once, queue per recipient"
+  },
+  {
+    "sha": "c7efe75",
+    "date": "2026-09-24",
+    "kind": "fix",
+    "area": "email",
+    "title": "Point check.sh at nexus_email_test, not the shared nexus database"
+  },
+  {
+    "sha": "ec118ef",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "Pinned mail peers and a replay guard"
+  },
+  {
+    "sha": "d3f5b4e",
+    "date": "2026-09-24",
+    "kind": "feat",
+    "area": "email",
+    "title": "Node mail keys and signed federation requests"
+  },
+  {
+    "sha": "58d986b",
+    "date": "2026-08-28",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Minors \u2014 Home bell, Unread count+flagged, off-palette colours, comment/test cleanups"
+  },
+  {
+    "sha": "d796503",
+    "date": "2026-08-28",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Bound the drawer's empty state, route Grid, add keyboard nav (C2, C3, I5)"
+  },
+  {
+    "sha": "6b8996f",
+    "date": "2026-08-28",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Wire density tokens into layout, add a real toggle (C1)"
+  },
+  {
+    "sha": "4078618",
+    "date": "2026-08-28",
+    "kind": "fix",
+    "area": "design",
+    "title": "Add a real focus trap to Overlay"
+  },
+  {
+    "sha": "2e3f1ea",
+    "date": "2026-08-28",
+    "kind": "fix",
+    "area": "design",
+    "title": "Widen contrast gate, fix border tokens, tokenize card/input, complete barrel"
+  },
+  {
+    "sha": "9c12bb6",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "shell",
+    "title": "Dashboard home is a dashboard, apps live in the drawer"
+  },
+  {
+    "sha": "597d312",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "shell",
+    "title": "Malformed 200 responses must not crash widget render"
+  },
+  {
+    "sha": "e7cf161",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Complete production front door and acceptance"
+  },
+  {
+    "sha": "b30c0bc",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "shell",
+    "title": "Home widgets with loading, empty, error and content kept distinct"
+  },
+  {
+    "sha": "f8c66b5",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "shell",
+    "title": "Add accessible status text to health pills for screen readers and color-blind users"
+  },
+  {
+    "sha": "660d60b",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "shell",
+    "title": "Health strip with offline services first"
+  },
+  {
+    "sha": "b918816",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Unify personal and shared calendar UI"
+  },
+  {
+    "sha": "3c7bf9a",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "shell",
+    "title": "Command-palette apps drawer that admits offline apps exist"
+  },
+  {
+    "sha": "68dab3c",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "test",
+    "title": "Implement faithful localStorage polyfill with fidelity test"
+  },
+  {
+    "sha": "a123884",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "ui",
+    "title": "Add shared chrome for proxied apps"
+  },
+  {
+    "sha": "784ae55",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Preserve calendar security headers"
+  },
+  {
+    "sha": "b6e6174",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Harden calendar web proxy"
+  },
+  {
+    "sha": "1a77287",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "shell",
+    "title": "Shell-local density preference"
+  },
+  {
+    "sha": "fef0305",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "design",
+    "title": "EmptyState and Skeleton, so loading is never read as empty"
+  },
+  {
+    "sha": "82e38d7",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "design",
+    "title": "Stop Overlay's focus effect re-running on inline onClose"
+  },
+  {
+    "sha": "4f84d4b",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "design",
+    "title": "Stop installing a stray react runtime copy; revert tsc exclude"
+  },
+  {
+    "sha": "85db4f3",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Dedupe react across the app build, not just tests"
+  },
+  {
+    "sha": "ac35e55",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "design",
+    "title": "Focus-trapped Overlay that restores focus on close"
+  },
+  {
+    "sha": "10813e5",
+    "date": "2026-08-27",
+    "kind": "feat",
+    "area": "design",
+    "title": "Add Pill, Kbd and Avatar, and a barrel export"
+  },
+  {
+    "sha": "9c3b795",
+    "date": "2026-08-27",
+    "kind": "fix",
+    "area": "design",
+    "title": "Declare the kit's real dependencies and remove every hex literal"
+  },
+  {
+    "sha": "51b2e14",
+    "date": "2026-08-26",
+    "kind": "fix",
+    "area": "design",
+    "title": "Write contrast-report.md to package root, not gitignored dist/"
+  },
+  {
+    "sha": "484cecb",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "design",
+    "title": "Emit theme- and density-scoped tokens behind a contrast gate"
+  },
+  {
+    "sha": "3e312a0",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "design",
+    "title": "WCAG contrast validator that can actually fail"
+  },
+  {
+    "sha": "29b1c2a",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "design",
+    "title": "Split tokens into a theme family and two density scales"
+  },
+  {
+    "sha": "c4afb02",
+    "date": "2026-08-26",
+    "kind": "fix",
+    "area": "smoke",
+    "title": "Install what apps actually declare, and skip the one that cannot boot"
+  },
+  {
+    "sha": "25103c8",
+    "date": "2026-08-26",
+    "kind": "fix",
+    "area": "tests",
+    "title": "Stop pinning a Bun quirk, and make smoke say why a service died"
+  },
+  {
+    "sha": "f287ec8",
+    "date": "2026-08-26",
+    "kind": "fix",
+    "area": "ci",
+    "title": "Pin test upstreams by preload, and make Calendar's frontend installable"
+  },
+  {
+    "sha": "e33db86",
+    "date": "2026-08-26",
+    "kind": "fix",
+    "area": "edge",
+    "title": "Put the proxy under CI, hand CORS back to the apps, verify repo shape"
+  },
+  {
+    "sha": "d42dd42",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "identity",
+    "title": "One contract for who is asking, and close the service-token hole"
+  },
+  {
+    "sha": "556060d",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Make events private to their owner"
+  },
+  {
+    "sha": "6d4842f",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Proxy calendar as a shell app"
+  },
+  {
+    "sha": "2d529d2",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Add revocable public event links"
+  },
+  {
+    "sha": "8dbf0ce",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Add explicit user event sharing"
+  },
+  {
+    "sha": "43ae50f",
+    "date": "2026-08-26",
+    "kind": "fix",
+    "area": "calendar",
+    "title": "Migrate canonical event timestamps"
+  },
+  {
+    "sha": "5a8516e",
+    "date": "2026-08-26",
+    "kind": "fix",
+    "area": "calendar",
+    "title": "Normalize event timestamps"
+  },
+  {
+    "sha": "316cfc2",
+    "date": "2026-08-26",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Enforce owner-scoped event access"
+  },
+  {
+    "sha": "f59fb96",
+    "date": "2026-08-25",
+    "kind": "fix",
+    "area": "gates",
+    "title": "Make the quality gates report what the tests actually did"
+  },
+  {
+    "sha": "ea05353",
+    "date": "2026-08-25",
+    "kind": "fix",
+    "area": "security",
+    "title": "Make the SSO gate actually default-deny, and restore its tests"
+  },
+  {
+    "sha": "e85ad0f",
+    "date": "2026-08-25",
+    "kind": "fix",
+    "area": "ci",
+    "title": "Run each app's own gate, and stop skipping the integration jobs"
+  },
+  {
+    "sha": "5d0e256",
+    "date": "2026-08-25",
+    "kind": "fix",
+    "area": "calendar",
+    "title": "Enforce owned schema invariant"
+  },
+  {
+    "sha": "7ef71ea",
+    "date": "2026-08-25",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Migrate events to private ownership"
+  },
+  {
+    "sha": "c196839",
+    "date": "2026-08-25",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Add responsive tnhc platform overview"
+  },
+  {
+    "sha": "d47617d",
+    "date": "2026-08-25",
+    "kind": "feat",
+    "area": "registry",
+    "title": "Separate app paths from delivery origins"
+  },
+  {
+    "sha": "e641664",
+    "date": "2026-08-25",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Shell-native calendar view in dashboard; responsive design"
+  },
+  {
+    "sha": "332490f",
+    "date": "2026-08-25",
+    "kind": "feat",
+    "area": "ui",
+    "title": "Responsive design across dashboard and calendar; fix calendar styles"
+  },
+  {
+    "sha": "6a8ca78",
+    "date": "2026-08-24",
+    "kind": "feat",
+    "area": "security",
+    "title": "Default-deny SSO gate \u2014 nothing public except auth login"
+  },
+  {
+    "sha": "72e5d70",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Build and connect calendar.tnhc.dev as first-class app"
+  },
+  {
+    "sha": "3d2ac01",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Service health grid and user management in Operator panel"
+  },
+  {
+    "sha": "a1dce38",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "security",
+    "title": "Session rotation, CSP hardening, key rotation, audit logging, dep scan"
+  },
+  {
+    "sha": "a34b8e5",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "security",
+    "title": "HSTS + nosniff + referrer/permissions policy on all routes; login brute-force gate"
+  },
+  {
+    "sha": "c245bce",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "api",
+    "title": "Run nexus-api in production; drop dot-dirs from dhts list"
+  },
+  {
+    "sha": "8addb95",
+    "date": "2026-08-23",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Operator link on home too; dhts panel open by default"
+  },
+  {
+    "sha": "c6137e6",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Wire dhts helpers into Operator panel; Operator link in shell"
+  },
+  {
+    "sha": "cc5c1ed",
+    "date": "2026-08-23",
+    "kind": "fix",
+    "area": "draw",
+    "title": "Restore missing runtime deps; repair api test mock"
+  },
+  {
+    "sha": "92adf99",
+    "date": "2026-08-23",
+    "kind": "fix",
+    "area": "edge",
+    "title": "Undefined phantom.stop in edge shutdown; router lint"
+  },
+  {
+    "sha": "0f53c1c",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "draw",
+    "title": "Dedicated caddy front door; draw is an app, not a hosted site"
+  },
+  {
+    "sha": "219ff44",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "api",
+    "title": "Move the hosting api-server into apps/Nexus-API as a first-class app"
+  },
+  {
+    "sha": "0940c94",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "/ipa public prefix, JWT auth, rate limiting, founder dev tools"
+  },
+  {
+    "sha": "c361683",
+    "date": "2026-08-22",
+    "kind": "feat",
+    "area": "design",
+    "title": "Implement unified Void & Acid platform UI across ecosystem"
+  },
+  {
+    "sha": "bd9bb9c",
+    "date": "2026-08-22",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Constrain terminal credential forwarding"
+  },
+  {
+    "sha": "e7e26b5",
+    "date": "2026-08-22",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Secure console data and terminal states"
+  },
+  {
+    "sha": "08c99dd",
+    "date": "2026-08-22",
+    "kind": "fix",
+    "area": "terminal",
+    "title": "Make shell failures and shutdown durable"
+  },
+  {
+    "sha": "84cc0be",
+    "date": "2026-08-22",
+    "kind": "fix",
+    "area": "terminal",
+    "title": "Make acceptance gates reproducible"
+  },
   {
     "sha": "0e9c93c",
     "date": "2026-08-21",
@@ -289,11 +1080,74 @@ export const CHANGELOG = [
     "title": "The mail store and identity model"
   },
   {
+    "sha": "ead3920",
+    "date": "2026-08-16",
+    "kind": "fix",
+    "area": "security",
+    "title": "Close residual recovery gaps"
+  },
+  {
+    "sha": "f489efb",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "security",
+    "title": "Close production recovery review gaps"
+  },
+  {
+    "sha": "de0453e",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "security",
+    "title": "Harden production rotation recovery"
+  },
+  {
     "sha": "50f2eec",
     "date": "2026-08-15",
     "kind": "fix",
     "area": "proxy",
     "title": "Forward the client's scheme, not the tunnel hop's"
+  },
+  {
+    "sha": "ae558bc",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "security",
+    "title": "Manage production credential rotation"
+  },
+  {
+    "sha": "6edb989",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Fail closed on PID inspection errors"
+  },
+  {
+    "sha": "5e3bc73",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Reconcile service PID ownership"
+  },
+  {
+    "sha": "c4c5095",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "security",
+    "title": "Redact production request and startup logs"
+  },
+  {
+    "sha": "e4ad76c",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Repair reaction persistence"
+  },
+  {
+    "sha": "39eecfd",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Repair reaction persistence"
   },
   {
     "sha": "2b4eccd",
@@ -672,6 +1526,13 @@ export const CHANGELOG = [
     "kind": "fix",
     "area": "gate",
     "title": "Keep the return address when sending someone to sign in"
+  },
+  {
+    "sha": "050041e",
+    "date": "2026-08-12",
+    "kind": "feat",
+    "area": "core",
+    "title": "Connector selection and transform behavior"
   },
   {
     "sha": "75afe95",
@@ -3810,11 +4671,39 @@ export const CHANGELOG = [
     "title": "Modeling workflow slice 1 geometry ops"
   },
   {
+    "sha": "2409d2c",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "security",
+    "title": "Bind reaction moderation to targets"
+  },
+  {
     "sha": "183426d",
     "date": "2026-08-15",
     "kind": "fix",
     "area": "chat",
     "title": "Stop double-posting on send, and stop losing history on reload"
+  },
+  {
+    "sha": "d000a31",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "security",
+    "title": "Redact Caddy request headers"
+  },
+  {
+    "sha": "23b12a8",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "db",
+    "title": "Make reaction UUID queries portable"
+  },
+  {
+    "sha": "5383680",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "db",
+    "title": "Make reaction UUID queries portable"
   },
   {
     "sha": "329193f",
@@ -5763,6 +6652,41 @@ export const CHANGELOG = [
     "title": "Multi-turn sessions, agent loop, Claude provider, new chat UI"
   },
   {
+    "sha": "5180667",
+    "date": "2026-08-25",
+    "kind": "feat",
+    "area": "registry",
+    "title": "Separate app paths from delivery origins"
+  },
+  {
+    "sha": "5ba4bf6",
+    "date": "2026-08-23",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Support zero-downtime API key rotation via NEXUS_CLOUD_API_KEY_PREVIOUS"
+  },
+  {
+    "sha": "afd1d3b",
+    "date": "2026-08-22",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Restore acceptance lint gate"
+  },
+  {
+    "sha": "faa4e45",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "security",
+    "title": "Keep storage credentials rotation-safe"
+  },
+  {
+    "sha": "b58fa8b",
+    "date": "2026-08-15",
+    "kind": "fix",
+    "area": "security",
+    "title": "Redact Cloud startup logs"
+  },
+  {
     "sha": "453bf27",
     "date": "2026-08-14",
     "kind": "feat",
@@ -6947,4 +7871,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "chat", "chatview", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "email", "extrude", "federation", "flow", "foundation", "foundation-sweep", "gate", "geometry", "graph", "hem", "hosting", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "ops", "phantom", "portal", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "startup", "storage", "systems-api", "terminal", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "calendar", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "ops", "phantom", "portal", "project", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "smoke", "startup", "storage", "systems-api", "terminal", "test", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];

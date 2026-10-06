@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, CalendarBlank, Tag } from "@phosphor-icons/react";
 import { POSTS } from "@/data/posts";
 import { COMMIT_POSTS } from "@/data/commitPosts";
+import SiteFooterLinks from "@/components/site/SiteFooterLinks";
 
 /**
  * The blog is the long-form edition of the changelog.
@@ -166,18 +167,7 @@ export default function Blog() {
       {/* Footer strip */}
       <footer className="border-t border-white/10">
         <div className="mx-auto flex max-w-[1600px] flex-col items-start justify-between gap-4 px-6 py-8 md:flex-row md:items-center md:px-12">
-          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">
-            © {new Date().getFullYear()} The No Hands Company ·{" "}
-            <a
-              href="https://zajfan.tnhc.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-acid"
-              data-testid="blog-footer-founder"
-            >
-              Founder: Zajfan
-            </a>
-          </span>
+          <SiteFooterLinks />
           <span className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-acid animate-pulse-glow" />

@@ -150,3 +150,14 @@ body {
         transition: none !important;
     }
 }
+
+.charter-prose h1 { font-size: 2.5rem; line-height: 1.1; font-weight: 700; margin-bottom: 1.5rem; }
+.charter-prose h2 { font-size: 1.5rem; font-weight: 700; margin: 3rem 0 1rem; color: #ccff00; }
+.charter-prose h3 { font-size: 1.125rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+.charter-prose p, .charter-prose li { color: rgb(255 255 255 / 0.8); line-height: 1.7; }
+.charter-prose p { margin-bottom: 1rem; }
+.charter-prose ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
+.charter-prose a { color: #ccff00; text-decoration: underline; text-underline-offset: 3px; }
+.charter-prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+.charter-prose th, .charter-prose td { border: 1px solid rgb(255 255 255 / 0.12); padding: 0.6rem 0.75rem; text-align: left; vertical-align: top; }
+.charter-prose code { font-family: "JetBrains Mono", monospace; font-size: 0.85em; }

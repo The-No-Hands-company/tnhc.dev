@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { ArrowUpRight, CircleNotch } from "@phosphor-icons/react";
 import Donate from "@/components/site/Donate";
+import SiteFooterLinks from "@/components/site/SiteFooterLinks";
 
 // Same-origin by default: tnhc.dev/api/waitlist* is served by workers/waitlist.
 const API = `${process.env.REACT_APP_BACKEND_URL || ""}/api`;
@@ -148,18 +149,7 @@ export default function Waitlist() {
         </motion.div>
 
         <div className="flex flex-col items-start justify-between gap-4 py-10 md:flex-row md:items-center">
-          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">
-            © {new Date().getFullYear()} The No Hands Company ·{" "}
-            <a
-              href="https://zajfan.tnhc.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-acid"
-              data-testid="home-footer-founder"
-            >
-              Founder: Zajfan
-            </a>
-          </span>
+          <SiteFooterLinks />
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
             <Donate />
             <span className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">
