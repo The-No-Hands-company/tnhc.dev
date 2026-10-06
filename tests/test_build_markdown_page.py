@@ -45,7 +45,18 @@ def test_fails_loudly_when_file_missing(tmp_path):
     out = tmp_path / "doc.js"
     r = subprocess.run([sys.executable, str(SCRIPT), "--repo", str(repo), "--file", "nope.md",
                         "--out", str(out), "--export", "DOC", "--source", "s"], capture_output=True, text=True)
-    assert r.returncode != 0 and not out.exists()
+    assert SCRIPT.exists()
+    assert r.returncode == 1
+    assert "not found" in r.stderr
+    assert not out.exists()
+
+def test_fails_loudly_when_ref_missing(tmp_path):
+    repo, _ = make_repo(tmp_path, "# x\n")
+    out = tmp_path / "doc.js"
+    r = run(repo, out, "--ref", "deadbeef")
+    assert r.returncode == 1
+    assert "cannot resolve" in r.stderr
+    assert not out.exists()
 
 def test_headings_get_ids_for_anchor_links(tmp_path):
     repo, _ = make_repo(tmp_path, "## Ownership and licences\n")

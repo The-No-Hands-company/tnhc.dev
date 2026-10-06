@@ -5,9 +5,23 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 1123 entries, newest first.
+// 1125 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "9e4f6e5",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Add a Charter link to the signed-in rail"
+  },
+  {
+    "sha": "8c7f71c",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Link the TNHC Charter from the footer"
+  },
   {
     "sha": "b133068",
     "date": "2026-10-06",

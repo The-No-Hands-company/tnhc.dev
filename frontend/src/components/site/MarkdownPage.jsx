@@ -1,9 +1,18 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/site/Header";
 import SiteFooterLinks from "@/components/site/SiteFooterLinks";
 
 // Renders a generated document (see scripts/build-markdown-page.py). The HTML
 // comes from our own committed Markdown, never from user input.
 export default function MarkdownPage({ doc, testId }) {
+  const { hash } = useLocation();
+  // The article is injected HTML, so the browser cannot honour #fragment links
+  // on its own; scroll to the heading once it is mounted and on hash changes.
+  useEffect(() => {
+    if (!hash) return;
+    document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+  }, [hash]);
   return (
     <main className="min-h-screen bg-void text-white">
       <Header />
