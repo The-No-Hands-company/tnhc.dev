@@ -15,5 +15,6 @@
     // reuses it afterwards.
     { "binding": "DB", "database_name": "tnhc-waitlist" }
   ],
-  "observability": { "enabled": true }
+  // Off by policy: Workers observability stores request logs (incl. client IPs) at Cloudflare — TNHC keeps no visitor logs.
+  "observability": { "enabled": false }
 }
