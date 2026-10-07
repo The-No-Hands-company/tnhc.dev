@@ -6,6 +6,7 @@
 //
 //   POST /api/waitlist            {email, name?, node?} -> entry | 409/422 {detail}
 //   GET  /api/waitlist/count      -> {count}
+//   POST /api/admin/signups/:id/invited  Bearer ADMIN_API_TOKEN -> {deleted}  (forgets the address)
 //   GET  /api/admin/signups       Bearer ADMIN_API_TOKEN, ?limit&offset -> {total, limit, offset, entries}
 //
 // The Worker is mounted on tnhc.dev/api/waitlist* and tnhc.dev/api/admin/*
@@ -103,7 +104,8 @@ async function tokensMatch(given, expected) {
   return crypto.subtle.timingSafeEqual(a, b);
 }
 
-async function adminSignups(request, env, url) {
+// Returns an error Response, or null when the request carries the admin token.
+async function adminDenied(request, env) {
   if (!env.ADMIN_API_TOKEN) {
     return detail(503, "Admin API not configured (ADMIN_API_TOKEN unset).");
   }
@@ -114,6 +116,20 @@ async function adminSignups(request, env, url) {
   if (!(await tokensMatch(auth.slice(7).trim(), env.ADMIN_API_TOKEN))) {
     return detail(403, "Invalid admin token.");
   }
+  return null;
+}
+
+// Once someone is invited we no longer need their address: forget it.
+async function forgetInvited(request, env, id) {
+  const denied = await adminDenied(request, env);
+  if (denied) return denied;
+  const result = await env.DB.prepare("DELETE FROM waitlist WHERE id = ?").bind(id).run();
+  return json({ deleted: result.meta.changes > 0 });
+}
+
+async function adminSignups(request, env, url) {
+  const denied = await adminDenied(request, env);
+  if (denied) return denied;
 
   const limit = Number(url.searchParams.get("limit") ?? 100);
   const offset = Number(url.searchParams.get("offset") ?? 0);
@@ -138,6 +154,11 @@ export default {
 
     try {
       await ensureSchema(env.DB);
+      const invited = path.match(/^\/api\/admin\/signups\/([^/]+)\/invited$/);
+      if (invited && request.method === "POST") {
+        return await forgetInvited(request, env, decodeURIComponent(invited[1]));
+      }
+      if (invited) return detail(405, "Method not allowed.");
       switch (route) {
         case "POST /api/waitlist":
           return await joinWaitlist(request, env);
