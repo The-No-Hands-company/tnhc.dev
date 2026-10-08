@@ -36,6 +36,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/blog/privacy-guard-lists-each-service-submodule-itself</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tnhc.dev/blog/privacy-guard-scans-every-service-submodule-canary-fails-on</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/widen-the-guard-retire-nexus-api-drop-terminal-remote-ip</loc>
     <lastmod>2026-10-08</lastmod>
     <priority>0.5</priority>

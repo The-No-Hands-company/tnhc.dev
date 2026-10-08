@@ -35,4 +35,11 @@ describe("privacyBoxState", () => {
     expect(privacyBoxState({ ...ok, checkedAt: "2026-10-08T12:10:00Z" }, NOW).tone).toBe("unavailable");
     expect(privacyBoxState({ ...ok, checkedAt: "2026-10-08T12:02:00Z" }, NOW).tone).toBe("pass");
   });
+  it("a failed check that only could not search everywhere says so", () => {
+    expect(privacyBoxState({ status: "fail", findings: 0, unchecked: 1 }, NOW)).toEqual({ tone: "fail", text: "❌ The last check could not search everywhere, so it does not count as a pass. We are investigating." });
+    expect(privacyBoxState({ status: "fail", findings: 1, unchecked: 1 }, NOW).text).toBe("❌ The last check found a problem. We are investigating.");
+  });
+  it("a pass that reports unchecked places is unavailable", () => {
+    expect(privacyBoxState({ status: "pass", checkedAt: "2026-10-08T00:00:00Z", searched: { databases: 1, containers: 1, logs: 1, files: 1, probes: 1 }, findings: 0, unchecked: 1 }, NOW).tone).toBe("unavailable");
+  });
 });

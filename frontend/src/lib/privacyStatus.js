@@ -12,14 +12,18 @@ function ago(ms) {
 
 export function privacyBoxState(result, now = Date.now()) {
   if (!result || typeof result !== "object") return { tone: "unavailable", text: "Status unavailable" };
-  if (result.status === "fail") return { tone: "fail", text: "❌ The last check found a problem. We are investigating." };
+  if (result.status === "fail") {
+    if (result.findings === 0 && result.unchecked > 0)
+      return { tone: "fail", text: "❌ The last check could not search everywhere, so it does not count as a pass. We are investigating." };
+    return { tone: "fail", text: "❌ The last check found a problem. We are investigating." };
+  }
   if (result.status === "stale") return { tone: "stale", text: "Not verified recently" };
   const s = result.searched;
   const at = Date.parse(result.checkedAt);
   const counts = s && typeof s === "object" ? [s.databases, s.containers, s.logs, s.files] : [];
   const unavailable = { tone: "unavailable", text: "Status unavailable" };
   if (result.status !== "pass" || counts.length !== 4 || !counts.every(Number.isFinite)) return unavailable;
-  if (result.findings !== 0) return unavailable;
+  if (result.findings !== 0 || (result.unchecked ?? 0) !== 0) return unavailable;
   if (!Number.isFinite(at) || at > now + 5 * 60 * 1000) return unavailable;
   return {
     tone: "pass",

@@ -6,9 +6,49 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 864 posts, newest first.
+// 866 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "privacy-guard-lists-each-service-submodule-itself",
+    "title": "Privacy guard lists each service submodule itself",
+    "date": "2026-10-08",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "git ls-files --recurse-submodules silently skips submodules not marked active, so a local run scanned 5 of 10 services and passed hollow; CI saw them all. Hosting's header-deleting router, its country-only geo routing an",
+    "sha": "07f4174",
+    "content": [
+      {
+        "type": "p",
+        "text": "git ls-files --recurse-submodules silently skips submodules not marked active, so a local run scanned 5 of 10 services and passed hollow; CI saw them all. Hosting's header-deleting router, its country-only geo routing and Phantom's CLI peer_addr are listed with reasons; Nexus-Vault (not deployed; stores IPs in its hash-chained audit log) is excluded until it is fixed, enforced against deploy.sh."
+      }
+    ]
+  },
+  {
+    "slug": "privacy-guard-scans-every-service-submodule-canary-fails-on",
+    "title": "Privacy guard scans every service submodule; canary fails on unanswered probes; publish unchecked count",
+    "date": "2026-10-08",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- check-privacy.sh walks submodules (Chat, Hosting, Cloud, ...) and fails when one is not checked out; Chat's dropped-column migrations listed; Nexus-AI excluded only while deploy.sh does not start it (enforced). CI fetc",
+    "sha": "870eee1",
+    "content": [
+      {
+        "type": "p",
+        "text": "- check-privacy.sh walks submodules (Chat, Hosting, Cloud, ...) and fails when one is not checked out; Chat's dropped-column migrations listed; Nexus-AI excluded only while deploy.sh does not start it (enforced). CI fetches the service submodules. - privacy-canary.sh retries each probe up to 3 times and fails when any stays unanswered. - status.tnhc.dev/privacy.json adds 'unchecked' (places that could not be searched)."
+      }
+    ]
+  },
   {
     "slug": "widen-the-guard-retire-nexus-api-drop-terminal-remote-ip",
     "title": "Widen the guard; retire Nexus-API; drop Terminal remote_ip",
