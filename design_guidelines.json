@@ -6,12 +6,12 @@
     "tone": "Bold, Brutalist, Authoritative, High-End Tech, Stark, Awwwards-Level"
   },
   "typography": {
-    "headings": "Cabinet Grotesk",
-    "subheadings": "Cabinet Grotesk",
-    "body": "Satoshi",
+    "headings": "Figtree",
+    "subheadings": "Figtree",
+    "body": "Figtree",
     "mono_labels": "JetBrains Mono",
     "rules": [
-      "Use tracking-tighter for headings (Cabinet Grotesk).",
+      "Use tracking-tighter for headings (Figtree).",
       "Use JetBrains Mono in uppercase with wide tracking (tracking-[0.2em]) for overlines and numbers.",
       "No generic sans-serif (Inter/Roboto) for headings. Keep them distinctive."
     ]
@@ -63,7 +63,7 @@
     {
       "name": "Hero",
       "type": "landing_hero",
-      "instructions": "Kinetic typography. 'NO HANDS.' in massive Cabinet Grotesk (text-6xl to text-[8vw]). Masked line-by-line reveal. Background: Dark fluid 3D image with a subtle zoom/parallax effect. CTA: 'Enter Nexus'."
+      "instructions": "Kinetic typography. 'NO HANDS.' in massive Figtree (text-6xl to text-[8vw]). Masked line-by-line reveal. Background: Dark fluid 3D image with a subtle zoom/parallax effect. CTA: 'Enter Nexus'."
     },
     {
       "name": "Marquee",
