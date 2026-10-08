@@ -5,7 +5,7 @@ import SiteFooterLinks from "@/components/site/SiteFooterLinks";
 
 // Renders a generated document (see scripts/build-markdown-page.py). The HTML
 // comes from our own committed Markdown, never from user input.
-export default function MarkdownPage({ doc, testId }) {
+export default function MarkdownPage({ doc, testId, before = null }) {
   const { hash } = useLocation();
   // The article is injected HTML, so the browser cannot honour #fragment links
   // on its own; scroll to the heading once it is mounted and on hash changes.
@@ -16,8 +16,9 @@ export default function MarkdownPage({ doc, testId }) {
   return (
     <main className="min-h-screen bg-void text-white">
       <Header />
+      {before}
       <article
-        className="charter-prose mx-auto max-w-3xl px-6 pb-24 pt-32 md:px-12"
+        className={`charter-prose mx-auto max-w-3xl px-6 pb-24 md:px-12 ${before ? "pt-12" : "pt-32"}`}
         data-testid={testId}
         dangerouslySetInnerHTML={{ __html: doc.html }}
       />

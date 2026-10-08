@@ -6,9 +6,89 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 857 posts, newest first.
+// 864 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "widen-the-guard-retire-nexus-api-drop-terminal-remote-ip",
+    "title": "Widen the guard; retire Nexus-API; drop Terminal remote_ip",
+    "date": "2026-10-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "privacy"
+    ],
+    "category": "Commit",
+    "excerpt": "Guard covers all 13 address headers (any quoting), direct address reads, more extensions, and skips retired dirs. Nexus-API is retired from deploy.sh and the dashboard health list. Terminal's audit table drops remote_ip.",
+    "sha": "c87527d",
+    "content": [
+      {
+        "type": "p",
+        "text": "Guard covers all 13 address headers (any quoting), direct address reads, more extensions, and skips retired dirs. Nexus-API is retired from deploy.sh and the dashboard health list. Terminal's audit table drops remote_ip."
+      }
+    ]
+  },
+  {
+    "slug": "remaining-address-header-readers-use-the-client-tag",
+    "title": "Remaining address-header readers use the client tag",
+    "date": "2026-10-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "privacy"
+    ],
+    "category": "Commit",
+    "excerpt": "Nexus-API mirrors Hosting: geo routing no longer uses the client address, IP bans become in-memory tag bans (<=24h), abuse reports drop the reporter IP, and the host router strips address headers by pattern before proxyi",
+    "sha": "4a46ee9",
+    "content": [
+      {
+        "type": "p",
+        "text": "Nexus-API mirrors Hosting: geo routing no longer uses the client address, IP bans become in-memory tag bans (<=24h), abuse reports drop the reporter IP, and the host router strips address headers by pattern before proxying. Dashboard, Edge, Router and Terminal key on x-nexus-client-tag instead."
+      }
+    ]
+  },
+  {
+    "slug": "error-display-no-longer-carries-addresses-cover-the-api-send",
+    "title": "Error Display no longer carries addresses; cover the API send path",
+    "date": "2026-10-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "DeliveryError and MailStoreError print without the recipient, so every {e} in a log line is safe by construction; detail_for_user() keeps the full text for answering the sender. Tests: failed inbound delivery logs no add",
+    "sha": "1be7b26",
+    "content": [
+      {
+        "type": "p",
+        "text": "DeliveryError and MailStoreError print without the recipient, so every {e} in a log line is safe by construction; detail_for_user() keeps the full text for answering the sender. Tests: failed inbound delivery logs no address, and a message sent through the API stores no client address, Received or X-Originating-IP."
+      }
+    ]
+  },
+  {
+    "slug": "no-addresses-in-logs-prove-no-client-address-in-accepted-mai",
+    "title": "No addresses in logs; prove no client address in accepted mail",
+    "date": "2026-10-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "Delivery, bounce, DKIM, mailbox-lookup, inbound-auth and connection logs no longer carry recipients, senders, client IPs or remote reply text; queue id instead. Regression tests capture the log and assert the recipient i",
+    "sha": "0733dfb",
+    "content": [
+      {
+        "type": "p",
+        "text": "Delivery, bounce, DKIM, mailbox-lookup, inbound-auth and connection logs no longer carry recipients, senders, client IPs or remote reply text; queue id instead. Regression tests capture the log and assert the recipient is absent, and assert accepted mail stores no client address or Received line."
+      }
+    ]
+  },
   {
     "slug": "route-cloudflare-email-ingress-through-the-proxy-wire-mail-s",
     "title": "Route Cloudflare email ingress through the proxy, wire mail secrets",
@@ -16725,6 +16805,48 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "remove-personal-data-from-remaining-chat-log-sinks",
+    "title": "Remove personal data from remaining chat log sinks",
+    "date": "2026-10-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "privacy",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Email recipient/subject/token, Resend response body, federation friend usernames and ids, and raw sqlx/reqwest errors no longer reach logs; errors are reduced to payload-free kinds via nexus_common::logsafe.",
+    "sha": "530276e",
+    "content": [
+      {
+        "type": "p",
+        "text": "Email recipient/subject/token, Resend response body, federation friend usernames and ids, and raw sqlx/reqwest errors no longer reach logs; errors are reduced to payload-free kinds via nexus_common::logsafe."
+      }
+    ]
+  },
+  {
+    "slug": "rate-limit-by-proxy-client-tag-drop-stored-addresses",
+    "title": "Rate-limit by proxy client tag; drop stored addresses",
+    "date": "2026-10-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Rate limits key on x-nexus-client-tag (extract_client_tag); X-Forwarded-For and X-Real-IP are ignored. Migration scrubs and drops ip_address/user_agent from refresh_tokens, instance_audit_log and push_subscriptions.",
+    "sha": "20cbffa",
+    "content": [
+      {
+        "type": "p",
+        "text": "Rate limits key on x-nexus-client-tag (extract_client_tag); X-Forwarded-For and X-Real-IP are ignored. Migration scrubs and drops ip_address/user_agent from refresh_tokens, instance_audit_log and push_subscriptions."
+      }
+    ]
+  },
+  {
     "slug": "stop-double-posting-on-send-and-stop-losing-history-on-reloa",
     "title": "Stop double-posting on send, and stop losing history on reload",
     "date": "2026-08-15",
@@ -23555,6 +23677,31 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "page-view-counts-only-no-visitor-addresses-stored",
+    "title": "Page-view counts only; no visitor addresses stored",
+    "date": "2026-10-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Analytics is now one counter per (site, path, UTC day) in site_page_views. Per-visit rows (analytics_buffer), hourly rollups with hashed IPs, referrers and unique-IP counts (site_analytics), the live SSE hit feed, IP ban",
+    "sha": "fc30484",
+    "content": [
+      {
+        "type": "p",
+        "text": "Analytics is now one counter per (site, path, UTC day) in site_page_views. Per-visit rows (analytics_buffer), hourly rollups with hashed IPs, referrers and unique-IP counts (site_analytics), the live SSE hit feed, IP bans, reporter IPs on abuse reports, form-submission IP hashes/user agents, and addresses in the admin audit log are all gone (migration 0011_page_views_only.sql)."
+      },
+      {
+        "type": "p",
+        "text": "Rate limits and bans key on the proxy's opaque x-nexus-client-tag. IP bans become in-memory tag bans capped at 24 h (admin-only). geoRouting no longer reads anything derived from the client address; every request is served by the default node. Dashboard and CLI render views per page per day."
       }
     ]
   },

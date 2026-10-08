@@ -5,9 +5,128 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 1125 entries, newest first.
+// 1153 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "a7d5227",
+    "date": "2026-10-08",
+    "kind": "feat",
+    "area": "proxy",
+    "title": "Publish the daily privacy check at status.tnhc.dev/privacy.json"
+  },
+  {
+    "sha": "7c7d9de",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Bind Hosting published ports to loopback; record in live-config"
+  },
+  {
+    "sha": "c48a474",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Final review fixes (spans, log identity, canary hosts, caddy default)"
+  },
+  {
+    "sha": "54b8de3",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "core",
+    "title": "Privacy canary cannot pass hollow"
+  },
+  {
+    "sha": "cbb016b",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "core",
+    "title": "Daily privacy canary"
+  },
+  {
+    "sha": "c87527d",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Widen the guard; retire Nexus-API; drop Terminal remote_ip"
+  },
+  {
+    "sha": "4a46ee9",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Remaining address-header readers use the client tag"
+  },
+  {
+    "sha": "a5386d7",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Drop remaining Caddy access logs; calendar-based log-rotate timer"
+  },
+  {
+    "sha": "d5a2b07",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "24-hour native logs, no access logs, bounded container logs"
+  },
+  {
+    "sha": "1be7b26",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "email",
+    "title": "Error Display no longer carries addresses; cover the API send path"
+  },
+  {
+    "sha": "0733dfb",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "email",
+    "title": "No addresses in logs; prove no client address in accepted mail"
+  },
+  {
+    "sha": "be6b11d",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Recent activity and device-based sessions without addresses"
+  },
+  {
+    "sha": "24e0aaa",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "auth",
+    "title": "Audit uses Bun's built-in Postgres client; pg was never installed"
+  },
+  {
+    "sha": "dad471f",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "auth",
+    "title": "Attribute failed logins, periodic audit drain, own-session revoke"
+  },
+  {
+    "sha": "9070db2",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "auth",
+    "title": "Device IDs and IP-free audit with 30-day retention"
+  },
+  {
+    "sha": "845cf8c",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "proxy",
+    "title": "Serve auth.tnhc.dev Supabase paths and storage through the front door"
+  },
+  {
+    "sha": "5c68b58",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "proxy",
+    "title": "Strip address headers and forward a forgetful client tag"
+  },
   {
     "sha": "9e4f6e5",
     "date": "2026-10-07",
@@ -4685,6 +4804,27 @@ export const CHANGELOG = [
     "title": "Modeling workflow slice 1 geometry ops"
   },
   {
+    "sha": "530276e",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Remove personal data from remaining chat log sinks"
+  },
+  {
+    "sha": "cf0509d",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Chat request spans and logs carry no identity"
+  },
+  {
+    "sha": "20cbffa",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Rate-limit by proxy client tag; drop stored addresses"
+  },
+  {
     "sha": "2409d2c",
     "date": "2026-08-15",
     "kind": "fix",
@@ -6988,6 +7128,62 @@ export const CHANGELOG = [
     "title": "Real build engine, WebSocket log streaming, full dashboard"
   },
   {
+    "sha": "50ae1a4",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Request logs carry route templates only; console.* routed through logger"
+  },
+  {
+    "sha": "246f36b",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Publish app ports on loopback only"
+  },
+  {
+    "sha": "c0f2783",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Logs carry error codes and route templates, never params or paths"
+  },
+  {
+    "sha": "e83c08b",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "privacy",
+    "title": "Strip identity fields from Hosting logs; proxy span is method only"
+  },
+  {
+    "sha": "de31740",
+    "date": "2026-10-07",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Remove Caddy access log (privacy: zero retention)"
+  },
+  {
+    "sha": "ab5765c",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Bounded local container logs (5m, one file, no compression)"
+  },
+  {
+    "sha": "b1c94ed",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "proxy",
+    "title": "Count page views only, no addresses; log paths without query strings"
+  },
+  {
+    "sha": "fc30484",
+    "date": "2026-10-07",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Page-view counts only; no visitor addresses stored"
+  },
+  {
     "sha": "d16ab76",
     "date": "2026-08-21",
     "kind": "fix",
@@ -7885,4 +8081,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "calendar", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "ops", "phantom", "portal", "project", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "smoke", "startup", "storage", "systems-api", "terminal", "test", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "calendar", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "ops", "phantom", "portal", "privacy", "project", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "smoke", "startup", "storage", "systems-api", "terminal", "test", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
