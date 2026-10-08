@@ -36,6 +36,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tnhc.dev/brand</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://tnhc.dev/blog/privacy-guard-lists-each-service-submodule-itself</loc>
     <lastmod>2026-10-08</lastmod>
     <priority>0.5</priority>

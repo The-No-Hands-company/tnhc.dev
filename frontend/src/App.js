@@ -11,6 +11,7 @@ import Changelog from "@/pages/Changelog";
 import ApiDocs from "@/pages/ApiDocs";
 import Charter from "@/pages/Charter";
 import Privacy from "@/pages/Privacy";
+import Brand from "@/pages/Brand";
 import PhantomStatus from "@/pages/PhantomStatus";
 
 /**
@@ -67,6 +68,7 @@ function App() {
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/charter" element={<Charter />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/brand" element={<Brand />} />
           <Route path="/phantom" element={<PhantomStatus />} />
         </Routes>
       </BrowserRouter>

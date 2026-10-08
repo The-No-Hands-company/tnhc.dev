@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+<rect width="256" height="256" rx="56.32" fill="#030303"/>
+<g transform="translate(32 41.6) scale(0.8)">
+<path id="rim" d="M120 10 L232 204 L8 204 Z" fill="#CCFF00" stroke="#CCFF00" stroke-width="16" stroke-linejoin="round" />
+<path id="ring" d="M120 26 L218.1 196 L21.9 196 Z" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="10" stroke-linejoin="round" />
+<path id="field" d="M120 44 L202.5 187 L37.5 187 Z" fill="#CCFF00" stroke="#CCFF00" stroke-width="6" stroke-linejoin="round" />
+<g id="figure" transform="translate(16.8 25.2) scale(0.86)">
+    <g fill="#0A0A0A"><circle cx="120" cy="91" r="16" /><rect x="107" y="110" width="26" height="38" rx="4" /></g>
+    <g fill="none" stroke="#0A0A0A" stroke-width="16" stroke-linecap="round"><path d="M114 144 L88 176" /><path d="M126 144 L152 176" /></g>
+    <g fill="none" stroke="#0A0A0A" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><path d="M110 116 L87 108 L108 86" /><path d="M130 116 L153 108 L132 86" /></g>
+    <circle cx="120" cy="91" r="16" fill="#0A0A0A" />
+  </g>
+</g>
+</svg>
