@@ -11,9 +11,9 @@
     { "pattern": "tnhc.dev/api/admin/*", "zone_name": "tnhc.dev" }
   ],
   "d1_databases": [
-    // No database_id: wrangler creates the database on first deploy and
-    // reuses it afterwards.
-    { "binding": "DB", "database_name": "tnhc-waitlist" }
+    // Pinned to the existing database so a deploy can never create a second,
+    // empty one and orphan real signups.
+    { "binding": "DB", "database_name": "tnhc-waitlist", "database_id": "9ef4cd9b-d44d-418a-825f-993b0b973ba9" }
   ],
   // Off by policy: Workers observability stores request logs (incl. client IPs) at Cloudflare — TNHC keeps no visitor logs.
   "observability": { "enabled": false }
