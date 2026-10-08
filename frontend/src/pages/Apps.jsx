@@ -66,19 +66,6 @@ export default function Apps() {
             </span>
           </Link>
 
-          <a
-            href="https://www.paypal.me/tnhcns"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative hidden overflow-hidden border border-white/20 bg-transparent px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:text-black md:inline-flex"
-            data-testid="apps-donate-button"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Support
-              <ArrowUpRight weight="bold" className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </span>
-            <span className="absolute inset-0 -translate-y-full bg-acid transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0" />
-          </a>
         </div>
       </header>
 
@@ -253,15 +240,6 @@ export default function Apps() {
       <footer className="border-t border-white/10">
         <div className="mx-auto flex max-w-[1600px] flex-col items-start justify-between gap-4 px-6 py-8 md:flex-row md:items-center md:px-12">
           <SiteFooterLinks />
-          <a
-            href="https://www.paypal.me/tnhcns"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/40 transition-colors hover:text-acid"
-            data-testid="apps-footer-donate"
-          >
-            Support the build — PayPal
-          </a>
         </div>
       </footer>
     </main>

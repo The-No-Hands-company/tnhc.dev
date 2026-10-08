@@ -8,6 +8,8 @@ export default function SiteFooterLinks() {
       {" · "}
       <Link to="/privacy" className="transition-colors hover:text-acid" data-testid="footer-privacy">Privacy</Link>
       {" · "}
+      <a href="https://www.paypal.me/tnhcns" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-acid">Donate</a>
+      {" · "}
       <a href="https://zajfan.tnhc.dev" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-acid">
         Founder: Zajfan
       </a>
