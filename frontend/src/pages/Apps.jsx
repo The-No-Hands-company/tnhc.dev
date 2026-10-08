@@ -65,7 +65,6 @@ export default function Apps() {
               /NEXUS.APPS
             </span>
           </Link>
-
         </div>
       </header>
 

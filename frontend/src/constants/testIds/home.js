@@ -3,9 +3,6 @@
 
 export const HOME = {};
 
-export const DONATE = {
-};
-
 export const APPS = {
 	page: 'apps-page',
 	backHome: 'apps-back-home',
