@@ -19,7 +19,7 @@ REPO="${1:-../projects/Nexus-Systems}"
 CHECK=0
 [ "${1:-}" = "--check" ] && { CHECK=1; REPO="../projects/Nexus-Systems"; }
 
-GEN=(frontend/src/data/changelog.js frontend/src/data/commitPosts.js frontend/src/data/apps.js frontend/src/data/apis.js frontend/src/data/charter.js frontend/src/data/privacy.js frontend/src/data/brand.js frontend/src/data/phantomStatus.js)
+GEN=(frontend/src/data/changelog.js frontend/src/data/commitPosts.js frontend/src/data/apps.js frontend/src/data/apis.js frontend/src/data/charter.js frontend/src/data/privacy.js frontend/src/data/brand.js frontend/public/brand/tnhc-sign.svg frontend/public/brand/tnhc-sign-mono.svg frontend/public/brand/tnhc-lockup-dark.svg frontend/public/brand/tnhc-lockup-light.svg frontend/public/brand/tnhc-app-icon.svg frontend/public/brand/app-icon-512.png frontend/public/brand/favicon.ico frontend/src/data/phantomStatus.js)
 
 if [ ! -d "$REPO/.git" ]; then
     echo "FAIL: not a git repository: $REPO" >&2
