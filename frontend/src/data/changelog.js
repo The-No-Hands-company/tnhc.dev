@@ -5,9 +5,16 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 1153 entries, newest first.
+// 1154 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "b3b8bd7",
+    "date": "2026-10-08",
+    "kind": "fix",
+    "area": "core",
+    "title": "Privacy status and canary state exactly what was checked; drop last-login time"
+  },
   {
     "sha": "a7d5227",
     "date": "2026-10-08",

@@ -16,7 +16,11 @@ export function privacyBoxState(result, now = Date.now()) {
   if (result.status === "stale") return { tone: "stale", text: "Not verified recently" };
   const s = result.searched;
   const at = Date.parse(result.checkedAt);
-  if (result.status !== "pass" || !s || !Number.isFinite(at)) return { tone: "unavailable", text: "Status unavailable" };
+  const counts = s && typeof s === "object" ? [s.databases, s.containers, s.logs, s.files] : [];
+  const unavailable = { tone: "unavailable", text: "Status unavailable" };
+  if (result.status !== "pass" || counts.length !== 4 || !counts.every(Number.isFinite)) return unavailable;
+  if (result.findings !== 0) return unavailable;
+  if (!Number.isFinite(at) || at > now + 5 * 60 * 1000) return unavailable;
   return {
     tone: "pass",
     text: `✅ Verified ${ago(now - at)}: searched ${s.databases} databases, ${s.containers} containers, ${s.logs} logs, ${s.files} files — found nothing`,

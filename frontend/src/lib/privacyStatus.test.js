@@ -20,4 +20,19 @@ describe("privacyBoxState", () => {
     expect(privacyBoxState({ ...base, checkedAt: "2026-10-08T11:30:00Z" }, NOW).text).toContain("Verified 30 minutes ago");
     expect(privacyBoxState({ ...base, checkedAt: "2026-10-08T11:59:40Z" }, NOW).text).toContain("Verified just now");
   });
+  const ok = { status: "pass", checkedAt: "2026-10-08T11:00:00Z", findings: 0, searched: { databases: 6, containers: 24, logs: 28, files: 5, probes: 21 } };
+  it("a pass with findings above zero (or missing) is unavailable, never 'found nothing'", () => {
+    expect(privacyBoxState({ ...ok, findings: 2 }, NOW).tone).toBe("unavailable");
+    const { findings, ...noFindings } = ok;
+    expect(privacyBoxState(noFindings, NOW).tone).toBe("unavailable");
+  });
+  it("missing or non-numeric counts are unavailable", () => {
+    expect(privacyBoxState({ ...ok, searched: { ...ok.searched, databases: undefined } }, NOW).tone).toBe("unavailable");
+    expect(privacyBoxState({ ...ok, searched: { ...ok.searched, logs: "28" } }, NOW).tone).toBe("unavailable");
+    expect(privacyBoxState({ ...ok, searched: { ...ok.searched, files: NaN } }, NOW).tone).toBe("unavailable");
+  });
+  it("a checkedAt more than five minutes in the future is unavailable", () => {
+    expect(privacyBoxState({ ...ok, checkedAt: "2026-10-08T12:10:00Z" }, NOW).tone).toBe("unavailable");
+    expect(privacyBoxState({ ...ok, checkedAt: "2026-10-08T12:02:00Z" }, NOW).tone).toBe("pass");
+  });
 });
