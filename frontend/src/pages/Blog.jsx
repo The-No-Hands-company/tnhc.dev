@@ -131,7 +131,7 @@ export default function Blog() {
             >
               <Link
                 to={`/blog/${post.slug}`}
-                className="flex flex-col gap-3 py-8 pl-6 transition-colors duration-300 hover:bg-surface/30 md:pl-10"
+                className="flex min-w-0 flex-col gap-3 py-8 pl-6 transition-colors duration-300 hover:bg-surface/30 md:pl-10"
               >
                 <div className="flex flex-wrap items-center gap-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
                   <span className="flex items-center gap-1.5">
@@ -144,10 +144,10 @@ export default function Blog() {
                     {post.tags.join(" · ")}
                   </span>
                 </div>
-                <h2 className="font-heading text-2xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-acid md:text-3xl">
+                <h2 className="font-heading text-2xl font-bold tracking-tight text-white transition-colors duration-300 [overflow-wrap:anywhere] group-hover:text-acid md:text-3xl">
                   {post.title}
                 </h2>
-                <p className="max-w-2xl font-sans text-sm leading-relaxed text-white/55 md:text-base">
+                <p className="max-w-2xl font-sans text-sm leading-relaxed text-white/55 [overflow-wrap:anywhere] md:text-base">
                   {post.excerpt}
                 </p>
                 <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-acid/80 transition-colors duration-300 group-hover:text-acid">

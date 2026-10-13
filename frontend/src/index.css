@@ -158,6 +158,9 @@ body {
 .charter-prose p { margin-bottom: 1rem; }
 .charter-prose ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
 .charter-prose a { color: #ccff00; text-decoration: underline; text-underline-offset: 3px; }
-.charter-prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+/* A table wider than a phone scrolls inside itself instead of widening the
+   page; long identifiers in cells may break rather than force the width. */
+.charter-prose table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+.charter-prose td code { overflow-wrap: anywhere; }
 .charter-prose th, .charter-prose td { border: 1px solid rgb(255 255 255 / 0.12); padding: 0.6rem 0.75rem; text-align: left; vertical-align: top; }
 .charter-prose code { font-family: "JetBrains Mono", monospace; font-size: 0.85em; }

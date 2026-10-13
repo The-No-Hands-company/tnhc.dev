@@ -114,7 +114,7 @@ export default function Apps() {
               />
             </div>
 
-            <div className="flex items-center gap-2" data-testid="apps-status-filter">
+            <div className="flex flex-wrap items-center gap-2" data-testid="apps-status-filter">
               {["All", ...Object.keys(STATUS_META)].map((s) => (
                 <button
                   key={s}
