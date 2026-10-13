@@ -1,0 +1,14 @@
+# Security headers for every page on tnhc.dev (Cloudflare Pages reads this
+# file). Checked by scripts/check-security-headers.sh.
+#
+# script-src 'self' also stops the bot-detection script Cloudflare injects at
+# the edge from running here. style-src keeps 'unsafe-inline' for the style
+# attributes the React components set; no script can be inlined.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://status.tnhc.dev; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
