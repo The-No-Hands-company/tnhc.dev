@@ -43,7 +43,7 @@ export const APPS = [
   {"slug": "auth", "name": "Nexus Auth", "category": "Core", "status": "live", "blurb": "Identity provider; OIDC/SSO for every app in the ecosystem", "icon": "Key", "url": "https://auth.tnhc.dev/login"},
   {"slug": "cloud", "name": "Nexus Cloud", "category": "Core", "status": "live", "blurb": "Control plane — app registry, federation, operator console", "icon": "Globe", "url": "https://cloud.tnhc.dev"},
   {"slug": "systems-api", "name": "Nexus Systems API", "category": "Core", "status": "planned", "blurb": "Service registration and discovery contract every app implements", "icon": "Stack"},
-  {"slug": "api", "name": "Nexus API", "category": "Core", "status": "building", "blurb": "Public API surface for the ecosystem", "icon": "Stack"},
+  {"slug": "api", "name": "Nexus API", "category": "Core", "status": "building", "blurb": "Unified API server extracted from Nexus-Hosting (sites, deploys, federation, storage).…", "icon": "Stack"},
   {"slug": "portal", "name": "Nexus Portal", "category": "Core", "status": "planned", "blurb": "Public entry point and marketing surface", "icon": "Stack"},
   {"slug": "account", "name": "Nexus Account", "category": "Core", "status": "planned", "blurb": "End-user account and profile management", "icon": "Stack"},
   {"slug": "hosting", "name": "Nexus Hosting", "category": "Infrastructure", "status": "live", "blurb": "Host a website here, or run the node yourself — domains, TLS, builds, forms", "icon": "GlobeHemisphereWest", "url": "https://hosting.tnhc.dev"},
