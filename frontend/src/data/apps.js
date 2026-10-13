@@ -10,7 +10,7 @@
 // is what stops that from happening again. If an app is wrong here, fix
 // the register and regenerate; do not patch this file.
 //
-// 114 apps — 6 live, 1 beta, 25 in development.
+// 115 apps — 7 live, 1 beta, 28 in development.
 
 export const CATEGORIES = [
   "Core",
@@ -43,7 +43,7 @@ export const APPS = [
   {"slug": "auth", "name": "Nexus Auth", "category": "Core", "status": "live", "blurb": "Identity provider; OIDC/SSO for every app in the ecosystem", "icon": "Key", "url": "https://auth.tnhc.dev/login"},
   {"slug": "cloud", "name": "Nexus Cloud", "category": "Core", "status": "live", "blurb": "Control plane — app registry, federation, operator console", "icon": "Globe", "url": "https://cloud.tnhc.dev"},
   {"slug": "systems-api", "name": "Nexus Systems API", "category": "Core", "status": "planned", "blurb": "Service registration and discovery contract every app implements", "icon": "Stack"},
-  {"slug": "api", "name": "Nexus API", "category": "Core", "status": "planned", "blurb": "Public API surface for the ecosystem", "icon": "Stack"},
+  {"slug": "api", "name": "Nexus API", "category": "Core", "status": "building", "blurb": "Public API surface for the ecosystem", "icon": "Stack"},
   {"slug": "portal", "name": "Nexus Portal", "category": "Core", "status": "planned", "blurb": "Public entry point and marketing surface", "icon": "Stack"},
   {"slug": "account", "name": "Nexus Account", "category": "Core", "status": "planned", "blurb": "End-user account and profile management", "icon": "Stack"},
   {"slug": "hosting", "name": "Nexus Hosting", "category": "Infrastructure", "status": "live", "blurb": "Host a website here, or run the node yourself — domains, TLS, builds, forms", "icon": "GlobeHemisphereWest", "url": "https://hosting.tnhc.dev"},
@@ -68,7 +68,7 @@ export const APPS = [
   {"slug": "knowledge", "name": "Nexus Knowledge", "category": "Data", "status": "planned", "blurb": "Knowledge base and structured reference", "icon": "Database"},
   {"slug": "security", "name": "Nexus Security", "category": "Security", "status": "planned", "blurb": "Security posture, policy, and hardening", "icon": "ShieldWarning"},
   {"slug": "guardian", "name": "Nexus Guardian", "category": "Security", "status": "building", "blurb": "Runtime threat monitoring and abuse response", "icon": "Shield"},
-  {"slug": "phantom", "name": "Phantom", "category": "Security", "status": "building", "blurb": "Anonymous routing protocol: FHE-encrypted routing metadata, zk membership proofs,…", "icon": "Eye"},
+  {"slug": "phantom", "name": "Phantom", "category": "Security", "status": "building", "blurb": "Anonymous routing protocol, in development: post-quantum signatures and FHE-encrypted…", "icon": "Eye"},
   {"slug": "confidential", "name": "Nexus Confidential", "category": "Security", "status": "planned", "blurb": "Confidential workload handling", "icon": "ShieldCheck"},
   {"slug": "compliance", "name": "Nexus Compliance", "category": "Security", "status": "planned", "blurb": "Compliance frameworks and evidence collection", "icon": "ShieldCheck"},
   {"slug": "provenance", "name": "Nexus Provenance", "category": "Security", "status": "planned", "blurb": "Artifact provenance and supply-chain attestation", "icon": "ShieldCheck"},
@@ -83,10 +83,10 @@ export const APPS = [
   {"slug": "code-review", "name": "Nexus Code Review", "category": "Developer", "status": "planned", "blurb": "Review workflow and change gating", "icon": "CodeBlock"},
   {"slug": "ide", "name": "Nexus IDE", "category": "Developer", "status": "building", "blurb": "Integrated development environment", "icon": "CodeBlock"},
   {"slug": "editor", "name": "Nexus Editor", "category": "Developer", "status": "planned", "blurb": "Lightweight text and code editing", "icon": "CodeBlock"},
-  {"slug": "terminal", "name": "Nexus Terminal", "category": "Developer", "status": "planned", "blurb": "Browser-accessible shell", "icon": "Terminal"},
+  {"slug": "terminal", "name": "Nexus Terminal", "category": "Developer", "status": "building", "blurb": "Browser-accessible shell", "icon": "Terminal"},
   {"slug": "testing", "name": "Nexus Testing", "category": "Developer", "status": "planned", "blurb": "Test orchestration and reporting", "icon": "Bug"},
   {"slug": "converter", "name": "Nexus Converter", "category": "Developer", "status": "planned", "blurb": "Format and file conversion", "icon": "Repeat"},
-  {"slug": "mail", "name": "Nexus Email", "category": "Communication", "status": "beta", "blurb": "Sovereign mail — SMTP, IMAP, DKIM/SPF/DMARC, webmail, federated egress; no third party in…", "icon": "EnvelopeSimple", "url": "https://app.tnhc.dev/mail"},
+  {"slug": "mail", "name": "Nexus Email", "category": "Communication", "status": "beta", "blurb": "Self-hosted mail — SMTP, IMAP, DKIM/SPF/DMARC, webmail, federated egress. Mail between Nexus…", "icon": "EnvelopeSimple", "url": "https://app.tnhc.dev/mail"},
   {"slug": "team-chat", "name": "Nexus Team Chat", "category": "Communication", "status": "planned", "blurb": "Team messaging and channels", "icon": "ChatDots"},
   {"slug": "meet", "name": "Nexus Meet", "category": "Communication", "status": "planned", "blurb": "Video meetings", "icon": "VideoCamera"},
   {"slug": "broadcast", "name": "Nexus Broadcast", "category": "Communication", "status": "planned", "blurb": "One-to-many streaming and announcements", "icon": "Megaphone"},
@@ -100,7 +100,8 @@ export const APPS = [
   {"slug": "wiki", "name": "Nexus Wiki", "category": "Productivity", "status": "building", "blurb": "Structured internal wiki", "icon": "Books"},
   {"slug": "tasks", "name": "Nexus Tasks", "category": "Productivity", "status": "planned", "blurb": "Task tracking", "icon": "CheckSquare"},
   {"slug": "planner", "name": "Nexus Planner", "category": "Productivity", "status": "planned", "blurb": "Project planning", "icon": "CheckSquare"},
-  {"slug": "calendar", "name": "Nexus Calendar", "category": "Productivity", "status": "planned", "blurb": "Personal/shared calendaring and public read-only links; `/calendar` and calendar.tnhc.dev", "icon": "Calendar"},
+  {"slug": "calendar", "name": "Nexus Calendar", "category": "Productivity", "status": "live", "blurb": "Personal/shared calendaring and public read-only links; `/calendar` and calendar.tnhc.dev", "icon": "Calendar", "url": "https://calendar.tnhc.dev"},
+  {"slug": "project", "name": "Nexus Project", "category": "Productivity", "status": "building", "blurb": "Project management for one person or a team: workspaces, boards, a critical-path schedule.…", "icon": "CheckSquare"},
   {"slug": "agenda", "name": "Nexus Agenda", "category": "Productivity", "status": "planned", "blurb": "Meeting agendas and minutes", "icon": "CheckSquare"},
   {"slug": "schedule", "name": "Nexus Schedule", "category": "Productivity", "status": "planned", "blurb": "Scheduling and booking windows", "icon": "CheckSquare"},
   {"slug": "journal", "name": "Nexus Journal", "category": "Productivity", "status": "planned", "blurb": "Journalling and daily logs", "icon": "CheckSquare"},

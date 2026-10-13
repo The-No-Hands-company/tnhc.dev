@@ -27,6 +27,7 @@ LIVE = {
     "Nexus-Hosting":   "https://hosting.tnhc.dev",
     "Nexus-Draw":      "https://draw.tnhc.dev",
     "Nexus":           "https://chat.tnhc.dev",
+    "Nexus-Calendar":  "https://calendar.tnhc.dev",
 }
 BETA = {"Nexus-Email": "https://app.tnhc.dev/mail"}
 
