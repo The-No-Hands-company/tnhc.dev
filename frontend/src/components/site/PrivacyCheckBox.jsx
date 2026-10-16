@@ -20,7 +20,7 @@ export default function PrivacyCheckBox() {
     return () => { alive = false; };
   }, []);
   return (
-    <div className={`mx-auto mt-28 max-w-3xl border px-6 py-4 font-mono text-[12px] md:px-12 ${TONE[state.tone]}`}
+    <div className={`border px-6 py-4 font-mono text-[12px] md:px-12 ${TONE[state.tone]}`}
          data-testid="privacy-check-box" role="status">
       {state.text}
     </div>
