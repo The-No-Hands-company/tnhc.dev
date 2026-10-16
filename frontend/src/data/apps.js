@@ -68,7 +68,7 @@ export const APPS = [
   {"slug": "knowledge", "name": "Nexus Knowledge", "category": "Data", "status": "planned", "blurb": "Knowledge base and structured reference", "icon": "Database"},
   {"slug": "security", "name": "Nexus Security", "category": "Security", "status": "planned", "blurb": "Security posture, policy, and hardening", "icon": "ShieldWarning"},
   {"slug": "guardian", "name": "Nexus Guardian", "category": "Security", "status": "building", "blurb": "Runtime threat monitoring and abuse response", "icon": "Shield"},
-  {"slug": "phantom", "name": "Phantom", "category": "Security", "status": "building", "blurb": "Anonymous routing protocol, in development: post-quantum signatures and FHE-encrypted…", "icon": "Eye"},
+  {"slug": "phantom", "name": "Phantom", "category": "Security", "status": "building", "blurb": "Anonymous routing protocol, in development: post-quantum signatures (Dilithium-5) done; FHE…", "icon": "Eye"},
   {"slug": "confidential", "name": "Nexus Confidential", "category": "Security", "status": "planned", "blurb": "Confidential workload handling", "icon": "ShieldCheck"},
   {"slug": "compliance", "name": "Nexus Compliance", "category": "Security", "status": "planned", "blurb": "Compliance frameworks and evidence collection", "icon": "ShieldCheck"},
   {"slug": "provenance", "name": "Nexus Provenance", "category": "Security", "status": "planned", "blurb": "Artifact provenance and supply-chain attestation", "icon": "ShieldCheck"},

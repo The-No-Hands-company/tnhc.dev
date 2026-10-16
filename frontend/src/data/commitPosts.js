@@ -6,9 +6,1321 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 866 posts, newest first.
+// 938 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "nit-ci-headless-axe-core-scan-responsive-passes-for-calendar",
+    "title": "Nit CI \u2014 headless axe-core scan + responsive passes for Calendar, Draw",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "ci"
+    ],
+    "category": "Commit",
+    "excerpt": "dhts/nit-ci/: new tool \u2014 Playwright 1.62.1 + @axe-core/playwright - Builds each Vite frontend, serves via Bun static server with SPA fallback - Mocks /api/** via page.route() (regex patterns, reverse-registration order) ",
+    "sha": "b7c7f30",
+    "content": [
+      {
+        "type": "p",
+        "text": "dhts/nit-ci/: new tool \u2014 Playwright 1.62.1 + @axe-core/playwright - Builds each Vite frontend, serves via Bun static server with SPA fallback - Mocks /api/** via page.route() (regex patterns, reverse-registration order) - Scans wcag2a + wcag2aa at 375\u00d7812 (phone) and 1280\u00d7800 (desktop) - Exits non-zero on any critical violation - Captures baseline screenshots to dhts/nit-ci/baselines/ - .github/workflows/nit-ci.yml \u2014 runs on push/PR when frontend files change"
+      },
+      {
+        "type": "p",
+        "text": "Calendar responsive pass: - MonthGrid: cells now grouped into role=row wrappers of 7 (fixes aria-required-children/parent violations); min-h-12 sm:min-h-20 so grid fits on phone without scrolling; event dots visible on phone, full event chips on sm+ - CalendarApp: aside gets max-h-[40vh] on mobile so it doesn't push grid off screen; main section removes fixed min-h that caused overflow; month nav label allows wrapping on narrow widths"
+      },
+      {
+        "type": "p",
+        "text": "Draw responsive pass: - Right panels (layers/properties/boards/ai) switch to absolute overlay on mobile (z-30, inset-y-0 right-0) \u2014 canvas stays full width on phone - TopBar wraps (flex-wrap), hides export buttons on mobile, aria-label on all buttons, focus-visible outlines - Toolbar: slight size reduction on mobile (w-12/h-9 \u2192 w-14/h-10 on sm), focus-visible outlines"
+      },
+      {
+        "type": "p",
+        "text": "All 3 apps: 0 critical axe violations at both viewports (Nit CI green) Calendar 66/66 pass; Draw 131/142 pass (11 pre-existing bun/vi.stubGlobal)"
+      }
+    ]
+  },
+  {
+    "slug": "calendar-keyboard-nav-project-home-list-aria-pass",
+    "title": "Calendar keyboard nav + project home/list aria pass",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y"
+    ],
+    "category": "Commit",
+    "excerpt": "Calendar MonthGrid: - role=grid + aria-label on outer wrapper; role=row + role=columnheader on day header row - role=gridcell on blank cells; data-date + aria-selected + event count in aria-label on day buttons - Arrow k",
+    "sha": "35d7ed4",
+    "content": [
+      {
+        "type": "p",
+        "text": "Calendar MonthGrid: - role=grid + aria-label on outer wrapper; role=row + role=columnheader on day header row - role=gridcell on blank cells; data-date + aria-selected + event count in aria-label on day buttons - Arrow key navigation between day cells (ArrowLeft/Right/Up/Down, roving focus via data-date query) - Full day names for screen reader column headers (DAY_FULL array)"
+      },
+      {
+        "type": "p",
+        "text": "Project Home: - htmlFor/id on all form inputs (workspace name/type, project name/key) - role=toolbar + aria-pressed on workspace switcher buttons - role=tablist + role=tab + aria-selected on Projects/My Tasks tab bar"
+      },
+      {
+        "type": "p",
+        "text": "Project List: - scope=col on all th elements; aria-label=\"Priority\" on \"P\" column header - sr-only caption naming the table - tabIndex=0 + onKeyDown Enter/Space + focus-visible outline on task rows"
+      }
+    ]
+  },
+  {
+    "slug": "responsive-and-accessibility-pass-on-calendar-project-draw",
+    "title": "Responsive and accessibility pass on Calendar, Project, Draw",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y"
+    ],
+    "category": "Commit",
+    "excerpt": "Project: - App.tsx header: flex-wrap + py-2 so tabs break to second line on narrow phones instead of overflowing; aria-current on active nav tab; aria-label on nav - TaskDrawer: role=dialog + aria-modal + aria-labelledby",
+    "sha": "d9f3341",
+    "content": [
+      {
+        "type": "p",
+        "text": "Project: - App.tsx header: flex-wrap + py-2 so tabs break to second line on narrow phones instead of overflowing; aria-current on active nav tab; aria-label on nav - TaskDrawer: role=dialog + aria-modal + aria-labelledby; htmlFor/id on all label/input pairs; aria-label=\"Close\" on \u00d7 button - Board: task cards get role=button, tabIndex, aria-label, keyboard handler (Enter/Space opens drawer)"
+      },
+      {
+        "type": "p",
+        "text": "Calendar: - CalendarApp: aria-label on calendar <section>; event rows in day sidebar get role=button, tabIndex, keyboard handler"
+      },
+      {
+        "type": "p",
+        "text": "Draw: - Toolbar: wrapped in <nav role=toolbar aria-label=\"Drawing tools\">; each button gets aria-label and aria-pressed; emoji hidden with aria-hidden - App bottom bar: aria-pressed on all sidebar toggles; aria-label on hide/show toggle; role=toolbar on container"
+      }
+    ]
+  },
+  {
+    "slug": "design-tokens-responsive-layout-and-a11y-improvements",
+    "title": "Design tokens, responsive layout, and a11y improvements",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "auth"
+    ],
+    "category": "Commit",
+    "excerpt": "Rubric was 64 (Red). Three targeted improvements:",
+    "sha": "9b56b03",
+    "content": [
+      {
+        "type": "p",
+        "text": "Rubric was 64 (Red). Three targeted improvements:"
+      },
+      {
+        "type": "p",
+        "text": "1. Design system tokens \u2014 both pages now define all colours as CSS variables on :root instead of hardcoded hex values. color-scheme fixed from the misleading 'light dark' (pages are fully dark) to 'dark'."
+      },
+      {
+        "type": "p",
+        "text": "2. Responsive integrity \u2014 login card: width min(100%, 380px) + body padding 24px 16px so the card never touches screen edges on any width. Both pages now use min-height: 100dvh (phone bar-safe) and consistent clamp() padding."
+      },
+      {
+        "type": "p",
+        "text": "3. Accessibility \u2014 login error paragraph gets id=\"login-err\"; form gets aria-describedby when an error is present. Password hint paragraph gets id=\"pw-hint\"; both new-password inputs in onboarding get aria-describedby referencing it. button:focus-visible outline added."
+      },
+      {
+        "type": "p",
+        "text": "124/124 tests pass."
+      }
+    ]
+  },
+  {
+    "slug": "force-attachment-for-scriptable-types-on-storage-tnhc-dev",
+    "title": "Force attachment for scriptable types on storage.tnhc.dev",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "security"
+    ],
+    "category": "Commit",
+    "excerpt": "storage.tnhc.dev proxies to MinIO and is ungated. Files there are served with whatever Content-Type they were stored with. A scriptable type (SVG, HTML, JS) rendered in a browser on storage.tnhc.dev executes JavaScript o",
+    "sha": "8401f2d",
+    "content": [
+      {
+        "type": "p",
+        "text": "storage.tnhc.dev proxies to MinIO and is ungated. Files there are served with whatever Content-Type they were stored with. A scriptable type (SVG, HTML, JS) rendered in a browser on storage.tnhc.dev executes JavaScript on a .tnhc.dev origin that receives the session cookie, turning any upload into a potential XSS."
+      },
+      {
+        "type": "p",
+        "text": "Added forceAttachmentForStorage() in the proxy: any response from storage.tnhc.dev whose Content-Type is a scriptable type gets Content-Disposition: attachment, forcing a download instead of browser render. This is defense-in-depth on top of the allowlist fixes in the Chat submodule."
+      },
+      {
+        "type": "p",
+        "text": "Also bumps the Nexus Chat submodule pointer to d3a62fc (emoji/uploads allowlist)."
+      }
+    ]
+  },
+  {
+    "slug": "dependency-vulnerability-scan-and-remediation-pass",
+    "title": "Dependency vulnerability scan and remediation pass",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "security"
+    ],
+    "category": "Commit",
+    "excerpt": "Rust (cargo audit): - Nexus-Chat (apps/Nexus submodule \u2192 fb48e24): quinn-proto 0.11.14\u21920.11.19, sqlx 0.7\u21920.8, h2/rustls/webpki updates, aws-lc-rs/aws-lc-sys/crossbeam/tar/anyhow/spin updates; deny.toml documents 21 unfix",
+    "sha": "96fb101",
+    "content": [
+      {
+        "type": "p",
+        "text": "Rust (cargo audit): - Nexus-Chat (apps/Nexus submodule \u2192 fb48e24): quinn-proto 0.11.14\u21920.11.19, sqlx 0.7\u21920.8, h2/rustls/webpki updates, aws-lc-rs/aws-lc-sys/crossbeam/tar/anyhow/spin updates; deny.toml documents 21 unfixable exemptions (AWS SDK chain, Tauri desktop). Also fixes missing blake3 dep in nexus-api (E0433 was a latent bug). - Nexus-Database: quinn-proto/postgres-protocol/tokio-postgres/sqlx 0.7\u21920.8/ rustls/anyhow/spin updated; deny.toml created with rsa Marvin Attack exemption (test-only, no production decrypt, no fix available upstream)."
+      },
+      {
+        "type": "p",
+        "text": "Python (pip-audit): - Nexus-AI (submodule \u2192 39b9b20): starlette constraint >=0.38.0,<1.0.0 removed; bumped to >=1.3.1. 6 CVEs (PYSEC-2026-248/249/161/2280/2281) resolved. fastapi minimum bumped to >=0.140.0 for starlette 1.x compat."
+      },
+      {
+        "type": "p",
+        "text": "npm (npm audit fix --package-lock-only): - Nexus-Dashboard/frontend: vitest path traversal, esbuild dev server CORS, tinypool prototype-pollution-to-RCE (all dev-tool only) \u2192 fixed - Nexus-Calendar/frontend: same vitest/tinypool chain \u2192 fixed - Nexus-Project/frontend: same chain \u2192 fixed; package-lock.json added - Nexus-Draw/frontend, Nexus-Design/frontend: clean after fix - Nexus-Engine, Nexusclaw: 0 vulns after fix"
+      }
+    ]
+  },
+  {
+    "slug": "part-5-warrant-canary-swedish-retention-law-audit",
+    "title": "Part 5 \u2014 warrant canary + Swedish retention-law audit",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "privacy"
+    ],
+    "category": "Commit",
+    "excerpt": "Part 5 of the Privacy Architecture Programme: compulsion resistance.",
+    "sha": "ca77cd7",
+    "content": [
+      {
+        "type": "p",
+        "text": "Part 5 of the Privacy Architecture Programme: compulsion resistance."
+      },
+      {
+        "type": "p",
+        "text": "- docs/privacy/warrant-canary.md: warrant canary statement (valid 90 days, updated 2026-10-16); git history is the proof of currency - docs/privacy/swedish-retention-law.md: legal audit confirming TNHC is not subject to mandatory traffic-data retention under Swedish/EU law (LEK applies only to telecom operators; GDPR zero-retention policy already satisfies data-minimisation requirements) - deploy/production/warrant-canary.ts: reads canary.md and reports freshness; active/stale/unavailable; WARRANT_CANARY_PATH env override - deploy/production/proxy.ts: status.tnhc.dev now serves /canary.json (1h cache) alongside /privacy.json (5min cache); both ungated with CORS - deploy/production/tests/warrant-canary.test.ts: 10 tests covering freshness logic and the /canary.json proxy route"
+      },
+      {
+        "type": "p",
+        "text": "Claim now true: \"we have not received any government order to disclose your data\" \u2014 backed by a public, regularly-updated canary with a machine-readable endpoint."
+      }
+    ]
+  },
+  {
+    "slug": "apply-design-system-tokens-and-badge-component",
+    "title": "Apply design system tokens and Badge component",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "calendar"
+    ],
+    "category": "Commit",
+    "excerpt": "- Map missing state tokens (success, warning, info) in index.css so Tailwind utilities like text-state-danger work consistently with Project and Draw - Replace plain <p> access label with <Badge> (owner\u2192accent, editor\u2192in",
+    "sha": "fd4e611",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Map missing state tokens (success, warning, info) in index.css so Tailwind utilities like text-state-danger work consistently with Project and Draw - Replace plain <p> access label with <Badge> (owner\u2192accent, editor\u2192info, viewer\u2192default) in EventDetails"
+      }
+    ]
+  },
+  {
+    "slug": "use-vi-stubglobal-so-api-test-ts-runs-correctly-under-vitest",
+    "title": "Use vi.stubGlobal so api.test.ts runs correctly under Vitest",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "draw"
+    ],
+    "category": "Commit",
+    "excerpt": "The test file used `globalThis.fetch = fetchMock` at module level, but ES module imports are hoisted above that assignment. `vi.stubGlobal` in `beforeAll` is the Vitest-canonical approach and makes all 8 api tests pass u",
+    "sha": "58f632a",
+    "content": [
+      {
+        "type": "p",
+        "text": "The test file used `globalThis.fetch = fetchMock` at module level, but ES module imports are hoisted above that assignment. `vi.stubGlobal` in `beforeAll` is the Vitest-canonical approach and makes all 8 api tests pass under `vitest run`. `bun test` (Bun's own runner) still lacks the Vitest vi API; the Draw check.sh already uses `bun run test` (vitest run) for the frontend, so this is not a regression."
+      },
+      {
+        "type": "p",
+        "text": "Vitest: 119/119 pass."
+      }
+    ]
+  },
+  {
+    "slug": "strip-x-nexus-subject-from-incoming-requests",
+    "title": "Strip x-nexus-subject from incoming requests",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "A browser could set X-Nexus-Subject on a request and have it forwarded unchanged to any upstream. For services that trust this header (Draw, Email API) this is an identity-spoofing / IDOR vector.",
+    "sha": "5257bbd",
+    "content": [
+      {
+        "type": "p",
+        "text": "A browser could set X-Nexus-Subject on a request and have it forwarded unchanged to any upstream. For services that trust this header (Draw, Email API) this is an identity-spoofing / IDOR vector."
+      },
+      {
+        "type": "p",
+        "text": "The proxy now strips x-nexus-subject alongside x-nexus-identity before forwarding. Trusted server-side callers (Dashboard loopback calls) are unaffected: they bypass this forwarding path entirely."
+      },
+      {
+        "type": "p",
+        "text": "Proxy tests: 45/45 green."
+      }
+    ]
+  },
+  {
+    "slug": "wire-design-system-tokens-use-badge-for-status-priority",
+    "title": "Wire design system tokens + use Badge for status/priority",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "- index.css: add all 4 state token aliases (success, warning, danger, info) so badge variants resolve to ecosystem colors instead of missing classes - StatusBadge: rewritten to use nexus-design Badge (semantic variants \u2014",
+    "sha": "ac708c0",
+    "content": [
+      {
+        "type": "p",
+        "text": "- index.css: add all 4 state token aliases (success, warning, danger, info) so badge variants resolve to ecosystem colors instead of missing classes - StatusBadge: rewritten to use nexus-design Badge (semantic variants \u2014 started\u2192info, completed\u2192success) instead of hardcoded blue/green classes - PriorityIcon: priority colors now use state tokens (info/warning/danger)"
+      },
+      {
+        "type": "p",
+        "text": "13/13 Project frontend tests green."
+      }
+    ]
+  },
+  {
+    "slug": "add-badge-table-pageheader-stat-components",
+    "title": "Add Badge, Table, PageHeader, Stat components",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "design-system"
+    ],
+    "category": "Commit",
+    "excerpt": "Four new primitives in packages/nexus-design that make cross-app consistency possible: every cloud console page now has a shared toolkit instead of inline JSX.",
+    "sha": "3007570",
+    "content": [
+      {
+        "type": "p",
+        "text": "Four new primitives in packages/nexus-design that make cross-app consistency possible: every cloud console page now has a shared toolkit instead of inline JSX."
+      },
+      {
+        "type": "p",
+        "text": "Applied throughout the Dashboard shell-native pages: - Home: Stat for metric cards, Badge for system-status indicator - Cloud Overview: PageHeader + Stat + Table (audit events) + Badge (health) - Account: PageHeader with role badge - Admin: PageHeader with pending-request count badge"
+      },
+      {
+        "type": "p",
+        "text": "212/212 Dashboard tests green."
+      }
+    ]
+  },
+  {
+    "slug": "unwrap-backend-list-responses-in-api-ts",
+    "title": "Unwrap backend list responses in api.ts",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Backend returns { workspaces }, { projects }, { statuses }, { tasks } not bare arrays. All five list methods now unwrap correctly. Also fixes test mocks to match real backend response shapes.",
+    "sha": "3b78c3d",
+    "content": [
+      {
+        "type": "p",
+        "text": "Backend returns { workspaces }, { projects }, { statuses }, { tasks } not bare arrays. All five list methods now unwrap correctly. Also fixes test mocks to match real backend response shapes."
+      },
+      {
+        "type": "p",
+        "text": "Resolves \"n.map is not a function\" TypeError that rendered blank in the /project iframe even after the auth/error-boundary fixes."
+      }
+    ]
+  },
+  {
+    "slug": "fix-blank-page-in-project-iframe",
+    "title": "Fix blank page in /project iframe",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Three issues addressed:",
+    "sha": "c5bd721",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three issues addressed:"
+      },
+      {
+        "type": "p",
+        "text": "1. gate.ts: iframe navigations that hit the gate without a valid session were redirecting to auth.tnhc.dev/login. The login page has frame-ancestors 'self' which blocks it inside the shell's iframe, leaving the frame blank. Now returns an inline 401 HTML page with frame-ancestors 'self' https://app.tnhc.dev, showing \"Session expired \u2014 sign in\" with a target=_top link so clicking it replaces the top frame rather than navigating inside the iframe."
+      },
+      {
+        "type": "p",
+        "text": "2. Nexus-Project frontend: add a top-level React error boundary so that any render crash shows an error message instead of a completely blank page (React 18 unmounts the entire tree without a boundary)."
+      },
+      {
+        "type": "p",
+        "text": "3. Nexus-Project frontend: remove the Google Fonts @import from index.css. The project Caddyfile's CSP (default-src 'self') blocks external style imports, so the import was a no-op and only generated a CSP violation in the console."
+      },
+      {
+        "type": "p",
+        "text": "Gate test +1 for the new iframe case (48 tests total). Project frontend: 13/13 tests pass."
+      }
+    ]
+  },
+  {
+    "slug": "fix-blank-pages-for-report-and-shell-native-apps",
+    "title": "Fix blank pages for /report and shell-native apps",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "- Add missing /report route in App.tsx \u2014 ReportIssue was imported but never wired to a path; visiting /report fell through to /:slug and showed \"No app is registered as (unknown)\" - AppFrame: shell-native apps without a ",
+    "sha": "6b6093f",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Add missing /report route in App.tsx \u2014 ReportIssue was imported but never wired to a path; visiting /report fell through to /:slug and showed \"No app is registered as (unknown)\" - AppFrame: shell-native apps without a publicUrl now show an app-name + description + status badge instead of iframing their own Dashboard path (which looped back into the shell and produced a blank page) - Add 2 new AppFrame tests covering both cases (offline + healthy shell-native placeholders) - Tighten \"app not found\" display: empty appId now shows \"(unknown)\" rather than a blank code element"
+      }
+    ]
+  },
+  {
+    "slug": "block-cross-subdomain-csrf-mutations-o-1",
+    "title": "Block cross-subdomain CSRF mutations (O-1)",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "User-deployed sites on *.tnhc.dev share the same eTLD+1 as all ecosystem apps, so SameSite=Lax does not stop a credentialed cross-subdomain POST from e.g. evil.tnhc.dev \u2192 app.tnhc.dev.",
+    "sha": "2171f91",
+    "content": [
+      {
+        "type": "p",
+        "text": "User-deployed sites on *.tnhc.dev share the same eTLD+1 as all ecosystem apps, so SameSite=Lax does not stop a credentialed cross-subdomain POST from e.g. evil.tnhc.dev \u2192 app.tnhc.dev."
+      },
+      {
+        "type": "p",
+        "text": "Block POST/PUT/PATCH/DELETE to app routes when the browser sends Sec-Fetch-Site: same-site. API clients (curl, machine-to-machine service calls) omit this header and are unaffected. User-deployed sites (kind: site) are not blocked \u2014 their own forms must still work."
+      },
+      {
+        "type": "p",
+        "text": "6 new proxy tests cover every case (all 45 pass)."
+      }
+    ]
+  },
+  {
+    "slug": "correct-phantom-catalog-entry-to-match-status-md",
+    "title": "Correct Phantom catalog entry to match STATUS.md",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "ecosystem"
+    ],
+    "category": "Commit",
+    "excerpt": "FHE routing is partial (single shared decryption key \u2014 privacy guarantee incomplete), not a complete working feature. Multi-hop forwarding is partial and switched off in default tests. Zero-knowledge membership proofs an",
+    "sha": "1afc716",
+    "content": [
+      {
+        "type": "p",
+        "text": "FHE routing is partial (single shared decryption key \u2014 privacy guarantee incomplete), not a complete working feature. Multi-hop forwarding is partial and switched off in default tests. Zero-knowledge membership proofs and message-content encryption are both unbuilt. Aligns the catalog description with apps/Phantom/STATUS.md and the honest /phantom page."
+      },
+      {
+        "type": "p",
+        "text": "Closes O-10 from the 2026-10-13 public surface audit."
+      }
+    ]
+  },
+  {
+    "slug": "apply-design-system-edit-event-support",
+    "title": "Apply design system + edit event support",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "calendar"
+    ],
+    "category": "Commit",
+    "excerpt": "Design system: - index.css: Figtree font, nexus-tokens.css, @theme zinc\u2194nexus token mapping, same pattern as Dashboard and Project - MonthGrid: hardcoded #ccff00 / ring-[#ccff00] replaced with ring-accent / text-accent /",
+    "sha": "5e5b44f",
+    "content": [
+      {
+        "type": "p",
+        "text": "Design system: - index.css: Figtree font, nexus-tokens.css, @theme zinc\u2194nexus token mapping, same pattern as Dashboard and Project - MonthGrid: hardcoded #ccff00 / ring-[#ccff00] replaced with ring-accent / text-accent / bg-accent/15 via the new token; readable multi-line JSX - EventEditor: bg-[#9bd400] \u2192 bg-accent text-zinc-900; redesigned form with proper label/input spacing and zinc token colours; matches design system focus ring - EventDetails: zinc token colours throughout; keeps \"Manage sharing\" and \"Delete event\" accessible names tests rely on - AppHeader (nexus-app-shell): acid-bolt SVG icon added to wordmark, consistent with Dashboard header"
+      },
+      {
+        "type": "p",
+        "text": "Edit event: - EventEditor accepts optional event prop \u2014 pre-fills title/time/location/ description and shows \"Update event\" instead of \"Save event\" - EventDetails gains optional onEdit callback; renders \"Edit\" button when the caller has editor/owner access and provides the callback - CalendarApp: editingEvent state; saveEdit calls api.updateEvent; edit flow transitions cleanly (edit \u2192 back-to-view on cancel)"
+      },
+      {
+        "type": "p",
+        "text": "All 21 tests pass; tsc clean; vite build clean."
+      }
+    ]
+  },
+  {
+    "slug": "close-idor-scope-all-board-operations-to-owner-subject",
+    "title": "Close IDOR \u2014 scope all board operations to owner_subject",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "draw"
+    ],
+    "category": "Commit",
+    "excerpt": "Boards had no owner field: any authenticated user could read, edit, or delete any other user's boards, and the board list returned every board in the database.",
+    "sha": "49f6991",
+    "content": [
+      {
+        "type": "p",
+        "text": "Boards had no owner field: any authenticated user could read, edit, or delete any other user's boards, and the board list returned every board in the database."
+      },
+      {
+        "type": "p",
+        "text": "Changes: - draw-engine: add owner_subject column (migration, index); createBoard now takes ownerSubject; listBoards filters to owner OR is_public=1; updateBoardMeta and deleteBoard add AND owner_subject = ? to WHERE clause so a wrong-owner call returns false/0 rows, not a hit. - server: add getSubject() helper (header first, ?subject= query param fallback for WS upgrades where browser clients cannot set headers); every board route requires a subject (401 if absent); GET /:id and PUT /:id/elements check ownership + isPublic (403 if neither); AI generate also checks ownership before appending to a board; WS upgrade likewise checks ownership before allowing collab connection. - tests: pass x-nexus-subject header on all board requests; add six new IDOR tests (Bob cannot read/PATCH/DELETE Alice's private board, Bob cannot list Alice's boards, public board accessible by all); collab test now creates board with auth header and connects via ?subject=."
+      },
+      {
+        "type": "p",
+        "text": "All 30 backend tests pass (0 fail)."
+      }
+    ]
+  },
+  {
+    "slug": "fix-blank-page-add-create-flows-apply-design-system",
+    "title": "Fix blank page \u2014 add create flows + apply design system",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "The app had all four views (Board, List, Timeline, Home) but no way to create anything: a fresh account saw an empty workspace switcher, no projects, no tasks, and no call to action.",
+    "sha": "497f47a",
+    "content": [
+      {
+        "type": "p",
+        "text": "The app had all four views (Board, List, Timeline, Home) but no way to create anything: a fresh account saw an empty workspace switcher, no projects, no tasks, and no call to action."
+      },
+      {
+        "type": "p",
+        "text": "Create flows added: - Workspace: onboarding empty state \u2192 \"Create workspace\" CTA; second workspace via dashed \"+ New workspace\" button in the switcher; full-page form (name + type) replaces the view while open - Project: inline form (name + auto-generated editable key) appears at the top of the Projects tab; empty state links directly to it - Task: inline \"+ Add task\" row at the bottom of every Board column and at the bottom of the List table; Enter submits, Escape cancels, blur submits only when non-empty"
+      },
+      {
+        "type": "p",
+        "text": "Design system applied: - Load Figtree (TNHC brand font) + nexus-tokens.css; @theme block maps zinc scale to nexus color tokens, same as Dashboard - App background and text now use nexus canvas/primary tokens - Focus ring derives from --nexus-color-accent-primary instead of a hardcoded hex - Acid-bolt icon in accent colour added to App header wordmark - Active tab underline uses accent colour (border-accent) - Project cards use nexus surface bg-zinc-800/40 instead of bg-zinc-900"
+      }
+    ]
+  },
+  {
+    "slug": "redesign-home-page-to-cloud-console-style",
+    "title": "Redesign home page to cloud console style",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "- Load Figtree (TNHC brand font) in Dashboard index.css - Add acid-bolt SVG logo mark in accent colour to Shell header - Remove personal widgets (Today, Unread) from the home page; they belong in their respective apps, n",
+    "sha": "7d36cf6",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Load Figtree (TNHC brand font) in Dashboard index.css - Add acid-bolt SVG logo mark in accent colour to Shell header - Remove personal widgets (Today, Unread) from the home page; they belong in their respective apps, not the cloud console - Add platform status bar: greeting, service count, operational status pill - Add three metric cards (Services registered, Running/healthy, Offline) with conditional danger colour when services are offline - Promote HealthStrip to a named \"Service Health\" section with a section label heading - Redesign Pinned widget from a plain list to a 2-3 column tile grid; each app shows a two-letter icon badge and its name; pin/unpin affordance appears on hover as an absolute-positioned overlay button - Keep all existing test-critical contracts intact: - HealthStrip and Pinned both still render app names (>=2 occurrences) - WidgetShell title=\"Pinned\" still renders the \"Pinned\" heading - Shell banner and signed-out page structure unchanged"
+      }
+    ]
+  },
+  {
+    "slug": "migrate-user-sites-to-sites-tnhc-dev-namespace-for-psl-isola",
+    "title": "Migrate user sites to sites.tnhc.dev namespace for PSL isolation",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "User-deployed Hosting sites previously lived at <name>.tnhc.dev, putting them same-site with all system apps. A malicious hosted site could make credentialed JS fetches to app.tnhc.dev.",
+    "sha": "c794cac",
+    "content": [
+      {
+        "type": "p",
+        "text": "User-deployed Hosting sites previously lived at <name>.tnhc.dev, putting them same-site with all system apps. A malicious hosted site could make credentialed JS fetches to app.tnhc.dev."
+      },
+      {
+        "type": "p",
+        "text": "Fix: move user sites to <name>.sites.tnhc.dev and submit sites.tnhc.dev to the Public Suffix List (PSL PR #3398). Browsers will treat *.sites.tnhc.dev as cross-site with system apps, so SameSite=Lax blocks JS CSRF."
+      },
+      {
+        "type": "p",
+        "text": "- Caddyfile: add *.sites.tnhc.dev block with on_demand TLS - proxy.ts: redirect bare <name>.tnhc.dev requests (old Hosting URLs) to <name>.sites.tnhc.dev with a 301 - Nexus-Cloud: approve *.sites.tnhc.dev in tls-ask without per-site Cloud registration"
+      },
+      {
+        "type": "p",
+        "text": "DB migration and PSL PR already applied. Requires CF DNS *.sites CNAME and deploy.sh bg to take effect."
+      }
+    ]
+  },
+  {
+    "slug": "use-relative-redirects-for-calendar-and-project",
+    "title": "Use relative redirects for /calendar and /project",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Response.redirect(new URL(path, req.url)) produced an absolute Location with the internal loopback origin (http://127.0.0.1:3132). The proxy relayed this verbatim; the browser followed it to the loopback address, got a c",
+    "sha": "02b8347",
+    "content": [
+      {
+        "type": "p",
+        "text": "Response.redirect(new URL(path, req.url)) produced an absolute Location with the internal loopback origin (http://127.0.0.1:3132). The proxy relayed this verbatim; the browser followed it to the loopback address, got a connection refused, and showed a blank page."
+      },
+      {
+        "type": "p",
+        "text": "Use a bare path as the Location header so the browser resolves it against the public origin it actually came from."
+      }
+    ]
+  },
+  {
+    "slug": "route-api-v1-project-to-project-api-proxy",
+    "title": "Route /api/v1/project/* to project API proxy",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "The project SPA makes API calls to /api/v1/project/... using root-relative paths. When served at app.tnhc.dev/project/ these calls hit the Dashboard server, which had no route for them and fell through to the SPA shell \u2014",
+    "sha": "ce5ee19",
+    "content": [
+      {
+        "type": "p",
+        "text": "The project SPA makes API calls to /api/v1/project/... using root-relative paths. When served at app.tnhc.dev/project/ these calls hit the Dashboard server, which had no route for them and fell through to the SPA shell \u2014 the HTML response was parsed as JSON, producing the SyntaxError."
+      },
+      {
+        "type": "p",
+        "text": "Route /api/v1/project/* to the same proxyProjectApi handler as /ipa/project/."
+      }
+    ]
+  },
+  {
+    "slug": "proxy-project-to-nexus-project-web-ipa-project-to-api",
+    "title": "Proxy /project/* to nexus-project-web, /ipa/project/* to API",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Adds project-proxy.ts \u2014 the same fixed-surface pattern as calendar-proxy.ts.",
+    "sha": "9a25284",
+    "content": [
+      {
+        "type": "p",
+        "text": "Adds project-proxy.ts \u2014 the same fixed-surface pattern as calendar-proxy.ts."
+      },
+      {
+        "type": "p",
+        "text": "- GET/POST /ipa/project/... routes reach the Nexus-Project API (port 3152) authenticated via x-nexus-subject + NEXUS_PROJECT_DASHBOARD_SECRET - GET /project \u2192 308 /project/; GET /project/* proxies to nexus-project-web (8093) This is the fix for the blank page at app.tnhc.dev/project - deploy.sh generates/persists NEXUS_PROJECT_DASHBOARD_SECRET, passes it to both nexus-project and nexus-dashboard at start time"
+      }
+    ]
+  },
+  {
+    "slug": "make-draw-tnhc-dev-public-in-the-gate",
+    "title": "Make draw.tnhc.dev public in the gate",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "draw.tnhc.dev is the public whiteboard \u2014 no Nexus account required. The gate is default-deny for all registered app hosts, so the requiresAuth registry flag is advisory only; the host must be added to PUBLIC_HOSTS explic",
+    "sha": "0ddcb79",
+    "content": [
+      {
+        "type": "p",
+        "text": "draw.tnhc.dev is the public whiteboard \u2014 no Nexus account required. The gate is default-deny for all registered app hosts, so the requiresAuth registry flag is advisory only; the host must be added to PUBLIC_HOSTS explicitly. Added DRAW_HOST alongside AUTH_HOST."
+      }
+    ]
+  },
+  {
+    "slug": "plan-2-frontend-board-list-timeline-taskdrawer",
+    "title": "Plan 2 frontend \u2014 Board, List, Timeline, TaskDrawer",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Implements the full Nexus-Project Plan 2 frontend:",
+    "sha": "cb3e387",
+    "content": [
+      {
+        "type": "p",
+        "text": "Implements the full Nexus-Project Plan 2 frontend:"
+      },
+      {
+        "type": "p",
+        "text": "- React 18 + Vite 5 + Tailwind 4 SPA in apps/Nexus-Project/frontend/ - Views: Home (workspace switcher + projects grid + My Tasks), Board (Kanban drag-and-drop), List (WBS tree table), Timeline (SVG Gantt with critical path and today marker) - Components: TaskDrawer (slide-in editor), StatusBadge, PriorityIcon - API client (projectApi) with full typed coverage of backend endpoints - 13 tests across api, board, and list suites \u2014 all pass - Build: 160 KB JS bundle, no type errors"
+      },
+      {
+        "type": "p",
+        "text": "Deploy wiring: - deploy/production/nexus-project.Caddyfile \u2014 Caddy front door on port 8093 joining SPA + API at 3152 (same pattern as Calendar) - deploy/production/deploy.sh \u2014 added nexus-project / nexus-project-web to service_identity, service_port, start section 4d-3, cmd_stop, and cmd_service_status - Cloud tool registered as nexus-project (project.tnhc.dev upstream 127.0.0.1:8093, requiresAuth unset \u2192 defaults to auth-required at proxy; set to false once DNS is live if public access is intended)"
+      },
+      {
+        "type": "p",
+        "text": "Next: add CNAME project.tnhc.dev \u2192 Cloudflare tunnel, then ./deploy/production/deploy.sh bg"
+      }
+    ]
+  },
+  {
+    "slug": "relax-performance-threshold-to-500-ms",
+    "title": "Relax performance threshold to 500 ms",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "50 ms was too tight when the full 1813-test suite runs concurrently; the test passes in isolation (~60 ms cold JIT) but lost to system load. 500 ms still catches any O(N\u00b2) regression on a 5 000-task project.",
+    "sha": "e300b09",
+    "content": [
+      {
+        "type": "p",
+        "text": "50 ms was too tight when the full 1813-test suite runs concurrently; the test passes in isolation (~60 ms cold JIT) but lost to system load. 500 ms still catches any O(N\u00b2) regression on a 5 000-task project."
+      }
+    ]
+  },
+  {
+    "slug": "pass-nexus-cloud-api-key-to-proxy-start-service",
+    "title": "Pass NEXUS_CLOUD_API_KEY to proxy start_service",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Without it a manual proxy restart (or any future per-service restart) couldn't authenticate to Cloud's /api/v1/routes, got 401, fell back to an empty route table, and routed every hostname \u2014 including app.tnhc.dev \u2014 to t",
+    "sha": "6bd73ed",
+    "content": [
+      {
+        "type": "p",
+        "text": "Without it a manual proxy restart (or any future per-service restart) couldn't authenticate to Cloud's /api/v1/routes, got 401, fell back to an empty route table, and routed every hostname \u2014 including app.tnhc.dev \u2014 to the Hosting wildcard, showing \"No site found\"."
+      },
+      {
+        "type": "p",
+        "text": "NEXUS_CLOUD_API_KEY is exported at the shell level by the Cloud start sequence, so it is present by the time the proxy is started. Passing it explicitly through start_service makes per-service restarts self-contained."
+      }
+    ]
+  },
+  {
+    "slug": "heartbeats-stay-on-loopback-and-a-failing-one-is-logged",
+    "title": "Heartbeats stay on loopback, and a failing one is logged",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "Cloud listed itself offline since 2026-09-29 (audit O-9). Its protected env sets NEXUS_CLOUD_URL to its public address, which it hands to federated peers for discovery, and the SDK used the same variable as the place to ",
+    "sha": "eeb3b47",
+    "content": [
+      {
+        "type": "p",
+        "text": "Cloud listed itself offline since 2026-09-29 (audit O-9). Its protected env sets NEXUS_CLOUD_URL to its public address, which it hands to federated peers for discovery, and the SDK used the same variable as the place to send heartbeats: out through Cloudflare and back into the proxy, whose sign-in gate refused them. The SDK swallowed the failure, so nothing was logged for weeks."
+      },
+      {
+        "type": "p",
+        "text": "- nexus-sdk: NEXUS_CLOUD_INTERNAL_URL, when set, is where registration and heartbeats go; NEXUS_CLOUD_URL keeps its public meaning. A failing heartbeat is logged once when it starts failing and once when it recovers. - deploy.sh exports NEXUS_CLOUD_INTERNAL_URL=http://127.0.0.1:8787 to the services it starts; start-cloud.sh sets it for Cloud itself. - First tests for nexus-sdk (4)."
+      }
+    ]
+  },
+  {
+    "slug": "what-phantom-email-and-four-apps-actually-are-today",
+    "title": "What Phantom, Email and four apps actually are today",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "register"
+    ],
+    "category": "Commit",
+    "excerpt": "- Phantom no longer claims zk membership proofs: post-quantum signatures and FHE routing metadata work; content encryption and the membership proof are not built, and no live service uses it (matches tnhc.dev/phantom; au",
+    "sha": "b9808af",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Phantom no longer claims zk membership proofs: post-quantum signatures and FHE routing metadata work; content encryption and the membership proof are not built, and no live service uses it (matches tnhc.dev/phantom; audit O-10). - Nexus-Email no longer says \"no third party in the path\": mail to outside addresses is relayed through Resend because this node's ISP blocks port 25. - Nexus-Calendar is Live (was the off-vocabulary \"Active\", shown as planned). - Nexus-API and Nexus-Terminal are In development (real code; were Stub and Scaffold). Nexus-Project, missing from the register, is added. - Counts are measured from the rows: 7 live, 1 beta, 28 in development, 73 scaffold, 6 stub; 115 rows."
+      }
+    ]
+  },
+  {
+    "slug": "the-outbound-queue-forgets-finished-deliveries",
+    "title": "The outbound queue forgets finished deliveries",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "Every delivered row was kept forever, so the queue held the recipient address of every message this node ever sent. The delivery worker now deletes delivered rows an hour after completion and dead ones after a week (time",
+    "sha": "faec32d",
+    "content": [
+      {
+        "type": "p",
+        "text": "Every delivered row was kept forever, so the queue held the recipient address of every message this node ever sent. The delivery worker now deletes delivered rows an hour after completion and dead ones after a week (time to diagnose and to bounce); pending work is never touched. The sender's own copy in their Sent folder is unaffected. Retention is configurable on WorkerConfig."
+      }
+    ]
+  },
+  {
+    "slug": "signed-out-api-calls-get-401-page-loads-still-go-to-sign-in",
+    "title": "Signed-out API calls get 401, page loads still go to sign in",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "gate"
+    ],
+    "category": "Commit",
+    "excerpt": "Every signed-out request was redirected to the HTML sign-in page, which a fetch, a script or the CLI cannot follow: it surfaced as a JSON parse error on an HTML body (audit O-8). Page loads (Sec-Fetch-Mode: navigate, or ",
+    "sha": "66bda1f",
+    "content": [
+      {
+        "type": "p",
+        "text": "Every signed-out request was redirected to the HTML sign-in page, which a fetch, a script or the CLI cannot follow: it surfaced as a JSON parse error on an HTML body (audit O-8). Page loads (Sec-Fetch-Mode: navigate, or a GET asking for HTML from a client without fetch metadata) are still redirected; anything else gets 401 {error: unauthenticated, signIn: <login url>}, as the major clouds' APIs answer."
+      },
+      {
+        "type": "p",
+        "text": "Tests that meant \"a person opens this page\" now say so with the navigate header. terminal-public-hop.test.ts times out identically at HEAD and is excluded from the gate by design."
+      }
+    ]
+  },
+  {
+    "slug": "run-the-privacy-check-once-after-every-deploy",
+    "title": "Run the privacy check once after every deploy",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "The canary ran only daily at midnight; a run that fell inside an outage left status.tnhc.dev reading \"fail\" for up to a day (it did after the 2026-10-12 reboot; audit O-7). cmd_start now starts it once, --no-block, after",
+    "sha": "9591f76",
+    "content": [
+      {
+        "type": "p",
+        "text": "The canary ran only daily at midnight; a run that fell inside an outage left status.tnhc.dev reading \"fail\" for up to a day (it did after the 2026-10-12 reboot; audit O-7). cmd_start now starts it once, --no-block, after the services are verified. Tested with a stand-in systemctl; part of the gate."
+      }
+    ]
+  },
+  {
+    "slug": "public-health-checks-say-only-ok-or-unavailable",
+    "title": "Public health checks say only ok or unavailable",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "/health is public on every host, and apps put what they like in it: Cloud returned the absolute path of its state file, its size and age, the node's identity and event counts; Draw a Phantom DID and cryptography claims (",
+    "sha": "518d0fe",
+    "content": [
+      {
+        "type": "p",
+        "text": "/health is public on every host, and apps put what they like in it: Cloud returned the absolute path of its state file, its size and age, the node's identity and event counts; Draw a Phantom DID and cryptography claims (audit O-4). The proxy now answers public /health, /health/live and /health/ready with {status: ok|unavailable} and 200/503 from the upstream's answer. Details stay on the loopback ports deploy.sh and the Dashboard read directly. A user site's own /health is untouched."
+      }
+    ]
+  },
+  {
+    "slug": "the-toolbar-fits-a-phone",
+    "title": "The toolbar fits a phone",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "calendar"
+    ],
+    "category": "Commit",
+    "excerpt": "At 375px the month label's fixed 8rem minimum and a wrapping \"+ New\" button pushed the toolbar 22px past the screen edge. The minimum applies from sm up; the label and button never wrap. Checked with scripts/check-phone-",
+    "sha": "38df4a6",
+    "content": [
+      {
+        "type": "p",
+        "text": "At 375px the month label's fixed 8rem minimum and a wrapping \"+ New\" button pushed the toolbar 22px past the screen edge. The minimum applies from sm up; the label and button never wrap. Checked with scripts/check-phone-width.ts."
+      }
+    ]
+  },
+  {
+    "slug": "regenerated-recovery-codes-are-readable-on-a-phone-and-downl",
+    "title": "Regenerated recovery codes are readable on a phone and downloadable",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "account"
+    ],
+    "category": "Commit",
+    "excerpt": "The Account page showed a fresh set of codes with break-all, splitting them mid-code, and offered no download. It now matches the welcome page in Auth: numbered, one per row, never wrapped, tap to select all, and a \"Down",
+    "sha": "ef3c1a3",
+    "content": [
+      {
+        "type": "p",
+        "text": "The Account page showed a fresh set of codes with break-all, splitting them mid-code, and offered no download. It now matches the welcome page in Auth: numbered, one per row, never wrapped, tap to select all, and a \"Download as a text file\" link (a data: link with the same file contents). Requested by a user: copy-paste into a notes app on a phone is too fiddly."
+      },
+      {
+        "type": "p",
+        "text": "The phone-width harness accepts NEXUS_DASHBOARD_WEB_ROOT, so a build can be checked in a temp folder before it reaches the dist production serves."
+      }
+    ]
+  },
+  {
+    "slug": "dashboard-pages-use-phone-sized-padding-phone-width-checkers",
+    "title": "Dashboard pages use phone-sized padding; phone-width checkers",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "mobile"
+    ],
+    "category": "Commit",
+    "excerpt": "- Every page section's fixed 32px padding is 16px on phones (32px from sm), so content is not squeezed beside the shell's rail; the invite email field takes the full width on a phone instead of cutting off its placeholde",
+    "sha": "a618572",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Every page section's fixed 32px padding is 16px on phones (32px from sm), so content is not squeezed beside the shell's rail; the invite email field takes the full width on a phone instead of cutting off its placeholder. - scripts/check-phone-width.ts: loads URLs in headless Chromium as a 375px phone over the DevTools protocol and fails, naming the elements, when a page is wider than the screen. Measures against the requested width (a too-wide page widens a mobile layout viewport), ignores fixed overlays, allows content that scrolls inside its own box. Found the tnhc.dev overflows (fixed there). - scripts/check-dashboard-phone-width.ts: the same, signed in, against a throwaway Auth and Dashboard with every store in a temp dir. All 13 Dashboard pages pass."
+      }
+    ]
+  },
+  {
+    "slug": "a-page-to-get-back-in-with-a-recovery-code",
+    "title": "A page to get back in with a recovery code",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "auth"
+    ],
+    "category": "Commit",
+    "excerpt": "Recovery codes had an API but no page, so after a lost password they could not actually be used. auth.tnhc.dev/recover takes an email and one code; a correct code is spent and leads to a new-password step (single-use, 15",
+    "sha": "f2b1852",
+    "content": [
+      {
+        "type": "p",
+        "text": "Recovery codes had an API but no page, so after a lost password they could not actually be used. auth.tnhc.dev/recover takes an email and one code; a correct code is spent and leads to a new-password step (single-use, 15 minutes, in memory). Setting the password signs out every other session, signs the person in and says how many codes are left. An unknown email, inactive account and wrong code give one answer; attempts are rate limited. Script-free like the other onboarding pages; the login page links to it, and the proxy routes /recover and /recover/password to Auth."
+      },
+      {
+        "type": "p",
+        "text": "Auth 124/124 (8 new), proxy 37/37."
+      }
+    ]
+  },
+  {
+    "slug": "recovery-codes-are-readable-on-a-phone-and-downloadable",
+    "title": "Recovery codes are readable on a phone, and downloadable",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "auth"
+    ],
+    "category": "Commit",
+    "excerpt": "On a phone the welcome page split the 32-character codes across two columns and broke them mid-code, so they could not be read or copied reliably. Codes are now one per row, numbered, never wrapped, with a font that shri",
+    "sha": "c932a4b",
+    "content": [
+      {
+        "type": "p",
+        "text": "On a phone the welcome page split the 32-character codes across two columns and broke them mid-code, so they could not be read or copied reliably. Codes are now one per row, numbered, never wrapped, with a font that shrinks a little on narrow screens; tapping the block selects all of them; the card's padding scales with the screen. Checked by rendering at 320px and 375px."
+      },
+      {
+        "type": "p",
+        "text": "A \"Download as a text file\" link saves the codes (with the username and date) as nexus-recovery-codes-<username>.txt. It is a data: link, so it needs no script and no second request; the codes exist only as hashes afterwards. Requested by a user: copy-paste into a notes app on a phone is too fiddly."
+      }
+    ]
+  },
+  {
+    "slug": "the-shell-may-frame-the-ecosystem-s-apps-again",
+    "title": "The shell may frame the ecosystem's apps again",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Every app opened from the Dashboard showed a blank page. The shell's CSP (added 2026-08-23) had no frame-src, so it fell back to default-src 'self' and the browser refused every app frame at https://<app>.<domain>/?embed",
+    "sha": "4be04b7",
+    "content": [
+      {
+        "type": "p",
+        "text": "Every app opened from the Dashboard showed a blank page. The shell's CSP (added 2026-08-23) had no frame-src, so it fell back to default-src 'self' and the browser refused every app frame at https://<app>.<domain>/?embed=1. The policy now allows frame-src 'self' https://*.<DOMAIN>; each app still decides who may frame it with its own frame-ancestors. The two copies of the policy are now one constant."
+      }
+    ]
+  },
+  {
+    "slug": "only-the-community-app-s-supabase-apis-are-public-on-auth-tn",
+    "title": "Only the Community app's Supabase APIs are public on auth.tnhc.dev",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "Every auth.tnhc.dev path Nexus-Auth does not own went to the Community site's Supabase gateway, so Studio's dashboard login prompt was on the internet (audit O-2). The Community app installs Auth, Postgrest and Functions",
+    "sha": "511aebf",
+    "content": [
+      {
+        "type": "p",
+        "text": "Every auth.tnhc.dev path Nexus-Auth does not own went to the Community site's Supabase gateway, so Studio's dashboard login prompt was on the internet (audit O-2). The Community app installs Auth, Postgrest and Functions only, so only /auth/v1, /rest/v1 and /functions/v1 are forwarded now; everything else on that host is 404 at the proxy."
+      }
+    ]
+  },
+  {
+    "slug": "access-requests-no-longer-reveal-whether-an-email-has-an-acc",
+    "title": "Access requests no longer reveal whether an email has an account",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "auth"
+    ],
+    "category": "Commit",
+    "excerpt": "POST /api/v1/auth/access-requests is public and answered a clash with \"Email '<address>' already exists\", so anyone could test any address (reproduced against production, audit O-5). Both clashes now answer 409 username_",
+    "sha": "4d6c0e2",
+    "content": [
+      {
+        "type": "p",
+        "text": "POST /api/v1/auth/access-requests is public and answered a clash with \"Email '<address>' already exists\", so anyone could test any address (reproduced against production, audit O-5). Both clashes now answer 409 username_or_email_taken, naming neither. The operator-only user-creation route keeps its specific message."
+      }
+    ]
+  },
+  {
+    "slug": "shared-system-mail-token-and-prove-the-endpoint-stays-privat",
+    "title": "Shared system-mail token, and prove the endpoint stays private",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "- ensure_system_mail_token generates NEXUS_EMAIL_SYSTEM_MAIL_TOKEN once into apps/Nexus-Email/.env (chmod 600), never prints it, reuses it after, and does nothing on a node without Nexus-Email. It is exported only around",
+    "sha": "25c9949",
+    "content": [
+      {
+        "type": "p",
+        "text": "- ensure_system_mail_token generates NEXUS_EMAIL_SYSTEM_MAIL_TOKEN once into apps/Nexus-Email/.env (chmod 600), never prints it, reuses it after, and does nothing on a node without Nexus-Email. It is exported only around Auth and mailapi, never passed as an argument. Tested in system-mail-token.test.sh, now part of the production gate. - proxy test: /internal/v1/system-mail is unreachable through the email ingress host and through any other public host."
+      }
+    ]
+  },
+  {
+    "slug": "send-invites-by-email-from-the-admin-page",
+    "title": "Send invites by email from the Admin page",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "The invite card takes an address and has two actions, Send invite and Create link only. The result says what happened (sent; could not be sent; email not set up on this node) and always shows the link once as the fallbac",
+    "sha": "7eb1f84",
+    "content": [
+      {
+        "type": "p",
+        "text": "The invite card takes an address and has two actions, Send invite and Create link only. The result says what happened (sent; could not be sent; email not set up on this node) and always shows the link once as the fallback. Approving a request reports whether the claim notice was emailed, and if not, which page to point the person at."
+      },
+      {
+        "type": "p",
+        "text": "Dashboard 209/209, typecheck clean."
+      }
+    ]
+  },
+  {
+    "slug": "email-invitations-and-approval-notices-through-nexus-email",
+    "title": "Email invitations and approval notices through Nexus-Email",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "auth"
+    ],
+    "category": "Commit",
+    "excerpt": "- POST /api/v1/auth/invites takes an optional email. With one, the invite is bound to that address and Auth asks Nexus-Email's loopback system-mail endpoint to send it. The response always carries the link, plus a delive",
+    "sha": "6de8786",
+    "content": [
+      {
+        "type": "p",
+        "text": "- POST /api/v1/auth/invites takes an optional email. With one, the invite is bound to that address and Auth asks Nexus-Email's loopback system-mail endpoint to send it. The response always carries the link, plus a delivery outcome: sent, failed, rejected, disabled or not_requested. At most 20 emailed invites per operator per day. - Approving an access request emails a notice linking to /claim?email=. The approval stands whatever happens to the notice; the outcome is reported. - src/system-mail.ts never throws and holds no mail credentials beyond the shared service token (NEXUS_EMAIL_SYSTEM_MAIL_TOKEN); unset means disabled. - tests/privacy.test.ts: the activity test drained no buffered audit entries first, so its count depended on which test files ran before it. It failed run alone at every commit today; it now drains first."
+      },
+      {
+        "type": "p",
+        "text": "Auth 113/113 across 19 files."
+      }
+    ]
+  },
+  {
+    "slug": "invites-can-be-bound-to-the-invited-email",
+    "title": "Invites can be bound to the invited email",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "auth"
+    ],
+    "category": "Commit",
+    "excerpt": "An invite created for an address stores only a SHA-256 of it, expires in 7 days instead of 30, and redeems only for that address (wrong address answers invalid_code, like a wrong code). Unbound invites are unchanged. Fir",
+    "sha": "130a18d",
+    "content": [
+      {
+        "type": "p",
+        "text": "An invite created for an address stores only a SHA-256 of it, expires in 7 days instead of 30, and redeems only for that address (wrong address answers invalid_code, like a wrong code). Unbound invites are unchanged. First Auth step of the emailed-invites design."
+      }
+    ]
+  },
+  {
+    "slug": "system-mail-endpoint-for-invitations-and-approval-notices",
+    "title": "System mail endpoint for invitations and approval notices",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "email"
+    ],
+    "category": "Commit",
+    "excerpt": "POST /internal/v1/system-mail lets Nexus-Auth send platform mail through whatever egress Nexus-Email already uses; no new third party.",
+    "sha": "f437f9c",
+    "content": [
+      {
+        "type": "p",
+        "text": "POST /internal/v1/system-mail lets Nexus-Auth send platform mail through whatever egress Nexus-Email already uses; no new third party."
+      },
+      {
+        "type": "p",
+        "text": "- Service token (NEXUS_EMAIL_SYSTEM_MAIL_TOKEN), compared in constant time and checked before the body is read; unset disables the endpoint (503). - Fixed templates only (invite, access-approved): the caller supplies a recipient and a link, no text. The link must be this node's identity host on the template's own path, so the endpoint cannot be used as a relay. - Daily cap (NEXUS_EMAIL_SYSTEM_MAIL_DAILY_LIMIT, default 50), below the outbound relay's free daily allowance. - Sent from noreply@<domain> with no Sent-folder copy. The delivery worker deletes system mail (message, queue row, recipients) once it is delivered or dead; a pending retry is kept."
+      }
+    ]
+  },
+  {
+    "slug": "user-deployed-sites-get-no-visitor-credentials",
+    "title": "User-deployed sites get no visitor credentials",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "Sites on *.tnhc.dev share the parent domain with the session cookie (Domain=.tnhc.dev, for SSO), so browsers send it to them, and the proxy forwarded it. Any signed-in user can create a dynamic (Node/Python/NLPL) site wh",
+    "sha": "4531da9",
+    "content": [
+      {
+        "type": "p",
+        "text": "Sites on *.tnhc.dev share the parent domain with the session cookie (Domain=.tnhc.dev, for SSO), so browsers send it to them, and the proxy forwarded it. Any signed-in user can create a dynamic (Node/Python/NLPL) site whose code would then collect every signed-in visitor's session: account takeover. Production has 5 static sites today, so this was latent."
+      },
+      {
+        "type": "p",
+        "text": "For the wildcard Hosting backend only: drop Cookie and Authorization on the way in, and drop any Set-Cookie naming a Domain on the way out (a site could otherwise plant a forged session on every app). Storage and the Supabase paths are unchanged; they authenticate requests themselves. Mutation-checked."
+      }
+    ]
+  },
+  {
+    "slug": "referrer-policy-is-a-floor-not-an-overwrite",
+    "title": "Referrer-Policy is a floor, not an overwrite",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "The proxy replaced every upstream's Referrer-Policy with strict-origin-when-cross-origin, so Auth's onboarding pages, which carry claim and invite codes and ask for no-referrer, were weakened on the way out. Keep an upst",
+    "sha": "8e511a3",
+    "content": [
+      {
+        "type": "p",
+        "text": "The proxy replaced every upstream's Referrer-Policy with strict-origin-when-cross-origin, so Auth's onboarding pages, which carry claim and invite codes and ask for no-referrer, were weakened on the way out. Keep an upstream policy that is at least as strict; replace anything weaker, a list value, or nothing with the default."
+      }
+    ]
+  },
+  {
+    "slug": "route-the-onboarding-pages-on-auth-tnhc-dev-to-auth",
+    "title": "Route the onboarding pages on auth.tnhc.dev to Auth",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "auth.<DOMAIN> sends only an allow-list of paths to Nexus-Auth and everything else to the Supabase gateway. /request, /claim and /join were not on it, so the new ways in answered 401 \"Missing username and password\" from S",
+    "sha": "d80a2b5",
+    "content": [
+      {
+        "type": "p",
+        "text": "auth.<DOMAIN> sends only an allow-list of paths to Nexus-Auth and everything else to the Supabase gateway. /request, /claim and /join were not on it, so the new ways in answered 401 \"Missing username and password\" from Supabase."
+      }
+    ]
+  },
+  {
+    "slug": "serve-the-ways-in-from-auth-tnhc-dev-where-newcomers-can-rea",
+    "title": "Serve the ways in from auth.tnhc.dev, where newcomers can reach them",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "onboarding"
+    ],
+    "category": "Commit",
+    "excerpt": "Nobody without an account could get in. Requesting access and claiming an approved account were React pages on app.tnhc.dev, behind the sign-in gate, so a newcomer was sent to a login form for an account they did not hav",
+    "sha": "7872c42",
+    "content": [
+      {
+        "type": "p",
+        "text": "Nobody without an account could get in. Requesting access and claiming an approved account were React pages on app.tnhc.dev, behind the sign-in gate, so a newcomer was sent to a login form for an account they did not have yet. Invites had an API but no page at all, so an invited person held a code with nowhere to use it. This is the \"invite email opens a blank page\" report."
+      },
+      {
+        "type": "p",
+        "text": "Like the major clouds, sign-up now lives on the identity host, the one host the gate keeps public: - Auth serves GET/POST /request, /claim and /join as server-rendered forms with no script (default-src 'none', frame-ancestors 'none', no-store, no-referrer), the same construction as /login. Fields are length-capped at the boundary; passwords are confirmed before a code is spent; claim and invite keep their failure rate limits, and /request is limited per client on every attempt. A successful claim or join signs the person in and shows recovery codes once. - /request says \"username or email already in use\" for either clash rather than naming which, so it cannot be used to test whether an email has an account. - The login page links to all three. - Dashboard: old /request and /claim links forward to Auth with their query; the Admin page hands out a ready-to-send /join?code= link; the unreachable React pages and their API calls are removed."
+      },
+      {
+        "type": "p",
+        "text": "Auth 100/100 (15 new); Dashboard 203/203, typecheck clean."
+      }
+    ]
+  },
+  {
+    "slug": "reset-password-tool-for-existing-accounts",
+    "title": "Reset-password tool for existing accounts",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "auth"
+    ],
+    "category": "Commit",
+    "excerpt": "The seed only creates missing accounts, so NEXUS_AUTH_FOUNDER_PASSWORD cannot rotate a live store. scripts/reset-password.ts rewrites one account's hash in the same scrypt format as src/users.ts, refuses while Auth is an",
+    "sha": "06cd969",
+    "content": [
+      {
+        "type": "p",
+        "text": "The seed only creates missing accounts, so NEXUS_AUTH_FOUNDER_PASSWORD cannot rotate a live store. scripts/reset-password.ts rewrites one account's hash in the same scrypt format as src/users.ts, refuses while Auth is answering (it would overwrite the edit from memory), keeps a backup, and prints a generated password once. Tested against a disposable store through authenticateUser; other accounts stay byte-identical. Store backups are git-ignored: they hold every account's hash."
+      }
+    ]
+  },
+  {
+    "slug": "give-each-service-30s-to-bind-before-giving-up",
+    "title": "Give each service 30s to bind before giving up",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "The 5s default (20 x 0.25s) made the documented recovery fail after a reboot: nexus-chat needs several seconds on a cold start and missed the window, and the first refusal halts the whole run, so the proxy and every app ",
+    "sha": "4598319",
+    "content": [
+      {
+        "type": "p",
+        "text": "The 5s default (20 x 0.25s) made the documented recovery fail after a reboot: nexus-chat needs several seconds on a cold start and missed the window, and the first refusal halts the whole run, so the proxy and every app stayed down. Previous plans already overrode it to 160 by hand."
+      }
+    ]
+  },
   {
     "slug": "privacy-guard-lists-each-service-submodule-itself",
     "title": "Privacy guard lists each service submodule itself",
@@ -16845,6 +18157,185 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "allowlist-emoji-content-types-drop-svg-from-chat-attachments",
+    "title": "Allowlist emoji content types; drop SVG from chat attachments",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "security",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "emoji.rs accepted any Content-Type from the multipart field and stored it verbatim in MinIO. An attacker could supply text/html, which MinIO would serve from storage.tnhc.dev (a .tnhc.dev subdomain that carries the sessi",
+    "sha": "d3a62fc",
+    "content": [
+      {
+        "type": "p",
+        "text": "emoji.rs accepted any Content-Type from the multipart field and stored it verbatim in MinIO. An attacker could supply text/html, which MinIO would serve from storage.tnhc.dev (a .tnhc.dev subdomain that carries the session cookie) enabling full HTML XSS. Added a strict allowlist: only raster image formats."
+      },
+      {
+        "type": "p",
+        "text": "uploads.rs allowed image/svg+xml with no sanitization. SVG can embed <script> tags; MinIO serves files with their stored Content-Type, so an attacker-uploaded SVG would execute JavaScript on storage.tnhc.dev, reaching the session cookie. Removed SVG from the allowlist."
+      }
+    ]
+  },
+  {
+    "slug": "update-vulnerable-crates-add-missing-blake3-dep",
+    "title": "Update vulnerable crates + add missing blake3 dep",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "deps",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Vulnerability fixes (cargo audit \u2192 deny.toml): - quinn-proto 0.11.14 \u2192 0.11.19  (5 CVEs: memory exhaustion, panics, DoS) - sqlx 0.7.4 \u2192 0.8.6             (RUSTSEC-2024-0363 binary protocol misinterpretation) - h2 0.4.13 ",
+    "sha": "fb48e24",
+    "content": [
+      {
+        "type": "p",
+        "text": "Vulnerability fixes (cargo audit \u2192 deny.toml): - quinn-proto 0.11.14 \u2192 0.11.19  (5 CVEs: memory exhaustion, panics, DoS) - sqlx 0.7.4 \u2192 0.8.6             (RUSTSEC-2024-0363 binary protocol misinterpretation) - h2 0.4.13 \u2192 0.4.20             (RUSTSEC-2026-0258 unbounded empty DATA frames) - rustls 0.23.36 \u2192 0.23.46       (3 CVEs: TLS secrets in Debug, cert decompression, downgrade) - rustls-webpki 0.103.9 \u2192 0.103.15 - aws-lc-sys 0.37.1 \u2192 0.46.0    (5 CVEs) - aws-lc-rs 1.15.4 \u2192 1.18.2 - crossbeam-epoch, tar, anyhow, memmap2, spin, aws-sdk-s3"
+      },
+      {
+        "type": "p",
+        "text": "Remaining unfixable exemptions documented in deny.toml: - AWS SDK hyper-0.14 chain (h2 0.3, rustls 0.21, webpki 0.101) \u2014 MinIO on loopback - rsa Marvin Attack \u2014 test-only key gen, no production decrypt - lru soundness \u2014 pinned by aws-sdk-s3 + tantivy - rand unsoundness \u2014 requires custom panicking allocator (not used) - Tauri desktop-only crates"
+      },
+      {
+        "type": "p",
+        "text": "Bug fix: add missing blake3 workspace dep to nexus-api/Cargo.toml. phantom.rs used blake3::hash() but it was not declared as a direct dependency (only present transitively via nexus-common)."
+      }
+    ]
+  },
+  {
+    "slug": "e2ee-at-rest-keys-generated-client-side-never-server-stored",
+    "title": "E2EE at rest \u2014 keys generated client-side, never server-stored",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "privacy-p3",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Privacy Architecture Programme Part 3.",
+    "sha": "1219ac7",
+    "content": [
+      {
+        "type": "p",
+        "text": "Privacy Architecture Programme Part 3."
+      },
+      {
+        "type": "p",
+        "text": "Backend: - POST /api/users/@me/phantom now accepts ClientPhantomRegistration {kem_public, signing_public} from the client; no longer generates or stores secret keys server-side - Removed PhantomSecretKeys, PhantomKeyPair, get_secret_keys() entirely - Migration 20261015000001: wipe kem_secret/signing_secret, drop both columns from phantom_identities - server now holds public keys only; DID still derived server-side"
+      },
+      {
+        "type": "p",
+        "text": "Frontend: - Added @noble/post-quantum for ML-KEM-1024 + ML-DSA-87 (pure JS, no WASM) - phantomKeys.ts: generate in browser, encrypt private key under PBKDF2-SHA-256 + AES-GCM-256, store in IndexedDB; export as encrypted JSON backup; clear from device - PhantomKeyManager.tsx: UI for key generation, status, export, removal - SettingsPanel: new \"Post-Quantum Identity\" section in Security tab - 19/19 vitest tests pass (5 new for phantomKeys)"
+      }
+    ]
+  },
+  {
+    "slug": "apply-design-system-state-tokens-drop-hardcoded-hex",
+    "title": "Apply design system state tokens; drop hardcoded hex",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "web",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "- Add state token aliases (success/warning/danger/info) to @theme in index.css so Tailwind utilities work consistently - Replace hardcoded #f87171/#4ade80/#fbbf24 with nexus-color-state-* vars in VoiceBar, SettingsPanel,",
+    "sha": "955b612",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Add state token aliases (success/warning/danger/info) to @theme in index.css so Tailwind utilities work consistently - Replace hardcoded #f87171/#4ade80/#fbbf24 with nexus-color-state-* vars in VoiceBar, SettingsPanel, UserPopover, ServerList, JoinServerModal, and the .status-dot / .nx-btn-danger CSS classes"
+      }
+    ]
+  },
+  {
+    "slug": "apply-figtree-font-acid-bolt-brand-mark",
+    "title": "Apply Figtree font + acid-bolt brand mark",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "chat",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Switch IBM Plex Sans \u2192 Figtree across index.css, nexus-tokens.css and styles.css to align Chat with the rest of the ecosystem. Add the acid-bolt lightning SVG at the top of ServerList as the Nexus brand mark; teal accent",
+    "sha": "20148dd",
+    "content": [
+      {
+        "type": "p",
+        "text": "Switch IBM Plex Sans \u2192 Figtree across index.css, nexus-tokens.css and styles.css to align Chat with the rest of the ecosystem. Add the acid-bolt lightning SVG at the top of ServerList as the Nexus brand mark; teal accent color retained (intentional Discord-like identity)."
+      }
+    ]
+  },
+  {
+    "slug": "send-channel-type-instead-of-kind-in-createchannel",
+    "title": "Send channel_type instead of kind in createChannel",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "mobile",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "The backend CreateChannelRequest expects channel_type (snake_case) but the mobile API client was sending kind. This caused 422 errors on channel creation from the mobile app.",
+    "sha": "a47957d",
+    "content": [
+      {
+        "type": "p",
+        "text": "The backend CreateChannelRequest expects channel_type (snake_case) but the mobile API client was sending kind. This caused 422 errors on channel creation from the mobile app."
+      }
+    ]
+  },
+  {
+    "slug": "close-idor-gaps-dm-messages-channel-metadata-attachments-dra",
+    "title": "Close IDOR gaps \u2014 DM messages, channel metadata, attachments, drawings",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "api",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Any authenticated user could read messages in a DM they were not in, list channels in a server they had not joined, fetch presigned URLs for attachments uploaded in channels they could not access, and read or mutate any ",
+    "sha": "96e0ae8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Any authenticated user could read messages in a DM they were not in, list channels in a server they had not joined, fetch presigned URLs for attachments uploaded in channels they could not access, and read or mutate any drawing."
+      },
+      {
+        "type": "p",
+        "text": "nexus-db: - channels: add is_dm_participant(pool, channel_id, user_id) helper"
+      },
+      {
+        "type": "p",
+        "text": "nexus-api \u2014 access guards applied: - GET /channels/:id/messages: DM channels now require dm_participants membership (server channels already checked is_member; this closes the symmetric gap) - GET /servers/:id/channels: now requires is_member (was auth-only, no membership check) - GET /channels/:id: now checks server membership or DM participation for the caller; returns NotFound (not Forbidden) to avoid channel-existence probing - GET /attachments/:id: removed \"auth just verifies login\" comment; callers who are not the uploader are now checked against the attachment's channel (server membership or DM participation); channel-less attachments stay accessible - GET /channels/:id/drawings, GET /channels/:id/whiteboards: require_channel_access - GET /drawings/:id, PATCH /drawings/:id: require_channel_access on the drawing's channel; PATCH also checks author_id == caller (was open to any auth'd user)"
+      },
+      {
+        "type": "p",
+        "text": "cargo check -p nexus-api passes cleanly."
+      }
+    ]
+  },
+  {
     "slug": "remove-personal-data-from-remaining-chat-log-sinks",
     "title": "Remove personal data from remaining chat log sinks",
     "date": "2026-10-07",
@@ -19117,6 +20608,31 @@ export const COMMIT_POSTS = [
       {
         "type": "p",
         "text": "Key design decisions: - No phone/ID required \u2014 username + password auth - UUID v7 snowflake IDs (time-sortable) - 40+ granular permissions via bitflags - JWT access/refresh token auth with Argon2id - Zero unsafe code (removed zeroed() placeholder)"
+      }
+    ]
+  },
+  {
+    "slug": "remove-starlette-1-0-0-upper-bound-bump-to-1-3-1",
+    "title": "Remove starlette <1.0.0 upper bound; bump to >=1.3.1",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "deps",
+      "ai"
+    ],
+    "category": "Commit",
+    "excerpt": "starlette 0.52.1 (latest matching the old >=0.38.0,<1.0.0 constraint) has 6 CVEs fixed in 1.0.1 - 1.3.1. Remove the upper bound and pin the minimum to the patched version. Bump fastapi minimum to >=0.140.0 which is compa",
+    "sha": "39b9b20",
+    "content": [
+      {
+        "type": "p",
+        "text": "starlette 0.52.1 (latest matching the old >=0.38.0,<1.0.0 constraint) has 6 CVEs fixed in 1.0.1 - 1.3.1. Remove the upper bound and pin the minimum to the patched version. Bump fastapi minimum to >=0.140.0 which is compatible with starlette 1.x (confirmed installed together)."
+      },
+      {
+        "type": "p",
+        "text": "pip-audit: No known vulnerabilities found after this change."
       }
     ]
   },
@@ -22681,6 +24197,85 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "probe-exposed-tools-health-to-keep-non-sdk-services-healthy",
+    "title": "Probe exposed tools' /health to keep non-SDK services healthy",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "cloud",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "Services that cannot use the Bun SDK (Rust apps, static sites) miss heartbeats and fall offline even while their upstreams are live. Add probeExposedToolsHealth() to the 30-second background loop: for every exposed tool ",
+    "sha": "bcbacb8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Services that cannot use the Bun SDK (Rust apps, static sites) miss heartbeats and fall offline even while their upstreams are live. Add probeExposedToolsHealth() to the 30-second background loop: for every exposed tool with an upstreamUrl, fetch /health and treat a 2xx response as a heartbeat, keeping the tool marked healthy. A failing probe marks the tool offline when it wasn't already."
+      },
+      {
+        "type": "p",
+        "text": "This fixes two stale-offline tools: - nexus (Chat Rust app): upstreamUrl corrected from :5174 to :8095 - nexus-draw-site: static site served by Hosting at :8091"
+      },
+      {
+        "type": "p",
+        "text": "4 new tests in registry.service.test.ts (13/13 pass)."
+      }
+    ]
+  },
+  {
+    "slug": "gate-storage-mutations-behind-the-api-key",
+    "title": "Gate storage mutations behind the API key",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "cloud",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "POST/DELETE /api/v1/volumes and POST/DELETE/drain/heartbeat on /api/v1/storage/pools were dispatched before the shared mutation gate (line 1598 of handleApiRequest). Any authenticated member of the ecosystem could provis",
+    "sha": "fef2ebc",
+    "content": [
+      {
+        "type": "p",
+        "text": "POST/DELETE /api/v1/volumes and POST/DELETE/drain/heartbeat on /api/v1/storage/pools were dispatched before the shared mutation gate (line 1598 of handleApiRequest). Any authenticated member of the ecosystem could provision or delete storage without the operator API key."
+      },
+      {
+        "type": "p",
+        "text": "Added checkApiKey guards inline in handleApiRequest for each storage mutation path. Reads (GET) remain public, consistent with Cloud's existing posture."
+      },
+      {
+        "type": "p",
+        "text": "Updated the pool-credential-leak test to authenticate the create step, and added 'storage mutations require the API key' covering all 6 affected paths (+ confirms reads are still open). Suite: 92/92."
+      }
+    ]
+  },
+  {
+    "slug": "approve-sites-tnhc-dev-in-tls-ask-for-hosting-user-sites",
+    "title": "Approve *.sites.tnhc.dev in tls-ask for Hosting user sites",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "cloud",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "User-deployed Hosting sites migrate to the sites.tnhc.dev namespace for PSL isolation. They are not individually registered in Cloud's route table, so the tls-ask handler now short-circuits and approves the entire namesp",
+    "sha": "2159b19",
+    "content": [
+      {
+        "type": "p",
+        "text": "User-deployed Hosting sites migrate to the sites.tnhc.dev namespace for PSL isolation. They are not individually registered in Cloud's route table, so the tls-ask handler now short-circuits and approves the entire namespace (anything ending in .sites.<cloudDomain>) before consulting the route table."
+      }
+    ]
+  },
+  {
     "slug": "support-zero-downtime-api-key-rotation-via-nexus-cloud-api-k",
     "title": "Support zero-downtime API key rotation via NEXUS_CLOUD_API_KEY_PREVIOUS",
     "date": "2026-08-23",
@@ -23354,6 +24949,31 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "live-means-healthy-dockerfile-path-local-repos-opt-in",
+    "title": "Live means healthy; Dockerfile path; local repos opt-in",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "- A release is only marked live once its health probe passes (healthPath must answer 2xx; without one, any non-5xx on \"/\"). A release that never becomes healthy is rejected and the previously live image is started again;",
+    "sha": "c46e827",
+    "content": [
+      {
+        "type": "p",
+        "text": "- A release is only marked live once its health probe passes (healthPath must answer 2xx; without one, any non-5xx on \"/\"). A release that never becomes healthy is rejected and the previously live image is started again; with nothing to restore, the crash-looping container is removed. Before this, Deploy flipped to live the moment `docker run -d` returned. - New project fields: dockerfile (relative to the repo root, default <buildContext>/Dockerfile) so a monorepo app can build from the repo root, and buildContext (scoped context, symlink-escape checked). - file: repositories are refused unless DEPLOY_ALLOW_LOCAL_REPOS=true; they would let any signed-in user build from any git repo on the host. Repo, dockerfile and healthPath are validated on create/update, not at deploy time."
+      },
+      {
+        "type": "p",
+        "text": "Verified by the monorepo's Calendar release lifecycle check, including a mutation run with the gate disabled that fails as expected."
+      }
+    ]
+  },
+  {
     "slug": "drop-the-login-form-use-the-ecosystem-session",
     "title": "Drop the login form, use the ecosystem session",
     "date": "2026-08-13",
@@ -23717,6 +25337,134 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "apply-design-system-figtree-font-acid-green-accent",
+    "title": "Apply design system \u2014 Figtree font + acid green accent",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "hosting",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Replace Manrope/Syne with Figtree Variable (self-hosted @fontsource, CSP-safe). Change primary accent from cyan (hsl 185) to acid green (hsl 72 = #ccff00) to match the ecosystem. Update sidebar branding from FederatedHos",
+    "sha": "b7602c8",
+    "content": [
+      {
+        "type": "p",
+        "text": "Replace Manrope/Syne with Figtree Variable (self-hosted @fontsource, CSP-safe). Change primary accent from cyan (hsl 185) to acid green (hsl 72 = #ccff00) to match the ecosystem. Update sidebar branding from FederatedHosting to acid-bolt SVG + Nexus Hosting wordmark."
+      }
+    ]
+  },
+  {
+    "slug": "patch-critical-high-cve-dependencies",
+    "title": "Patch critical/high CVE dependencies",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "hosting",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "318/318 unit tests pass. TypeScript: zero errors. Docker image builds clean.",
+    "sha": "2044b25",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "nodemailer: 6.x \u2192 10.1.0 (multiple high-severity CVEs fixed in 10.x)",
+          "simple-git: removed (3.x had critical CVEs; package was unused)",
+          "@types/nodemailer: removed (types bundled with nodemailer 10.x)",
+          "orval: 8.5.3 \u2192 8.42.0 (RCE CVEs in older versions; dev-only codegen tool)",
+          "vitest: 3.2.4 \u2192 3.2.7 (path traversal fix in @vitest/mocker)",
+          ".secrets.baseline: updated for new pnpm-lock.yaml integrity checksums"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "318/318 unit tests pass. TypeScript: zero errors. Docker image builds clean."
+      }
+    ]
+  },
+  {
+    "slug": "enforce-ownership-on-post-sites-id-deploy",
+    "title": "Enforce ownership on POST /sites/:id/deploy",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "hosting",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Any authenticated user could deploy to a site they did not own, and the transaction's `ownerId: req.user.id` write silently transferred ownership to the deployer on every successful deploy.",
+    "sha": "5cb850e",
+    "content": [
+      {
+        "type": "p",
+        "text": "Any authenticated user could deploy to a site they did not own, and the transaction's `ownerId: req.user.id` write silently transferred ownership to the deployer on every successful deploy."
+      },
+      {
+        "type": "p",
+        "text": "- Replace bare isAuthenticated() check with requireSiteAccess(req, siteId, \"write\"), which enforces auth + ownership + membership in one place and returns the site row, eliminating the duplicate db.select fetch - Remove ownerId from the storageUsedMb transaction update; ownership is set at creation and must never be overwritten by a deploy"
+      }
+    ]
+  },
+  {
+    "slug": "close-idor-gaps-on-file-upload-file-list-and-nlpl-process-ro",
+    "title": "Close IDOR gaps on file upload, file list, and NLPL process routes",
+    "date": "2026-10-14",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "hosting",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Any signed-in user could get presigned upload URLs for a site they did not own, register files against it, list its files without authentication, and read NLPL process status and stdout/stderr logs without any auth at al",
+    "sha": "d504ed6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Any signed-in user could get presigned upload URLs for a site they did not own, register files against it, list its files without authentication, and read NLPL process status and stdout/stderr logs without any auth at all."
+      },
+      {
+        "type": "p",
+        "text": "- add `requireSiteAccess` module: pure `decideSiteAccess` + async guard that checks owner, member role, and node-admin; returns the site row on success - wire `requireSiteAccess(req, siteId, \"write\")` into POST /sites/:id/files/upload-url and POST /sites/:id/files (replaces the bare site-exists fetch) - wire `requireSiteAccess(req, siteId, \"read\")` into GET /sites/:id/files (was completely unauthenticated), GET /sites/:id/nlpl/status, and GET /sites/:id/nlpl/logs - 21 unit tests for `decideSiteAccess` covering all role/action combinations - all 318 unit tests pass"
+      }
+    ]
+  },
+  {
+    "slug": "new-sites-belong-to-their-creator-restore-the-real-stream-te",
+    "title": "New sites belong to their creator; restore the real stream test",
+    "date": "2026-10-13",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "sites",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "- POST /sites now records ownerId from the signed-in user. Sites created through the API had no owner, so ownership checks could not apply to them. The 201 response omits ownerEmail. Unit tests in tests/unit/siteCreation",
+    "sha": "270722b",
+    "content": [
+      {
+        "type": "p",
+        "text": "- POST /sites now records ownerId from the signed-in user. Sites created through the API had no owner, so ownership checks could not apply to them. The 201 response omits ownerEmail. Unit tests in tests/unit/siteCreation.test.ts. - tests/unit/storageStream.test.ts tests the real S3StorageProvider again. The vitest-compat commit (246f9fb) replaced the import with a hand-written copy via vi.mock, so since 2026-08-23 the tests guarding the Readable/fromWeb fix that ended the Cloudflare 520s exercised no production code. Restored from a2c47db; it passes 4/4 on the real code and fails 3/4 when that bug is put back. - e2e/deploy.spec.ts asserts the exact bytes served for each version, the new site's owner, and that rollback serves v1 again; it refuses non-loopback targets unless NH_DISPOSABLE_TARGET=1 and always deletes its site. - pnpm-lock.yaml: the committed lock failed --frozen-lockfile (vitest and three font packages declared but missing). This one passes. - .secrets.baseline: rescanned. Only pnpm-lock.yaml entries changed, every new one an npm `integrity: sha512-` checksum; the 13 other files are identical."
+      },
+      {
+        "type": "p",
+        "text": "Unit suite 297/297 across all 26 files; api-server typecheck clean."
       }
     ]
   },
@@ -27605,6 +29353,39 @@ export const COMMIT_POSTS = [
       {
         "type": "p",
         "text": "Self-hosted API key registry with: - AES-256-GCM encryption at rest (per-value salt + IV) - SQLite storage via better-sqlite3 (WAL mode) - Two-tier auth: read token for projects, admin token for dashboard - Full REST API: CRUD, search, expiry tracking - Audit log with per-key access stats - Web dashboard (IBM Plex Mono, dark terminal aesthetic) - Docker + docker-compose with persistent volume - Soft-delete, tag/project filtering, copy-to-clipboard - README with curl/Node/Python usage examples"
+      }
+    ]
+  },
+  {
+    "slug": "implement-payload-encryption-privacy-part-4",
+    "title": "Implement payload encryption (Privacy Part 4)",
+    "date": "2026-10-15",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "phantom-core",
+      "phantom"
+    ],
+    "category": "Commit",
+    "excerpt": "PhantomPacket::construct step 3 was a TODO that stored the payload verbatim \u2014 any relay carrying a packet could read its contents.",
+    "sha": "fc0578a",
+    "content": [
+      {
+        "type": "p",
+        "text": "PhantomPacket::construct step 3 was a TODO that stored the payload verbatim \u2014 any relay carrying a packet could read its contents."
+      },
+      {
+        "type": "p",
+        "text": "This commit closes that gap with hybrid encryption: - ML-KEM-1024 (Kyber) encapsulates a fresh 32-byte shared secret for the recipient's public key - ChaCha20-Poly1305 encrypts the payload under that key with a random 12-byte nonce"
+      },
+      {
+        "type": "p",
+        "text": "Changes: - phantom-crypto: add EncryptedPayload (encrypt/decrypt) + 2 tests - phantom-crypto: add chacha20poly1305 = \"0.10\" dependency - phantom-core/packet.rs: add recipient_kem_public param to construct() and new decrypt_payload() method; fix test_packet_construction - phantom-core/anonymous_routing.rs: propagate recipient_kem_public through AnonymousPacketBuilder::build_packet - phantom-routing/packet_constructor.rs: propagate param through PacketConstructor::construct_packet - Un-ignore payload_is_not_readable_on_the_wire \u2014 now passes - All demos, benchmarks, examples and integration tests updated"
+      },
+      {
+        "type": "p",
+        "text": "STATUS.md: Message encryption marked Done."
       }
     ]
   },

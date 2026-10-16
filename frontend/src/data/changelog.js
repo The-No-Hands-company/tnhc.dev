@@ -5,9 +5,380 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 1156 entries, newest first.
+// 1227 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "b7c7f30",
+    "date": "2026-10-16",
+    "kind": "feat",
+    "area": "ci",
+    "title": "Nit CI \u2014 headless axe-core scan + responsive passes for Calendar, Draw"
+  },
+  {
+    "sha": "35d7ed4",
+    "date": "2026-10-16",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Calendar keyboard nav + project home/list aria pass"
+  },
+  {
+    "sha": "d9f3341",
+    "date": "2026-10-16",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Responsive and accessibility pass on Calendar, Project, Draw"
+  },
+  {
+    "sha": "9b56b03",
+    "date": "2026-10-16",
+    "kind": "feat",
+    "area": "auth",
+    "title": "Design tokens, responsive layout, and a11y improvements"
+  },
+  {
+    "sha": "8401f2d",
+    "date": "2026-10-16",
+    "kind": "fix",
+    "area": "security",
+    "title": "Force attachment for scriptable types on storage.tnhc.dev"
+  },
+  {
+    "sha": "96fb101",
+    "date": "2026-10-16",
+    "kind": "fix",
+    "area": "security",
+    "title": "Dependency vulnerability scan and remediation pass"
+  },
+  {
+    "sha": "ca77cd7",
+    "date": "2026-10-16",
+    "kind": "feat",
+    "area": "privacy",
+    "title": "Part 5 \u2014 warrant canary + Swedish retention-law audit"
+  },
+  {
+    "sha": "fd4e611",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Apply design system tokens and Badge component"
+  },
+  {
+    "sha": "58f632a",
+    "date": "2026-10-15",
+    "kind": "fix",
+    "area": "draw",
+    "title": "Use vi.stubGlobal so api.test.ts runs correctly under Vitest"
+  },
+  {
+    "sha": "5257bbd",
+    "date": "2026-10-15",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Strip x-nexus-subject from incoming requests"
+  },
+  {
+    "sha": "ac708c0",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "project",
+    "title": "Wire design system tokens + use Badge for status/priority"
+  },
+  {
+    "sha": "3007570",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "design-system",
+    "title": "Add Badge, Table, PageHeader, Stat components"
+  },
+  {
+    "sha": "3b78c3d",
+    "date": "2026-10-15",
+    "kind": "fix",
+    "area": "project",
+    "title": "Unwrap backend list responses in api.ts"
+  },
+  {
+    "sha": "c5bd721",
+    "date": "2026-10-15",
+    "kind": "fix",
+    "area": "project",
+    "title": "Fix blank page in /project iframe"
+  },
+  {
+    "sha": "6b6093f",
+    "date": "2026-10-15",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Fix blank pages for /report and shell-native apps"
+  },
+  {
+    "sha": "2171f91",
+    "date": "2026-10-15",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Block cross-subdomain CSRF mutations (O-1)"
+  },
+  {
+    "sha": "5e5b44f",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Apply design system + edit event support"
+  },
+  {
+    "sha": "49f6991",
+    "date": "2026-10-15",
+    "kind": "fix",
+    "area": "draw",
+    "title": "Close IDOR \u2014 scope all board operations to owner_subject"
+  },
+  {
+    "sha": "497f47a",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "project",
+    "title": "Fix blank page \u2014 add create flows + apply design system"
+  },
+  {
+    "sha": "7d36cf6",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Redesign home page to cloud console style"
+  },
+  {
+    "sha": "c794cac",
+    "date": "2026-10-14",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Migrate user sites to sites.tnhc.dev namespace for PSL isolation"
+  },
+  {
+    "sha": "02b8347",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Use relative redirects for /calendar and /project"
+  },
+  {
+    "sha": "ce5ee19",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Route /api/v1/project/* to project API proxy"
+  },
+  {
+    "sha": "9a25284",
+    "date": "2026-10-14",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Proxy /project/* to nexus-project-web, /ipa/project/* to API"
+  },
+  {
+    "sha": "0ddcb79",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Make draw.tnhc.dev public in the gate"
+  },
+  {
+    "sha": "cb3e387",
+    "date": "2026-10-14",
+    "kind": "feat",
+    "area": "project",
+    "title": "Plan 2 frontend \u2014 Board, List, Timeline, TaskDrawer"
+  },
+  {
+    "sha": "e300b09",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "project",
+    "title": "Relax performance threshold to 500 ms"
+  },
+  {
+    "sha": "6bd73ed",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Pass NEXUS_CLOUD_API_KEY to proxy start_service"
+  },
+  {
+    "sha": "eeb3b47",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Heartbeats stay on loopback, and a failing one is logged"
+  },
+  {
+    "sha": "faec32d",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "email",
+    "title": "The outbound queue forgets finished deliveries"
+  },
+  {
+    "sha": "66bda1f",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "gate",
+    "title": "Signed-out API calls get 401, page loads still go to sign in"
+  },
+  {
+    "sha": "9591f76",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Run the privacy check once after every deploy"
+  },
+  {
+    "sha": "518d0fe",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Public health checks say only ok or unavailable"
+  },
+  {
+    "sha": "38df4a6",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "calendar",
+    "title": "The toolbar fits a phone"
+  },
+  {
+    "sha": "ef3c1a3",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "account",
+    "title": "Regenerated recovery codes are readable on a phone and downloadable"
+  },
+  {
+    "sha": "a618572",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Dashboard pages use phone-sized padding; phone-width checkers"
+  },
+  {
+    "sha": "f2b1852",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "auth",
+    "title": "A page to get back in with a recovery code"
+  },
+  {
+    "sha": "c932a4b",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "auth",
+    "title": "Recovery codes are readable on a phone, and downloadable"
+  },
+  {
+    "sha": "4be04b7",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "The shell may frame the ecosystem's apps again"
+  },
+  {
+    "sha": "511aebf",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Only the Community app's Supabase APIs are public on auth.tnhc.dev"
+  },
+  {
+    "sha": "4d6c0e2",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "auth",
+    "title": "Access requests no longer reveal whether an email has an account"
+  },
+  {
+    "sha": "25c9949",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Shared system-mail token, and prove the endpoint stays private"
+  },
+  {
+    "sha": "7eb1f84",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Send invites by email from the Admin page"
+  },
+  {
+    "sha": "6de8786",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "auth",
+    "title": "Email invitations and approval notices through Nexus-Email"
+  },
+  {
+    "sha": "130a18d",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "auth",
+    "title": "Invites can be bound to the invited email"
+  },
+  {
+    "sha": "f437f9c",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "email",
+    "title": "System mail endpoint for invitations and approval notices"
+  },
+  {
+    "sha": "4531da9",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "User-deployed sites get no visitor credentials"
+  },
+  {
+    "sha": "8e511a3",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Referrer-Policy is a floor, not an overwrite"
+  },
+  {
+    "sha": "d80a2b5",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Route the onboarding pages on auth.tnhc.dev to Auth"
+  },
+  {
+    "sha": "7872c42",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "onboarding",
+    "title": "Serve the ways in from auth.tnhc.dev, where newcomers can reach them"
+  },
+  {
+    "sha": "06cd969",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "auth",
+    "title": "Reset-password tool for existing accounts"
+  },
+  {
+    "sha": "4598319",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Give each service 30s to bind before giving up"
+  },
+  {
+    "sha": "acc19f8",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "calendar",
+    "title": "Report observed cloud health"
+  },
   {
     "sha": "07f4174",
     "date": "2026-10-08",
@@ -4825,6 +5196,55 @@ export const CHANGELOG = [
     "title": "Modeling workflow slice 1 geometry ops"
   },
   {
+    "sha": "d3a62fc",
+    "date": "2026-10-16",
+    "kind": "fix",
+    "area": "security",
+    "title": "Allowlist emoji content types; drop SVG from chat attachments"
+  },
+  {
+    "sha": "fb48e24",
+    "date": "2026-10-16",
+    "kind": "fix",
+    "area": "deps",
+    "title": "Update vulnerable crates + add missing blake3 dep"
+  },
+  {
+    "sha": "1219ac7",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "privacy-p3",
+    "title": "E2EE at rest \u2014 keys generated client-side, never server-stored"
+  },
+  {
+    "sha": "955b612",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "web",
+    "title": "Apply design system state tokens; drop hardcoded hex"
+  },
+  {
+    "sha": "20148dd",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Apply Figtree font + acid-bolt brand mark"
+  },
+  {
+    "sha": "a47957d",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Send channel_type instead of kind in createChannel"
+  },
+  {
+    "sha": "96e0ae8",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "api",
+    "title": "Close IDOR gaps \u2014 DM messages, channel metadata, attachments, drawings"
+  },
+  {
     "sha": "530276e",
     "date": "2026-10-07",
     "kind": "fix",
@@ -5740,6 +6160,13 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "chat",
     "title": "Initial Nexus scaffold \u2014 privacy-first Discord alternative"
+  },
+  {
+    "sha": "39b9b20",
+    "date": "2026-10-16",
+    "kind": "fix",
+    "area": "deps",
+    "title": "Remove starlette <1.0.0 upper bound; bump to >=1.3.1"
   },
   {
     "sha": "dca48a5",
@@ -6827,6 +7254,27 @@ export const CHANGELOG = [
     "title": "Multi-turn sessions, agent loop, Claude provider, new chat UI"
   },
   {
+    "sha": "bcbacb8",
+    "date": "2026-10-16",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Probe exposed tools' /health to keep non-SDK services healthy"
+  },
+  {
+    "sha": "fef2ebc",
+    "date": "2026-10-15",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Gate storage mutations behind the API key"
+  },
+  {
+    "sha": "2159b19",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Approve *.sites.tnhc.dev in tls-ask for Hosting user sites"
+  },
+  {
     "sha": "5180667",
     "date": "2026-08-25",
     "kind": "feat",
@@ -7065,6 +7513,13 @@ export const CHANGELOG = [
     "title": "Phase 1 \u2014 Nexus.computer initial build"
   },
   {
+    "sha": "c46e827",
+    "date": "2026-10-13",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Live means healthy; Dockerfile path; local repos opt-in"
+  },
+  {
     "sha": "a78cdb6",
     "date": "2026-08-13",
     "kind": "fix",
@@ -7147,6 +7602,41 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "deploy",
     "title": "Real build engine, WebSocket log streaming, full dashboard"
+  },
+  {
+    "sha": "b7602c8",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Apply design system \u2014 Figtree font + acid green accent"
+  },
+  {
+    "sha": "2044b25",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Patch critical/high CVE dependencies"
+  },
+  {
+    "sha": "5cb850e",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Enforce ownership on POST /sites/:id/deploy"
+  },
+  {
+    "sha": "d504ed6",
+    "date": "2026-10-14",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Close IDOR gaps on file upload, file list, and NLPL process routes"
+  },
+  {
+    "sha": "270722b",
+    "date": "2026-10-13",
+    "kind": "fix",
+    "area": "sites",
+    "title": "New sites belong to their creator; restore the real stream test"
   },
   {
     "sha": "50ae1a4",
@@ -7989,6 +8479,13 @@ export const CHANGELOG = [
     "title": "Initial commit \u2014 DevVault v0.1.0"
   },
   {
+    "sha": "fc0578a",
+    "date": "2026-10-15",
+    "kind": "feat",
+    "area": "phantom-core",
+    "title": "Implement payload encryption (Privacy Part 4)"
+  },
+  {
     "sha": "92070d2",
     "date": "2026-08-20",
     "kind": "fix",
@@ -8102,4 +8599,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "calendar", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "ops", "phantom", "portal", "privacy", "project", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "smoke", "startup", "storage", "systems-api", "terminal", "test", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "calendar", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "portal", "privacy", "privacy-p3", "project", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "sites", "smoke", "startup", "storage", "systems-api", "terminal", "test", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
