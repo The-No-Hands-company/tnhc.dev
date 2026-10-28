@@ -21,8 +21,9 @@ export const PARTNERS = [
     name: "Corex Team",
     handle: "corexteam.org",
     href: "https://corexteam.org",
-    region: "International",
+    region: "Indonesia",
     contact: "Mebi",
+    contactHref: "https://instagram.com/gadgetkinipadang",
     role: "Joint Development Partner",
     projects: [
       { label: "Docu", href: "https://corexteam.org/Docu" },
@@ -74,15 +75,31 @@ function PartnerCard({ partner, index }) {
           {/* Right: meta */}
           <dl className="w-full shrink-0 space-y-3 border-t border-white/10 pt-4 sm:w-56 sm:border-l sm:border-t-0 sm:pl-8 sm:pt-0">
             {[
-              ["Region", partner.region],
-              ["Contact", partner.contact],
-              ["Partner since", partner.since],
+              ["Region", partner.region, null],
+              ["Partner since", partner.since, null],
             ].map(([k, v]) => (
               <div key={k} className="flex items-baseline justify-between gap-3">
                 <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/35">{k}</dt>
                 <dd className="text-right font-mono text-xs text-white">{v}</dd>
               </div>
             ))}
+            <div className="flex items-baseline justify-between gap-3">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/35">Contact</dt>
+              <dd className="text-right">
+                {partner.contactHref ? (
+                  <a
+                    href={partner.contactHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs text-acid transition-opacity hover:opacity-70"
+                  >
+                    {partner.contact} ↗
+                  </a>
+                ) : (
+                  <span className="font-mono text-xs text-white">{partner.contact}</span>
+                )}
+              </dd>
+            </div>
 
             <div className="border-t border-white/10 pt-3">
               <dt className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/35">
