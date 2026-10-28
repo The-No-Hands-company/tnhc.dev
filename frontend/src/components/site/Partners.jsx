@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { HandshakeLogo } from "@phosphor-icons/react";
+import { Handshake } from "@phosphor-icons/react";
 
 const Reveal = ({ children, className = "", delay = 0 }) => (
   <motion.div
@@ -62,7 +62,7 @@ export default function Partners() {
                 className="tracing-card group relative flex h-full flex-col justify-between overflow-hidden border border-white/10 bg-surface/60 p-8 backdrop-blur-sm transition-colors duration-500 hover:border-acid/40 md:p-10"
               >
                 <div className="relative z-10 flex items-start justify-between">
-                  <HandshakeLogo size={36} weight="duotone" className="text-acid" />
+                  <Handshake size={36} weight="duotone" className="text-acid" />
                   <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">
                     {p.region}
                   </span>
@@ -112,7 +112,7 @@ export default function Partners() {
           {/* Placeholder — future partners */}
           <Reveal delay={0.15}>
             <div className="flex h-full flex-col items-center justify-center border border-dashed border-white/10 p-8 text-center md:p-10">
-              <HandshakeLogo size={32} weight="duotone" className="mb-4 text-white/20" />
+              <Handshake size={32} weight="duotone" className="mb-4 text-white/20" />
               <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/30">
                 More partners coming
               </p>
