@@ -13,6 +13,7 @@ import Charter from "@/pages/Charter";
 import Privacy from "@/pages/Privacy";
 import Brand from "@/pages/Brand";
 import PhantomStatus from "@/pages/PhantomStatus";
+import PartnersPage from "@/pages/PartnersPage";
 
 /**
  * True when this bundle is being served from the API subdomain.
@@ -70,6 +71,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/brand" element={<Brand />} />
           <Route path="/phantom" element={<PhantomStatus />} />
+          <Route path="/partners" element={<PartnersPage />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="bottom-right" theme="dark" />
