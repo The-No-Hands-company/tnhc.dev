@@ -10,6 +10,7 @@ import Pillars from "@/components/site/Pillars";
 import Comparison from "@/components/site/Comparison";
 import Issues from "@/components/site/Issues";
 import Waitlist from "@/components/site/Waitlist";
+import Partners from "@/components/site/Partners";
 
 export default function Landing() {
   const { hash } = useLocation();
@@ -39,6 +40,7 @@ export default function Landing() {
       <Pillars />
       <Comparison />
       <Issues />
+      <Partners />
       <Waitlist />
     </main>
   );
