@@ -35,8 +35,8 @@
 /app        https://app.tnhc.dev/  302
 /dashboard  https://app.tnhc.dev/  302
 
-# Node operator information — public page, no sign-in needed.
-/node-operators   https://api.tnhc.dev/node-operators  302
-/node-operator    https://api.tnhc.dev/node-operators  302
-/nodes            https://api.tnhc.dev/node-operators  302
-/join-network     https://api.tnhc.dev/node-operators  302
+# Node operator information — aliases for the native SPA route.
+# /node-operators is served by the SPA itself; the others redirect to it.
+/node-operator    /node-operators  302
+/nodes            /node-operators  302
+/join-network     /node-operators  302
