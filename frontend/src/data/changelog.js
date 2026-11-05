@@ -5,9 +5,877 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 1227 entries, newest first.
+// 1402 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "6bcd0e1",
+    "date": "2026-11-05",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Wire Phantom Protocol across core services"
+  },
+  {
+    "sha": "5b5b570",
+    "date": "2026-11-05",
+    "kind": "feat",
+    "area": "mail",
+    "title": "Archive, forward, mark-as-unread, CC/BCC"
+  },
+  {
+    "sha": "5a1cfee",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "core",
+    "title": "Add GET /api/v1/auth/logout for OIDC RP-Initiated Logout"
+  },
+  {
+    "sha": "ead7932",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Allow hosting.tnhc.dev through the ecosystem gate and unblock /api/ paths"
+  },
+  {
+    "sha": "e6f385e",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Bridge /api/v1/auth/* to auth service for stale-cached bundles"
+  },
+  {
+    "sha": "6ae4278",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Return JSON 404 for unhandled /api/ paths instead of the HTML shell"
+  },
+  {
+    "sha": "fce7aac",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Redirect instead of blank on /admin for non-admin and unauthenticated users"
+  },
+  {
+    "sha": "0d1eed6",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Add /api/v1/me and /api/v1/apps compat routes for stale-cached bundles"
+  },
+  {
+    "sha": "1cf4f63",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Add cache-control headers to dashboard shell and hashed assets"
+  },
+  {
+    "sha": "fe5bf54",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Rebuild dashboard without VITE_NEXUS_API_URL so /ipa/v1/me routes same-origin"
+  },
+  {
+    "sha": "e955983",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Correct nexus-web dist path in chat Caddyfile"
+  },
+  {
+    "sha": "3971886",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "core",
+    "title": "Restore /ipa/v1/me and /ipa/v1/apps routes on dashboard"
+  },
+  {
+    "sha": "afd2b5b",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Add auth to per-service restart and add node-operator link to front door"
+  },
+  {
+    "sha": "59b2a17",
+    "date": "2026-11-03",
+    "kind": "feat",
+    "area": "core",
+    "title": "Enforce object capability verification and migration rollout fencing"
+  },
+  {
+    "sha": "d837148",
+    "date": "2026-11-03",
+    "kind": "feat",
+    "area": "core",
+    "title": "Read mail bodies through object service"
+  },
+  {
+    "sha": "b1164a1",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Add dashboard to per-service restart allowlist"
+  },
+  {
+    "sha": "e7d7d76",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Reject non-utf8 mail checksum headers"
+  },
+  {
+    "sha": "8e229c0",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Enforce mail checksum and body size contracts"
+  },
+  {
+    "sha": "e22825b",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Bound and validate mail object streams"
+  },
+  {
+    "sha": "761d3b5",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Harden mail object service reads"
+  },
+  {
+    "sha": "5ac321a",
+    "date": "2026-11-03",
+    "kind": "feat",
+    "area": "core",
+    "title": "Add mail object service"
+  },
+  {
+    "sha": "7f9af6e",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Harden mail object failure handling"
+  },
+  {
+    "sha": "8b7fb47",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Sanitize mail body errors and isolate cleanup tests"
+  },
+  {
+    "sha": "3090294",
+    "date": "2026-11-03",
+    "kind": "feat",
+    "area": "core",
+    "title": "Record mail object versions"
+  },
+  {
+    "sha": "be0cdc7",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Preserve mail reservation lock order"
+  },
+  {
+    "sha": "d91e96e",
+    "date": "2026-11-03",
+    "kind": "fix",
+    "area": "core",
+    "title": "Preserve mail trash and quarantine disposition"
+  },
+  {
+    "sha": "45f3e6e",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Serialize mail lease and thread lifecycle"
+  },
+  {
+    "sha": "b7f53df",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Enforce mail submission lifecycle"
+  },
+  {
+    "sha": "3f968a5",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Persist mail submission intents"
+  },
+  {
+    "sha": "b3a7e46",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Serialize mail message references"
+  },
+  {
+    "sha": "8e7ffc9",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Harden mail reservation retries"
+  },
+  {
+    "sha": "66e455e",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Reserve mail object generations"
+  },
+  {
+    "sha": "b2aaf89",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Preserve uploaded mail object keys"
+  },
+  {
+    "sha": "50ff8a1",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Fence mail object cleanup"
+  },
+  {
+    "sha": "8250f98",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Complete mail lifecycle review fixes"
+  },
+  {
+    "sha": "95e4e0e",
+    "date": "2026-11-02",
+    "kind": "feat",
+    "area": "core",
+    "title": "Add bounded mail trash purge loop"
+  },
+  {
+    "sha": "7e147d8",
+    "date": "2026-11-02",
+    "kind": "feat",
+    "area": "core",
+    "title": "Add mail lifecycle controls"
+  },
+  {
+    "sha": "8ea04b1",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Enforce mail methods and prefilter search"
+  },
+  {
+    "sha": "ec236e7",
+    "date": "2026-11-02",
+    "kind": "feat",
+    "area": "core",
+    "title": "Expose mail deletion lifecycle"
+  },
+  {
+    "sha": "c71b207",
+    "date": "2026-11-02",
+    "kind": "fix",
+    "area": "core",
+    "title": "Harden trash purge race and backfill floor"
+  },
+  {
+    "sha": "da7ed6a",
+    "date": "2026-11-02",
+    "kind": "feat",
+    "area": "core",
+    "title": "Add mail lifecycle storage"
+  },
+  {
+    "sha": "b95e805",
+    "date": "2026-11-01",
+    "kind": "fix",
+    "area": "core",
+    "title": "Forward mail folder moves"
+  },
+  {
+    "sha": "1928b65",
+    "date": "2026-11-01",
+    "kind": "fix",
+    "area": "core",
+    "title": "Forward mail folder moves"
+  },
+  {
+    "sha": "3bb3042",
+    "date": "2026-11-01",
+    "kind": "fix",
+    "area": "core",
+    "title": "Preserve dashboard terminal IPA route"
+  },
+  {
+    "sha": "435f0f7",
+    "date": "2026-11-01",
+    "kind": "fix",
+    "area": "core",
+    "title": "Recover dashboard identity timeouts"
+  },
+  {
+    "sha": "e1c244e",
+    "date": "2026-11-01",
+    "kind": "feat",
+    "area": "core",
+    "title": "Migrate dashboard public routes to IPA"
+  },
+  {
+    "sha": "2cdd6d0",
+    "date": "2026-11-01",
+    "kind": "fix",
+    "area": "core",
+    "title": "Avoid duplicated IPA prefix in OpenAPI server URLs"
+  },
+  {
+    "sha": "a7e96f7",
+    "date": "2026-11-01",
+    "kind": "feat",
+    "area": "core",
+    "title": "Publish IPA gateway contract"
+  },
+  {
+    "sha": "ce2b569",
+    "date": "2026-11-01",
+    "kind": "fix",
+    "area": "core",
+    "title": "Map dashboard terminal private hop path"
+  },
+  {
+    "sha": "91bd59c",
+    "date": "2026-11-01",
+    "kind": "feat",
+    "area": "core",
+    "title": "Require IPA public API routes"
+  },
+  {
+    "sha": "b3016a1",
+    "date": "2026-11-01",
+    "kind": "fix",
+    "area": "core",
+    "title": "Route mail actions through dashboard proxy"
+  },
+  {
+    "sha": "d85c689",
+    "date": "2026-11-01",
+    "kind": "feat",
+    "area": "core",
+    "title": "Add inbox trash controls"
+  },
+  {
+    "sha": "c16cccc",
+    "date": "2026-11-01",
+    "kind": "feat",
+    "area": "core",
+    "title": "Add mail folder lifecycle controls"
+  },
+  {
+    "sha": "31bb1c2",
+    "date": "2026-10-30",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Improve error logging, fix email-ingress crash, add proxy restart support"
+  },
+  {
+    "sha": "bdc067a",
+    "date": "2026-10-30",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Use NEXUS_CHAT_BINARY_PATH consistently for nexus-chat"
+  },
+  {
+    "sha": "297ff1e",
+    "date": "2026-10-30",
+    "kind": "fix",
+    "area": "maintenance",
+    "title": "Proxy checks maintenance by host, not via the route table"
+  },
+  {
+    "sha": "65ac28c",
+    "date": "2026-10-30",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Install a deploy.sh shim beside the watchdog"
+  },
+  {
+    "sha": "0cbcf68",
+    "date": "2026-10-29",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Operator maintenance controls in Admin"
+  },
+  {
+    "sha": "5f77a30",
+    "date": "2026-10-29",
+    "kind": "feat",
+    "area": "maintenance",
+    "title": "Proxy serves the maintenance page for parts in maintenance"
+  },
+  {
+    "sha": "7dc7df1",
+    "date": "2026-10-29",
+    "kind": "feat",
+    "area": "maintenance",
+    "title": "Add shared maintenance page; bump Cloud for maintenance API"
+  },
+  {
+    "sha": "d6be96b",
+    "date": "2026-10-29",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Launcher shows released apps only; green the test suite"
+  },
+  {
+    "sha": "4778ef9",
+    "date": "2026-10-29",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Open heavy apps in a new tab instead of framing"
+  },
+  {
+    "sha": "e141740",
+    "date": "2026-10-29",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Pin Chat as a shell-native launcher app"
+  },
+  {
+    "sha": "213e28b",
+    "date": "2026-10-29",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Serve platform API facade from own origin"
+  },
+  {
+    "sha": "7894dc7",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "core",
+    "title": "Surface Hosting and Deploy in launcher as user-facing apps"
+  },
+  {
+    "sha": "1ad2b3d",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "core",
+    "title": "Surface Hosting and Deploy in launcher, add Project onboarding, wire Deploy into production"
+  },
+  {
+    "sha": "5561699",
+    "date": "2026-10-20",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Strip Nexus prefix from launcher app names"
+  },
+  {
+    "sha": "16fca8d",
+    "date": "2026-10-20",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Restore app launcher after platform facade migration"
+  },
+  {
+    "sha": "f847867",
+    "date": "2026-10-20",
+    "kind": "fix",
+    "area": "api",
+    "title": "Include staged user-apps in the public catalog"
+  },
+  {
+    "sha": "6aa1c38",
+    "date": "2026-10-20",
+    "kind": "fix",
+    "area": "api",
+    "title": "Make /api/v1/apps public for unauthenticated callers"
+  },
+  {
+    "sha": "707dbae",
+    "date": "2026-10-20",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Allow connect-src to api.DOMAIN in shell CSP"
+  },
+  {
+    "sha": "65cfc00",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Add shell-native Calendar page at /calendar"
+  },
+  {
+    "sha": "355b161",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "api",
+    "title": "Promote Calendar routes through the platform facade"
+  },
+  {
+    "sha": "d14324e",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Wire CORS allowed origins and canary CORS test"
+  },
+  {
+    "sha": "6817fb4",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "api",
+    "title": "Add future-app admission checklist + contract-parity gate"
+  },
+  {
+    "sha": "e941ccc",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Migrate mail client to platform API facade"
+  },
+  {
+    "sha": "ce484a0",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Migrate me() and listApps() to platform API facade"
+  },
+  {
+    "sha": "f80e13e",
+    "date": "2026-10-20",
+    "kind": "fix",
+    "area": "api",
+    "title": "Strip Cloud-internal fields from catalog response + delegation boundary tests"
+  },
+  {
+    "sha": "8d21064",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "api",
+    "title": "CORS boundary + contract/OpenAPI parity guards"
+  },
+  {
+    "sha": "86a71e7",
+    "date": "2026-10-19",
+    "kind": "feat",
+    "area": "api",
+    "title": "Establish versioned platform facade"
+  },
+  {
+    "sha": "1c47669",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Satisfy Biome release-policy checks"
+  },
+  {
+    "sha": "edd81d0",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "quality",
+    "title": "Make app gates reproducible"
+  },
+  {
+    "sha": "a1c72bf",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Preserve explicit legacy app routes"
+  },
+  {
+    "sha": "3d9f0be",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Fail closed on wire catalog destinations"
+  },
+  {
+    "sha": "b4b4a6c",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Separate app and control surfaces"
+  },
+  {
+    "sha": "8ad3c44",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Fail closed on launcher metadata and health"
+  },
+  {
+    "sha": "3c1d383",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Project only released user apps"
+  },
+  {
+    "sha": "b65c9dc",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "core",
+    "title": "Harden app dependency prechecks"
+  },
+  {
+    "sha": "735f5fc",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "core",
+    "title": "Make app quality gates self-healing"
+  },
+  {
+    "sha": "d84c673",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "core",
+    "title": "Stabilize app quality gates"
+  },
+  {
+    "sha": "6aa1254",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cli",
+    "title": "Use configured endpoints for health"
+  },
+  {
+    "sha": "9989a16",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cli",
+    "title": "Add unified platform discovery"
+  },
+  {
+    "sha": "dce07e2",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cli",
+    "title": "Expose Terminal contract discovery"
+  },
+  {
+    "sha": "d4757c3",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Expose Cloud control-plane contract"
+  },
+  {
+    "sha": "c54f040",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Publish Nexus Auth service contract"
+  },
+  {
+    "sha": "a7bca7e",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Support scoped CLI credentials for Terminal"
+  },
+  {
+    "sha": "6812c99",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Publish guarded Terminal contract"
+  },
+  {
+    "sha": "04e864d",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Publish versioned Nexus API contract"
+  },
+  {
+    "sha": "726375d",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Ground Nexus AI and CLI in ecosystem contracts"
+  },
+  {
+    "sha": "f904c12",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Complete scoped app catalog rollout"
+  },
+  {
+    "sha": "c09d3e2",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Normalize build module resolution"
+  },
+  {
+    "sha": "f5a73ec",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Add curated app shelves and catalog filters"
+  },
+  {
+    "sha": "2bbe3ae",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Normalize curated catalog metadata"
+  },
+  {
+    "sha": "a303bda",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "core",
+    "title": "Update Cloud catalog consumer access contract"
+  },
+  {
+    "sha": "858ca4c",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Consume normalized app catalog in dashboard"
+  },
+  {
+    "sha": "dd2dff2",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "core",
+    "title": "Update Cloud replay durability contract"
+  },
+  {
+    "sha": "46a0cf2",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "core",
+    "title": "Update Cloud rollback retry contract"
+  },
+  {
+    "sha": "e91d80a",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "core",
+    "title": "Update Cloud catalog recovery contract"
+  },
+  {
+    "sha": "f00d0aa",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "core",
+    "title": "Update Cloud catalog durability contract"
+  },
+  {
+    "sha": "46811f6",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "core",
+    "title": "Add scoped catalog approval permission"
+  },
+  {
+    "sha": "923cde1",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Pin catalog persistence boundary"
+  },
+  {
+    "sha": "6259bc7",
+    "date": "2026-10-17",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Pin catalog fallback contract"
+  },
+  {
+    "sha": "fef135a",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Pin catalog metadata contract"
+  },
+  {
+    "sha": "6734921",
+    "date": "2026-10-17",
+    "kind": "fix",
+    "area": "core",
+    "title": "Close creative app verification gates"
+  },
+  {
+    "sha": "38b7f4a",
+    "date": "2026-10-17",
+    "kind": "fix",
+    "area": "core",
+    "title": "Restore draw brand label"
+  },
+  {
+    "sha": "8898b63",
+    "date": "2026-10-17",
+    "kind": "perf",
+    "area": "core",
+    "title": "Keep video icon bundle small"
+  },
+  {
+    "sha": "18b12f9",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "core",
+    "title": "Green-pass creative frontends"
+  },
+  {
+    "sha": "c771cd7",
+    "date": "2026-10-17",
+    "kind": "fix",
+    "area": "a11y",
+    "title": "Repair Auth landmarks and Calendar controls"
+  },
+  {
+    "sha": "e82728e",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Draw Green pass \u2014 skip link, title, accent tokens, header, canvas aria fix"
+  },
+  {
+    "sha": "0f72356",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Project Green pass \u2014 skip link, titles, proper buttons, tabpanel, focus rings"
+  },
+  {
+    "sha": "5b2b7e3",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Calendar Green pass \u2014 proper buttons, focus rings, title, touch targets"
+  },
+  {
+    "sha": "dce165d",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Auth Green pass \u2014 brand mark, nav landmarks, fieldset, safe-area, 44px targets"
+  },
+  {
+    "sha": "9a210db",
+    "date": "2026-10-16",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Dashboard Green pass \u2014 skip links, focus rings, page titles, dead code"
+  },
+  {
+    "sha": "3bc4cd0",
+    "date": "2026-10-16",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Draw canvas role/aria, arrow-key nudge, semantic headings"
+  },
   {
     "sha": "b7c7f30",
     "date": "2026-10-16",
@@ -5196,6 +6064,83 @@ export const CHANGELOG = [
     "title": "Modeling workflow slice 1 geometry ops"
   },
   {
+    "sha": "d9d078c",
+    "date": "2026-10-29",
+    "kind": "feat",
+    "area": "web",
+    "title": "Add production static+identity-proxy server"
+  },
+  {
+    "sha": "a72d449",
+    "date": "2026-10-28",
+    "kind": "feat",
+    "area": "web",
+    "title": "Add local dev auth proxy and fix API routing"
+  },
+  {
+    "sha": "9290031",
+    "date": "2026-10-28",
+    "kind": "fix",
+    "area": "api",
+    "title": "Deduplicate GET /users/search route"
+  },
+  {
+    "sha": "a952ae8",
+    "date": "2026-10-28",
+    "kind": "feat",
+    "area": "desktop",
+    "title": "Add message editing to ChatView"
+  },
+  {
+    "sha": "88cc085",
+    "date": "2026-10-28",
+    "kind": "feat",
+    "area": "mobile",
+    "title": "Member list in server screen"
+  },
+  {
+    "sha": "d901dfa",
+    "date": "2026-10-28",
+    "kind": "feat",
+    "area": "mobile",
+    "title": "Message context menu \u2014 edit, delete, reply, copy"
+  },
+  {
+    "sha": "e4e0ed4",
+    "date": "2026-10-28",
+    "kind": "feat",
+    "area": "mobile",
+    "title": "Improved DMs screen + load initial data on app restore"
+  },
+  {
+    "sha": "928759d",
+    "date": "2026-10-28",
+    "kind": "fix",
+    "area": "mobile",
+    "title": "Add useStore hook for reactive store subscription"
+  },
+  {
+    "sha": "b2d24a9",
+    "date": "2026-10-28",
+    "kind": "fix",
+    "area": "chat",
+    "title": "Add missing sqlx::Row import in search_users handler"
+  },
+  {
+    "sha": "cf7969a",
+    "date": "2026-10-28",
+    "kind": "feat",
+    "area": "chat",
+    "title": "Add messaging inbox (WhatsApp-like DM view)"
+  },
+  {
+    "sha": "b4c8c62",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "a11y",
+    "title": "Chat Green pass \u2014 skip link, mobile nav, ARIA landmarks, focus rings"
+  },
+  {
     "sha": "d3a62fc",
     "date": "2026-10-16",
     "kind": "fix",
@@ -7254,6 +8199,195 @@ export const CHANGELOG = [
     "title": "Multi-turn sessions, agent loop, Claude provider, new chat UI"
   },
   {
+    "sha": "26b4f82",
+    "date": "2026-11-05",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Wire PhantomApp startup and health status"
+  },
+  {
+    "sha": "8ef4bb2",
+    "date": "2026-11-01",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Release first verified dashboard apps"
+  },
+  {
+    "sha": "4aff617",
+    "date": "2026-10-29",
+    "kind": "feat",
+    "area": "maintenance",
+    "title": "Operator-set platform maintenance state + API"
+  },
+  {
+    "sha": "0d1bcce",
+    "date": "2026-10-29",
+    "kind": "feat",
+    "area": "catalog",
+    "title": "Promote nexus-chat to released"
+  },
+  {
+    "sha": "d5a7d6e",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "catalog",
+    "title": "Add nexus-hosting, reclassify nexus-deploy as user-app"
+  },
+  {
+    "sha": "04eb8c6",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Classify catalog surfaces and releases"
+  },
+  {
+    "sha": "c287ed0",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Add explicit catalog release contract"
+  },
+  {
+    "sha": "2b5aa9c",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Harden cloud dependency precheck"
+  },
+  {
+    "sha": "9576874",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Isolate concurrent state snapshots"
+  },
+  {
+    "sha": "aa5fa75",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Bootstrap app-local check dependencies"
+  },
+  {
+    "sha": "a2dc4d7",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Publish control-plane contract"
+  },
+  {
+    "sha": "47abc2b",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Stabilize polling etags and test timing"
+  },
+  {
+    "sha": "abecfc2",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Complete catalog release contract"
+  },
+  {
+    "sha": "7d8d9cd",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Add tenant and node catalog scopes"
+  },
+  {
+    "sha": "7046f96",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Add scoped catalog resolution"
+  },
+  {
+    "sha": "cc1283a",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Restrict hidden catalog projection to platform consumers"
+  },
+  {
+    "sha": "924d745",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Expose normalized app catalog projection"
+  },
+  {
+    "sha": "9a39017",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Confirm catalog durability on idempotent replay"
+  },
+  {
+    "sha": "40bda82",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Make uncertain catalog rollbacks retry safe"
+  },
+  {
+    "sha": "c839ab2",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Prefer committed registry and reconcile late sync faults"
+  },
+  {
+    "sha": "94de8eb",
+    "date": "2026-10-18",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Commit catalog decisions with durable audit ledger"
+  },
+  {
+    "sha": "9d3e077",
+    "date": "2026-10-18",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Enforce scoped catalog approval in Cloud"
+  },
+  {
+    "sha": "e777cc0",
+    "date": "2026-10-17",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Reject stale catalog proposals"
+  },
+  {
+    "sha": "1fb202b",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Accept app catalog proposals"
+  },
+  {
+    "sha": "85145f0",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Persist catalog proposal and approval state"
+  },
+  {
+    "sha": "09b0722",
+    "date": "2026-10-17",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Distinguish catalog Explore fallback"
+  },
+  {
+    "sha": "0ac8366",
+    "date": "2026-10-17",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Add catalog metadata contract"
+  },
+  {
     "sha": "bcbacb8",
     "date": "2026-10-16",
     "kind": "fix",
@@ -7513,6 +8647,20 @@ export const CHANGELOG = [
     "title": "Phase 1 \u2014 Nexus.computer initial build"
   },
   {
+    "sha": "a2156fc",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "ux",
+    "title": "Redesign as push-to-deploy platform"
+  },
+  {
+    "sha": "aa09daa",
+    "date": "2026-10-20",
+    "kind": "fix",
+    "area": "build",
+    "title": "Drop exactOptionalPropertyTypes and noImplicitReturns from tsconfig"
+  },
+  {
     "sha": "c46e827",
     "date": "2026-10-13",
     "kind": "feat",
@@ -7602,6 +8750,69 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "deploy",
     "title": "Real build engine, WebSocket log streaming, full dashboard"
+  },
+  {
+    "sha": "2610935",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Add missing formatDistanceToNow import and t hook in deploy views"
+  },
+  {
+    "sha": "6ac0fb0",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Handle email unique constraint in upsertUser"
+  },
+  {
+    "sha": "2072998",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Gate entire hosting control panel behind auth"
+  },
+  {
+    "sha": "96eaafa",
+    "date": "2026-11-04",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Remove sign-in button from sidebar and mobile header"
+  },
+  {
+    "sha": "3ad18c5",
+    "date": "2026-11-04",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Gate node-operator nav behind admin flag"
+  },
+  {
+    "sha": "417b22c",
+    "date": "2026-10-30",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Wire onboarding banner + simplify site card actions"
+  },
+  {
+    "sha": "1049835",
+    "date": "2026-10-28",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Add SHELL_ORIGINS env var so app.tnhc.dev can embed this in an iframe"
+  },
+  {
+    "sha": "726a7da",
+    "date": "2026-10-27",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Streamline site creation UX for non-technical users"
+  },
+  {
+    "sha": "81d4a92",
+    "date": "2026-10-20",
+    "kind": "feat",
+    "area": "ux",
+    "title": "Restructure nav to lead with website hosting actions"
   },
   {
     "sha": "b7602c8",
@@ -8479,6 +9690,20 @@ export const CHANGELOG = [
     "title": "Initial commit \u2014 DevVault v0.1.0"
   },
   {
+    "sha": "7c8fadf",
+    "date": "2026-11-05",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Topology algorithms, HTTP bootstrap, changelog"
+  },
+  {
+    "sha": "f6dc21a",
+    "date": "2026-11-05",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Complete protocol primitives \u2014 FHE routing, Yen's paths, Plonky2 proofs"
+  },
+  {
     "sha": "fc0578a",
     "date": "2026-10-15",
     "kind": "feat",
@@ -8599,4 +9824,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "calendar", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "inset", "lite", "mail", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "portal", "privacy", "privacy-p3", "project", "proxy", "public", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "sites", "smoke", "startup", "storage", "systems-api", "terminal", "test", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "vault", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "calendar", "catalog", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "inset", "lite", "mail", "maintenance", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "portal", "privacy", "privacy-p3", "project", "proxy", "public", "quality", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "sites", "smoke", "startup", "storage", "systems-api", "terminal", "test", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "ux", "vault", "vulkan", "web", "windows"];

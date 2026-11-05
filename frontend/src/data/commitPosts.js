@@ -6,9 +6,1309 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 938 posts, newest first.
+// 1019 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "wire-phantom-protocol-across-core-services",
+    "title": "Wire Phantom Protocol across core services",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "phantom"
+    ],
+    "category": "Commit",
+    "excerpt": "- Nexus-Auth: PhantomApp startup, phantom status in /health, auto-assign deterministic DID (did:phantom:user:<hash>) at user creation - Nexus-Edge, Nexus-Tunnel, Nexus-Guardian: PhantomApp startup + health - Nexus-Router",
+    "sha": "6bcd0e1",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Nexus-Auth: PhantomApp startup, phantom status in /health, auto-assign deterministic DID (did:phantom:user:<hash>) at user creation - Nexus-Edge, Nexus-Tunnel, Nexus-Guardian: PhantomApp startup + health - Nexus-Router: PhantomApp startup + health - Nexus-Cloud: bump submodule to phantom health status commit - phantom-utils/verify: add PHANTOM_DEV_SKIP_VERIFY=1 bypass for local development; default remains secure (reject unverified)"
+      },
+      {
+        "type": "p",
+        "text": "85 of 89 apps already had PhantomApp integrated at the app level. This closes the gap for the core infrastructure services."
+      }
+    ]
+  },
+  {
+    "slug": "archive-forward-mark-as-unread-cc-bcc",
+    "title": "Archive, forward, mark-as-unread, CC/BCC",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "mail"
+    ],
+    "category": "Commit",
+    "excerpt": "- Archive button on inbox and sent messages in list and reader views; moves the message to the archive folder via the existing move API - Forward button in the reader; prefills Fwd: subject and quoted body - Mark as unre",
+    "sha": "5b5b570",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Archive button on inbox and sent messages in list and reader views; moves the message to the archive folder via the existing move API - Forward button in the reader; prefills Fwd: subject and quoted body - Mark as unread button in the reader for inbox and archive messages - CC and BCC fields in the compose form"
+      },
+      {
+        "type": "p",
+        "text": "All backend routes were already in place; this is purely UI work."
+      }
+    ]
+  },
+  {
+    "slug": "add-ecosystem-wide-versioning-and-update-guide",
+    "title": "Add ecosystem-wide versioning and update guide",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Covers semantic versioning rules, conventional commit types, per-app CHANGELOG format, the submodule update workflow with gate requirements, hotfix path, and the checklist for onboarding new graduated apps. Companion to ",
+    "sha": "b44a6e6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Covers semantic versioning rules, conventional commit types, per-app CHANGELOG format, the submodule update workflow with gate requirements, hotfix path, and the checklist for onboarding new graduated apps. Companion to RELEASE_POLICY.md and MATURITY_MATRIX.md."
+      }
+    ]
+  },
+  {
+    "slug": "add-get-api-v1-auth-logout-for-oidc-rp-initiated-logout",
+    "title": "Add GET /api/v1/auth/logout for OIDC RP-Initiated Logout",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "OIDC clients redirect the browser to the end_session_endpoint as a GET with post_logout_redirect_uri. The existing handler was POST-only, so the browser got \"not found\". The new GET path clears the ecosystem session (if ",
+    "sha": "5a1cfee",
+    "content": [
+      {
+        "type": "p",
+        "text": "OIDC clients redirect the browser to the end_session_endpoint as a GET with post_logout_redirect_uri. The existing handler was POST-only, so the browser got \"not found\". The new GET path clears the ecosystem session (if any), validates the redirect URI is an http(s) URL, and redirects the browser back \u2014 completing the logout round-trip."
+      }
+    ]
+  },
+  {
+    "slug": "seed-by-role-not-username-to-prevent-ghost-accounts-on-renam",
+    "title": "Seed by role not username to prevent ghost accounts on rename",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "seedDefaultUsers previously checked for a user named \"founder\"; renaming that account triggered a duplicate seed on every restart. Now checks whether any founder-role user exists instead. Also removes the operator auto-s",
+    "sha": "6199f0f",
+    "content": [
+      {
+        "type": "p",
+        "text": "seedDefaultUsers previously checked for a user named \"founder\"; renaming that account triggered a duplicate seed on every restart. Now checks whether any founder-role user exists instead. Also removes the operator auto-seed \u2014 that account was deliberately deleted and should not return."
+      }
+    ]
+  },
+  {
+    "slug": "allow-hosting-tnhc-dev-through-the-ecosystem-gate-and-unbloc",
+    "title": "Allow hosting.tnhc.dev through the ecosystem gate and unblock /api/ paths",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "hosting.tnhc.dev has its own OIDC auth system (client_id=nexus-hosting, its own user DB). The ecosystem gate was blocking its public endpoints \u2014 the site directory (/api/sites), health check (/api/health), and the OIDC f",
+    "sha": "ead7932",
+    "content": [
+      {
+        "type": "p",
+        "text": "hosting.tnhc.dev has its own OIDC auth system (client_id=nexus-hosting, its own user DB). The ecosystem gate was blocking its public endpoints \u2014 the site directory (/api/sites), health check (/api/health), and the OIDC flow paths (/api/login, /api/callback) \u2014 before any ecosystem session existed."
+      },
+      {
+        "type": "p",
+        "text": "Two changes:"
+      },
+      {
+        "type": "p",
+        "text": "1. gate.ts: add hosting.DOMAIN to PUBLIC_HOSTS so the gate passes all hosting.tnhc.dev requests through. The hosting app enforces its own auth on routes that need it."
+      },
+      {
+        "type": "p",
+        "text": "2. proxy.ts: scope the /api/ path block to the two hosts that use the /ipa/ convention (app.DOMAIN and API_HOST). The previous global block returned 404 for every /api/* path on every host, which silently broke hosting's entire API surface and made the OIDC callback unreachable."
+      }
+    ]
+  },
+  {
+    "slug": "bridge-api-v1-auth-to-auth-service-for-stale-cached-bundles",
+    "title": "Bridge /api/v1/auth/* to auth service for stale-cached bundles",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Old bundles call /api/v1/auth/users (and /access-requests) \u2014 paths that existed before the /ipa/v1 migration. After 6ae4278d those hit the JSON 404 guard and listUsers().catch(() => []) silently returned an empty array, ",
+    "sha": "e6f385e",
+    "content": [
+      {
+        "type": "p",
+        "text": "Old bundles call /api/v1/auth/users (and /access-requests) \u2014 paths that existed before the /ipa/v1 migration. After 6ae4278d those hit the JSON 404 guard and listUsers().catch(() => []) silently returned an empty array, leaving the admin Users table empty."
+      },
+      {
+        "type": "p",
+        "text": "The bridge rewrites /api/v1/auth/* \u2192 /ipa/v1/auth/* and proxies to Auth exactly like the existing AUTH_PREFIX handler does. Auth enforces its own access control (session cookie, role check) so bridging at the routing layer is safe \u2014 we're not bypassing any authz, only fixing the path."
+      }
+    ]
+  },
+  {
+    "slug": "return-json-404-for-unhandled-api-paths-instead-of-the-html",
+    "title": "Return JSON 404 for unhandled /api/ paths instead of the HTML shell",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Unhandled /api/ paths were falling through to the SPA fallback and returning index.html with a 200 status. platformRequest parsed that as {}, missing fields resolved to undefined, and React crashed on e.g. requests.lengt",
+    "sha": "6ae4278",
+    "content": [
+      {
+        "type": "p",
+        "text": "Unhandled /api/ paths were falling through to the SPA fallback and returning index.html with a 200 status. platformRequest parsed that as {}, missing fields resolved to undefined, and React crashed on e.g. requests.length when requests was undefined \u2014 rendering a blank page with no error boundary to catch it."
+      },
+      {
+        "type": "p",
+        "text": "The /ipa/ guard already existed for the same reason. This extends it to /api/ so old cached bundles that call /api/v1/auth/access-requests or /api/v1/auth/users receive a proper 404 JSON error, the catch blocks in Admin.tsx fire, and the page renders with an error message rather than unmounting silently."
+      }
+    ]
+  },
+  {
+    "slug": "redirect-instead-of-blank-on-admin-for-non-admin-and-unauthe",
+    "title": "Redirect instead of blank on /admin for non-admin and unauthenticated users",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Admin.tsx was returning null for any user who lacked admin/founder role, including signed-out visitors \u2014 producing a completely blank page with no indication of why. Now: null user triggers a login redirect with the curr",
+    "sha": "fce7aac",
+    "content": [
+      {
+        "type": "p",
+        "text": "Admin.tsx was returning null for any user who lacked admin/founder role, including signed-out visitors \u2014 producing a completely blank page with no indication of why. Now: null user triggers a login redirect with the current URL as redirect_uri; non-admin authenticated users are sent to / via Navigate."
+      },
+      {
+        "type": "p",
+        "text": "Also fix tsconfig baseUrl removal and update build scripts to invoke vite and tsc through bunx so they run correctly on noexec-mounted filesystems."
+      }
+    ]
+  },
+  {
+    "slug": "add-api-v1-me-and-api-v1-apps-compat-routes-for-stale-cached",
+    "title": "Add /api/v1/me and /api/v1/apps compat routes for stale-cached bundles",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Browsers with pre-IPA-migration bundles in cache call /api/v1/me and /api/v1/apps. The SPA fallback was returning index.html (200) for those paths, causing me() to get HTML, destructure undefined, and leave the app stuck",
+    "sha": "0d1eed6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Browsers with pre-IPA-migration bundles in cache call /api/v1/me and /api/v1/apps. The SPA fallback was returning index.html (200) for those paths, causing me() to get HTML, destructure undefined, and leave the app stuck on \"Loading\u2026\" forever. These aliases forward to the same fetchMe/fetchApps handlers so stale bundles work until the browser evicts the old cached assets."
+      }
+    ]
+  },
+  {
+    "slug": "add-cache-control-headers-to-dashboard-shell-and-hashed-asse",
+    "title": "Add cache-control headers to dashboard shell and hashed assets",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "The HTML shell was served with no Cache-Control header, so browsers heuristically cached it. After a frontend rebuild (new bundle hash), users kept loading the old HTML pointing at an old immutable bundle \u2014 which had api",
+    "sha": "1cf4f63",
+    "content": [
+      {
+        "type": "p",
+        "text": "The HTML shell was served with no Cache-Control header, so browsers heuristically cached it. After a frontend rebuild (new bundle hash), users kept loading the old HTML pointing at an old immutable bundle \u2014 which had api.tnhc.dev baked in and hung on /ipa/v1/me \u2192 \"Loading\u2026\" indefinitely."
+      },
+      {
+        "type": "p",
+        "text": "Fix: serve the shell with no-store,must-revalidate so every navigation fetches a fresh copy, and serve /assets/*.{js,css,woff2} with immutable so content-hashed bundles are cached for a year."
+      }
+    ]
+  },
+  {
+    "slug": "rebuild-dashboard-without-vite-nexus-api-url-so-ipa-v1-me-ro",
+    "title": "Rebuild dashboard without VITE_NEXUS_API_URL so /ipa/v1/me routes same-origin",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "The dashboard frontend was built with VITE_NEXUS_API_URL=https://api.tnhc.dev, which baked that origin into the bundle. platformApiOrigin() returned 'https://api.tnhc.dev' for every me() and apps() call, but Nexus-API ha",
+    "sha": "fe5bf54",
+    "content": [
+      {
+        "type": "p",
+        "text": "The dashboard frontend was built with VITE_NEXUS_API_URL=https://api.tnhc.dev, which baked that origin into the bundle. platformApiOrigin() returned 'https://api.tnhc.dev' for every me() and apps() call, but Nexus-API has no /ipa/v1/me handler \u2014 it was only documented in the OpenAPI spec. Result: me() always got a 404, returned null, Admin rendered null (black page), and the user list in the shell was empty despite a valid session."
+      },
+      {
+        "type": "p",
+        "text": "The fix is to build without the env var so platformApiOrigin() returns '' (same-origin). The dashboard server already implements /ipa/v1/me and /ipa/v1/apps as a facade. The rebuild is committed as a rebuild of the dist; the build hint in deploy.sh is updated to drop the now-harmful env var."
+      }
+    ]
+  },
+  {
+    "slug": "correct-nexus-web-dist-path-in-chat-caddyfile",
+    "title": "Correct nexus-web dist path in chat Caddyfile",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "The default fallback path referenced Data/ instead of Data1/, so Caddy could not find the SPA and served 404 for every request to chat.tnhc.dev.",
+    "sha": "e955983",
+    "content": [
+      {
+        "type": "p",
+        "text": "The default fallback path referenced Data/ instead of Data1/, so Caddy could not find the SPA and served 404 for every request to chat.tnhc.dev."
+      }
+    ]
+  },
+  {
+    "slug": "restore-ipa-v1-me-and-ipa-v1-apps-routes-on-dashboard",
+    "title": "Restore /ipa/v1/me and /ipa/v1/apps routes on dashboard",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Commit e1c244ef renamed the frontend's platform API calls from /api/v1/ to /ipa/v1/ but did not update the server route matchers, so every me() and listApps() call hit the /ipa/ catchall and returned a local 404. The gat",
+    "sha": "3971886",
+    "content": [
+      {
+        "type": "p",
+        "text": "Commit e1c244ef renamed the frontend's platform API calls from /api/v1/ to /ipa/v1/ but did not update the server route matchers, so every me() and listApps() call hit the /ipa/ catchall and returned a local 404. The gate saw no session cookie in the 404 response, left the user in the signed-out shell despite a valid domain-scoped session, and looping back to auth bounced them straight back because auth correctly saw a valid cookie."
+      },
+      {
+        "type": "p",
+        "text": "Also logs the cookie domain on auth startup so a missing NEXUS_AUTH_COOKIE_DOMAIN is immediately visible in the process log."
+      }
+    ]
+  },
+  {
+    "slug": "add-auth-to-per-service-restart-and-add-node-operator-link-t",
+    "title": "Add auth to per-service restart and add node-operator link to front door",
+    "date": "2026-11-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "deploy.sh: - Add start_auth_service() with NEXUS_AUTH_COOKIE_DOMAIN=\".$DOMAIN\" so auth restarts correctly pick up the cross-subdomain cookie scope. - Add auth to preflight_service_start and start_named_service so `./depl",
+    "sha": "afd2b5b",
+    "content": [
+      {
+        "type": "p",
+        "text": "deploy.sh: - Add start_auth_service() with NEXUS_AUTH_COOKIE_DOMAIN=\".$DOMAIN\" so auth restarts correctly pick up the cross-subdomain cookie scope. - Add auth to preflight_service_start and start_named_service so `./deploy/production/deploy.sh restart auth` works. - Update usage string to list auth alongside the other restartable services."
+      },
+      {
+        "type": "p",
+        "text": "header-cta.html: - Add subdued \"Running infrastructure? Node operator guide \u2192\" link pointing to api.tnhc.dev/node-operators so the page is discoverable from the apex without cluttering the primary sign-in / request-access CTAs."
+      }
+    ]
+  },
+  {
+    "slug": "enforce-object-capability-verification-and-migration-rollout",
+    "title": "Enforce object capability verification and migration rollout fencing",
+    "date": "2026-11-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- Add verify_capabilities() to S3BodyGateway: checks bucket versioning is enabled and that conditional creates (If-None-Match: *) and version-targeted deletes work, via a zero-byte probe object - Gate object service star",
+    "sha": "59b2a17",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Add verify_capabilities() to S3BodyGateway: checks bucket versioning is enabled and that conditional creates (If-None-Match: *) and version-targeted deletes work, via a zero-byte probe object - Gate object service startup on NEXUS_EMAIL_OBJECT_STORAGE_MIGRATION_MARKER; the daemon warns and skips the service until an operator sets the marker after running the mail-body migration - Run verify_capabilities() at startup before the object service listener opens; on failure, warn and continue without the service - Add three capability probe tests covering disabled/suspended versioning, non-conditional writes, and full success path - Add deploy/production/deploy.sh with standard restart and mail-rollout procedures (stops writers, applies migration, probes capabilities, sets marker, restarts) - Add deploy/production/tests/mail-rollout.test.sh shell smoke tests - Update README: document NEXUS_EMAIL_OBJECT_STORAGE_MIGRATION_MARKER and remove the stale \"groundwork, not production rollout\" caveat"
+      }
+    ]
+  },
+  {
+    "slug": "read-mail-bodies-through-object-service",
+    "title": "Read mail bodies through object service",
+    "date": "2026-11-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Wires the authenticated loopback object service (Task 1) into the three read paths that need message bodies: API, IMAP, and outbound delivery.",
+    "sha": "d837148",
+    "content": [
+      {
+        "type": "p",
+        "text": "Wires the authenticated loopback object service (Task 1) into the three read paths that need message bodies: API, IMAP, and outbound delivery."
+      },
+      {
+        "type": "p",
+        "text": "- nexus-mailstore: add ObjectBodyClient trait + HttpObjectBodyClient (loopback-only, bearer-auth, bounded reads, no redirect follow) - nexus-mailstore: expose MessageBodySource from raw_by_uid so callers get the message_id for external bodies without a second round-trip - nexus-mailapi: authorized_raw_message falls through to the object client when the store returns ExternalBodyGatewayRequired - nexus-mailimap: ImapServer gains object_client; FETCH resolves external bodies via the client, returns NO [UNAVAILABLE] on failure - nexus-mailout: DeliveryWorker gains with_object_client builder; raw_for calls the client when body_inline is NULL; a service failure defers the delivery without burning an attempt - nexus-mailsmtp: constructs per-process loopback clients for IMAP and outbound from NEXUS_EMAIL_OBJECT_SERVICE_{IMAP,OUTBOUND}_TOKEN - tests: privacy.rs integration test verifies evidence never leaks through the API read path; external_body.rs covers IMAP unavailable, service failure, and success paths; worker_routes.rs adds object client delivery test alongside the existing deferral test"
+      }
+    ]
+  },
+  {
+    "slug": "add-dashboard-to-per-service-restart-allowlist",
+    "title": "Add dashboard to per-service restart allowlist",
+    "date": "2026-11-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "Adds start_dashboard_service() and wires it into preflight_service_start and start_named_service so `deploy.sh restart dashboard` works. Uses ${NEXUS_ISSUES_TOKEN:-} to tolerate the variable being unset when called stand",
+    "sha": "b1164a1",
+    "content": [
+      {
+        "type": "p",
+        "text": "Adds start_dashboard_service() and wires it into preflight_service_start and start_named_service so `deploy.sh restart dashboard` works. Uses ${NEXUS_ISSUES_TOKEN:-} to tolerate the variable being unset when called standalone (outside a full deploy that sources the env)."
+      }
+    ]
+  },
+  {
+    "slug": "add-node-operator-onboarding-page-and-public-docs",
+    "title": "Add node operator onboarding page and public docs",
+    "date": "2026-11-03",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- docs/NODE-OPERATORS.md: canonical reference covering requirements, the two-step enrollment flow, token expiry, and API endpoints - apps/Nexus-API/src/routes/nodeOperators.ts: GET /node-operators HTML page served public",
+    "sha": "efce657",
+    "content": [
+      {
+        "type": "p",
+        "text": "- docs/NODE-OPERATORS.md: canonical reference covering requirements, the two-step enrollment flow, token expiry, and API endpoints - apps/Nexus-API/src/routes/nodeOperators.ts: GET /node-operators HTML page served publicly on api.tnhc.dev (already a PUBLIC_HOST, no gate change needed) - apps/Nexus-Dashboard/frontend/src/pages/NodeOperators.tsx: in-app explainer at app.tnhc.dev/node-operators with requirements, enrollment steps, and API ref - deploy/cloudflare-pages/_redirects: /node-operators, /node-operator, /nodes, /join-network all redirect to api.tnhc.dev/node-operators so the page is reachable from the apex domain without a sign-in"
+      }
+    ]
+  },
+  {
+    "slug": "improve-error-logging-fix-email-ingress-crash-add-proxy-rest",
+    "title": "Improve error logging, fix email-ingress crash, add proxy restart support",
+    "date": "2026-10-30",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "- Replace bare err.name with err.message + stack in both catch blocks so failures are diagnosable without a code read - Add method+URL to the outer catch so the offending request is visible - Wrap email-ingress fetch in ",
+    "sha": "31bb1c2",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Replace bare err.name with err.message + stack in both catch blocks so failures are diagnosable without a code read - Add method+URL to the outer catch so the offending request is visible - Wrap email-ingress fetch in its own try/catch \u2014 a connection error to the mailapi upstream (which is not always running) was escaping to the outer handler and returning 500 instead of 503, polluting the log with noisy stack traces on every cloudflared health probe - Add try/catch to the route-poll setInterval callback so a transient Cloud failure no longer produces an unhandled rejection - Add error() handler to Bun.serve() for uncaught socket/server errors - Add `proxy` to preflight_service_start and start_named_service so `deploy.sh restart proxy` works; preflight calls adopt_cloud_registration_environment_for_dependents so the restart inherits NEXUS_CLOUD_API_KEY and the route cache loads successfully"
+      }
+    ]
+  },
+  {
+    "slug": "use-nexus-chat-binary-path-consistently-for-nexus-chat",
+    "title": "Use NEXUS_CHAT_BINARY_PATH consistently for nexus-chat",
+    "date": "2026-10-30",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Three places hardcoded ./target/debug/nexus instead of the NEXUS_CHAT_BINARY_PATH variable introduced in the SSD cargo cache migration. The binary check in cmd_start, the service_identity exec pattern, and the actual sta",
+    "sha": "bdc067a",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three places hardcoded ./target/debug/nexus instead of the NEXUS_CHAT_BINARY_PATH variable introduced in the SSD cargo cache migration. The binary check in cmd_start, the service_identity exec pattern, and the actual start_service invocation all now use the variable, so the SSD-cached binary at ~/.cache/cargo-target/debug/nexus is picked up correctly."
+      }
+    ]
+  },
+  {
+    "slug": "rename-dawg-core-dawg-engine-voicemanager-voicescheduler",
+    "title": "Rename dawg::core -> dawg::engine, VoiceManager -> VoiceScheduler",
+    "date": "2026-10-30",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "refactor",
+      "engine"
+    ],
+    "category": "Commit",
+    "excerpt": "- Rename include/dawg/core/ -> include/dawg/engine/ - VoiceManager.h/.cpp -> VoiceScheduler.h/.cpp - All namespace declarations use C++17 nested syntax (dawg::engine) - All qualified names and include paths updated - get",
+    "sha": "af11c92",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Rename include/dawg/core/ -> include/dawg/engine/ - VoiceManager.h/.cpp -> VoiceScheduler.h/.cpp - All namespace declarations use C++17 nested syntax (dawg::engine) - All qualified names and include paths updated - getVoiceManager() -> getVoiceScheduler() on AudioEngine - Fix pre-existing build errors: missing brace in processVoiceList, targetFrameTime undeclared, const-correctness in reinterpret_cast, bogus include paths in io headers, unbalanced forward decls in Mixer.h - Build verified: zero errors, zero warnings"
+      }
+    ]
+  },
+  {
+    "slug": "proxy-checks-maintenance-by-host-not-via-the-route-table",
+    "title": "Proxy checks maintenance by host, not via the route table",
+    "date": "2026-10-30",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "maintenance"
+    ],
+    "category": "Commit",
+    "excerpt": "The route-table annotation approach only fired when a host was served from Cloud's /api/v1/routes \u2014 but that table fluctuates with tool heartbeats (0..9 routes), and the proxy falls back to hardcoded routing to keep the ",
+    "sha": "297ff1e",
+    "content": [
+      {
+        "type": "p",
+        "text": "The route-table annotation approach only fired when a host was served from Cloud's /api/v1/routes \u2014 but that table fluctuates with tool heartbeats (0..9 routes), and the proxy falls back to hardcoded routing to keep the edge up, where the annotation never appeared. So maintenance enforcement was unreliable."
+      },
+      {
+        "type": "p",
+        "text": "The proxy now fetches /api/v1/maintenance on its own short-TTL cache and matches the request host against it, before routing and before the auth gate, independent of the route table. Fails open (Cloud unreachable -> empty -> serve normally), bounded by a 2s fetch timeout, and cached even on failure so a slow Cloud is paid at most once per TTL. Adds proxy tests incl. the fallback-route case."
+      }
+    ]
+  },
+  {
+    "slug": "install-a-deploy-sh-shim-beside-the-watchdog",
+    "title": "Install a deploy.sh shim beside the watchdog",
+    "date": "2026-10-30",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "The watchdog runs \"$SCRIPT_DIR/deploy.sh bg\" but install_watchdog only copied nexus-watchdog.sh, so the watchdog failed every tick (deploy.sh not found) and nothing auto-recovered. Install a shim at ~/.local/lib/nexus/ d",
+    "sha": "65ac28c",
+    "content": [
+      {
+        "type": "p",
+        "text": "The watchdog runs \"$SCRIPT_DIR/deploy.sh bg\" but install_watchdog only copied nexus-watchdog.sh, so the watchdog failed every tick (deploy.sh not found) and nothing auto-recovered. Install a shim at ~/.local/lib/nexus/ deploy.sh that execs the repo deployer (whose ROUT resolves correctly), so a crashed service is restarted within one timer interval."
+      }
+    ]
+  },
+  {
+    "slug": "operator-maintenance-controls-in-admin",
+    "title": "Operator maintenance controls in Admin",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Adds a Maintenance section to the operator Admin page: lists active windows and starts/ends them (subject = a part's host or tool id, display name, optional reason and expected-back time). The dashboard server proxies th",
+    "sha": "0cbcf68",
+    "content": [
+      {
+        "type": "p",
+        "text": "Adds a Maintenance section to the operator Admin page: lists active windows and starts/ends them (subject = a part's host or tool id, display name, optional reason and expected-back time). The dashboard server proxies these at /ipa/maintenance to Cloud, forwarding the operator's session cookie \u2014 Cloud authorises the write against the session (system:config), so the browser never holds the operator API key. Admin-gated in the dashboard too, as defense in depth."
+      }
+    ]
+  },
+  {
+    "slug": "proxy-serves-the-maintenance-page-for-parts-in-maintenance",
+    "title": "Proxy serves the maintenance page for parts in maintenance",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "maintenance"
+    ],
+    "category": "Commit",
+    "excerpt": "The edge proxy now reads the maintenance window Cloud annotates on each route and, when present, returns the maintenance page as 503 + Retry-After instead of proxying \u2014 before the auth gate (the page is public) and uncac",
+    "sha": "5f77a30",
+    "content": [
+      {
+        "type": "p",
+        "text": "The edge proxy now reads the maintenance window Cloud annotates on each route and, when present, returns the maintenance page as 503 + Retry-After instead of proxying \u2014 before the auth gate (the page is public) and uncacheable. Retry-After is derived from the expected end, clamped to a sane band."
+      },
+      {
+        "type": "p",
+        "text": "Fail-open: a route with no maintenance field behaves exactly as before, so a route Cloud has not annotated is untouched. Scope is Cloud-registered routes (Hosting, Chat, apps); the proxy's fixed backbone hosts (app./auth./api./storage.) are intentionally not covered here."
+      }
+    ]
+  },
+  {
+    "slug": "add-shared-maintenance-page-bump-cloud-for-maintenance-api",
+    "title": "Add shared maintenance page; bump Cloud for maintenance API",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "maintenance"
+    ],
+    "category": "Commit",
+    "excerpt": "The platform maintenance page (deploy/production/maintenance-page.ts): a standalone renderer showing which part is down, that it is deliberate, and when it is expected back (live countdown + auto-reload). The edge proxy ",
+    "sha": "7dc7df1",
+    "content": [
+      {
+        "type": "p",
+        "text": "The platform maintenance page (deploy/production/maintenance-page.ts): a standalone renderer showing which part is down, that it is deliberate, and when it is expected back (live countdown + auto-reload). The edge proxy will serve it for any route Cloud reports as under maintenance."
+      },
+      {
+        "type": "p",
+        "text": "Bumps Nexus-Cloud to 4aff617 (operator maintenance state + /api/v1/maintenance + maintenance annotation on /api/v1/routes)."
+      }
+    ]
+  },
+  {
+    "slug": "add-launcher-and-catalog-projection-note",
+    "title": "Add launcher and catalog projection note",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "architecture"
+    ],
+    "category": "Commit",
+    "excerpt": "Documents which apps appear in the Dashboard launcher and why: the fail-closed isLauncherApp predicate, the released-only policy and why it must match the server's isReleasedUserApp, the two sources of truth (the Cloud r",
+    "sha": "f9f4ac6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Documents which apps appear in the Dashboard launcher and why: the fail-closed isLauncherApp predicate, the released-only policy and why it must match the server's isReleasedUserApp, the two sources of truth (the Cloud registry with heartbeat-derived health vs the SHELL_NATIVE pins), when and when not to pin an app, pin override side effects, and the dashboardName display-name stripping."
+      }
+    ]
+  },
+  {
+    "slug": "launcher-shows-released-apps-only-green-the-test-suite",
+    "title": "Launcher shows released apps only; green the test suite",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "isLauncherApp accepted staged apps, contradicting its own test, the server's isReleasedUserApp projection, and the frontend-load doc. Require releaseState \"released\" so the launcher policy matches the server and a staged",
+    "sha": "d6be96b",
+    "content": [
+      {
+        "type": "p",
+        "text": "isLauncherApp accepted staged apps, contradicting its own test, the server's isReleasedUserApp projection, and the frontend-load doc. Require releaseState \"released\" so the launcher policy matches the server and a staged app never surfaces as a launch tile."
+      },
+      {
+        "type": "p",
+        "text": "Also fixes the remaining pre-existing test failures so the dashboard suite is fully green (251 passing, from a baseline of 10 failing): catalog tests now give wire entries non-pinned paths and isolate them from the prepended SHELL_NATIVE pins, and Home's assertions no longer pin an exact app count or the pre-strip \"Nexus \" names."
+      }
+    ]
+  },
+  {
+    "slug": "open-heavy-apps-in-a-new-tab-instead-of-framing",
+    "title": "Open heavy apps in a new tab instead of framing",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Framing a full standalone SPA inside the shell runs two complete runtimes in one tab \u2014 the most resource-expensive way to combine apps, and what was choking the browser on Chat. Add delivery \"external\": AppLaunchLink ren",
+    "sha": "4778ef9",
+    "content": [
+      {
+        "type": "p",
+        "text": "Framing a full standalone SPA inside the shell runs two complete runtimes in one tab \u2014 the most resource-expensive way to combine apps, and what was choking the browser on Chat. Add delivery \"external\": AppLaunchLink renders such tiles as a real link to the app's own origin (new tab) instead of an in-shell framed route, and Chat/Hosting/Deploy are flipped to it. Shell- native lightweight views (Mail, Cloud) stay in the shell."
+      },
+      {
+        "type": "p",
+        "text": "Also documents the frontend-load model (browser vs server load, why framing does not scale, navigation vs module-federation) in docs/architecture/frontend-load-and-app-delivery.md for new contributors."
+      },
+      {
+        "type": "p",
+        "text": "Tests: update the dashboard suite for the same-origin platform facade (me()/listApps() now call relative /api/v1/* rather than api.tnhc.dev) and add Grid coverage for external vs framed link behaviour. This takes the suite from 10 failing to 5; the remaining 5 (Home, catalog) are pre-existing failures from dashboardName prefix-stripping, SHELL_NATIVE test pollution, and the isLauncherApp staged policy, not introduced here."
+      }
+    ]
+  },
+  {
+    "slug": "pin-chat-as-a-shell-native-launcher-app",
+    "title": "Pin Chat as a shell-native launcher app",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Chat is a first-party app served directly at chat.tnhc.dev, but its Cloud tool record relied on a heartbeat nothing sends (the Rust API heartbeats \"nexus\", not \"nexus-chat\"), so Cloud's 90s heartbeat-expiry sweep kept ma",
+    "sha": "e141740",
+    "content": [
+      {
+        "type": "p",
+        "text": "Chat is a first-party app served directly at chat.tnhc.dev, but its Cloud tool record relied on a heartbeat nothing sends (the Rust API heartbeats \"nexus\", not \"nexus-chat\"), so Cloud's 90s heartbeat-expiry sweep kept marking it offline and the launcher filter dropped it."
+      },
+      {
+        "type": "p",
+        "text": "Pin it in SHELL_NATIVE_APPS alongside Mail and Hosting so it always appears, independent of Cloud heartbeat state \u2014 the same treatment every other first-party app with a fixed public URL already gets."
+      }
+    ]
+  },
+  {
+    "slug": "serve-platform-api-facade-from-own-origin",
+    "title": "Serve platform API facade from own origin",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "The SPA's identity check (me()) and app catalog (listApps()) called a platform facade at api.tnhc.dev that does not exist \u2014 the *.tnhc.dev Cloudflare catch-all routed those to the Rust API, which has no /api/v1/me or /ap",
+    "sha": "213e28b",
+    "content": [
+      {
+        "type": "p",
+        "text": "The SPA's identity check (me()) and app catalog (listApps()) called a platform facade at api.tnhc.dev that does not exist \u2014 the *.tnhc.dev Cloudflare catch-all routed those to the Rust API, which has no /api/v1/me or /api/v1/apps. me() swallowed the 404 and returned null, so a signed-in user still saw the public landing page."
+      },
+      {
+        "type": "p",
+        "text": "Serve the facade from the dashboard origin instead: add GET /api/v1/me (forwards the session cookie to Auth's /api/v1/auth/me) and GET /api/v1/apps (reuses fetchApps), and default platformApiOrigin() to the same origin so the calls stay same-origin and carry the cookie without CORS. VITE_NEXUS_API_URL still overrides once a real api.<domain> exists."
+      }
+    ]
+  },
+  {
+    "slug": "surface-hosting-and-deploy-in-launcher-as-user-facing-apps",
+    "title": "Surface Hosting and Deploy in launcher as user-facing apps",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- Bump Nexus-Cloud submodule: nexus-hosting added to catalog (user-app, released), nexus-deploy reclassified from developer-tool to user-app (staged), CATALOG_SEED_VERSION bumped to 2 - Dashboard api.ts: add nexus-hostin",
+    "sha": "7894dc7",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Bump Nexus-Cloud submodule: nexus-hosting added to catalog (user-app, released), nexus-deploy reclassified from developer-tool to user-app (staged), CATALOG_SEED_VERSION bumped to 2 - Dashboard api.ts: add nexus-hosting and nexus-deploy to SHELL_NATIVE_APPS with explicit surface:\"user-app\" so they appear in the launcher immediately without waiting for a Cloud re-seed; hosting description makes clear this is where users go to host their websites"
+      }
+    ]
+  },
+  {
+    "slug": "surface-hosting-and-deploy-in-launcher-add-project-onboardin",
+    "title": "Surface Hosting and Deploy in launcher, add Project onboarding, wire Deploy into production",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "**Project (project.tnhc.dev)** The first-run screen was a bare \"No workspaces yet\" button with no context. Replaced with a full onboarding panel: what Project is (a self-hosted Linear/Jira), the six capabilities it gives",
+    "sha": "1ad2b3d",
+    "content": [
+      {
+        "type": "p",
+        "text": "**Project (project.tnhc.dev)** The first-run screen was a bare \"No workspaces yet\" button with no context. Replaced with a full onboarding panel: what Project is (a self-hosted Linear/Jira), the six capabilities it gives you (workspaces, project keys, board/list/timeline views, nested tasks, all four dependency types, critical path scheduling), and a \"Create your first workspace\" CTA."
+      },
+      {
+        "type": "p",
+        "text": "**Hosting in launcher (hosting.tnhc.dev)** Hosting was classified as developer-tool in the Cloud catalog and never appeared in the Dashboard launcher. Added a pinned SHELL_NATIVE_APPS entry with surface: \"user-app\" pointing to hosting.tnhc.dev so it shows immediately regardless of how Cloud classifies it."
+      },
+      {
+        "type": "p",
+        "text": "**Deploy (deploy.tnhc.dev)** - Built Nexus-Deploy for the first time: tsconfig had exactOptionalPropertyTypes and noImplicitReturns enabled, which made every Express route handler a compile error. Dropped both flags (Express handlers call res.json() rather than returning values; the jwt/Docker type signatures are incompatible with exactOptionalPropertyTypes). - Wired into deploy.sh: service_identity, service_port (8096), start block with secret generation on first run, stop and status loops. - Registered nexus-deploy with Cloud via POST /api/v1/tools + POST /api/v1/exposures, creating the deploy.tnhc.dev \u2192 127.0.0.1:8096 route. - Added a pinned SHELL_NATIVE_APPS entry in the Dashboard launcher. - Added nexus-deploy to the Cloud catalog seed bump (CATALOG_SEED_VERSION stays at 1; surface override in the Dashboard wins at display time)."
+      },
+      {
+        "type": "p",
+        "text": "Deploy is now live at deploy.tnhc.dev: Node.js/Express, built dist/ present, running on port 8096."
+      }
+    ]
+  },
+  {
+    "slug": "strip-nexus-prefix-from-launcher-app-names",
+    "title": "Strip Nexus prefix from launcher app names",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Inside the dashboard, users are already in the Nexus ecosystem \u2014 the shell chrome, domain, and sign-in page all say Nexus. Showing \"Mail\", \"Calendar\", \"Draw\" instead of \"Nexus Mail\", \"Nexus-Calendar\", \"Nexus-Draw\" is cle",
+    "sha": "5561699",
+    "content": [
+      {
+        "type": "p",
+        "text": "Inside the dashboard, users are already in the Nexus ecosystem \u2014 the shell chrome, domain, and sign-in page all say Nexus. Showing \"Mail\", \"Calendar\", \"Draw\" instead of \"Nexus Mail\", \"Nexus-Calendar\", \"Nexus-Draw\" is cleaner and consistent with how major platforms name their own apps."
+      },
+      {
+        "type": "p",
+        "text": "Add dashboardName() which strips a leading \"Nexus \" or \"Nexus-\" prefix (case-insensitive) from any catalog-sourced display name. Applied in listApps() and directly to the SHELL_NATIVE_APPS entry. App IDs and routing slugs (nexus-mail, nexus-calendar, etc.) are untouched."
+      }
+    ]
+  },
+  {
+    "slug": "restore-app-launcher-after-platform-facade-migration",
+    "title": "Restore app launcher after platform facade migration",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Three bugs introduced when listApps() moved from /ipa/apps to the platform facade, causing 0 apps to appear for all users:",
+    "sha": "16fca8d",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three bugs introduced when listApps() moved from /ipa/apps to the platform facade, causing 0 apps to appear for all users:"
+      },
+      {
+        "type": "p",
+        "text": "1. isLauncherApp required releaseState === \"released\" but every Cloud user-app has releaseState \"staged\" \u2014 none passed the filter."
+      },
+      {
+        "type": "p",
+        "text": "2. pathFor returned \"\" for apps with only a publicUrl (Cloud catalog sends no path field). safePath(\"\") is false, so all Cloud apps were silently dropped from the launcher."
+      },
+      {
+        "type": "p",
+        "text": "3. shellNativeEntries (Mail) was only added in the server-side /ipa/apps handler; the platform facade path skipped it entirely, so Mail disappeared from the launcher."
+      },
+      {
+        "type": "p",
+        "text": "Fixed: - isLauncherApp now accepts \"staged\" and \"released\" (excludes only \"retired\") - pathFor derives /chat from nexus-chat etc. for first-party nexus-* IDs - listApps() now merges SHELL_NATIVE_APPS (Mail) with the Cloud catalog"
+      }
+    ]
+  },
+  {
+    "slug": "include-staged-user-apps-in-the-public-catalog",
+    "title": "Include staged user-apps in the public catalog",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "api"
+    ],
+    "category": "Commit",
+    "excerpt": "releasedCatalogBody was requiring releaseState === \"released\", but every real user-facing app in Cloud (chat, draw, calendar, project) has releaseState \"staged\" \u2014 the promotion to \"released\" was never done. Result: 0 app",
+    "sha": "f847867",
+    "content": [
+      {
+        "type": "p",
+        "text": "releasedCatalogBody was requiring releaseState === \"released\", but every real user-facing app in Cloud (chat, draw, calendar, project) has releaseState \"staged\" \u2014 the promotion to \"released\" was never done. Result: 0 apps shown in the launcher for everyone."
+      },
+      {
+        "type": "p",
+        "text": "Accept both \"staged\" and \"released\"; only \"retired\" is now excluded. The surface/maturity/reviewStatus/visibility filters still prevent admin-only and experimental records from leaking through."
+      },
+      {
+        "type": "p",
+        "text": "Updated the catalog test fixture to reflect the new inclusive behaviour."
+      }
+    ]
+  },
+  {
+    "slug": "make-api-v1-apps-public-for-unauthenticated-callers",
+    "title": "Make /api/v1/apps public for unauthenticated callers",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "api"
+    ],
+    "category": "Commit",
+    "excerpt": "forwardCatalog was gating the catalog behind callerFromAuth, so the signed-out Dashboard home (\"Running right now\") and any unauthenticated listApps() call got 401 and silently showed 0 apps.",
+    "sha": "6aa1c38",
+    "content": [
+      {
+        "type": "p",
+        "text": "forwardCatalog was gating the catalog behind callerFromAuth, so the signed-out Dashboard home (\"Running right now\") and any unauthenticated listApps() call got 401 and silently showed 0 apps."
+      },
+      {
+        "type": "p",
+        "text": "The catalog must be public: the signed-out landing page needs it. Auth is now attempted but never used to gate the response."
+      }
+    ]
+  },
+  {
+    "slug": "allow-connect-src-to-api-domain-in-shell-csp",
+    "title": "Allow connect-src to api.DOMAIN in shell CSP",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "The platform facade migration (ce484a01) changed me() and listApps() to call https://api.DOMAIN/... cross-origin, but the shell's SHELL_CSP was never updated. connect-src 'self' blocked every fetch to api.tnhc.dev, so th",
+    "sha": "707dbae",
+    "content": [
+      {
+        "type": "p",
+        "text": "The platform facade migration (ce484a01) changed me() and listApps() to call https://api.DOMAIN/... cross-origin, but the shell's SHELL_CSP was never updated. connect-src 'self' blocked every fetch to api.tnhc.dev, so the me() call returned null and the shell rendered the signed-out home page for every authenticated visitor."
+      }
+    ]
+  },
+  {
+    "slug": "add-shell-native-calendar-page-at-calendar",
+    "title": "Add shell-native Calendar page at /calendar",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "- CalendarView.tsx: month grid (Monday-first), day selection, event list per selected day, \"today\" strip when viewing another date, create event form (title/date/time/all-day/description), delete event - Routes: /calenda",
+    "sha": "65cfc00",
+    "content": [
+      {
+        "type": "p",
+        "text": "- CalendarView.tsx: month grid (Monday-first), day selection, event list per selected day, \"today\" strip when viewing another date, create event form (title/date/time/all-day/description), delete event - Routes: /calendar added to App.tsx as ShellView; ROUTE_TITLES updated - Today widget restored to Home.tsx dashboard grid (was removed, now wired properly via platform facade after fix in previous commit) - App.test.tsx: replaced \"does not retain Calendar view\" test with \"mounts Calendar view inside the shell at /calendar\"; /calendar added to the shell-native paths loop; listCalendarEvents/createCalendarEvent/ deleteCalendarEvent/ApiError added to vi.mock api stubs - CalendarView.test.tsx: 9 tests covering render, navigation, error state, event display, form open/cancel/validation/submit"
+      },
+      {
+        "type": "p",
+        "text": "250/250 vitest, clean production build."
+      }
+    ]
+  },
+  {
+    "slug": "promote-calendar-routes-through-the-platform-facade",
+    "title": "Promote Calendar routes through the platform facade",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "api"
+    ],
+    "category": "Commit",
+    "excerpt": "- Add 6 calendar routes to api-contract.ts (GET/POST events, GET/PATCH/DELETE events/:id, GET public/:token) with owner \"nexus-calendar\" and appropriate access tiers - Add forwardCalendar() to server.ts: resolves caller ",
+    "sha": "355b161",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Add 6 calendar routes to api-contract.ts (GET/POST events, GET/PATCH/DELETE events/:id, GET public/:token) with owner \"nexus-calendar\" and appropriate access tiers - Add forwardCalendar() to server.ts: resolves caller identity from Auth, sets x-nexus-subject + x-nexus-dashboard-secret (never forwarding browser-supplied values), allowlists only events routes, public/:token bypasses session auth - Add all 6 calendar operations to openapi.ts - Add calendar-boundary.test.ts (4 tests: subject rewrite, 401 on no session, 503 on unreachable calendar, public route bypasses auth) - Exclude calendar-boundary.test.ts from vitest (bun:test only) - deploy.sh: generate NEXUS_CALENDAR_DASHBOARD_SECRET on first boot (persisted to Nexus-Calendar .env), export NEXUS_API_CALENDAR_URL - start-contract.test.sh: assert Calendar URL + secret are wired - Dashboard api.ts: add listCalendarEvents, getCalendarEvent, createCalendarEvent, updateCalendarEvent, deleteCalendarEvent, getPublicCalendarEvent (all via platformRequest) - Today.tsx: migrate from broken /ipa/calendar/events (no proxy) to listCalendarEvents() via the platform facade; fixes the Today widget"
+      },
+      {
+        "type": "p",
+        "text": "All suites green: 309 Nexus-API bun tests, 239 Dashboard vitest tests, start-contract.test.sh PASS."
+      }
+    ]
+  },
+  {
+    "slug": "wire-cors-allowed-origins-and-canary-cors-test",
+    "title": "Wire CORS allowed origins and canary CORS test",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "start_nexus_api_service now passes NEXUS_API_ALLOWED_ORIGINS=https://app.DOMAIN so the platform facade's credentialed CORS policy matches production. The Cloud API key is still inherited from the process environment (NEX",
+    "sha": "d14324e",
+    "content": [
+      {
+        "type": "p",
+        "text": "start_nexus_api_service now passes NEXUS_API_ALLOWED_ORIGINS=https://app.DOMAIN so the platform facade's credentialed CORS policy matches production. The Cloud API key is still inherited from the process environment (NEXUS_CLOUD_API_KEY) rather than passed as a KEY=value launcher argument."
+      },
+      {
+        "type": "p",
+        "text": "Dashboard build warning now includes VITE_NEXUS_API_URL in the example build command so the frontend picks up the correct platform API origin at compile time."
+      },
+      {
+        "type": "p",
+        "text": "start-contract.test.sh asserts the CORS origins env var is wired. proxy.test.ts adds a case verifying the proxy passes through credentialed CORS headers set by the Nexus-API service without stripping them."
+      }
+    ]
+  },
+  {
+    "slug": "add-future-app-admission-checklist-contract-parity-gate",
+    "title": "Add future-app admission checklist + contract-parity gate",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "api"
+    ],
+    "category": "Commit",
+    "excerpt": "Creates FUTURE_APP_ONBOARDING.md with the 9-step admission checklist for promoting any service through the platform facade. Adds a contract-parity test that asserts every route carries a non-empty owner and a valid acces",
+    "sha": "6817fb4",
+    "content": [
+      {
+        "type": "p",
+        "text": "Creates FUTURE_APP_ONBOARDING.md with the 9-step admission checklist for promoting any service through the platform facade. Adds a contract-parity test that asserts every route carries a non-empty owner and a valid access tier, enforcing the admission gate at test time."
+      },
+      {
+        "type": "p",
+        "text": "Also excludes the three Bun.serve test files from vitest discovery so check.sh stays green \u2014 they continue to run under bun test."
+      }
+    ]
+  },
+  {
+    "slug": "migrate-mail-client-to-platform-api-facade",
+    "title": "Migrate mail client to platform API facade",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "All mail functions in api.ts now use platformRequest() and the /api/v1/mail/* prefix instead of the Dashboard-internal /ipa/mail/* proxy. The Unread widget's direct fetch() is also migrated. Test stubs in MailList.test.t",
+    "sha": "e941ccc",
+    "content": [
+      {
+        "type": "p",
+        "text": "All mail functions in api.ts now use platformRequest() and the /api/v1/mail/* prefix instead of the Dashboard-internal /ipa/mail/* proxy. The Unread widget's direct fetch() is also migrated. Test stubs in MailList.test.tsx updated to match the new URLs; the stub setup is also refactored to use vi.stubGlobal, eliminating two noExplicitAny violations."
+      }
+    ]
+  },
+  {
+    "slug": "migrate-me-and-listapps-to-platform-api-facade",
+    "title": "Migrate me() and listApps() to platform API facade",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "me() now calls https://api.tnhc.dev/api/v1/me (credentials: include). listApps() now calls https://api.tnhc.dev/api/v1/apps (credentials: include). Both use a new platformRequest() helper that builds the absolute URL fro",
+    "sha": "ce484a0",
+    "content": [
+      {
+        "type": "p",
+        "text": "me() now calls https://api.tnhc.dev/api/v1/me (credentials: include). listApps() now calls https://api.tnhc.dev/api/v1/apps (credentials: include). Both use a new platformRequest() helper that builds the absolute URL from platformApiOrigin() (reads VITE_NEXUS_API_URL, falls back to api.tnhc.dev)."
+      },
+      {
+        "type": "p",
+        "text": "Same-origin Dashboard-server paths (/ipa/v1/auth/*) remain on the existing request() helper \u2014 only identity and catalog go to the facade."
+      },
+      {
+        "type": "p",
+        "text": "api.test.ts: 6 new tests proving the correct URL and credentials mode for me() and listApps(), plus the default origin."
+      },
+      {
+        "type": "p",
+        "text": "Account/Admin/Home/Grid tests updated to stub the new platform API URLs."
+      },
+      {
+        "type": "h",
+        "text": "Dashboard frontend: 239/239"
+      }
+    ]
+  },
+  {
+    "slug": "strip-cloud-internal-fields-from-catalog-response-delegation",
+    "title": "Strip Cloud-internal fields from catalog response + delegation boundary tests",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "api"
+    ],
+    "category": "Commit",
+    "excerpt": "releasedCatalogBody() was spreading the full upstream Cloud response body, which meant any internal fields Cloud added (e.g. _cloudApiKey, internal metadata) could leak to callers. Now it returns only the filtered apps/t",
+    "sha": "f80e13e",
+    "content": [
+      {
+        "type": "p",
+        "text": "releasedCatalogBody() was spreading the full upstream Cloud response body, which meant any internal fields Cloud added (e.g. _cloudApiKey, internal metadata) could leak to callers. Now it returns only the filtered apps/tools array under the canonical key."
+      },
+      {
+        "type": "p",
+        "text": "Delegation boundary test suite (3 tests): - x-nexus-subject from the browser is never forwarded; the Auth-resolved subject is injected instead - Cloud API key does not appear in any catalog response body - Cloud unreachable \u2192 503 catalog_unavailable (not a silent empty result)"
+      }
+    ]
+  },
+  {
+    "slug": "cors-boundary-contract-openapi-parity-guards",
+    "title": "CORS boundary + contract/OpenAPI parity guards",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "api"
+    ],
+    "category": "Commit",
+    "excerpt": "- cors.ts: allowedApiOrigins(), preflightApiResponse(), applyApiCors() Reads NEXUS_API_ALLOWED_ORIGINS; defaults to https://app.tnhc.dev. Preflight returns 204 for allowed origins, 403 for blocked. All responses get Acce",
+    "sha": "8d21064",
+    "content": [
+      {
+        "type": "p",
+        "text": "- cors.ts: allowedApiOrigins(), preflightApiResponse(), applyApiCors() Reads NEXUS_API_ALLOWED_ORIGINS; defaults to https://app.tnhc.dev. Preflight returns 204 for allowed origins, 403 for blocked. All responses get Access-Control-Allow-Origin + credentials: true from allowed origins. Vary: Origin always set."
+      },
+      {
+        "type": "p",
+        "text": "- server.ts: wire CORS \u2014 OPTIONS preflight handled before routing; all responses wrapped with applyApiCors(). Import cors.ts."
+      },
+      {
+        "type": "list",
+        "items": [
+          "api-contract.ts: extend method type to include PATCH | PUT."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "- contract-parity.test.ts (vitest): every contract route has an OpenAPI operation and vice versa; access tiers present."
+      },
+      {
+        "type": "p",
+        "text": "- public-api.test.ts: 4 new CORS boundary tests (preflight allowed/blocked, response headers allowed/omitted)."
+      },
+      {
+        "type": "p",
+        "text": "- specCoverage.test.ts: bump \"finds the service's routes\" timeout to 30000ms to prevent NTFS I/O false timeouts."
+      },
+      {
+        "type": "p",
+        "text": "- bunfig.toml: preload tests/setup.ts for bun test so DATABASE_URL is set before any legacy route module is imported. Eliminates the pre-existing unhandled error in the bun native runner."
+      },
+      {
+        "type": "p",
+        "text": "- tsconfig.gateway.json + package.json lint/format: include cors.ts and contract-parity.test.ts in the facade-scoped typecheck and Biome targets."
+      },
+      {
+        "type": "h",
+        "text": "bun test: 301/301  bun run check: clean"
+      }
+    ]
+  },
+  {
+    "slug": "draw-green-pass-skip-link-title-accent-tokens-header-canvas",
+    "title": "Draw Green pass \u2014 skip link, title, accent tokens, header, canvas aria fix",
+    "date": "2026-10-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y"
+    ],
+    "category": "Commit",
+    "excerpt": "Draw Green pass \u2014 skip link, title, accent tokens, header, canvas aria fix",
+    "sha": "e82728e",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "App.tsx: skip-to-canvas link, document.title updates from reactive board name, board status span now reactive (was getState() snapshot), replace outline-blue-500 with outline-accent, replace text-blue-400 with text-accent",
+          "TopBar.tsx: <div> \u2192 <header role=\"banner\">, add brand mark SVG, rename \"Nexus-Draw\" \u2192 \"Draw\", close </div> \u2192 </header>",
+          "Toolbar.tsx: bg-blue-600 active \u2192 bg-accent, min-h-[44px] on tool buttons for touch compliance, outline-blue-500 \u2192 outline-accent, add type=\"button\"",
+          "Canvas.tsx: fix aria-label key map \u2014 \"E ellipse\" was wrong, correct is O=ellipse, E=eraser"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "project-green-pass-skip-link-titles-proper-buttons-tabpanel",
+    "title": "Project Green pass \u2014 skip link, titles, proper buttons, tabpanel, focus rings",
+    "date": "2026-10-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y"
+    ],
+    "category": "Commit",
+    "excerpt": "Project Green pass \u2014 skip link, titles, proper buttons, tabpanel, focus rings",
+    "sha": "0f72356",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "App.tsx: skip-to-content link, id=\"main-content\" on <main>, document.title updates per view, role=\"banner\", focus rings on header buttons",
+          "Board.tsx: <div role=\"button\"> \u2192 <button type=\"button\"> for task cards (draggable preserved), focus-visible ring",
+          "Home.tsx: role=\"tabpanel\" + aria-labelledby on content panel, focus-visible rings on all form inputs and project cards",
+          "Timeline.tsx: sr-only <ul> as text alternative for SVG chart, aria-hidden=\"true\" on SVG, role=\"alert\" on violations",
+          "TaskDrawer.tsx: close button min-h/w 44px + focus-visible ring for touch and keyboard compliance"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "calendar-green-pass-proper-buttons-focus-rings-title-touch-t",
+    "title": "Calendar Green pass \u2014 proper buttons, focus rings, title, touch targets",
+    "date": "2026-10-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y"
+    ],
+    "category": "Commit",
+    "excerpt": "Calendar Green pass \u2014 proper buttons, focus rings, title, touch targets",
+    "sha": "5b2b7e3",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "MonthGrid event chips: <span role=\"button\"> \u2192 <button type=\"button\"> (native keyboard focus, no tabIndex hack)",
+          "Day sidebar event list: <div role=\"button\"> \u2192 <button> (same)",
+          "EventEditor: add focus-visible ring (was focus:outline-none with no replacement \u2014 keyboard users saw nothing)",
+          "CalendarApp: document.title updates to \"Month Year \u2014 Calendar\" on navigation",
+          "Close-day button: add min-h/w 44px + padding for WCAG 2.5.8 touch target compliance"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "auth-green-pass-brand-mark-nav-landmarks-fieldset-safe-area",
+    "title": "Auth Green pass \u2014 brand mark, nav landmarks, fieldset, safe-area, 44px targets",
+    "date": "2026-10-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y"
+    ],
+    "category": "Commit",
+    "excerpt": "Auth Green pass \u2014 brand mark, nav landmarks, fieldset, safe-area, 44px targets",
+    "sha": "dce165d",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Brand mark (SVG bolt + wordmark) at top of every auth card for visual identity",
+          "`<nav aria-label>` around link clusters replacing bare <p> tags on both pages",
+          "`<fieldset><legend>` grouping for password + confirm fields on all creation flows",
+          "`viewport-fit=cover` + `env(safe-area-inset-*)` padding for notched phones",
+          "`min-height: 44px` on all buttons for WCAG 2.5.8 touch target compliance",
+          "`:focus-visible` (not :focus) for inputs/textareas \u2014 no outline on mouse click",
+          "`text-wrap: balance` on h1/.sub, `letter-spacing` on labels, improved --dim contrast",
+          "Horizontal divider separating form from navigation links"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "dashboard-green-pass-skip-links-focus-rings-page-titles-dead",
+    "title": "Dashboard Green pass \u2014 skip links, focus rings, page titles, dead code",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y"
+    ],
+    "category": "Commit",
+    "excerpt": "- Shell.tsx: skip-to-content link + id=main-content; focus-visible rings on all interactive chrome elements (search, density toggle, admin/account links, rail Apps/Report/Charter buttons) - Home.tsx (SignedOut): skip-to-",
+    "sha": "9a210db",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Shell.tsx: skip-to-content link + id=main-content; focus-visible rings on all interactive chrome elements (search, density toggle, admin/account links, rail Apps/Report/Charter buttons) - Home.tsx (SignedOut): skip-to-content link + id=main-content on <main> - Pinned.tsx: focus-visible:opacity-100 + focus ring on pin/unpin button (was invisible to keyboard \u2014 opacity-0 group-hover:opacity-100 only) - App.tsx: RouteTitle component sets document.title on every route change (/account, /admin, /cloud/*, /mail/*, /apps, /report, /terminal) - Delete DashboardOverview.tsx + dashboard-overview.css (dead code \u2014 never imported, used hardcoded hex colors from old design system)"
+      }
+    ]
+  },
+  {
+    "slug": "draw-canvas-role-aria-arrow-key-nudge-semantic-headings",
+    "title": "Draw canvas role/aria, arrow-key nudge, semantic headings",
+    "date": "2026-10-16",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y"
+    ],
+    "category": "Commit",
+    "excerpt": "Canvas: - role=\"application\" + aria-label + tabIndex={0} (canvas was unreachable by keyboard and unnamed by AT) - Arrow keys nudge selected elements 1px (Shift: 10px) via pushHistory + setElementsLive for a single undo s",
+    "sha": "3bc4cd0",
+    "content": [
+      {
+        "type": "p",
+        "text": "Canvas: - role=\"application\" + aria-label + tabIndex={0} (canvas was unreachable by keyboard and unnamed by AT) - Arrow keys nudge selected elements 1px (Shift: 10px) via pushHistory + setElementsLive for a single undo slot - background: var(--nexus-color-bg-canvas) instead of hardcoded #1a1a2e so the canvas follows the design-system dark token"
+      },
+      {
+        "type": "p",
+        "text": "App: - <main aria-label=\"Drawing area\"> replaces the generic div wrapping the canvas (adds main landmark) - Each sidebar panel wrapper gets role=\"region\" + aria-label"
+      },
+      {
+        "type": "p",
+        "text": "Panels: - LayerPanel / PropertiesPanel / BoardPanel / AIPanel headers upgraded from <div> to <h2> for correct heading hierarchy"
+      },
+      {
+        "type": "h",
+        "text": "Rubric target: Draw 61 Red \u2192 70+ Yellow"
+      }
+    ]
+  },
   {
     "slug": "nit-ci-headless-axe-core-scan-responsive-passes-for-calendar",
     "title": "Nit CI \u2014 headless axe-core scan + responsive passes for Calendar, Draw",
@@ -18157,6 +19457,271 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "add-production-static-identity-proxy-server",
+    "title": "Add production static+identity-proxy server",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "web",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Serving nexus-web via the Vite dev server in production meant framing it in the dashboard loaded an unminified, dev-mode React app with HMR \u2014 heavy enough to choke the browser. Add serve.ts: serves the built dist/ and re",
+    "sha": "d9d078c",
+    "content": [
+      {
+        "type": "p",
+        "text": "Serving nexus-web via the Vite dev server in production meant framing it in the dashboard loaded an unminified, dev-mode React app with HMR \u2014 heavy enough to choke the browser. Add serve.ts: serves the built dist/ and reproduces the dev plugin's identity injection, minting x-nexus-identity from the nexus_session cookie for both /api (HTTP) and /gateway (WebSocket, which the gateway rejects without it). Run with `bun run serve`."
+      }
+    ]
+  },
+  {
+    "slug": "add-local-dev-auth-proxy-and-fix-api-routing",
+    "title": "Add local dev auth proxy and fix API routing",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "web",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Add a Vite plugin (nexusDevAuthPlugin) that intercepts /api/* requests, reads the nexus_session cookie the browser carries from Nexus-Auth, and mints a short-lived x-nexus-identity token (cached per session, ~115s) befor",
+    "sha": "a72d449",
+    "content": [
+      {
+        "type": "p",
+        "text": "Add a Vite plugin (nexusDevAuthPlugin) that intercepts /api/* requests, reads the nexus_session cookie the browser carries from Nexus-Auth, and mints a short-lived x-nexus-identity token (cached per session, ~115s) before proxying to the Rust API. This lets the frontend work locally without the production ecosystem proxy."
+      },
+      {
+        "type": "p",
+        "text": "Change DEFAULT_SERVER_URL to \"\" so API calls use relative paths and flow through the Vite proxy rather than hitting localhost:8080 directly. Set VITE_DIRECT_API=http://localhost:8080 in .env.local to bypass the proxy."
+      },
+      {
+        "type": "p",
+        "text": "Point VITE_AUTH_LOGIN_URL to localhost:4310 via .env.local (not committed) so the Sign in button redirects to the local Nexus-Auth instance."
+      }
+    ]
+  },
+  {
+    "slug": "deduplicate-get-users-search-route",
+    "title": "Deduplicate GET /users/search route",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "api",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Moved /users/search registration from relationships.rs (where it caused an Axum/matchit 0.8 overlap panic when merged) into users.rs alongside the other /users/* routes. Removed the duplicate handler in users.rs and re-e",
+    "sha": "9290031",
+    "content": [
+      {
+        "type": "p",
+        "text": "Moved /users/search registration from relationships.rs (where it caused an Axum/matchit 0.8 overlap panic when merged) into users.rs alongside the other /users/* routes. Removed the duplicate handler in users.rs and re-exported search_users, SearchQuery, and UserBrief as pub(crate) from relationships.rs so users.rs can delegate to the canonical implementation."
+      }
+    ]
+  },
+  {
+    "slug": "add-message-editing-to-chatview",
+    "title": "Add message editing to ChatView",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "desktop",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "- Add editMessage action to Store interface and implementation (PATCH /channels/{id}/messages/{id}, updates in-place) - Add editingId/editDraft state to ChatView - Edit button (\u270f) in hover toolbar for own messages, besid",
+    "sha": "a952ae8",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Add editMessage action to Store interface and implementation (PATCH /channels/{id}/messages/{id}, updates in-place) - Add editingId/editDraft state to ChatView - Edit button (\u270f) in hover toolbar for own messages, beside delete - Inline textarea replaces message content while editing - Enter to save, Esc to cancel; Save/Cancel links below textarea - (edited) badge already present via msg.edited_at"
+      }
+    ]
+  },
+  {
+    "slug": "member-list-in-server-screen",
+    "title": "Member list in server screen",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "mobile",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Server screen now: - Loads members on mount via store.loadMembers() - Shows a \ud83d\udc65 button in the header opening a pageSheet member list - Each member row shows presence dot (online/idle/dnd/offline colors), nickname/display",
+    "sha": "88cc085",
+    "content": [
+      {
+        "type": "p",
+        "text": "Server screen now: - Loads members on mount via store.loadMembers() - Shows a \ud83d\udc65 button in the header opening a pageSheet member list - Each member row shows presence dot (online/idle/dnd/offline colors), nickname/displayName, and @username subtitle when nickname is set"
+      }
+    ]
+  },
+  {
+    "slug": "message-context-menu-edit-delete-reply-copy",
+    "title": "Message context menu \u2014 edit, delete, reply, copy",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "mobile",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Long-press a message to open an action sheet showing: - Reply (sets reply context in composer) - Copy text (copies to clipboard) - Edit / Delete (own messages only)",
+    "sha": "d901dfa",
+    "content": [
+      {
+        "type": "p",
+        "text": "Long-press a message to open an action sheet showing: - Reply (sets reply context in composer) - Copy text (copies to clipboard) - Edit / Delete (own messages only)"
+      },
+      {
+        "type": "p",
+        "text": "Editing replaces the composer with an edit mode (blue Save button, \"Editing message\" bar above) that calls api.editMessage and updates the store. Deleting shows a confirmation alert before api.deleteMessage."
+      },
+      {
+        "type": "p",
+        "text": "Also: - Show (edited) label on messages that have editedAt set - Quick reaction + button is now always visible next to timestamp - SettingsScreen subscribes to store via useStore"
+      }
+    ]
+  },
+  {
+    "slug": "improved-dms-screen-load-initial-data-on-app-restore",
+    "title": "Improved DMs screen + load initial data on app restore",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "mobile",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "DMs screen: - Debounced auto-search in New Message modal (300ms, fires as you type) - Unread dot badge on conversation rows - Last message preview with author/timestamp - Sort conversations by most recent message - Fix s",
+    "sha": "e4e0ed4",
+    "content": [
+      {
+        "type": "p",
+        "text": "DMs screen: - Debounced auto-search in New Message modal (300ms, fires as you type) - Unread dot badge on conversation rows - Last message preview with author/timestamp - Sort conversations by most recent message - Fix search result type (User[] from api.ts instead of relationship shape) - autoFocus search input on modal open"
+      },
+      {
+        "type": "p",
+        "text": "Tabs layout: - Call loadInitialData() on mount so servers/DMs are populated when the app is restored from storage (previously only called after fresh login)"
+      }
+    ]
+  },
+  {
+    "slug": "add-usestore-hook-for-reactive-store-subscription",
+    "title": "Add useStore hook for reactive store subscription",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "mobile",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "All screens read store.* properties at render time but never re-rendered when the store changed \u2014 messages, typing indicators, unread badges, and server/channel lists were all static after initial mount.",
+    "sha": "928759d",
+    "content": [
+      {
+        "type": "p",
+        "text": "All screens read store.* properties at render time but never re-rendered when the store changed \u2014 messages, typing indicators, unread badges, and server/channel lists were all static after initial mount."
+      },
+      {
+        "type": "p",
+        "text": "- store.ts: add _rev counter + getSnapshot(), expose useStore() via useSyncExternalStore so any calling component re-renders on emit() - channel/[id], dms, index (servers), server/[id], profile, VoiceCallScreen, (tabs)/_layout, app/index: call useStore() to subscribe - app/_layout.tsx: register voice/[id] and thread/[threadId] Stack screens (navigation to these routes silently broke without them) - Cargo.toml: use line-tables-only debug info for ~5x smaller dev binary"
+      }
+    ]
+  },
+  {
+    "slug": "add-missing-sqlx-row-import-in-search-users-handler",
+    "title": "Add missing sqlx::Row import in search_users handler",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "The try_get calls in search_users needed `use sqlx::Row` in local scope \u2014 same pattern used by the other raw-query handlers in this file.",
+    "sha": "b2d24a9",
+    "content": [
+      {
+        "type": "p",
+        "text": "The try_get calls in search_users needed `use sqlx::Row` in local scope \u2014 same pattern used by the other raw-query handlers in this file."
+      }
+    ]
+  },
+  {
+    "slug": "add-messaging-inbox-whatsapp-like-dm-view",
+    "title": "Add messaging inbox (WhatsApp-like DM view)",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "Add messaging inbox (WhatsApp-like DM view)",
+    "sha": "cf7969a",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "MessagesLayout: 2-column inbox (conversation list + ChatView)",
+          "Conversations sorted by last message time",
+          "Debounced username search to start new DMs",
+          "Unread dot badge, last message preview, relative timestamps",
+          "ServerList: Messages nav button that routes to /messages",
+          "MainLayout: route /messages and /messages/:channelId to MessagesLayout",
+          "ChatView: falls back to dmChannels for channel name lookup in DM context",
+          "store: add searchUsers(), fix createDm endpoint (/users/@me/channels)",
+          "nexus-api: GET /api/v1/users/search?q= (username/display_name ILIKE, 10 results)"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "chat-green-pass-skip-link-mobile-nav-aria-landmarks-focus-ri",
+    "title": "Chat Green pass \u2014 skip link, mobile nav, ARIA landmarks, focus rings",
+    "date": "2026-10-17",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "a11y",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "- MainLayout: skip-to-content link + id=main-content on role=main wrapper - MainLayout: mobile slide-in channel panel \u2014 on <sm ChannelList is a fixed overlay triggered by a hamburger button; auto-closes on navigation (us",
+    "sha": "b4c8c62",
+    "content": [
+      {
+        "type": "p",
+        "text": "- MainLayout: skip-to-content link + id=main-content on role=main wrapper - MainLayout: mobile slide-in channel panel \u2014 on <sm ChannelList is a fixed overlay triggered by a hamburger button; auto-closes on navigation (useLocation); backdrop tap-to-dismiss; Escape key closes - MainLayout: notification banner converted to role=dialog + CSS classes (removes all inline styles) - ChatView: role=log + aria-label + aria-live=polite on message list - ChatView: typing indicator always in DOM + aria-live=polite so AT announces typing users without a focus change - ChatView: role=alert on send error; aria-label on message textarea - ChatView: document.title updates to \"#channel \u2014 Nexus\" on navigation - ChatView: channel header promoted to <header role=banner aria-label> - ServerList: focus-visible ring on every SpaceBtn; explicit aria-label mirrors the title attribute; gateway dot gets aria-hidden + sr-only text - ServerList: settings button inline style replaced with Tailwind classes (bg-accent-500/25 text-accent-300), focus-visible ring added - ChannelList: create-channel button focus-visible:opacity-100 so keyboard users can reach it (was opacity-0 group-hover only)"
+      }
+    ]
+  },
+  {
     "slug": "allowlist-emoji-content-types-drop-svg-from-chat-attachments",
     "title": "Allowlist emoji content types; drop SVG from chat attachments",
     "date": "2026-10-16",
@@ -24197,6 +25762,99 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "wire-phantomapp-startup-and-health-status",
+    "title": "Wire PhantomApp startup and health status",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "phantom",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "Wire PhantomApp startup and health status",
+    "sha": "26b4f82",
+    "content": [
+      {
+        "type": "list",
+        "items": [
+          "Add PhantomApp(\"nexus-cloud\") at server startup",
+          "Export phantomApp for use by handlers",
+          "Add PhantomStatus type to HealthResponse DTO",
+          "Include phantom.status() in /health response"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "operator-set-platform-maintenance-state-api",
+    "title": "Operator-set platform maintenance state + API",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "maintenance",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "Adds a maintenance record per platform part (tool id or domain) to Cloud's state, set/cleared by an operator (session with system:config, verified against Auth exactly as catalog decisions). Endpoints: GET /api/v1/mainte",
+    "sha": "4aff617",
+    "content": [
+      {
+        "type": "p",
+        "text": "Adds a maintenance record per platform part (tool id or domain) to Cloud's state, set/cleared by an operator (session with system:config, verified against Auth exactly as catalog decisions). Endpoints: GET /api/v1/maintenance (list), POST/DELETE /api/v1/maintenance/:subjectId (operator-only). Each active route on /api/v1/routes is annotated with its maintenance window (part, reason, startedAt, expectedEndAt) so the edge proxy can serve a maintenance page instead of proxying. Writes are audited via recordEvent."
+      },
+      {
+        "type": "p",
+        "text": "State changes are backward-compatible: an on-disk snapshot written before this field loads with maintenance defaulted to [], and clone/snapshot tolerate its absence."
+      }
+    ]
+  },
+  {
+    "slug": "promote-nexus-chat-to-released",
+    "title": "Promote nexus-chat to released",
+    "date": "2026-10-29",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "catalog",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "Chat is a running, user-facing app (chat.tnhc.dev) but was seeded as 'staged', so the dashboard launcher \u2014 which only admits released, stable, healthy, approved user-apps \u2014 excluded it, leaving only Mail and Hosting in t",
+    "sha": "0d1bcce",
+    "content": [
+      {
+        "type": "p",
+        "text": "Chat is a running, user-facing app (chat.tnhc.dev) but was seeded as 'staged', so the dashboard launcher \u2014 which only admits released, stable, healthy, approved user-apps \u2014 excluded it, leaving only Mail and Hosting in the grid. Mark it released and bump CATALOG_SEED_VERSION so applyCoreCatalogSeed re-applies over the existing v2 approval."
+      }
+    ]
+  },
+  {
+    "slug": "add-nexus-hosting-reclassify-nexus-deploy-as-user-app",
+    "title": "Add nexus-hosting, reclassify nexus-deploy as user-app",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "catalog",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "- Add nexus-hosting to CORE_CATALOG_SEED as user-app (released) so it appears in the Dashboard launcher without a SHELL_NATIVE_APPS override - Reclassify nexus-deploy from developer-tool/released to user-app/staged \u2014 it ",
+    "sha": "d5a7d6e",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Add nexus-hosting to CORE_CATALOG_SEED as user-app (released) so it appears in the Dashboard launcher without a SHELL_NATIVE_APPS override - Reclassify nexus-deploy from developer-tool/released to user-app/staged \u2014 it is a user-facing push-to-deploy platform, not a raw developer tool - Bump CATALOG_SEED_VERSION to 2 so Cloud re-seeds on next startup - Update seed test to match the new surface/releaseState classification"
+      }
+    ]
+  },
+  {
     "slug": "probe-exposed-tools-health-to-keep-non-sdk-services-healthy",
     "title": "Probe exposed tools' /health to keep non-SDK services healthy",
     "date": "2026-10-16",
@@ -24949,6 +26607,48 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "redesign-as-push-to-deploy-platform",
+    "title": "Redesign as push-to-deploy platform",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "ux",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "- Remove dead NetworkHealth widget (was polling network.nexus.computer) - Sidebar: teal brand icon + \"Deploy\" wordmark (sans 800-weight), live project counts with status dots, \"How auto-deploy works\" 4-step guide - Empty",
+    "sha": "a2156fc",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Remove dead NetworkHealth widget (was polling network.nexus.computer) - Sidebar: teal brand icon + \"Deploy\" wordmark (sans 800-weight), live project counts with status dots, \"How auto-deploy works\" 4-step guide - Empty state: two-column onboarding card with hero CTA + step guide - Project cards: status-coloured left border (live/building/failed/idle), branch pill (\u2387 branch), cleaner footer with domain icon"
+      }
+    ]
+  },
+  {
+    "slug": "drop-exactoptionalpropertytypes-and-noimplicitreturns-from-t",
+    "title": "Drop exactOptionalPropertyTypes and noImplicitReturns from tsconfig",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "build",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Express route handlers don't return values \u2014 they call res.json() \u2014 so noImplicitReturns flags every handler as an error. exactOptionalPropertyTypes is too strict for the jwt and Docker type signatures used here. Both fl",
+    "sha": "aa09daa",
+    "content": [
+      {
+        "type": "p",
+        "text": "Express route handlers don't return values \u2014 they call res.json() \u2014 so noImplicitReturns flags every handler as an error. exactOptionalPropertyTypes is too strict for the jwt and Docker type signatures used here. Both flags prevented tsc from ever producing a dist/."
+      }
+    ]
+  },
+  {
     "slug": "live-means-healthy-dockerfile-path-local-repos-opt-in",
     "title": "Live means healthy; Dockerfile path; local repos opt-in",
     "date": "2026-10-13",
@@ -25337,6 +27037,227 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "add-missing-formatdistancetonow-import-and-t-hook-in-deploy",
+    "title": "Add missing formatDistanceToNow import and t hook in deploy views",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Dashboard.tsx used formatDistanceToNow in RecentActivityFeed without importing it from date-fns, causing a ReferenceError for any user who had deployments shown on the dashboard.",
+    "sha": "2610935",
+    "content": [
+      {
+        "type": "p",
+        "text": "Dashboard.tsx used formatDistanceToNow in RecentActivityFeed without importing it from date-fns, causing a ReferenceError for any user who had deployments shown on the dashboard."
+      },
+      {
+        "type": "p",
+        "text": "DeploySite.tsx called t() inside the DeploymentHistory component, but t was only destructured from useTranslation() inside the sibling DeploySite component. Added the hook call directly in DeploymentHistory."
+      }
+    ]
+  },
+  {
+    "slug": "handle-email-unique-constraint-in-upsertuser",
+    "title": "Handle email unique constraint in upsertUser",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "The hosting DB had a stale seed user (usr-mqe2johw-1 / founder@nexus.local) whose ID never existed in Nexus-Auth. When the real account logged in with a different sub, the INSERT conflicted on the email unique constraint",
+    "sha": "6ac0fb0",
+    "content": [
+      {
+        "type": "p",
+        "text": "The hosting DB had a stale seed user (usr-mqe2johw-1 / founder@nexus.local) whose ID never existed in Nexus-Auth. When the real account logged in with a different sub, the INSERT conflicted on the email unique constraint (23505) instead of the id, which the onConflictDoUpdate clause did not handle."
+      },
+      {
+        "type": "p",
+        "text": "The stale row was removed from the DB. This commit adds a catch for users_email_key violations so the existing row's sub is updated instead of crashing \u2014 prevents the same breakage if the scenario recurs."
+      }
+    ]
+  },
+  {
+    "slug": "gate-entire-hosting-control-panel-behind-auth",
+    "title": "Gate entire hosting control panel behind auth",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Unauthenticated visits now redirect immediately to /api/login with returnTo. The OIDC flow (/api/login, /api/callback) is server-side so it is never intercepted. Removes PUBLIC_NAV_ITEMS and the unauthenticated nav branc",
+    "sha": "2072998",
+    "content": [
+      {
+        "type": "p",
+        "text": "Unauthenticated visits now redirect immediately to /api/login with returnTo. The OIDC flow (/api/login, /api/callback) is server-side so it is never intercepted. Removes PUBLIC_NAV_ITEMS and the unauthenticated nav branch \u2014 hosting is a control panel, not a public-facing site."
+      }
+    ]
+  },
+  {
+    "slug": "remove-sign-in-button-from-sidebar-and-mobile-header",
+    "title": "Remove sign-in button from sidebar and mobile header",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Hosting has its own OIDC session separate from the ecosystem SSO, which caused a confusing \"Sign In\" button to appear even when the user was already authenticated via app.tnhc.dev. Unauthenticated visitors can still brow",
+    "sha": "96eaafa",
+    "content": [
+      {
+        "type": "p",
+        "text": "Hosting has its own OIDC session separate from the ecosystem SSO, which caused a confusing \"Sign In\" button to appear even when the user was already authenticated via app.tnhc.dev. Unauthenticated visitors can still browse the public directory; protected pages redirect to login when needed."
+      }
+    ]
+  },
+  {
+    "slug": "gate-node-operator-nav-behind-admin-flag",
+    "title": "Gate node-operator nav behind admin flag",
+    "date": "2026-11-04",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "The \"Network & Admin\" sidebar section was shown to all users, mixing operator infrastructure with the site-hosting product.",
+    "sha": "3ad18c5",
+    "content": [
+      {
+        "type": "p",
+        "text": "The \"Network & Admin\" sidebar section was shown to all users, mixing operator infrastructure with the site-hosting product."
+      },
+      {
+        "type": "p",
+        "text": "Changes: - AuthUser type and GetCurrentAuthUserResponse Zod schema gain isAdmin: boolean - OIDC callback (browser + mobile) stores isAdmin: dbUser.isAdmin === 1 in session - tokenAuth middleware selects isAdmin from DB and coerces to boolean - Layout gates the \"Node Operator\" collapse on user.isAdmin \u2014 regular users see only site-hosting nav (My Sites, Usage, API Tokens, Account, Directory) - Dockerfile: chmod -R a+rX before switching to fhnode user so fuseblk-built images can be read by the non-root process"
+      }
+    ]
+  },
+  {
+    "slug": "wire-onboarding-banner-simplify-site-card-actions",
+    "title": "Wire onboarding banner + simplify site card actions",
+    "date": "2026-10-30",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "hosting",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Three UX fixes for non-technical users:",
+    "sha": "417b22c",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three UX fixes for non-technical users:"
+      },
+      {
+        "type": "p",
+        "text": "1. Onboarding: OnboardingBanner and OnboardingModal existed but were never rendered. Now shown on My Sites until the user dismisses it. The 4-step guide (sign in \u2192 register \u2192 upload \u2192 deploy) appears as a dismissable banner with a \"Get Started\" modal walkthrough."
+      },
+      {
+        "type": "p",
+        "text": "2. Primary action renamed: the \u26a1 \"Deploy\" button was confusing \u2014 it is actually the file upload page. Renamed to \"Upload Files\" with the Upload icon so the purpose is immediately obvious."
+      },
+      {
+        "type": "p",
+        "text": "3. Decluttered site card: 9 icon-only buttons reduced to 3 visible actions (Upload Files, Open live site, Settings) plus a \"More\" dropdown containing Analytics, Build history, Form submissions, Webhooks, and Site overview. The primary job \u2014 uploading files \u2014 is now the only prominent action."
+      }
+    ]
+  },
+  {
+    "slug": "add-shell-origins-env-var-so-app-tnhc-dev-can-embed-this-in",
+    "title": "Add SHELL_ORIGINS env var so app.tnhc.dev can embed this in an iframe",
+    "date": "2026-10-28",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "PUBLIC_DOMAIN is this node's own hostname (hosting.tnhc.dev), so the default shellOrigins derivation produced app.hosting.tnhc.dev instead of app.tnhc.dev. That made frame-ancestors block the ecosystem shell, showing use",
+    "sha": "1049835",
+    "content": [
+      {
+        "type": "p",
+        "text": "PUBLIC_DOMAIN is this node's own hostname (hosting.tnhc.dev), so the default shellOrigins derivation produced app.hosting.tnhc.dev instead of app.tnhc.dev. That made frame-ancestors block the ecosystem shell, showing users a blank iframe. SHELL_ORIGINS overrides the default with the correct shell origin."
+      }
+    ]
+  },
+  {
+    "slug": "streamline-site-creation-ux-for-non-technical-users",
+    "title": "Streamline site creation UX for non-technical users",
+    "date": "2026-10-27",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "core",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "SiteForm: - Replace bare domain field with slug input + .tnhc.dev suffix shown inline - Pre-fill ownerName/ownerEmail from authenticated user (hidden from form) - Collapse advanced options (site type, target node) behind",
+    "sha": "726a7da",
+    "content": [
+      {
+        "type": "p",
+        "text": "SiteForm: - Replace bare domain field with slug input + .tnhc.dev suffix shown inline - Pre-fill ownerName/ownerEmail from authenticated user (hidden from form) - Collapse advanced options (site type, target node) behind disclosure - onSuccess now passes the created Site object to caller"
+      },
+      {
+        "type": "p",
+        "text": "MySites: - After site creation, auto-navigate to /deploy/:id so user can upload files immediately - Empty state \"Create your first site\" button shares the same dialog"
+      }
+    ]
+  },
+  {
+    "slug": "restructure-nav-to-lead-with-website-hosting-actions",
+    "title": "Restructure nav to lead with website hosting actions",
+    "date": "2026-10-20",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "ux",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Before: sidebar opened with \"Network Ops\" section \u2014 Federation Nodes, Node Network, Federation Protocol, API Reference. User items (My Sites, Usage, Tokens) were buried at the bottom after all the infra labels.",
+    "sha": "81d4a92",
+    "content": [
+      {
+        "type": "p",
+        "text": "Before: sidebar opened with \"Network Ops\" section \u2014 Federation Nodes, Node Network, Federation Protocol, API Reference. User items (My Sites, Usage, Tokens) were buried at the bottom after all the infra labels."
+      },
+      {
+        "type": "p",
+        "text": "After: - Authenticated users see \"Deploy a Site\" CTA + My Sites, Usage, API Tokens, Account at the top - Network & Admin items (Federation Nodes, Node Network, Federation Protocol, API Reference, Node Admin) collapse under a disclosure toggle at the bottom \u2014 visible to operators, out of the way for users - \"Network Ops\" section header removed - Root \"/\" redirects authenticated users to /my-sites; unauthenticated users land on /directory (the public site browser)"
       }
     ]
   },
@@ -29353,6 +31274,48 @@ export const COMMIT_POSTS = [
       {
         "type": "p",
         "text": "Self-hosted API key registry with: - AES-256-GCM encryption at rest (per-value salt + IV) - SQLite storage via better-sqlite3 (WAL mode) - Two-tier auth: read token for projects, admin token for dashboard - Full REST API: CRUD, search, expiry tracking - Audit log with per-key access stats - Web dashboard (IBM Plex Mono, dark terminal aesthetic) - Docker + docker-compose with persistent volume - Soft-delete, tag/project filtering, copy-to-clipboard - README with curl/Node/Python usage examples"
+      }
+    ]
+  },
+  {
+    "slug": "topology-algorithms-http-bootstrap-changelog",
+    "title": "Topology algorithms, HTTP bootstrap, changelog",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "phantom",
+      "phantom"
+    ],
+    "category": "Commit",
+    "excerpt": "- Watts-Strogatz small-world rewiring: builds ring lattice then rewires each directed edge with probability \u03b2=0.1 to a random non-adjacent node using a mutable adjacency list (no self-loops, no duplicate edges). - Barab\u00e1",
+    "sha": "7c8fadf",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Watts-Strogatz small-world rewiring: builds ring lattice then rewires each directed edge with probability \u03b2=0.1 to a random non-adjacent node using a mutable adjacency list (no self-loops, no duplicate edges). - Barab\u00e1si\u2013Albert preferential attachment: roulette-wheel selection picks m targets proportional to current degree for each new node, producing a realistic power-law degree distribution. - HTTP bootstrap: BootstrapClient now makes a real GET request to http://{addr}/phantom/v1/network_state; parses NetworkStateResponse JSON; falls back gracefully to mock state when all bootstrap nodes are unreachable so nodes can start in isolated/dev environments. - Add ureq 2.10 (json feature) and serde_json to phantom-discovery deps. - Create CHANGELOG.md with full history from v0.1.0 to unreleased. - Update STATUS.md with topology, path-diversity and bootstrap rows."
+      }
+    ]
+  },
+  {
+    "slug": "complete-protocol-primitives-fhe-routing-yen-s-paths-plonky2",
+    "title": "Complete protocol primitives \u2014 FHE routing, Yen's paths, Plonky2 proofs",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "phantom",
+      "phantom"
+    ],
+    "category": "Commit",
+    "excerpt": "- Pin workspace to nightly Rust channel (rust-toolchain.toml) so Plonky2 compiles without feature-gate errors on stable. - Replace replay-vulnerable hash(packet_id) nullifier with hash(hops || hash(payload)) so identical",
+    "sha": "f6dc21a",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Pin workspace to nightly Rust channel (rust-toolchain.toml) so Plonky2 compiles without feature-gate errors on stable. - Replace replay-vulnerable hash(packet_id) nullifier with hash(hops || hash(payload)) so identical messages over identical paths produce identical nullifiers. - Add PhantomPacket::construct_with_proof() accepting a dyn ProofGenerator, allowing callers to inject real Plonky2 SNARKs into packet construction. - Batch routing-table FHE encryption through FheEngine::build_routing_table (Rayon parallel), replacing per-hop serial encrypt_u32() calls. - Add RelayKeyRegistry: per-relay FHE engine registry so each relay node can hold its own keypair; wire into phantom-node startup. - Implement Yen's k-shortest-paths in NetworkGraph, replacing a stub that only returned direct 1-hop paths; five unit tests added. - Replace plaintext routing blob placeholder in PhantomPath with real FHE encryption via FheEngine::build_routing_table. - Wire Plonky2ProofGenerator into phantom-node: node verifies path_proof on every locally-delivered packet using the trait-based ProofGenerator interface. - Strengthen NodeAnnouncement::verify to reject proofs whose network commitment doesn't match and whose timestamp is older than 1 hour. - Update STATUS.md to reflect all items now implemented."
       }
     ]
   },

@@ -154,6 +154,38 @@ export const POSTS = [
       ] },
     ],
   },
+  {
+    slug: "phantom-protocol-primitives",
+    title: "Phantom Protocol: post-quantum anonymous routing gets real",
+    date: "2026-11-05",
+    author: "Eric Håkansson",
+    readTime: "6 min",
+    tags: ["phantom", "cryptography", "post-quantum", "routing", "privacy"],
+    category: "Engineering",
+    excerpt:
+      "Every protocol primitive in Phantom now has a real implementation. No more mock stubs in the hot path — FHE routing, Plonky2 zkSNARKs, content-based nullifiers, and HTTP bootstrap all landed today.",
+    content: [
+      { type: "p", text: "Phantom is TNHC's post-quantum identity and anonymous routing layer. The goal is technically-enforced privacy: no party — including the platform itself — can link a request to a user, even under full network observation. Today's commits close every remaining placeholder in the protocol core." },
+      { type: "h", text: "What it is" },
+      { type: "p", text: "Phantom routes packets through a network of relays using fully homomorphic encryption (TFHE-rs). Each relay evaluates its next hop without decrypting the routing table — it cannot learn who is talking to whom. Routing proofs use Plonky2 zkSNARKs, so a relay can verify that a packet follows a valid path in the network without learning the path itself. Signatures use Dilithium-5 (CRYSTALS lattice-based, NIST PQC standard); key encapsulation uses ML-KEM-1024 (Kyber)." },
+      { type: "h", text: "What landed" },
+      { type: "list", items: [
+        "FHE routing blob — PhantomPath::construct_routing_blob(fhe) now produces a real bincode-serialised encrypted routing table, replacing a plaintext placeholder. Encryption runs in parallel via Rayon (~5× faster on a 5-hop path).",
+        "Content-based nullifiers — nullifier = hash(hops || hash(payload)). Re-injecting the same message with a fresh packet_id no longer bypasses replay protection.",
+        "Plonky2ProofGenerator wired into phantom-node — the daemon verifies path_proof on every delivered packet via the ProofGenerator trait. Circuit lives in phantom-circuit/membership.rs.",
+        "Yen's k-shortest-paths in NetworkGraph — replaces a stub that returned only direct 1-hop routes. Anonymity needs multiple distinct path candidates.",
+        "Watts-Strogatz small-world topology — ring lattice plus β=0.1 rewiring pass. Simulation now models real-world internet structure.",
+        "Barabási–Albert scale-free topology — roulette-wheel preferential attachment, power-law degree distribution.",
+        "HTTP bootstrap — BootstrapClient queries GET /phantom/v1/network_state on live bootstrap nodes; falls back to a mock if unreachable so nodes can start in isolated environments.",
+        "RelayKeyRegistry — per-relay FHE engine registry. Each known peer gets its own keypair at node startup.",
+      ] },
+      { type: "h", text: "What is still partial" },
+      { type: "p", text: "Two things worth naming honestly. First: RelayKeyRegistry gives each relay its own FHE keypair, but packet construction still uses a shared engine by default — per-relay key distribution into the packet path is the next commit. Second: phantom-node creates a Plonky2ProofGenerator and verifies delivered packets, but outbound packets still use the hash-based dev generator for fast test builds. construct_with_proof() exists; it needs to become the default." },
+      { type: "h", text: "The bigger picture" },
+      { type: "p", text: "No TNHC service routes traffic through Phantom yet. That changes once per-relay FHE keys are wired into packet construction and PHANTOM_REQUIRE_REAL=1 is set in Nexus-Cloud production. For the first time, that milestone is measurably close." },
+      { type: "quote", text: "The vision is to remove money from every cloud service that charges for it today — by running a platform that does not need surveillance-based monetization to survive. Phantom is the layer that makes that technically enforceable." },
+    ],
+  },
 ];
 
 export function getPost(slug) {
