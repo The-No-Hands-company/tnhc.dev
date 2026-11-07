@@ -10,7 +10,7 @@
 // is what stops that from happening again. If an app is wrong here, fix
 // the register and regenerate; do not patch this file.
 //
-// 115 apps — 7 live, 1 beta, 28 in development.
+// 115 apps — 9 live, 1 beta, 26 in development.
 
 export const CATEGORIES = [
   "Core",
@@ -47,7 +47,7 @@ export const APPS = [
   {"slug": "portal", "name": "Nexus Portal", "category": "Core", "status": "planned", "blurb": "Public entry point and marketing surface", "icon": "Stack"},
   {"slug": "account", "name": "Nexus Account", "category": "Core", "status": "planned", "blurb": "End-user account and profile management", "icon": "Stack"},
   {"slug": "hosting", "name": "Nexus Hosting", "category": "Infrastructure", "status": "live", "blurb": "Host a website here, or run the node yourself — domains, TLS, builds, forms", "icon": "GlobeHemisphereWest", "url": "https://hosting.tnhc.dev"},
-  {"slug": "deploy", "name": "Nexus Deploy", "category": "Infrastructure", "status": "building", "blurb": "Deployment orchestration and release pipelines", "icon": "Rocket"},
+  {"slug": "deploy", "name": "Nexus Deploy", "category": "Infrastructure", "status": "live", "blurb": "Deployment orchestration and release pipelines", "icon": "Rocket", "url": "https://deploy.tnhc.dev"},
   {"slug": "tunnel", "name": "Nexus Tunnel", "category": "Infrastructure", "status": "building", "blurb": "Sovereign public exposure; every public URL is provisioned here", "icon": "ArrowsLeftRight"},
   {"slug": "router", "name": "Nexus Router", "category": "Infrastructure", "status": "building", "blurb": "Request routing and upstream selection", "icon": "ArrowsClockwise"},
   {"slug": "edge", "name": "Nexus Edge", "category": "Infrastructure", "status": "building", "blurb": "Edge termination and regional request handling", "icon": "HardDrives"},
@@ -101,7 +101,7 @@ export const APPS = [
   {"slug": "tasks", "name": "Nexus Tasks", "category": "Productivity", "status": "planned", "blurb": "Task tracking", "icon": "CheckSquare"},
   {"slug": "planner", "name": "Nexus Planner", "category": "Productivity", "status": "planned", "blurb": "Project planning", "icon": "CheckSquare"},
   {"slug": "calendar", "name": "Nexus Calendar", "category": "Productivity", "status": "live", "blurb": "Personal/shared calendaring and public read-only links; `/calendar` and calendar.tnhc.dev", "icon": "Calendar", "url": "https://calendar.tnhc.dev"},
-  {"slug": "project", "name": "Nexus Project", "category": "Productivity", "status": "building", "blurb": "Project management for one person or a team: workspaces, boards, a critical-path schedule.…", "icon": "CheckSquare"},
+  {"slug": "project", "name": "Nexus Project", "category": "Productivity", "status": "live", "blurb": "Project management for one person or a team: workspaces, boards, a critical-path schedule.…", "icon": "Kanban", "url": "https://project.tnhc.dev"},
   {"slug": "agenda", "name": "Nexus Agenda", "category": "Productivity", "status": "planned", "blurb": "Meeting agendas and minutes", "icon": "CheckSquare"},
   {"slug": "schedule", "name": "Nexus Schedule", "category": "Productivity", "status": "planned", "blurb": "Scheduling and booking windows", "icon": "CheckSquare"},
   {"slug": "journal", "name": "Nexus Journal", "category": "Productivity", "status": "planned", "blurb": "Journalling and daily logs", "icon": "CheckSquare"},

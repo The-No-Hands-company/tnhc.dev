@@ -5,9 +5,135 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 1402 entries, newest first.
+// 1460 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "70f8d5a",
+    "date": "2026-11-07",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Switch nexus-deploy to external delivery mode"
+  },
+  {
+    "sha": "1ac3313",
+    "date": "2026-11-07",
+    "kind": "fix",
+    "area": "nexus-cloud",
+    "title": "Update submodule pointer for catalog seed bump to 6"
+  },
+  {
+    "sha": "70dcea1",
+    "date": "2026-11-07",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Release nexus-deploy in frontend shell native apps and add to curated shelves"
+  },
+  {
+    "sha": "e17253a",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Wire nexus-deploy into cloud catalog and ecosystem dashboard"
+  },
+  {
+    "sha": "8c23e3f",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "deploy",
+    "title": "Wire Nexus-Deploy v0.6 into deploy.sh and privacy-canary.sh"
+  },
+  {
+    "sha": "627d7f3",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "edge",
+    "title": "The proxy and Cloud side of Nexus Deploy, with an end-to-end check"
+  },
+  {
+    "sha": "a1fa3f8",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "proxy",
+    "title": "Route deploy.<domain> to Deploy and redirect /<name> to member apps"
+  },
+  {
+    "sha": "c2b8cde",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "proxy",
+    "title": "Isolate routes Cloud marks as member apps"
+  },
+  {
+    "sha": "ade8665",
+    "date": "2026-11-06",
+    "kind": "fix",
+    "area": "design",
+    "title": "Make Figtree the declared font, fix Draw's missing accent, update the guide"
+  },
+  {
+    "sha": "de657a4",
+    "date": "2026-11-06",
+    "kind": "fix",
+    "area": "calendar",
+    "title": "Mobile-friendly controls and no duplicate header when framed"
+  },
+  {
+    "sha": "bfe6e98",
+    "date": "2026-11-06",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Stop transient failures looking like signed-out/empty, add mobile bottom nav"
+  },
+  {
+    "sha": "7294f04",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Add per-app Phosphor icons to launcher grid and sidebar"
+  },
+  {
+    "sha": "385a95c",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Enable Cloud registration from Docker container"
+  },
+  {
+    "sha": "94f09c3",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "project",
+    "title": "Prefer NEXUS_CLOUD_INTERNAL_URL for Cloud heartbeats"
+  },
+  {
+    "sha": "9870377",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Add static fallback routes for draw, calendar, project"
+  },
+  {
+    "sha": "c5b8001",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Wire missing apps into the launcher"
+  },
+  {
+    "sha": "0f8413b",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "proxy",
+    "title": "Route app.tnhc.dev to Nexus-Dashboard fallback upstream"
+  },
+  {
+    "sha": "dfb43ec",
+    "date": "2026-11-05",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "Deeply wire Phantom identity into NS cloud platform"
+  },
   {
     "sha": "6bcd0e1",
     "date": "2026-11-05",
@@ -6064,6 +6190,13 @@ export const CHANGELOG = [
     "title": "Modeling workflow slice 1 geometry ops"
   },
   {
+    "sha": "3728a9c",
+    "date": "2026-11-06",
+    "kind": "fix",
+    "area": "web",
+    "title": "Refresh vendored design tokens and replace leftover hardcoded colours"
+  },
+  {
     "sha": "d9d078c",
     "date": "2026-10-29",
     "kind": "feat",
@@ -8199,6 +8332,48 @@ export const CHANGELOG = [
     "title": "Multi-turn sessions, agent loop, Claude provider, new chat UI"
   },
   {
+    "sha": "1aa0ec9",
+    "date": "2026-11-07",
+    "kind": "fix",
+    "area": "catalog",
+    "title": "Bump seed version to 6 and update deploy shelves and audiences"
+  },
+  {
+    "sha": "03c7e40",
+    "date": "2026-11-07",
+    "kind": "fix",
+    "area": "catalog",
+    "title": "Update nexus-deploy shelves to create and work"
+  },
+  {
+    "sha": "4de6aaa",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "catalog",
+    "title": "Release nexus-deploy in core catalog seed v5"
+  },
+  {
+    "sha": "6c4a747",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "user-apps",
+    "title": "Publish, move and remove member apps behind their own credential"
+  },
+  {
+    "sha": "ed0ba44",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "user-apps",
+    "title": "Flag member apps on their routes and publish, move and remove them"
+  },
+  {
+    "sha": "958d721",
+    "date": "2026-11-05",
+    "kind": "feat",
+    "area": "phantom",
+    "title": "DID registry \u2014 register and resolve post-quantum service identities"
+  },
+  {
     "sha": "26b4f82",
     "date": "2026-11-05",
     "kind": "feat",
@@ -8647,6 +8822,188 @@ export const CHANGELOG = [
     "title": "Phase 1 \u2014 Nexus.computer initial build"
   },
   {
+    "sha": "79d7c9b",
+    "date": "2026-11-07",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Change delivery mode to external for standalone window"
+  },
+  {
+    "sha": "2b50bba",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Register Deploy as ecosystem tool with Cloud"
+  },
+  {
+    "sha": "71df9e0",
+    "date": "2026-11-07",
+    "kind": "fix",
+    "area": "sandbox",
+    "title": "Allow established and related response packets in egress nftables"
+  },
+  {
+    "sha": "91423b1",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "web",
+    "title": "Adopt the Void theme and support members, image sources and log deletion"
+  },
+  {
+    "sha": "4d75d72",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "auth",
+    "title": "Add browser login/logout redirects and WebSocket stream tickets"
+  },
+  {
+    "sha": "e569b62",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "verify",
+    "title": "End-to-end conformance suite and generic fixture apps"
+  },
+  {
+    "sha": "8060fad",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "doctor",
+    "title": "Check the builder binary, Cloud registration and wildcard DNS"
+  },
+  {
+    "sha": "324fe58",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "builder",
+    "title": "Install Railpack and build repositories without a Dockerfile through it"
+  },
+  {
+    "sha": "03053f1",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "doctor",
+    "title": "Prove the sandbox from inside a container"
+  },
+  {
+    "sha": "402c834",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "sandbox",
+    "title": "One setup script for the rootless daemon, capped storage and egress filter"
+  },
+  {
+    "sha": "9e6eacc",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "edge",
+    "title": "Announce live apps to Cloud and check names against Cloud and Hosting"
+  },
+  {
+    "sha": "5638946",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "cloud",
+    "title": "Publish routes to Cloud and check names against Cloud and Hosting"
+  },
+  {
+    "sha": "d7fd526",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "prune",
+    "title": "Keep rollback targets, prune by reference, and follow per-release container names"
+  },
+  {
+    "sha": "708d140",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "routes",
+    "title": "Lifecycle routes, a webhook that always verifies, and authorised log streams"
+  },
+  {
+    "sha": "f492354",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "app",
+    "title": "Injectable HTTP app with membership, ownership, name registry and project routes"
+  },
+  {
+    "sha": "c739675",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "input",
+    "title": "Validate every member-supplied project field, and guard notify URLs against request forgery"
+  },
+  {
+    "sha": "b385bf4",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "audit",
+    "title": "Who-did-what log with no addresses, kept thirty days"
+  },
+  {
+    "sha": "8e2933e",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "build",
+    "title": "Deployments flow through sources, safeguards and blue/green release"
+  },
+  {
+    "sha": "aa95cda",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "release",
+    "title": "Blue/green releases with a route publisher interface"
+  },
+  {
+    "sha": "feb15be",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "sandbox",
+    "title": "Docker runs only in the sandbox daemon, with hardened container arguments"
+  },
+  {
+    "sha": "cf62d4f",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "ports",
+    "title": "Loopback port allocation for apps"
+  },
+  {
+    "sha": "0dd2c73",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "source",
+    "title": "Git and image sources, private-repo credentials that never leak, env validation"
+  },
+  {
+    "sha": "5f8bf09",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "members",
+    "title": "Invite-only access with operators and per-project ownership"
+  },
+  {
+    "sha": "f30085a",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "safeguards",
+    "title": "Container caps, project quota, build rate limit and disk guard"
+  },
+  {
+    "sha": "73ad3a2",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "names",
+    "title": "Slug rules with a fail-closed registry check"
+  },
+  {
+    "sha": "fd5c5d1",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "config",
+    "title": "Node-specific settings and host helpers"
+  },
+  {
     "sha": "a2156fc",
     "date": "2026-10-20",
     "kind": "feat",
@@ -8750,6 +9107,55 @@ export const CHANGELOG = [
     "kind": "feat",
     "area": "deploy",
     "title": "Real build engine, WebSocket log streaming, full dashboard"
+  },
+  {
+    "sha": "7f8759a",
+    "date": "2026-11-06",
+    "kind": "fix",
+    "area": "theme",
+    "title": "Remove remaining glows and blur, keep secondary variants below primary"
+  },
+  {
+    "sha": "43625e6",
+    "date": "2026-11-06",
+    "kind": "feat",
+    "area": "theme",
+    "title": "Adopt the ecosystem design tokens so Hosting matches the other apps"
+  },
+  {
+    "sha": "c1636ee",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "deploy",
+    "title": "Add missing Button import that crashed the deploy page"
+  },
+  {
+    "sha": "922583b",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "cloud-client",
+    "title": "Add publicUrl to NexusCloudToolRegistrationRequest"
+  },
+  {
+    "sha": "7ea36d9",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "cloud",
+    "title": "Set publicUrl in Cloud registration payload"
+  },
+  {
+    "sha": "6e12d11",
+    "date": "2026-11-05",
+    "kind": "feat",
+    "area": "hosting",
+    "title": "Replace bare 404s with branded coming soon and not found pages"
+  },
+  {
+    "sha": "6e46f5a",
+    "date": "2026-11-05",
+    "kind": "fix",
+    "area": "hosting",
+    "title": "Omit ownerEmail from GET /api/sites/:id response"
   },
   {
     "sha": "2610935",
@@ -9824,4 +10230,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "auth", "bench+sdk", "brep", "build", "calendar", "catalog", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "inset", "lite", "mail", "maintenance", "mobile", "network", "nexus-auth", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "portal", "privacy", "privacy-p3", "project", "proxy", "public", "quality", "rag", "reasoning", "registry", "render", "routes", "routing", "routing+api", "rust", "safety", "safety+architecture", "security", "server", "shell", "signup", "sim", "sites", "smoke", "startup", "storage", "systems-api", "terminal", "test", "tests", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "ux", "vault", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "audit", "auth", "bench+sdk", "brep", "build", "builder", "calendar", "catalog", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-client", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "doctor", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "input", "inset", "lite", "mail", "maintenance", "members", "mobile", "names", "network", "nexus-auth", "nexus-cloud", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "portal", "ports", "privacy", "privacy-p3", "project", "proxy", "prune", "public", "quality", "rag", "reasoning", "registry", "release", "render", "routes", "routing", "routing+api", "rust", "safeguards", "safety", "safety+architecture", "sandbox", "security", "server", "shell", "signup", "sim", "sites", "smoke", "source", "startup", "storage", "systems-api", "terminal", "test", "tests", "theme", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "user-apps", "ux", "vault", "verify", "vulkan", "web", "windows"];

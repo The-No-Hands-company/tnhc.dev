@@ -4,7 +4,7 @@
 // endpoint below was probed at build time; `reachable: false` means it did
 // not answer and the page says so rather than pretending otherwise.
 //
-// 6 API surfaces, 10 endpoints, 0 unreachable at build time.
+// 6 API surfaces, 10 endpoints, 1 unreachable at build time.
 
 export const APIS = [
   {
@@ -21,7 +21,7 @@ export const APIS = [
         "method": "GET",
         "path": "/sites",
         "desc": "Every site this node hosts.",
-        "status": 401,
+        "status": 200,
         "contentType": "application/json",
         "reachable": true
       },
@@ -29,7 +29,7 @@ export const APIS = [
         "method": "GET",
         "path": "/nodes",
         "desc": "Federation peers this node knows.",
-        "status": 401,
+        "status": 200,
         "contentType": "application/json",
         "reachable": true
       },
@@ -37,7 +37,7 @@ export const APIS = [
         "method": "GET",
         "path": "/nodes/1",
         "desc": "One node by id.",
-        "status": 401,
+        "status": 200,
         "contentType": "application/json",
         "reachable": true
       },
@@ -45,8 +45,8 @@ export const APIS = [
         "method": "GET",
         "path": "https://hosting.tnhc.dev/openapi.yaml",
         "desc": "OpenAPI 3.1 description \u2014 49 of 127 routes.",
-        "status": 401,
-        "contentType": "application/json",
+        "status": 200,
+        "contentType": "application/yaml",
         "reachable": true
       }
     ]
@@ -93,9 +93,9 @@ export const APIS = [
         "method": "GET",
         "path": "/apps",
         "desc": "The app directory the shell renders.",
-        "status": 401,
-        "contentType": "application/json",
-        "reachable": true
+        "status": 404,
+        "contentType": "text/plain",
+        "reachable": false
       }
     ]
   },

@@ -6,9 +6,497 @@
 // The changelog answers 'what changed'; these answer 'why', and the
 // reasoning already exists in the commit rather than being written twice.
 //
-// 1019 posts, newest first.
+// 1058 posts, newest first.
 
 export const COMMIT_POSTS = [
+  {
+    "slug": "plan-3-of-5-the-sandbox-and-doctor",
+    "title": "Plan 3 of 5, the sandbox and doctor",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "A rootless sandbox setup with an egress filter and a doctor that proves it from inside a container. Built and tested in a scratch copy first; the operator task needs sudo and is marked as such.",
+    "sha": "3382b38",
+    "content": [
+      {
+        "type": "p",
+        "text": "A rootless sandbox setup with an egress filter and a doctor that proves it from inside a container. Built and tested in a scratch copy first; the operator task needs sudo and is marked as such."
+      }
+    ]
+  },
+  {
+    "slug": "the-proxy-and-cloud-side-of-nexus-deploy-with-an-end-to-end",
+    "title": "The proxy and Cloud side of Nexus Deploy, with an end-to-end check",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "edge"
+    ],
+    "category": "Commit",
+    "excerpt": "Member apps are public, isolated routes; deploy.<domain> reaches Deploy and deploy.<domain>/<name> redirects to the app. Spec updated to match what was built.",
+    "sha": "627d7f3",
+    "content": [
+      {
+        "type": "p",
+        "text": "Member apps are public, isolated routes; deploy.<domain> reaches Deploy and deploy.<domain>/<name> redirects to the app. Spec updated to match what was built."
+      }
+    ]
+  },
+  {
+    "slug": "route-deploy-domain-to-deploy-and-redirect-name-to-member-ap",
+    "title": "Route deploy.<domain> to Deploy and redirect /<name> to member apps",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "deploy.<domain> authenticates itself, so it joins the public-host allowlist, but it stays an application host for the same-site mutation block. The short link answers only for a name Cloud routes as a member's app.",
+    "sha": "a1fa3f8",
+    "content": [
+      {
+        "type": "p",
+        "text": "deploy.<domain> authenticates itself, so it joins the public-host allowlist, but it stays an application host for the same-site mutation block. The short link answers only for a name Cloud routes as a member's app."
+      }
+    ]
+  },
+  {
+    "slug": "isolate-routes-cloud-marks-as-member-apps",
+    "title": "Isolate routes Cloud marks as member apps",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "A userDeployed route is public like a site, loses Cookie, Authorization and the visitor tag, and cannot set a parent-domain cookie. Ordinary routes are unchanged.",
+    "sha": "c2b8cde",
+    "content": [
+      {
+        "type": "p",
+        "text": "A userDeployed route is public like a site, loses Cookie, Authorization and the visitor tag, and cannot set a parent-domain cookie. Ordinary routes are unchanged."
+      }
+    ]
+  },
+  {
+    "slug": "plan-2-of-3-the-edge",
+    "title": "Plan 2 of 3, the edge",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Cloud user-apps surface, proxy isolation, the deploy host and short link, Deploy's Cloud client and name checks, with an end-to-end check. Built and verified in a scratch copy first.",
+    "sha": "1beaebe",
+    "content": [
+      {
+        "type": "p",
+        "text": "Cloud user-apps surface, proxy isolation, the deploy host and short link, Deploy's Cloud client and name checks, with an end-to-end check. Built and verified in a scratch copy first."
+      }
+    ]
+  },
+  {
+    "slug": "rewrite-the-deploy-foundation-spec-around-the-charter-fix-th",
+    "title": "Rewrite the Deploy foundation spec around the Charter, fix the mono font token",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Deploy is a general free alternative to paid deployment platforms, not a host for any particular Nexus app. The spec now states the Charter and governing constraints it must honour (zero cost beyond the domain, privacy a",
+    "sha": "1262f3d",
+    "content": [
+      {
+        "type": "p",
+        "text": "Deploy is a general free alternative to paid deployment platforms, not a host for any particular Nexus app. The spec now states the Charter and governing constraints it must honour (zero cost beyond the domain, privacy and log caps, best-effort availability, AGPL), routes through Cloud's registry instead of a private table, adds blue/green releases and a size-capped sandbox disk, and proves portability on a disposable second node with generic fixture apps."
+      },
+      {
+        "type": "p",
+        "text": "Also corrects the code-font token to JetBrains Mono per the brand chapter, which I had wrongly changed to Fira Code earlier today."
+      }
+    ]
+  },
+  {
+    "slug": "add-the-zero-cost-rule-private-repo-support-and-a-real-app-a",
+    "title": "Add the zero-cost rule, private-repo support and a real-app acceptance test",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "The only recurring cost allowed is the domain, so the spec now audits every dependency against that and records why apps sit one wildcard level deep. Deploy clones with a bare git URL today, so private repositories could",
+    "sha": "08803ea",
+    "content": [
+      {
+        "type": "p",
+        "text": "The only recurring cost allowed is the domain, so the spec now audits every dependency against that and records why apps sit one wildcard level deep. Deploy clones with a bare git URL today, so private repositories could not be deployed; the spec adds an encrypted read-only token that never reaches a URL, log or API response. Acceptance now includes deploying Nexus-AI itself (from its Dockerfile and from its ghcr.io image) on this node."
+      }
+    ]
+  },
+  {
+    "slug": "add-docker-image-deploys-to-the-foundation-spec-with-a-railw",
+    "title": "Add Docker-image deploys to the foundation spec, with a Railway and peer-platform map",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Image sources share ownership, caps, routing, health gate and rollback with Git sources, and rollback pins the resolved digest. CLI, templates and the GitHub App stay later sub-projects; appendices record how Railway's m",
+    "sha": "cf65893",
+    "content": [
+      {
+        "type": "p",
+        "text": "Image sources share ownership, caps, routing, health gate and rollback with Git sources, and rollback pins the resolved digest. CLI, templates and the GitHub App stay later sub-projects; appendices record how Railway's methods and the neighbouring platforms map onto the ecosystem."
+      }
+    ]
+  },
+  {
+    "slug": "design-spec-for-the-nexus-deploy-foundation-slice",
+    "title": "Design spec for the Nexus Deploy foundation slice",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Makes the existing push-to-deploy app usable by invited ecosystem members on the reference node and portable to any node by config: isolated app origins at <app>.tnhc.dev with deploy.tnhc.dev/<app> as a redirecting short",
+    "sha": "979dbf4",
+    "content": [
+      {
+        "type": "p",
+        "text": "Makes the existing push-to-deploy app usable by invited ecosystem members on the reference node and portable to any node by config: isolated app origins at <app>.tnhc.dev with deploy.tnhc.dev/<app> as a redirecting short link, a rootless sandbox daemon, per-member ownership and safeguards, a name registry, and a doctor/verify conformance check as the proof of delivery."
+      }
+    ]
+  },
+  {
+    "slug": "make-figtree-the-declared-font-fix-draw-s-missing-accent-upd",
+    "title": "Make Figtree the declared font, fix Draw's missing accent, update the guide",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "design"
+    ],
+    "category": "Commit",
+    "excerpt": "- Token source named Satoshi (never loaded anywhere) and JetBrains Mono; every app actually uses Figtree and only Hosting loads Fira Code. The tokens now say what the apps do. Tokens regenerated and re-vendored; 60/60 de",
+    "sha": "ade8665",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Token source named Satoshi (never loaded anywhere) and JetBrains Mono; every app actually uses Figtree and only Hosting loads Fira Code. The tokens now say what the apps do. Tokens regenerated and re-vendored; 60/60 design tests pass. - Draw used accent classes in 21 places (every focus outline, active states) but never defined the accent colour, so none of them rendered. It now maps the accent and state colours and loads Figtree like the other apps. - THEME-GUIDE: resolved items removed, remaining gaps and what is verified. - Bump Chat and Hosting."
+      }
+    ]
+  },
+  {
+    "slug": "docs-fix-design-add-the-theme-guide-re-point-token-vendoring",
+    "title": "Docs+fix(design): add the theme guide, re-point token vendoring at Hosting, bump Chat and Hosting",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core"
+    ],
+    "category": "Commit",
+    "excerpt": "- docs/THEME-GUIDE.md: principles, token reference, how to adopt the tokens (monorepo, standalone repo, shadcn), mobile and framed-app rules, a checklist, per-app status and the open decisions. - vendor.ts: Cloud retired",
+    "sha": "69ce71e",
+    "content": [
+      {
+        "type": "p",
+        "text": "- docs/THEME-GUIDE.md: principles, token reference, how to adopt the tokens (monorepo, standalone repo, shadcn), mobile and framed-app rules, a checklist, per-app status and the open decisions. - vendor.ts: Cloud retired its frontend, so its target pointed at a file that was never created and failed the drift test; Hosting replaces it. The drift test passes again (60/60). - Bump Chat (apps/Nexus) and Hosting to the commits that move them onto the shared tokens."
+      }
+    ]
+  },
+  {
+    "slug": "mobile-friendly-controls-and-no-duplicate-header-when-framed",
+    "title": "Mobile-friendly controls and no duplicate header when framed",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "calendar"
+    ],
+    "category": "Commit",
+    "excerpt": "AppHeader gains an embedded prop that drops the Nexus wordmark when the shell frames the app (the shell already provides it, and its home link only reloaded the app inside the frame). Calendar moves month navigation into",
+    "sha": "de657a4",
+    "content": [
+      {
+        "type": "p",
+        "text": "AppHeader gains an embedded prop that drops the Nexus wordmark when the shell frames the app (the shell already provides it, and its home link only reloaded the app inside the frame). Calendar moves month navigation into its own toolbar row with 44px targets and a Today button, links home to the dashboard host when standalone, and sizes to dvh with a bottom safe-area inset."
+      },
+      {
+        "type": "p",
+        "text": "Not built or tested in this environment: the Calendar node_modules is incomplete here. Run its tests and rebuild before deploying."
+      }
+    ]
+  },
+  {
+    "slug": "stop-transient-failures-looking-like-signed-out-empty-add-mo",
+    "title": "Stop transient failures looking like signed-out/empty, add mobile bottom nav",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Reliability: a dropped or slow request on a phone used to read as \"not signed in\" (sent signed-in users to the sign-in page) or as an empty app list (empty dashboard until a manual refresh). session() now separates signe",
+    "sha": "bfe6e98",
+    "content": [
+      {
+        "type": "p",
+        "text": "Reliability: a dropped or slow request on a phone used to read as \"not signed in\" (sent signed-in users to the sign-in page) or as an empty app list (empty dashboard until a manual refresh). session() now separates signed-in, signed-out (only on a real 401) and unreachable, fast network drops are retried twice, and Home shows Retry states and re-checks when the tab wakes or the connection returns."
+      },
+      {
+        "type": "p",
+        "text": "Mobile: the shell rail becomes a thumb-reachable bottom bar below sm with a Home link and 44px targets, shell and framed apps use dvh instead of vh so the browser bar no longer clips them, and viewport-fit=cover makes the safe-area inset apply."
+      }
+    ]
+  },
+  {
+    "slug": "add-per-app-phosphor-icons-to-launcher-grid-and-sidebar",
+    "title": "Add per-app Phosphor icons to launcher grid and sidebar",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Each app card now shows a colored icon badge (Phosphor duotone, 36px) beside the name, and the sidebar nav rows show a matching 24px icon dot.",
+    "sha": "7294f04",
+    "content": [
+      {
+        "type": "p",
+        "text": "Each app card now shows a colored icon badge (Phosphor duotone, 36px) beside the name, and the sidebar nav rows show a matching 24px icon dot."
+      },
+      {
+        "type": "p",
+        "text": "appMeta.ts holds the static id\u2192icon+color map (Calendar=blue, Draw=violet, Project=emerald, Hosting=pink, Mail=orange, Chat=lime, etc.) with a string-hash fallback for any app not yet in the map."
+      },
+      {
+        "type": "p",
+        "text": "The icon span carries aria-hidden so accessible names are unchanged; all Launcher tests rely on /Draw/ regex matching which still passes. color-mix() gives each badge a tinted background at 18-20% opacity."
+      }
+    ]
+  },
+  {
+    "slug": "enable-cloud-registration-from-docker-container",
+    "title": "Enable Cloud registration from Docker container",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Three changes together let Nexus-Hosting register as a launcher app:",
+    "sha": "385a95c",
+    "content": [
+      {
+        "type": "p",
+        "text": "Three changes together let Nexus-Hosting register as a launcher app:"
+      },
+      {
+        "type": "p",
+        "text": "1. Cloud (deploy.sh): add NEXUS_BIND_HOST=0.0.0.0 so Cloud listens on all interfaces, including the Docker bridge networks (172.19.0.1 for the nexus-hosting_nexus network). Previously Cloud only bound to 127.0.0.1, so the container could not reach it via host.docker.internal even with the extra_hosts mapping."
+      },
+      {
+        "type": "p",
+        "text": "2. hosting.compose.yml: inject NEXUS_CLOUD_API_KEY into the container via Docker Compose environment interpolation (${NEXUS_CLOUD_API_KEY:-}). Deploy.sh already exports this key after reading apps/Nexus-Cloud/.env for dependent services; running docker compose from that shell passes the key through without writing it into this file."
+      },
+      {
+        "type": "p",
+        "text": "3. hosting.compose.yml: revert NEXUS_CLOUD_URL to http://host.docker.internal:8787 now that Cloud answers on that address (extra_hosts maps the alias)."
+      }
+    ]
+  },
+  {
+    "slug": "prefer-nexus-cloud-internal-url-for-cloud-heartbeats",
+    "title": "Prefer NEXUS_CLOUD_INTERNAL_URL for Cloud heartbeats",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "project"
+    ],
+    "category": "Commit",
+    "excerpt": "Same fix as nexus-draw and nexus-calendar \u2014 localhost resolves to ::1 (IPv6) on this machine but Cloud binds to 127.0.0.1 (IPv4), so heartbeats using the localhost default failed silently.",
+    "sha": "94f09c3",
+    "content": [
+      {
+        "type": "p",
+        "text": "Same fix as nexus-draw and nexus-calendar \u2014 localhost resolves to ::1 (IPv6) on this machine but Cloud binds to 127.0.0.1 (IPv4), so heartbeats using the localhost default failed silently."
+      }
+    ]
+  },
+  {
+    "slug": "add-static-fallback-routes-for-draw-calendar-project",
+    "title": "Add static fallback routes for draw, calendar, project",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "The ecosystem proxy routes based on Cloud's route table, but the route table only contains explicit exposures (currently none for these apps). Without fallback entries these hosts fell through to the Hosting site-proxy, ",
+    "sha": "9870377",
+    "content": [
+      {
+        "type": "p",
+        "text": "The ecosystem proxy routes based on Cloud's route table, but the route table only contains explicit exposures (currently none for these apps). Without fallback entries these hosts fell through to the Hosting site-proxy, which returned \"No site found\"."
+      },
+      {
+        "type": "p",
+        "text": "Adds the same pattern already in place for chat, hosting and auth: draw.tnhc.dev     \u2192 http://127.0.0.1:8091 (nexus-draw-web Caddy) calendar.tnhc.dev \u2192 http://127.0.0.1:8092 (nexus-calendar-web Caddy) project.tnhc.dev  \u2192 http://127.0.0.1:8093 (nexus-project-web Caddy)"
+      },
+      {
+        "type": "p",
+        "text": "Each is overridable via DRAW_UPSTREAM / CALENDAR_UPSTREAM / PROJECT_UPSTREAM environment variables."
+      },
+      {
+        "type": "p",
+        "text": "Also fix draw and calendar Cloud client to prefer NEXUS_CLOUD_INTERNAL_URL over NEXUS_CLOUD_URL. On this machine localhost resolves to ::1 (IPv6) but Cloud binds to 127.0.0.1 (IPv4), so heartbeats using the localhost default failed with connection errors. Deploy.sh already exports NEXUS_CLOUD_INTERNAL_URL=http://127.0.0.1:8787 for all dependent services; this change makes draw and calendar honour it."
+      }
+    ]
+  },
+  {
+    "slug": "wire-missing-apps-into-the-launcher",
+    "title": "Wire missing apps into the launcher",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "dashboard"
+    ],
+    "category": "Commit",
+    "excerpt": "Nexus Draw, Nexus Calendar, and Nexus Hosting were all failing to appear in the dashboard launcher grid for different reasons; this commit addresses all three.",
+    "sha": "c5b8001",
+    "content": [
+      {
+        "type": "p",
+        "text": "Nexus Draw, Nexus Calendar, and Nexus Hosting were all failing to appear in the dashboard launcher grid for different reasons; this commit addresses all three."
+      },
+      {
+        "type": "p",
+        "text": "Nexus Draw \u2014 contracts.ts: - Set exposed: true (was false) - Add publicUrl field sourced from NEXUS_DRAW_PUBLIC_URL env var, defaulting to https://draw.tnhc.dev - Add delivery: \"proxied-app\" so the proxy routes to it - Both are required by isLauncherApp() in the dashboard catalog"
+      },
+      {
+        "type": "p",
+        "text": "Nexus Hosting \u2014 hosting.compose.yml: - Add extra_hosts mapping host.docker.internal to host-gateway so the container can reach Nexus-Cloud (port 8787) on the host machine - Set NEXUS_CLOUD_URL=http://host.docker.internal:8787 and PUBLIC_URL=https://hosting.tnhc.dev - The app already has heartbeat code; it was silently failing because NEXUS_CLOUD_URL was unset, making localhost:8787 resolve to the container's own loopback instead of the host"
+      },
+      {
+        "type": "p",
+        "text": "Nexus Draw Caddyfile: - Fix default NEXUS_DRAW_WEB_ROOT: /Data/ -> /Data1/ (stale dev path)"
+      },
+      {
+        "type": "p",
+        "text": "Nexus Calendar Caddyfile: - Fix all three NEXUS_CALENDAR_WEB_ROOT defaults from /opt/nexus-systems/ (non-existent server path) to the actual monorepo checkout location"
+      }
+    ]
+  },
+  {
+    "slug": "route-app-tnhc-dev-to-nexus-dashboard-fallback-upstream",
+    "title": "Route app.tnhc.dev to Nexus-Dashboard fallback upstream",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "proxy"
+    ],
+    "category": "Commit",
+    "excerpt": "app.tnhc.dev had no static fallback entry in the production proxy, so when Nexus-Cloud's route table was empty (or did not carry a row for the dashboard), the host fell through to the wildcard handler, which forwarded to",
+    "sha": "0f8413b",
+    "content": [
+      {
+        "type": "p",
+        "text": "app.tnhc.dev had no static fallback entry in the production proxy, so when Nexus-Cloud's route table was empty (or did not carry a row for the dashboard), the host fell through to the wildcard handler, which forwarded to the Nexus-Hosting site-proxy. That proxy has no DB record for the domain and returned \"No site found for app.tnhc.dev\"."
+      },
+      {
+        "type": "p",
+        "text": "Add FALLBACK_DASHBOARD_UPSTREAM (DASHBOARD_UPSTREAM env var, defaults to http://127.0.0.1:3132) and wire it into the FALLBACK_ENABLED block alongside the existing cloud/hosting/chat/auth static entries. The pattern is identical to hosting.tnhc.dev, which had the same problem. Add a proxy test that exercises the new fallback with an empty route table."
+      }
+    ]
+  },
+  {
+    "slug": "deeply-wire-phantom-identity-into-ns-cloud-platform",
+    "title": "Deeply wire Phantom identity into NS cloud platform",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "phantom"
+    ],
+    "category": "Commit",
+    "excerpt": "Every active service now participates in the post-quantum identity layer:",
+    "sha": "dfb43ec",
+    "content": [
+      {
+        "type": "p",
+        "text": "Every active service now participates in the post-quantum identity layer:"
+      },
+      {
+        "type": "p",
+        "text": "packages/phantom-sdk: - PhantomApp.signHeaders(body) \u2014 signs request body + timestamp with Dilithium-5 and returns X-Phantom-DID / X-Phantom-Sig / X-Phantom-Ts headers - PhantomApp.registerWithCloud(url) \u2014 POSTs DID + public keys to Nexus-Cloud DID registry at startup; non-fatal if Cloud is unreachable - PhantomApp.verifySignature(pubKeyHex, data, sig) \u2014 fixed: no longer ignores the supplied public key"
+      },
+      {
+        "type": "p",
+        "text": "packages/phantom-utils: - verifyDidSignature: now resolves DID via Nexus-Cloud registry to get the Dilithium-5 signing public key, then verifies with the phantom-sdk (dev bypass: PHANTOM_DEV_SKIP_VERIFY=1; production: returns false without key)"
+      },
+      {
+        "type": "p",
+        "text": "packages/nexus-sdk: - NexusClient.setPhantomSigner(fn) \u2014 attach a signing function so outbound cloud registrations and heartbeats carry Phantom auth headers - registerWithCloud and heartbeatWithCloud both pass X-Phantom-* headers"
+      },
+      {
+        "type": "p",
+        "text": "Nexus-Cloud (submodule ref updated to 958d721): - DID registry: POST /api/v1/phantom/registry + GET resolve + GET list - Self-registers Nexus-Cloud DID at startup; wires signer into NexusClient"
+      },
+      {
+        "type": "p",
+        "text": "Nexus-Auth / Nexus-Router / Nexus-Edge / Nexus-Tunnel / Nexus-Guardian: - Each service calls phantomApp.registerWithCloud(NEXUS_CLOUD_URL) after start"
+      },
+      {
+        "type": "p",
+        "text": "Nexus-Router auth-gate: - When X-Phantom-Sig + X-Phantom-Ts headers are present, verifies the Dilithium-5 signature against the DID registry before forwarding the request"
+      }
+    ]
+  },
   {
     "slug": "wire-phantom-protocol-across-core-services",
     "title": "Wire Phantom Protocol across core services",
@@ -19457,6 +19945,52 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "docs-chore-design-mark-mobile-desktop-palettes-as-legacy-ref",
+    "title": "Docs+chore(design): mark mobile/desktop palettes as legacy, refresh vendored tokens",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "DESIGN.md described one teal/purple direction as if it applied everywhere; the web client now follows the ecosystem theme, so say which parts are current and which are legacy. Re-vendored nexus-tokens.css (Figtree/Fira C",
+    "sha": "c3a21a5",
+    "content": [
+      {
+        "type": "p",
+        "text": "DESIGN.md described one teal/purple direction as if it applied everywhere; the web client now follows the ecosystem theme, so say which parts are current and which are legacy. Re-vendored nexus-tokens.css (Figtree/Fira Code families)."
+      }
+    ]
+  },
+  {
+    "slug": "refresh-vendored-design-tokens-and-replace-leftover-hardcode",
+    "title": "Refresh vendored design tokens and replace leftover hardcoded colours",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "web",
+      "chat"
+    ],
+    "category": "Commit",
+    "excerpt": "The vendored nexus-tokens.css was an old teal-on-green palette with older variable names, so Chat looked different from every other app and one alias (--nexus-color-accent-primaryActive) pointed at a variable that no lon",
+    "sha": "3728a9c",
+    "content": [
+      {
+        "type": "p",
+        "text": "The vendored nexus-tokens.css was an old teal-on-green palette with older variable names, so Chat looked different from every other app and one alias (--nexus-color-accent-primaryActive) pointed at a variable that no longer exists. Re-vendored from packages/nexus-design and moved the stragglers (status yellow/grey, violet and teal profile-card tints, a literal lime) onto tokens."
+      },
+      {
+        "type": "p",
+        "text": "Also fixes the voice bar's top border: it concatenated \"40\" onto a var() string, which is invalid CSS, so the status-coloured border never applied."
+      }
+    ]
+  },
+  {
     "slug": "add-production-static-identity-proxy-server",
     "title": "Add production static+identity-proxy server",
     "date": "2026-10-29",
@@ -25762,6 +26296,69 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "publish-move-and-remove-member-apps-behind-their-own-credent",
+    "title": "Publish, move and remove member apps behind their own credential",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "user-apps",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "PUT/DELETE/GET availability under /api/v1/user-apps/:slug, guarded by NEXUS_CLOUD_USER_APPS_KEY. The node API key is refused, an unconfigured key means 503, and the upstream must be loopback inside a configured port rang",
+    "sha": "6c4a747",
+    "content": [
+      {
+        "type": "p",
+        "text": "PUT/DELETE/GET availability under /api/v1/user-apps/:slug, guarded by NEXUS_CLOUD_USER_APPS_KEY. The node API key is refused, an unconfigured key means 503, and the upstream must be loopback inside a configured port range."
+      }
+    ]
+  },
+  {
+    "slug": "flag-member-apps-on-their-routes-and-publish-move-and-remove",
+    "title": "Flag member apps on their routes and publish, move and remove them",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "user-apps",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "A route carries userDeployed so the proxy can isolate it. The flag is set only by publishUserApp and carried, never read from a payload. The generic registration refuses the deploy- id prefix.",
+    "sha": "ed0ba44",
+    "content": [
+      {
+        "type": "p",
+        "text": "A route carries userDeployed so the proxy can isolate it. The flag is set only by publishUserApp and carried, never read from a payload. The generic registration refuses the deploy- id prefix."
+      }
+    ]
+  },
+  {
+    "slug": "did-registry-register-and-resolve-post-quantum-service-ident",
+    "title": "DID registry \u2014 register and resolve post-quantum service identities",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "phantom",
+      "cloud"
+    ],
+    "category": "Commit",
+    "excerpt": "- Add phantom/registry.ts: in-memory DID \u2192 {signingPublicKey, kemPublicKey, appName, registeredAt, lastSeenAt} store - Add POST /api/v1/phantom/registry \u2014 services register at startup - Add GET /api/v1/phantom/registry/:",
+    "sha": "958d721",
+    "content": [
+      {
+        "type": "p",
+        "text": "- Add phantom/registry.ts: in-memory DID \u2192 {signingPublicKey, kemPublicKey, appName, registeredAt, lastSeenAt} store - Add POST /api/v1/phantom/registry \u2014 services register at startup - Add GET /api/v1/phantom/registry/:did \u2014 resolve DID to signing public key - Add GET /api/v1/phantom/registry \u2014 list all registered services - Register Nexus-Cloud's own DID with the registry after PhantomApp.start() - Attach phantom signer to NexusClient so outbound heartbeats carry X-Phantom-DID / X-Phantom-Sig / X-Phantom-Ts headers"
+      }
+    ]
+  },
+  {
     "slug": "wire-phantomapp-startup-and-health-status",
     "title": "Wire PhantomApp startup and health status",
     "date": "2026-11-05",
@@ -26607,6 +27204,153 @@ export const COMMIT_POSTS = [
     ]
   },
   {
+    "slug": "prove-the-sandbox-from-inside-a-container",
+    "title": "Prove the sandbox from inside a container",
+    "date": "2026-11-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "doctor",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Ten checks run with the real isolation flags: rootless, capped logs, no capabilities, its own filesystem, no route to the host's loopback or LAN, and working DNS. isolationArgs is extracted from buildRunArgs unchanged.",
+    "sha": "03053f1",
+    "content": [
+      {
+        "type": "p",
+        "text": "Ten checks run with the real isolation flags: rootless, capped logs, no capabilities, its own filesystem, no route to the host's loopback or LAN, and working DNS. isolationArgs is extracted from buildRunArgs unchanged."
+      }
+    ]
+  },
+  {
+    "slug": "one-setup-script-for-the-rootless-daemon-capped-storage-and",
+    "title": "One setup script for the rootless daemon, capped storage and egress filter",
+    "date": "2026-11-07",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "sandbox",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "setup.sh installs a dedicated account, a size-capped storage image, a rootless daemon with capped logs and no host loopback, a socket shared with the Deploy account only, and an nftables filter that keeps the sandbox off",
+    "sha": "402c834",
+    "content": [
+      {
+        "type": "p",
+        "text": "setup.sh installs a dedicated account, a size-capped storage image, a rootless daemon with capped logs and no host loopback, a socket shared with the Deploy account only, and an nftables filter that keeps the sandbox off this machine and the LAN. --print shows every file without root."
+      }
+    ]
+  },
+  {
+    "slug": "announce-live-apps-to-cloud-and-check-names-against-cloud-an",
+    "title": "Announce live apps to Cloud and check names against Cloud and Hosting",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "edge",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "A node with no Cloud announces nothing; one with a Cloud but no credential refuses to start. Live apps are re-announced on a timer, which is Cloud's heartbeat.",
+    "sha": "9e6eacc",
+    "content": [
+      {
+        "type": "p",
+        "text": "A node with no Cloud announces nothing; one with a Cloud but no credential refuses to start. Live apps are re-announced on a timer, which is Cloud's heartbeat."
+      }
+    ]
+  },
+  {
+    "slug": "publish-routes-to-cloud-and-check-names-against-cloud-and-ho",
+    "title": "Publish routes to Cloud and check names against Cloud and Hosting",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "cloud",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "CloudPublisher implements RoutePublisher with the user-apps credential, and its refresh is the heartbeat. Name checks ask Cloud and Hosting's site-proxy and fail closed when either cannot be asked.",
+    "sha": "5638946",
+    "content": [
+      {
+        "type": "p",
+        "text": "CloudPublisher implements RoutePublisher with the user-apps credential, and its refresh is the heartbeat. Name checks ask Cloud and Hosting's site-proxy and fail closed when either cannot be asked."
+      }
+    ]
+  },
+  {
+    "slug": "correct-the-licence-and-describe-the-shared-node-design",
+    "title": "Correct the licence and describe the shared-node design",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "docs",
+      "core",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "README said MIT while LICENSE is AGPL-3.0. The docs and example configuration now match this release; the Traefik compose file is marked unsupported.",
+    "sha": "72e389e",
+    "content": [
+      {
+        "type": "p",
+        "text": "README said MIT while LICENSE is AGPL-3.0. The docs and example configuration now match this release; the Traefik compose file is marked unsupported."
+      }
+    ]
+  },
+  {
+    "slug": "lifecycle-routes-a-webhook-that-always-verifies-and-authoris",
+    "title": "Lifecycle routes, a webhook that always verifies, and authorised log streams",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "routes",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "Also fixes the original webhook (500 on signed JSON, signature skipped when absent, ping triggered a build) and the two WebSocket servers that rejected each other.",
+    "sha": "708d140",
+    "content": [
+      {
+        "type": "p",
+        "text": "Also fixes the original webhook (500 on signed JSON, signature skipped when absent, ping triggered a build) and the two WebSocket servers that rejected each other."
+      }
+    ]
+  },
+  {
+    "slug": "node-specific-settings-and-host-helpers",
+    "title": "Node-specific settings and host helpers",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "config",
+      "deploy"
+    ],
+    "category": "Commit",
+    "excerpt": "The app domain pattern, control host, loopback port range and sandbox socket are configuration, so any node can run the same code. A test fails if a source file ever hardcodes a domain.",
+    "sha": "fd5c5d1",
+    "content": [
+      {
+        "type": "p",
+        "text": "The app domain pattern, control host, loopback port range and sandbox socket are configuration, so any node can run the same code. A test fails if a source file ever hardcodes a domain."
+      }
+    ]
+  },
+  {
     "slug": "redesign-as-push-to-deploy-platform",
     "title": "Redesign as push-to-deploy platform",
     "date": "2026-10-20",
@@ -27037,6 +27781,165 @@ export const COMMIT_POSTS = [
           "full component system: cards, tabs, modal, terminal, env editor",
           "Dockerfile: install docker-cli, git, nixpacks in production image"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "remove-remaining-glows-and-blur-keep-secondary-variants-belo",
+    "title": "Remove remaining glows and blur, keep secondary variants below primary",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "theme",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "The sidebar still blurred its background and lit the active item and icon with a lime glow; onboarding had blurred colour blobs and the site header a purple glow. All removed - the ecosystem look is flat.",
+    "sha": "7f8759a",
+    "content": [
+      {
+        "type": "p",
+        "text": "The sidebar still blurred its background and lit the active item and icon with a lime glow; onboarding had blurred colour blobs and the site header a purple glow. All removed - the ecosystem look is flat."
+      },
+      {
+        "type": "p",
+        "text": "Since --secondary now follows the single accent, the shared Button and Badge \"secondary\" variants would have been identical to \"default\"; they are neutral now so the hierarchy survives. Also refreshes the vendored tokens (Figtree and Fira Code are now the declared font families)."
+      }
+    ]
+  },
+  {
+    "slug": "adopt-the-ecosystem-design-tokens-so-hosting-matches-the-oth",
+    "title": "Adopt the ecosystem design tokens so Hosting matches the other apps",
+    "date": "2026-11-06",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "theme",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Hosting carried its own navy/purple HSL palette, radial colour washes and glass-blur panels, which made it read as a different product. Every shadcn variable is now an alias of a shared token (vendored nexus-tokens.css, ",
+    "sha": "43625e6",
+    "content": [
+      {
+        "type": "p",
+        "text": "Hosting carried its own navy/purple HSL palette, radial colour washes and glass-blur panels, which made it read as a different product. Every shadcn variable is now an alias of a shared token (vendored nexus-tokens.css, refreshed with `bun run vendor` in the monorepo), so the components re-theme without class changes."
+      },
+      {
+        "type": "p",
+        "text": "- single lime accent; the old purple secondary follows it, and the dashboard chart's second series uses the info colour so the two lines stay distinct - raw red/amber/green/emerald/blue utilities resolve to the state tokens - glass-panel is a flat surface; body gradients and decorative corner gradients removed; 10px base radius - purple/violet/orange/yellow category colours left as-is on purpose"
+      }
+    ]
+  },
+  {
+    "slug": "add-missing-button-import-that-crashed-the-deploy-page",
+    "title": "Add missing Button import that crashed the deploy page",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "deploy",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "DeploySite.tsx used <Button> in ~15 places but never imported it, causing a ReferenceError on mount and the React error boundary to show \"Something went wrong\" immediately when visiting /deploy/:id.",
+    "sha": "c1636ee",
+    "content": [
+      {
+        "type": "p",
+        "text": "DeploySite.tsx used <Button> in ~15 places but never imported it, causing a ReferenceError on mount and the React error boundary to show \"Something went wrong\" immediately when visiting /deploy/:id."
+      }
+    ]
+  },
+  {
+    "slug": "add-publicurl-to-nexuscloudtoolregistrationrequest",
+    "title": "Add publicUrl to NexusCloudToolRegistrationRequest",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "cloud-client",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "The launcher grid requires publicUrl in the Cloud tool registry. Without it in the type, the registration payload could not carry it.",
+    "sha": "922583b",
+    "content": [
+      {
+        "type": "p",
+        "text": "The launcher grid requires publicUrl in the Cloud tool registry. Without it in the type, the registration payload could not carry it."
+      }
+    ]
+  },
+  {
+    "slug": "set-publicurl-in-cloud-registration-payload",
+    "title": "Set publicUrl in Cloud registration payload",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "cloud",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "The launcher grid requires publicUrl to be set in the tool registry. The registration payload was sending the public URL as upstreamUrl (the internal address the proxy should route to) and omitting publicUrl entirely, so",
+    "sha": "7ea36d9",
+    "content": [
+      {
+        "type": "p",
+        "text": "The launcher grid requires publicUrl to be set in the tool registry. The registration payload was sending the public URL as upstreamUrl (the internal address the proxy should route to) and omitting publicUrl entirely, so Nexus-Hosting never appeared in the dashboard launcher."
+      },
+      {
+        "type": "p",
+        "text": "Fixed by: - upstreamUrl: http://localhost:<port>  (the internal/upstream address) - publicUrl: process.env.PUBLIC_URL      (the public-facing URL)"
+      }
+    ]
+  },
+  {
+    "slug": "replace-bare-404s-with-branded-coming-soon-and-not-found-pag",
+    "title": "Replace bare 404s with branded coming soon and not found pages",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "feat",
+      "hosting",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "Sites with no deployed files now show a styled \"Coming Soon\" page with the site name, domain, and Nexus branding instead of a plain text 404. Requests to missing paths within a site show a matching \"404 Not Found\" page w",
+    "sha": "6e12d11",
+    "content": [
+      {
+        "type": "p",
+        "text": "Sites with no deployed files now show a styled \"Coming Soon\" page with the site name, domain, and Nexus branding instead of a plain text 404. Requests to missing paths within a site show a matching \"404 Not Found\" page with a back-to-home link. Site name and domain are HTML-escaped before interpolation to prevent XSS."
+      }
+    ]
+  },
+  {
+    "slug": "omit-owneremail-from-get-api-sites-id-response",
+    "title": "Omit ownerEmail from GET /api/sites/:id response",
+    "date": "2026-11-05",
+    "author": "The Kernel",
+    "readTime": "1 min",
+    "tags": [
+      "fix",
+      "hosting",
+      "hosting"
+    ],
+    "category": "Commit",
+    "excerpt": "SITE_SELECT deliberately excludes ownerEmail for privacy, but the GET /sites/:id handler was parsing the result with GetSiteResponse which requires ownerEmail \u2014 causing a ZodError 500 on every detail request. Match the p",
+    "sha": "6e46f5a",
+    "content": [
+      {
+        "type": "p",
+        "text": "SITE_SELECT deliberately excludes ownerEmail for privacy, but the GET /sites/:id handler was parsing the result with GetSiteResponse which requires ownerEmail \u2014 causing a ZodError 500 on every detail request. Match the pattern already used by POST /sites: omit ownerEmail before parsing so the schema matches what the DB projection returns."
       }
     ]
   },

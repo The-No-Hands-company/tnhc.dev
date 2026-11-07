@@ -10,8 +10,8 @@ Status is measured, not declared. An app is only "live" if it answers on a URL.
 """
 import re, subprocess, sys, pathlib, json
 
-REPO = pathlib.Path("/run/media/zajferx/Data/dev/The-No-hands-Company/projects/Nexus-Systems")
-SITE = pathlib.Path("/run/media/zajferx/Data/dev/The-No-hands-Company/tnhc.dev")
+SITE = pathlib.Path(__file__).resolve().parent.parent
+REPO = SITE.parent / "projects/Nexus-Systems"
 BIBLE = REPO / "docs/NEXUS-ECOSYSTEM.md"
 OUT = SITE / "frontend/src/data/apps.js"
 
@@ -28,6 +28,8 @@ LIVE = {
     "Nexus-Draw":      "https://draw.tnhc.dev",
     "Nexus":           "https://chat.tnhc.dev",
     "Nexus-Calendar":  "https://calendar.tnhc.dev",
+    "Nexus-Deploy":    "https://deploy.tnhc.dev",
+    "Nexus-Project":   "https://project.tnhc.dev",
 }
 BETA = {"Nexus-Email": "https://app.tnhc.dev/mail"}
 
@@ -50,6 +52,7 @@ ICON = {
     "Nexus-Photos": "Camera", "Nexus-Video": "FilmReel", "Nexus-Media": "Play",
     "Nexus-Radio-Live": "Broadcast", "Nexus-Broadcast": "Megaphone",
     "Nexus-Calendar": "Calendar", "Nexus-Notes": "Notebook",
+    "Nexus-Deploy": "Rocket", "Nexus-Project": "Kanban",
     "Nexus-Docs": "FileText", "Nexus-Office": "Table", "Nexus-Book": "BookOpen",
     "Nexus-Wiki": "Books", "Nexus-Billing": "CreditCard",
     "Nexus-Invoice": "Receipt", "Nexus-Finance": "Coin", "Nexus-Spend": "Wallet",

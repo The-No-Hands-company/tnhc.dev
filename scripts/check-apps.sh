@@ -105,7 +105,7 @@ if [ -d "$REPO/apps" ]; then
     # difference between seconds and minutes, and it is why a loop pass looked
     # hung even after the per-app finds were collapsed into one traversal.
     done < <(find "$REPO/apps" \
-                \( -name node_modules -o -name target -o -name dist -o -name .git \) -prune -o \
+                \( -name node_modules -o -name target -o -name dist -o -name .git -o -name .venv -o -name venv -o -name build \) -prune -o \
                 -type f \( -name '*.rs' -o -name '*.ts' -o -name '*.tsx' -o -name '*.py' \
                            -o -name '*.go' -o -name '*.jsx' \) -print 2>/dev/null \
              | sed "s#^$REPO/apps/##" | cut -d/ -f1 | grep '^Nexus-' | sort | uniq -c)
@@ -127,7 +127,7 @@ echo "── disk headroom ─────────────────�
 # 15% is the warning line and 8% the alarm. A Phantom debug build was 101.8
 # GiB before its profile was fixed; the margin has to survive one large build,
 # not one large file.
-for mount in /run/media/zajferx/Data /; do
+for mount in /run/media/zajferx/Data1 /; do
     if ! avail_pct=$(df --output=pcent "$mount" 2>/dev/null | tail -1 | tr -dc '0-9'); then
         printf "  SKIP     %-28s cannot read free space\n" "$mount"
         continue
@@ -136,8 +136,7 @@ for mount in /run/media/zajferx/Data /; do
     human=$(df -h "$mount" 2>/dev/null | tail -1 | awk '{print $4}')
 
     if [ "$free_pct" -lt 8 ]; then
-        printf "  LOW      %-28s %s free (%s%%) — a build here can take production down\n" \
-            "$mount" "$human" "$free_pct"
+        printf "  LOW      %-28s %s free (%s%%) — a build here can take production down\n" "$mount" "$human" "$free_pct"
         problems=1
     elif [ "$free_pct" -lt 15 ]; then
         printf "  TIGHT    %-28s %s free (%s%%)\n" "$mount" "$human" "$free_pct"
