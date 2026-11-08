@@ -5,9 +5,44 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 1464 entries, newest first.
+// 1474 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "6cbc36d",
+    "date": "2026-11-08",
+    "kind": "feat",
+    "area": "core",
+    "title": "Launch Nexus-Code repository viewer & code browser on code.tnhc.dev"
+  },
+  {
+    "sha": "23b8728",
+    "date": "2026-11-08",
+    "kind": "feat",
+    "area": "core",
+    "title": "Launch Document & Knowledge Suite (Nexus-Notes, Nexus-Docs, Nexus-Wiki)"
+  },
+  {
+    "sha": "c49c42c",
+    "date": "2026-11-08",
+    "kind": "feat",
+    "area": "creative-suite",
+    "title": "Launch Design, Graphic, Photos, and Video as live ecosystem services"
+  },
+  {
+    "sha": "bcbf1ec",
+    "date": "2026-11-08",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Add interactive platform documentation hub, shell rail link and menu item"
+  },
+  {
+    "sha": "cab33ce",
+    "date": "2026-11-08",
+    "kind": "fix",
+    "area": "dashboard",
+    "title": "Scope rate limiting to /ipa/ API routes and expand client keying"
+  },
   {
     "sha": "ca3d9ce",
     "date": "2026-11-08",
@@ -8353,6 +8388,27 @@ export const CHANGELOG = [
     "title": "Multi-turn sessions, agent loop, Claude provider, new chat UI"
   },
   {
+    "sha": "93673e4",
+    "date": "2026-11-08",
+    "kind": "feat",
+    "area": "catalog",
+    "title": "Seed and release nexus-code"
+  },
+  {
+    "sha": "3936be8",
+    "date": "2026-11-08",
+    "kind": "feat",
+    "area": "catalog",
+    "title": "Seed and release nexus-notes, nexus-docs, and nexus-wiki"
+  },
+  {
+    "sha": "0ea2875",
+    "date": "2026-11-08",
+    "kind": "feat",
+    "area": "catalog",
+    "title": "Release creative suite (design, graphic, photos, video) in catalog seed v8"
+  },
+  {
     "sha": "1bc79cf",
     "date": "2026-11-08",
     "kind": "fix",
@@ -9984,6 +10040,20 @@ export const CHANGELOG = [
     "title": "Initial scaffold \u2014 Nexus Network federation dashboard"
   },
   {
+    "sha": "72340ce",
+    "date": "2026-11-08",
+    "kind": "fix",
+    "area": "vault",
+    "title": "Dynamic import for S3 backup client and catch-all route compatibility"
+  },
+  {
+    "sha": "e0c5f7c",
+    "date": "2026-11-08",
+    "kind": "fix",
+    "area": "tests",
+    "title": "Replace vitest sequential describe with standard describe for bun test compatibility"
+  },
+  {
     "sha": "fa544c2",
     "date": "2026-08-09",
     "kind": "feat",
@@ -10258,4 +10328,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "audit", "auth", "bench+sdk", "brep", "build", "builder", "calendar", "catalog", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-client", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "doctor", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "input", "inset", "lite", "mail", "maintenance", "members", "mobile", "names", "network", "nexus-auth", "nexus-cloud", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "platform", "portal", "ports", "privacy", "privacy-p3", "project", "proxy", "prune", "public", "quality", "rag", "reasoning", "registry", "release", "render", "routes", "routing", "routing+api", "rust", "safeguards", "safety", "safety+architecture", "sandbox", "security", "server", "shell", "signup", "sim", "sites", "smoke", "source", "startup", "storage", "systems-api", "terminal", "test", "tests", "theme", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "user-apps", "ux", "vault", "verify", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "audit", "auth", "bench+sdk", "brep", "build", "builder", "calendar", "catalog", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-client", "cloud-views", "compose", "computer", "config", "core", "creative-suite", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "doctor", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "input", "inset", "lite", "mail", "maintenance", "members", "mobile", "names", "network", "nexus-auth", "nexus-cloud", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "platform", "portal", "ports", "privacy", "privacy-p3", "project", "proxy", "prune", "public", "quality", "rag", "reasoning", "registry", "release", "render", "routes", "routing", "routing+api", "rust", "safeguards", "safety", "safety+architecture", "sandbox", "security", "server", "shell", "signup", "sim", "sites", "smoke", "source", "startup", "storage", "systems-api", "terminal", "test", "tests", "theme", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "user-apps", "ux", "vault", "verify", "vulkan", "web", "windows"];

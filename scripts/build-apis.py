@@ -60,12 +60,19 @@ SURFACES = [
     },
     {
         "app": "Nexus-Dashboard", "slug": "app",
-        "base": "https://app.tnhc.dev/api",
+        "base": "https://app.tnhc.dev/ipa",
         "auth": "Public read. The shell uses this to build the app grid.",
         "spec": None,
         "probes": [
             ("GET", "/apps", "The app directory the shell renders."),
         ],
+    },
+    {
+        "app": "Nexus-Deploy", "slug": "deploy",
+        "base": "https://deploy.tnhc.dev/api",
+        "auth": "Session required for operator endpoints. Health check is public.",
+        "spec": None,
+        "probes": [("GET", "/health", "Service health check.")],
     },
     {
         "app": "Nexus-Auth", "slug": "auth",

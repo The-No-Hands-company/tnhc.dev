@@ -10,7 +10,7 @@
 // is what stops that from happening again. If an app is wrong here, fix
 // the register and regenerate; do not patch this file.
 //
-// 115 apps — 10 live, 0 beta, 26 in development.
+// 115 apps — 19 live, 0 beta, 19 in development.
 
 export const CATEGORIES = [
   "Core",
@@ -62,7 +62,7 @@ export const APPS = [
   {"slug": "data", "name": "Nexus Data", "category": "Data", "status": "planned", "blurb": "Data pipelines and transformation", "icon": "Database"},
   {"slug": "database", "name": "Nexus Database", "category": "Data", "status": "building", "blurb": "NexusDB — consistency-tiered database engine (C++ core, Rust federation)", "icon": "Database"},
   {"slug": "files", "name": "Nexus Files", "category": "Data", "status": "planned", "blurb": "File storage and sharing", "icon": "Package"},
-  {"slug": "vault", "name": "Nexus Vault", "category": "Data", "status": "building", "blurb": "Secrets and credential storage", "icon": "Vault"},
+  {"slug": "vault", "name": "Nexus Vault", "category": "Data", "status": "live", "blurb": "Secrets and credential storage", "icon": "Vault", "url": "https://vault.tnhc.dev"},
   {"slug": "warehouse", "name": "Nexus Warehouse", "category": "Data", "status": "planned", "blurb": "Analytical warehouse for ecosystem data", "icon": "Database"},
   {"slug": "search", "name": "Nexus Search", "category": "Data", "status": "planned", "blurb": "Full-text and semantic search across the ecosystem", "icon": "MagnifyingGlass"},
   {"slug": "knowledge", "name": "Nexus Knowledge", "category": "Data", "status": "planned", "blurb": "Knowledge base and structured reference", "icon": "Database"},
@@ -79,7 +79,7 @@ export const APPS = [
   {"slug": "agents", "name": "Nexus Agents", "category": "AI", "status": "building", "blurb": "Autonomous agent runtime and tool use", "icon": "Robot"},
   {"slug": "automate", "name": "Nexus Automate", "category": "AI", "status": "planned", "blurb": "Workflow automation and triggers", "icon": "Robot"},
   {"slug": "tutor", "name": "Nexus Tutor", "category": "AI", "status": "planned", "blurb": "AI-assisted tutoring", "icon": "Robot"},
-  {"slug": "code", "name": "Nexus Code", "category": "Developer", "status": "building", "blurb": "Code hosting and repository management", "icon": "GitBranch"},
+  {"slug": "code", "name": "Nexus Code", "category": "Developer", "status": "live", "blurb": "Code hosting, repository management, gists; live at code.tnhc.dev", "icon": "GitBranch", "url": "https://code.tnhc.dev"},
   {"slug": "code-review", "name": "Nexus Code Review", "category": "Developer", "status": "planned", "blurb": "Review workflow and change gating", "icon": "CodeBlock"},
   {"slug": "ide", "name": "Nexus IDE", "category": "Developer", "status": "building", "blurb": "Integrated development environment", "icon": "CodeBlock"},
   {"slug": "editor", "name": "Nexus Editor", "category": "Developer", "status": "planned", "blurb": "Lightweight text and code editing", "icon": "CodeBlock"},
@@ -94,10 +94,10 @@ export const APPS = [
   {"slug": "social", "name": "Nexus Social", "category": "Communication", "status": "planned", "blurb": "Social feed and following", "icon": "ChatTeardropText"},
   {"slug": "community", "name": "Nexus Community", "category": "Communication", "status": "planned", "blurb": "Forums and community spaces", "icon": "ChatsCircle"},
   {"slug": "support", "name": "Nexus Support", "category": "Communication", "status": "planned", "blurb": "Support ticketing and helpdesk", "icon": "Lightbulb"},
-  {"slug": "docs", "name": "Nexus Docs", "category": "Productivity", "status": "planned", "blurb": "Collaborative documents", "icon": "FileText"},
+  {"slug": "docs", "name": "Nexus Docs", "category": "Productivity", "status": "live", "blurb": "Collaborative documents; live at docs-app.tnhc.dev", "icon": "FileText", "url": "https://docs-app.tnhc.dev"},
   {"slug": "office", "name": "Nexus Office", "category": "Productivity", "status": "planned", "blurb": "Office suite shell", "icon": "Table"},
-  {"slug": "notes", "name": "Nexus Notes", "category": "Productivity", "status": "planned", "blurb": "Personal notes", "icon": "Notebook"},
-  {"slug": "wiki", "name": "Nexus Wiki", "category": "Productivity", "status": "building", "blurb": "Structured internal wiki", "icon": "Books"},
+  {"slug": "notes", "name": "Nexus Notes", "category": "Productivity", "status": "live", "blurb": "Personal sovereign notes; live at notes.tnhc.dev", "icon": "Notebook", "url": "https://notes.tnhc.dev"},
+  {"slug": "wiki", "name": "Nexus Wiki", "category": "Productivity", "status": "live", "blurb": "Structured internal wiki; live at wiki.tnhc.dev", "icon": "Books", "url": "https://wiki.tnhc.dev"},
   {"slug": "tasks", "name": "Nexus Tasks", "category": "Productivity", "status": "planned", "blurb": "Task tracking", "icon": "CheckSquare"},
   {"slug": "planner", "name": "Nexus Planner", "category": "Productivity", "status": "planned", "blurb": "Project planning", "icon": "CheckSquare"},
   {"slug": "calendar", "name": "Nexus Calendar", "category": "Productivity", "status": "live", "blurb": "Personal/shared calendaring and public read-only links; `/calendar` and calendar.tnhc.dev", "icon": "Calendar", "url": "https://calendar.tnhc.dev"},
@@ -110,11 +110,11 @@ export const APPS = [
   {"slug": "book", "name": "Nexus Book", "category": "Productivity", "status": "planned", "blurb": "Long-form writing and book authoring", "icon": "BookOpen"},
   {"slug": "pdf", "name": "Nexus PDF", "category": "Productivity", "status": "planned", "blurb": "PDF generation and manipulation", "icon": "FileText"},
   {"slug": "draw", "name": "Nexus Draw", "category": "Creative", "status": "live", "blurb": "Whiteboard and diagramming (Canvas 2D); live at draw.tnhc.dev", "icon": "PenNib", "url": "https://draw.tnhc.dev"},
-  {"slug": "design", "name": "Nexus Design", "category": "Creative", "status": "building", "blurb": "Interface and graphic design tooling", "icon": "Selection"},
-  {"slug": "graphic", "name": "Nexus Graphic", "category": "Creative", "status": "building", "blurb": "Raster and vector graphics", "icon": "Image"},
+  {"slug": "design", "name": "Nexus Design", "category": "Creative", "status": "live", "blurb": "Interface and graphic design tooling; live at design.tnhc.dev", "icon": "Selection", "url": "https://design.tnhc.dev"},
+  {"slug": "graphic", "name": "Nexus Graphic", "category": "Creative", "status": "live", "blurb": "Raster and vector graphics; live at graphic.tnhc.dev", "icon": "Image", "url": "https://graphic.tnhc.dev"},
   {"slug": "modeling", "name": "Nexus Modeling", "category": "Creative", "status": "building", "blurb": "3D modelling kernel targeting full-parity DCC", "icon": "CubeTransparent"},
-  {"slug": "photos", "name": "Nexus Photos", "category": "Creative", "status": "building", "blurb": "Photo library and editing", "icon": "Camera"},
-  {"slug": "video", "name": "Nexus Video", "category": "Creative", "status": "building", "blurb": "Video editing and processing", "icon": "FilmReel"},
+  {"slug": "photos", "name": "Nexus Photos", "category": "Creative", "status": "live", "blurb": "Photo library and editing; live at photos.tnhc.dev", "icon": "Camera", "url": "https://photos.tnhc.dev"},
+  {"slug": "video", "name": "Nexus Video", "category": "Creative", "status": "live", "blurb": "Video editing and processing; live at video.tnhc.dev", "icon": "FilmReel", "url": "https://video.tnhc.dev"},
   {"slug": "media", "name": "Nexus Media", "category": "Creative", "status": "planned", "blurb": "Media library and playback", "icon": "Play"},
   {"slug": "music", "name": "Nexus Music", "category": "Creative", "status": "planned", "blurb": "Music library and playback", "icon": "MusicNotes"},
   {"slug": "radio-live", "name": "Nexus Radio Live", "category": "Creative", "status": "planned", "blurb": "Live radio streaming", "icon": "Broadcast"},

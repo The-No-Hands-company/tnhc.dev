@@ -4,7 +4,7 @@
 // endpoint below was probed at build time; `reachable: false` means it did
 // not answer and the page says so rather than pretending otherwise.
 //
-// 6 API surfaces, 10 endpoints, 1 unreachable at build time.
+// 7 API surfaces, 11 endpoints, 0 unreachable at build time.
 
 export const APIS = [
   {
@@ -85,7 +85,7 @@ export const APIS = [
     "name": "Nexus Dashboard",
     "role": "The ecosystem shell \u2014 launcher, account, admin, and shell-native views",
     "registerStatus": "Live",
-    "base": "https://app.tnhc.dev/api",
+    "base": "https://app.tnhc.dev/ipa",
     "auth": "Public read. The shell uses this to build the app grid.",
     "spec": null,
     "endpoints": [
@@ -93,9 +93,29 @@ export const APIS = [
         "method": "GET",
         "path": "/apps",
         "desc": "The app directory the shell renders.",
-        "status": 404,
-        "contentType": "text/plain",
-        "reachable": false
+        "status": 401,
+        "contentType": "application/json",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "app": "Nexus-Deploy",
+    "slug": "deploy",
+    "name": "Nexus Deploy",
+    "role": "Deployment orchestration, rootless sandboxed builds & release pipelines; deploy.tnhc.dev",
+    "registerStatus": "Live",
+    "base": "https://deploy.tnhc.dev/api",
+    "auth": "Session required for operator endpoints. Health check is public.",
+    "spec": null,
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/health",
+        "desc": "Service health check.",
+        "status": 200,
+        "contentType": "application/json",
+        "reachable": true
       }
     ]
   },

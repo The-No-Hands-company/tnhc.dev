@@ -31,6 +31,15 @@ LIVE = {
     "Nexus-Deploy":    "https://deploy.tnhc.dev",
     "Nexus-Project":   "https://project.tnhc.dev",
     "Nexus-Email":     "https://mail.tnhc.dev",
+    "Nexus-Design":    "https://design.tnhc.dev",
+    "Nexus-Graphic":   "https://graphic.tnhc.dev",
+    "Nexus-Photos":    "https://photos.tnhc.dev",
+    "Nexus-Video":     "https://video.tnhc.dev",
+    "Nexus-Notes":     "https://notes.tnhc.dev",
+    "Nexus-Docs":      "https://docs-app.tnhc.dev",
+    "Nexus-Wiki":      "https://wiki.tnhc.dev",
+    "Nexus-Code":      "https://code.tnhc.dev",
+    "Nexus-Vault":     "https://vault.tnhc.dev",
 }
 BETA = {}
 
