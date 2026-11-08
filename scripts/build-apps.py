@@ -30,8 +30,9 @@ LIVE = {
     "Nexus-Calendar":  "https://calendar.tnhc.dev",
     "Nexus-Deploy":    "https://deploy.tnhc.dev",
     "Nexus-Project":   "https://project.tnhc.dev",
+    "Nexus-Email":     "https://mail.tnhc.dev",
 }
-BETA = {"Nexus-Email": "https://app.tnhc.dev/mail"}
+BETA = {}
 
 # Register category -> icon default; per-app overrides win.
 CAT_ICON = {

@@ -5,9 +5,30 @@
 // sim): a changelog full of lockfile bumps and CI tweaks
 // teaches a reader to stop reading it, and this one is meant to be read.
 //
-// 1460 entries, newest first.
+// 1464 entries, newest first.
 
 export const CHANGELOG = [
+  {
+    "sha": "ca3d9ce",
+    "date": "2026-11-08",
+    "kind": "feat",
+    "area": "platform",
+    "title": "Eliminate all iframes, externalize mail to mail.tnhc.dev, add user menu purge/copy tools, and sync catalog"
+  },
+  {
+    "sha": "4abd4b3",
+    "date": "2026-11-07",
+    "kind": "perf",
+    "area": "dashboard",
+    "title": "Externalize standalone apps to eliminate heavy iframe embedding and CPU spikes"
+  },
+  {
+    "sha": "b0467f6",
+    "date": "2026-11-07",
+    "kind": "feat",
+    "area": "dashboard",
+    "title": "Overhaul user profile and account area, update platform registers, and harden service reconciliation"
+  },
   {
     "sha": "70f8d5a",
     "date": "2026-11-07",
@@ -8332,6 +8353,13 @@ export const CHANGELOG = [
     "title": "Multi-turn sessions, agent loop, Claude provider, new chat UI"
   },
   {
+    "sha": "1bc79cf",
+    "date": "2026-11-08",
+    "kind": "fix",
+    "area": "catalog",
+    "title": "Hoist TOPOLOGY_READ_PATHS to resolve circular dependency and bump seed version for chat discovery"
+  },
+  {
     "sha": "1aa0ec9",
     "date": "2026-11-07",
     "kind": "fix",
@@ -10230,4 +10258,4 @@ export const CHANGELOG = [
   }
 ];
 
-export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "audit", "auth", "bench+sdk", "brep", "build", "builder", "calendar", "catalog", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-client", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "doctor", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "input", "inset", "lite", "mail", "maintenance", "members", "mobile", "names", "network", "nexus-auth", "nexus-cloud", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "portal", "ports", "privacy", "privacy-p3", "project", "proxy", "prune", "public", "quality", "rag", "reasoning", "registry", "release", "render", "routes", "routing", "routing+api", "rust", "safeguards", "safety", "safety+architecture", "sandbox", "security", "server", "shell", "signup", "sim", "sites", "smoke", "source", "startup", "storage", "systems-api", "terminal", "test", "tests", "theme", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "user-apps", "ux", "vault", "verify", "vulkan", "web", "windows"];
+export const CHANGELOG_AREAS = ["a11y", "account", "agent", "agent+intelligence", "ai", "animation", "api", "app", "architecture", "audit", "auth", "bench+sdk", "brep", "build", "builder", "calendar", "catalog", "chat", "chatview", "ci", "cli", "clients", "cloud", "cloud-client", "cloud-views", "compose", "computer", "config", "core", "dashboard", "db", "deploy", "deps", "design", "design-system", "desktop", "did-client", "did-mapper", "dns", "docker", "docs", "doctor", "draw", "ecosystem-internal-testsuit", "edge", "email", "extrude", "federation", "flow", "forge", "foundation", "foundation-sweep", "gate", "gates", "geometry", "graph", "hem", "hosting", "identity", "infra", "input", "inset", "lite", "mail", "maintenance", "members", "mobile", "names", "network", "nexus-auth", "nexus-cloud", "nexus-db", "nexus-modeling", "nexus-proxy", "nit", "nodes", "notifications", "observability", "onboarding", "ops", "phantom", "phantom-core", "platform", "portal", "ports", "privacy", "privacy-p3", "project", "proxy", "prune", "public", "quality", "rag", "reasoning", "registry", "release", "render", "routes", "routing", "routing+api", "rust", "safeguards", "safety", "safety+architecture", "sandbox", "security", "server", "shell", "signup", "sim", "sites", "smoke", "source", "startup", "storage", "systems-api", "terminal", "test", "tests", "theme", "tolerance", "tools", "types", "ui", "ui+perf", "ui+safety", "ui+tests", "user-apps", "ux", "vault", "verify", "vulkan", "web", "windows"];

@@ -10,7 +10,7 @@
 // is what stops that from happening again. If an app is wrong here, fix
 // the register and regenerate; do not patch this file.
 //
-// 115 apps — 9 live, 1 beta, 26 in development.
+// 115 apps — 10 live, 0 beta, 26 in development.
 
 export const CATEGORIES = [
   "Core",
@@ -47,7 +47,7 @@ export const APPS = [
   {"slug": "portal", "name": "Nexus Portal", "category": "Core", "status": "planned", "blurb": "Public entry point and marketing surface", "icon": "Stack"},
   {"slug": "account", "name": "Nexus Account", "category": "Core", "status": "planned", "blurb": "End-user account and profile management", "icon": "Stack"},
   {"slug": "hosting", "name": "Nexus Hosting", "category": "Infrastructure", "status": "live", "blurb": "Host a website here, or run the node yourself — domains, TLS, builds, forms", "icon": "GlobeHemisphereWest", "url": "https://hosting.tnhc.dev"},
-  {"slug": "deploy", "name": "Nexus Deploy", "category": "Infrastructure", "status": "live", "blurb": "Deployment orchestration and release pipelines", "icon": "Rocket", "url": "https://deploy.tnhc.dev"},
+  {"slug": "deploy", "name": "Nexus Deploy", "category": "Infrastructure", "status": "live", "blurb": "Deployment orchestration, rootless sandboxed builds & release pipelines; deploy.tnhc.dev", "icon": "Rocket", "url": "https://deploy.tnhc.dev"},
   {"slug": "tunnel", "name": "Nexus Tunnel", "category": "Infrastructure", "status": "building", "blurb": "Sovereign public exposure; every public URL is provisioned here", "icon": "ArrowsLeftRight"},
   {"slug": "router", "name": "Nexus Router", "category": "Infrastructure", "status": "building", "blurb": "Request routing and upstream selection", "icon": "ArrowsClockwise"},
   {"slug": "edge", "name": "Nexus Edge", "category": "Infrastructure", "status": "building", "blurb": "Edge termination and regional request handling", "icon": "HardDrives"},
@@ -86,7 +86,7 @@ export const APPS = [
   {"slug": "terminal", "name": "Nexus Terminal", "category": "Developer", "status": "building", "blurb": "Browser-accessible shell", "icon": "Terminal"},
   {"slug": "testing", "name": "Nexus Testing", "category": "Developer", "status": "planned", "blurb": "Test orchestration and reporting", "icon": "Bug"},
   {"slug": "converter", "name": "Nexus Converter", "category": "Developer", "status": "planned", "blurb": "Format and file conversion", "icon": "Repeat"},
-  {"slug": "mail", "name": "Nexus Email", "category": "Communication", "status": "beta", "blurb": "Self-hosted mail — SMTP, IMAP, DKIM/SPF/DMARC, webmail, federated egress. Mail between Nexus…", "icon": "EnvelopeSimple", "url": "https://app.tnhc.dev/mail"},
+  {"slug": "mail", "name": "Nexus Email", "category": "Communication", "status": "live", "blurb": "Self-hosted mail — SMTP, IMAP, DKIM/SPF/DMARC, webmail, federated egress. Mail between Nexus…", "icon": "EnvelopeSimple", "url": "https://mail.tnhc.dev"},
   {"slug": "team-chat", "name": "Nexus Team Chat", "category": "Communication", "status": "planned", "blurb": "Team messaging and channels", "icon": "ChatDots"},
   {"slug": "meet", "name": "Nexus Meet", "category": "Communication", "status": "planned", "blurb": "Video meetings", "icon": "VideoCamera"},
   {"slug": "broadcast", "name": "Nexus Broadcast", "category": "Communication", "status": "planned", "blurb": "One-to-many streaming and announcements", "icon": "Megaphone"},
